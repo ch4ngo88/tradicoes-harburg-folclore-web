@@ -1,6 +1,13 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
 import { useState, useEffect } from 'react';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from '@/components/ui/carousel';
 
 const Archive = () => {
   const { language } = useLanguage();
@@ -44,7 +51,7 @@ const Archive = () => {
           {language === 'pt' ? 'Arquivo' : 'Archiv'}
         </h2>
         
-        <div className="my-4">
+        <div className="my-4 bg-white/80 p-6 rounded-lg shadow-md">
           <audio 
             controls 
             title="Café com Leite & Pimenta Interview - Tradições"
@@ -59,40 +66,65 @@ const Archive = () => {
         </div>
       </article>
 
-      {/* Image Gallery - In a real implementation we would use a carousel library */}
-      <div className="w-full overflow-x-auto mb-8">
-        <div className="flex flex-nowrap gap-4 p-2 min-w-full">
-          {images.map((image, index) => (
-            <div key={index} className="flex-none w-60 h-44 relative overflow-hidden">
-              <a href={image} target="_blank" rel="noopener noreferrer" className="block border-2 border-transparent hover:border-portuguesered transition-colors">
-                <img 
-                  src={image} 
-                  alt={`Archive image ${index + 1}`} 
-                  className="w-full h-full object-cover"
-                />
-              </a>
-            </div>
-          ))}
-        </div>
+      {/* Photo Gallery */}
+      <div className="w-full max-w-3xl mb-12">
+        <h3 className="text-xl font-bold text-portuguesered mb-4 text-center">
+          {language === 'pt' ? 'Galeria de Fotos' : 'Fotogalerie'}
+        </h3>
+        
+        <Carousel className="w-full">
+          <CarouselContent>
+            {images.map((image, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <a 
+                    href={image} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="block overflow-hidden rounded-lg border border-slate-200 hover:border-portuguesered transition-all duration-300"
+                  >
+                    <img
+                      src={image}
+                      alt={`Archive image ${index + 1}`}
+                      className="h-56 w-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </a>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
+          <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
+        </Carousel>
       </div>
 
       {/* Videos */}
-      <div className="video-container flex flex-col gap-6 w-full items-center mb-8">
-        <video 
-          controls 
-          className="w-full max-w-md rounded-md shadow-md"
-        >
-          <source src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <div className="w-full max-w-3xl mb-8">
+        <h3 className="text-xl font-bold text-portuguesered mb-4 text-center">
+          {language === 'pt' ? 'Vídeos' : 'Videos'}
+        </h3>
         
-        <video 
-          controls 
-          className="w-full max-w-md rounded-md shadow-md"
-        >
-          <source src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white/80 p-3 rounded-lg shadow-md">
+            <video 
+              controls 
+              className="w-full rounded-md shadow-inner"
+            >
+              <source src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          
+          <div className="bg-white/80 p-3 rounded-lg shadow-md">
+            <video 
+              controls 
+              className="w-full rounded-md shadow-inner"
+            >
+              <source src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
       </div>
       
       <div className="md:hidden flex gap-4 mt-8">

@@ -87,6 +87,10 @@ const translations: Translations = {
     pt: 'News',
     de: 'News',
   },
+  openInNewTab: {
+    pt: 'Abrir em nova aba',
+    de: 'In neuem Tab öffnen',
+  },
 };
 
 interface LanguageContextType {

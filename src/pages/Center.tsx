@@ -1,13 +1,55 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
+import { useState } from 'react';
+
+type MemberData = {
+  id: number;
+  name: string;
+  role: string;
+  regularImage: string;
+  costumeImage: string;
+};
 
 const Center = () => {
   const { language } = useLanguage();
+  const [hoveredMember, setHoveredMember] = useState<number | null>(null);
+  
+  // Example member data - in a real implementation, this would come from a database or API
+  const members: MemberData[] = [
+    {
+      id: 1,
+      name: "Maria Silva",
+      role: language === 'pt' ? "Dançarina" : "Tänzerin",
+      regularImage: "/images/logo.jpg", // Replace with actual member images
+      costumeImage: "/images/logo.jpg", // Replace with actual member costume images
+    },
+    {
+      id: 2,
+      name: "João Santos",
+      role: language === 'pt' ? "Músico" : "Musiker",
+      regularImage: "/images/logo.jpg", // Replace with actual member images
+      costumeImage: "/images/logo.jpg", // Replace with actual member costume images
+    },
+    {
+      id: 3,
+      name: "Ana Rodrigues",
+      role: language === 'pt' ? "Dançarina" : "Tänzerin",
+      regularImage: "/images/logo.jpg", // Replace with actual member images
+      costumeImage: "/images/logo.jpg", // Replace with actual member costume images
+    },
+    {
+      id: 4,
+      name: "Pedro Almeida",
+      role: language === 'pt' ? "Dançarino" : "Tänzer",
+      regularImage: "/images/logo.jpg", // Replace with actual member images
+      costumeImage: "/images/logo.jpg", // Replace with actual member costume images
+    },
+  ];
   
   return (
     <div className="flex flex-col items-center px-4 py-6 max-w-4xl mx-auto">
       <h2 className="text-2xl font-bold text-seagreen mb-6">
-        {language === 'pt' ? 'Centro' : 'Centro'}
+        {language === 'pt' ? 'Membros' : 'Mitglieder'}
       </h2>
       
       <img 
@@ -35,6 +77,41 @@ const Center = () => {
             : 'Unser Raum steht allen offen, die sich für die portugiesische Kultur interessieren. Besuchen Sie uns!'}
         </p>
       </article>
+      
+      <div className="w-full max-w-4xl mb-12">
+        <h3 className="text-xl font-bold text-portuguesered mb-6 text-center">
+          {language === 'pt' ? 'Nossa Equipe' : 'Unser Team'}
+        </h3>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {members.map(member => (
+            <div 
+              key={member.id} 
+              className="bg-white/80 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg"
+              onMouseEnter={() => setHoveredMember(member.id)}
+              onMouseLeave={() => setHoveredMember(null)}
+            >
+              <div className="relative overflow-hidden h-60">
+                <img 
+                  src={hoveredMember === member.id ? member.costumeImage : member.regularImage} 
+                  alt={member.name}
+                  className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="text-white p-4 w-full">
+                    <p className="font-bold">{member.name}</p>
+                    <p className="text-sm text-white/80">{member.role}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="p-4">
+                <h4 className="font-semibold text-seagreen">{member.name}</h4>
+                <p className="text-sm text-gray-600">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
       
       <div className="md:hidden flex gap-4 my-4">
         <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer">
