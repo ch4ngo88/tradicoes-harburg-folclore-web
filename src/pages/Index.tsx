@@ -1,5 +1,6 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const { t, language } = useLanguage();
