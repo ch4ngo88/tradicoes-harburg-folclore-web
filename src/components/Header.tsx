@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Menu, X, Home, LayoutGrid, Archive, Users, Mail } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "./ui/sheet";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -229,9 +229,9 @@ export const Header = () => {
               <div className="flex flex-col h-full">
                 <div className="p-4 border-b border-white/10 flex items-center justify-between">
                   <span className="font-lusitana font-bold">Menu</span>
-                  <Sheet.Close className="rounded-full p-1 hover:bg-white/10 transition-colors">
+                  <SheetClose className="rounded-full p-1 hover:bg-white/10 transition-colors">
                     <X size={18} />
-                  </Sheet.Close>
+                  </SheetClose>
                 </div>
                 <MobileNavLinks />
               </div>

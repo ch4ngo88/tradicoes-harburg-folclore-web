@@ -1,10 +1,11 @@
+
 import { useLanguage } from "@/hooks/useLanguage";
 import { useState } from "react";
-import { Users, UserRound, Music, DancingIcon } from "lucide-react";
+import { Users, UserRound, Music } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 // Custom dancing icon component that's more appropriate for dancers
-const DancingIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const CustomDancingIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"
@@ -216,7 +217,7 @@ const Membros = () => {
         {/* Dancers Section */}
         <MemberSection
           title={language === "pt" ? "Dançarinos" : "Tänzer/innen"}
-          icon={DancingIcon}
+          icon={CustomDancingIcon}
           members={dancerMembers}
         />
       </div>
