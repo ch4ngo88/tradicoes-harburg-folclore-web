@@ -10,8 +10,8 @@ export const LanguageSwitcher = () => {
         onClick={() => setLanguage('pt')}
         className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
           language === 'pt' 
-            ? 'bg-white shadow-sm text-seagreen' 
-            : 'text-gray-600 hover:text-seagreen'
+            ? 'bg-white shadow-sm text-seagreen border-b-2 border-portuguesered' 
+            : 'text-gray-600 hover:text-portuguesered'
         }`}
         aria-label="Alterar para Português"
       >
@@ -32,8 +32,8 @@ export const LanguageSwitcher = () => {
         onClick={() => setLanguage('de')}
         className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
           language === 'de' 
-            ? 'bg-white shadow-sm text-seagreen' 
-            : 'text-gray-600 hover:text-seagreen'
+            ? 'bg-white shadow-sm text-seagreen border-b-2 border-portuguesered' 
+            : 'text-gray-600 hover:text-portuguesered'
         }`}
         aria-label="Zu Deutsch wechseln"
       >

@@ -9,14 +9,14 @@ const Index = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section with gradient background */}
-      <div className="relative w-full h-[60vh] flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-seagreen to-portuguesered opacity-80 mix-blend-multiply"/>
+      <div className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-seagreen/70 to-portuguesered/70 opacity-80 mix-blend-multiply"/>
         <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
-          <div className="mb-6 flex justify-center">
+          <div className="mb-6">
             <img 
               src="/images/gruppe.jpg" 
               alt="Group photo" 
-              className="w-32 h-32 rounded-full border-2 border-white object-cover shadow-lg" 
+              className="w-64 h-48 object-cover shadow-lg border-2 border-white/70" 
             />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in font-lusitana">

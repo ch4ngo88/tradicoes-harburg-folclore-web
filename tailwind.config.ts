@@ -111,7 +111,8 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'hero-pattern': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url("/images/gruppe.jpg")',
+				'hero-pattern': 'linear-gradient(90deg, rgba(26,103,65,0.6) 0%, rgba(192,26,26,0.6) 100%), url("/images/gruppe.jpg")',
+				'hero-gradient': 'linear-gradient(90deg, rgba(26,103,65,0.6) 0%, rgba(192,26,26,0.6) 100%)',
 			}
 		}
 	},

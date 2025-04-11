@@ -79,49 +79,69 @@ export const Header = () => {
             
             <ul className={`flex flex-col md:flex-row md:justify-center md:items-center md:gap-8 w-full text-center transition-all duration-300 
                           ${isMenuOpen ? 'max-h-[300px] opacity-100 pb-2' : 'max-h-0 md:max-h-full opacity-0 md:opacity-100 overflow-hidden md:overflow-visible'}`}>
-              <li className="md:py-1.5 py-2">
+              <li className="md:py-1.5 py-2 relative group">
                 <Link 
                   to="/" 
-                  className={`block md:inline-block hover:text-white/80 transition-colors ${isActive('/') ? 'font-bold text-white' : ''}`}
+                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
+                    isActive('/') ? 'font-bold relative' : ''
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('home')}
+                  {isActive('/') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
-              <li className="md:py-1.5 py-2">
+              <li className="md:py-1.5 py-2 relative group">
                 <Link 
                   to="/activities" 
-                  className={`block md:inline-block hover:text-white/80 transition-colors ${isActive('/activities') ? 'font-bold text-white' : ''}`}
+                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
+                    isActive('/activities') ? 'font-bold relative' : ''
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('activities')}
+                  {isActive('/activities') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
-              <li className="md:py-1.5 py-2">
+              <li className="md:py-1.5 py-2 relative group">
                 <Link 
                   to="/archive" 
-                  className={`block md:inline-block hover:text-white/80 transition-colors ${isActive('/archive') ? 'font-bold text-white' : ''}`}
+                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
+                    isActive('/archive') ? 'font-bold relative' : ''
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('archive')}
+                  {isActive('/archive') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
-              <li className="md:py-1.5 py-2">
+              <li className="md:py-1.5 py-2 relative group">
                 <Link 
                   to="/membros" 
-                  className={`block md:inline-block hover:text-white/80 transition-colors ${isActive('/membros') ? 'font-bold text-white' : ''}`}
+                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
+                    isActive('/membros') ? 'font-bold relative' : ''
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {language === 'de' ? 'Member' : t('membros')}
+                  {language === 'de' ? 'Member' : 'Membros'}
+                  {isActive('/membros') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
-              <li className="md:py-1.5 py-2">
+              <li className="md:py-1.5 py-2 relative group">
                 <Link 
                   to="/contact" 
-                  className={`block md:inline-block hover:text-white/80 transition-colors ${isActive('/contact') ? 'font-bold text-white' : ''}`}
+                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
+                    isActive('/contact') ? 'font-bold relative' : ''
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('contact')}
+                  {isActive('/contact') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
             </ul>
