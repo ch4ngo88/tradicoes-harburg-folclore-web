@@ -105,10 +105,10 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Information Column with responsive design */}
+          {/* Contact Information Column with improved mobile design */}
           <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
-            <div className="space-y-2 text-sm">
-              <div className="flex items-start gap-2">
+            <div className="space-y-2 text-sm md:text-left text-center w-full">
+              <div className="flex items-start md:items-center justify-center md:justify-start gap-2">
                 <MapPin className="w-4 h-4 text-white/80 mt-1 flex-shrink-0" />
                 <span>
                   Reetwerder 23
@@ -116,7 +116,7 @@ export const Footer = () => {
                   21029 Hamburg
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center md:justify-start gap-2">
                 <Mail className="w-4 h-4 text-white/80 flex-shrink-0" />
                 <a
                   href="mailto:info@tradicoesportuguesas.com"
@@ -125,7 +125,7 @@ export const Footer = () => {
                   info@tradicoesportuguesas.com
                 </a>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center md:justify-start gap-2">
                 <Phone className="w-4 h-4 text-white/80 flex-shrink-0" />
                 <a
                   href="tel:+4940123456789"
@@ -134,7 +134,7 @@ export const Footer = () => {
                   +49 (0) 40 123 456 789
                 </a>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center md:justify-start gap-2">
                 <Clock className="w-4 h-4 text-white/80 flex-shrink-0" />
                 <span>Di. & Fr. 19:00 - 21:00 Uhr</span>
               </div>
@@ -142,8 +142,8 @@ export const Footer = () => {
           </div>
 
           {/* Legal Links Column - Vertically stacked with improved mobile design */}
-          <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
-            <ul className="flex flex-col space-y-1">
+          <div className="flex flex-col md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
+            <ul className="flex flex-col space-y-1 items-center md:items-start w-full">
               <li>
                 <Link
                   to="/impressum"
@@ -171,7 +171,7 @@ export const Footer = () => {
             </ul>
             
             {/* Copyright notice */}
-            <div className="text-xs text-white/70 mt-4">
+            <div className="text-xs text-white/70 mt-4 text-center md:text-left w-full">
               <span className="text-xs align-text-top mr-1">©</span> 2025
               GCRFP. Alle Rechte vorbehalten.
             </div>

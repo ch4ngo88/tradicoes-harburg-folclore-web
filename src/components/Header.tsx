@@ -49,7 +49,7 @@ export const Header = () => {
           {isActive("/") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
       <li className="md:py-1.5 py-4 relative group">
@@ -63,7 +63,7 @@ export const Header = () => {
           {isActive("/activities") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
       <li className="md:py-1.5 py-4 relative group">
@@ -77,7 +77,7 @@ export const Header = () => {
           {isActive("/archive") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
       <li className="md:py-1.5 py-4 relative group">
@@ -91,7 +91,7 @@ export const Header = () => {
           {isActive("/membros") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
       <li className="md:py-1.5 py-4 relative group">
@@ -105,7 +105,7 @@ export const Header = () => {
           {isActive("/contact") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
     </ul>
@@ -211,7 +211,7 @@ export const Header = () => {
                 </SheetTrigger>
                 <SheetContent
                   side="right"
-                  className="bg-seagreen text-white w-64 p-0"
+                  className="bg-seagreen text-white w-64 p-0 rounded-l-2xl"
                 >
                   <div className="flex flex-col h-full">
                     <div className="p-4 border-b border-white/10 flex items-center justify-between">
