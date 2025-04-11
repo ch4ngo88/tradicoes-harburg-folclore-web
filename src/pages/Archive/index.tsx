@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import NavigationTabs from "./components/NavigationTabs";
 import ArchivePhotos from "./components/ArchivePhotos";
@@ -65,8 +65,6 @@ const Archive = () => {
         <h1 className="section-title mb-0">
           {language === "pt" ? "Arquivo" : "Archiv"}
         </h1>
-
-        {/* Navigation Tabs */}
         <NavigationTabs 
           activeTab={activeTab} 
           setActiveTab={setActiveTab} 
