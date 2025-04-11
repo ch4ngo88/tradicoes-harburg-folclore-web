@@ -82,6 +82,8 @@
   }
   body {
     @apply bg-[#f9f9f9] text-foreground font-montserrat;
+    background-image: url('/images/subtle-azulejo.png');
+    background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-lusitana;

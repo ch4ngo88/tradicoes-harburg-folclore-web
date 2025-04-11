@@ -47,27 +47,7 @@ export const Header = () => {
           </div>
           
           <div className="hidden md:flex flex-col gap-2 items-end">
-            <div className="flex items-center gap-4">
-              <LanguageSwitcher />
-              <div className="flex gap-2">
-                <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer" 
-                   className="text-gray-600 hover:text-portuguesered transition-colors">
-                  <img src="/images/youtube.png" alt="YouTube" className="icon" />
-                </a>
-                <a href="https://www.facebook.com/portugiesischerverein.harburg?locale=de_DE" target="_blank" rel="noopener noreferrer"
-                   className="text-gray-600 hover:text-portuguesered transition-colors">
-                  <img src="/images/facebook.webp" alt="Facebook" className="icon" />
-                </a>
-                <a href="https://www.instagram.com/centroportuguesharburg?igsh=MW9qbGpxNTZuN3M1Nw==" target="_blank" rel="noopener noreferrer"
-                   className="text-gray-600 hover:text-portuguesered transition-colors">
-                  <img src="/images/instagram.webp" alt="Instagram" className="icon" />
-                </a>
-                <a href="https://www.tiktok.com/@tradies.portugues?_t=8lbFMCvtLA8&_r=1" target="_blank" rel="noopener noreferrer"
-                   className="text-gray-600 hover:text-portuguesered transition-colors">
-                  <img src="/images/tiktok.webp" alt="TikTok" className="icon" />
-                </a>
-              </div>
-            </div>
+            <LanguageSwitcher />
           </div>
         </div>
         
@@ -134,22 +114,6 @@ export const Header = () => {
             </ul>
           </div>
         </nav>
-      </div>
-      
-      {/* Mobile social icons */}
-      <div className="md:hidden flex justify-center gap-4 py-2 bg-gray-50">
-        <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer">
-          <img src="/images/youtube.png" alt="YouTube" className="icon" />
-        </a>
-        <a href="https://www.facebook.com/portugiesischerverein.harburg?locale=de_DE" target="_blank" rel="noopener noreferrer">
-          <img src="/images/facebook.webp" alt="Facebook" className="icon" />
-        </a>
-        <a href="https://www.instagram.com/centroportuguesharburg?igsh=MW9qbGpxNTZuN3M1Nw==" target="_blank" rel="noopener noreferrer">
-          <img src="/images/instagram.webp" alt="Instagram" className="icon" />
-        </a>
-        <a href="https://www.tiktok.com/@tradies.portugues?_t=8lbFMCvtLA8&_r=1" target="_blank" rel="noopener noreferrer">
-          <img src="/images/tiktok.webp" alt="TikTok" className="icon" />
-        </a>
       </div>
     </header>
   );
