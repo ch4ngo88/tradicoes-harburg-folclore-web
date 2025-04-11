@@ -92,7 +92,7 @@
 
 @layer components {
   .current {
-    @apply font-bold text-portuguesered relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-portuguesered;
+    @apply font-bold text-white relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white;
   }
   
   .icon {
@@ -114,7 +114,7 @@
   .nav-link {
     @apply relative overflow-hidden py-1.5 transition-colors duration-300 
            before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 
-           before:bg-portuguesered before:transition-all before:duration-300 
+           before:bg-white before:transition-all before:duration-300 
            hover:before:w-full;
   }
   
@@ -139,7 +139,7 @@
   }
   
   .flag-button.current {
-    @apply bg-lightgold/20 after:hidden;
+    @apply bg-white/20 after:hidden;
   }
 
   .photo-grid-item {

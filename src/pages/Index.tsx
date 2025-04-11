@@ -8,9 +8,9 @@ const Index = () => {
   
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <div className="relative w-full h-[60vh] bg-hero-pattern bg-cover bg-center flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 mix-blend-multiply"/>
+      {/* Hero Section with gradient background */}
+      <div className="relative w-full h-[60vh] flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-seagreen to-portuguesered opacity-80 mix-blend-multiply"/>
         <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
           <div className="mb-6 flex justify-center">
             <img 

@@ -56,7 +56,6 @@ export default {
 				// Updated Portuguese flag colors (slightly darker tones)
 				seagreen: '#1a6741', // Darker green
 				portuguesered: '#c01a1a', // Darker red
-				lightgold: '#ffe19c', // Complementary light accent
 				cream: '#fff8e8', // Softer background alternative
 			},
 			fontFamily: {
