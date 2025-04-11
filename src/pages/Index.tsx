@@ -1,6 +1,7 @@
+
 import { useLanguage } from "@/hooks/useLanguage";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const Index = () => {
