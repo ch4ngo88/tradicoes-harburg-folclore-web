@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/hooks/useLanguage";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import Index from "./pages/Index";
+import Home from "./pages/Home";
 import Activities from "./pages/Activities";
 import Archive from "./pages/Archive";
 import Membros from "./pages/Membros";
@@ -29,7 +30,7 @@ const App = () => (
             <Header />
             <main className="flex-grow">
               <Routes>
-                <Route path="/" element={<Index />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/activities" element={<Activities />} />
                 <Route path="/archive" element={<Archive />} />
                 <Route path="/membros" element={<Membros />} />
