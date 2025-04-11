@@ -64,10 +64,13 @@ const HeroSection = ({ language }: HeroSectionProps) => {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="animate-on-load md:w-2/5 w-full flex justify-center md:justify-end">
           <div className="relative">
-            <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg pointer-events-none"></div>
             <Dialog>
               <DialogTrigger asChild>
-                <div className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:brightness-110 relative z-20">
+                <div className="cursor-pointer relative">
+                  {/* Top-left decorative border - now positioned above but part of the clickable area */}
+                  <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg"></div>
+                  
+                  {/* The image */}
                   <img
                     src={heroImageSrc}
                     srcSet={heroImageSrcSet}
@@ -75,10 +78,13 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                     width="512"
                     height="384"
                     alt="Group photo"
-                    className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40"
+                    className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
                     loading="eager"
                     fetchPriority="high"
                   />
+                  
+                  {/* Bottom-right decorative border - now positioned above but part of the clickable area */}
+                  <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg"></div>
                 </div>
               </DialogTrigger>
               <DialogContent className="p-0 max-w-4xl border-none">
@@ -92,7 +98,6 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                 />
               </DialogContent>
             </Dialog>
-            <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg pointer-events-none"></div>
           </div>
         </div>
 
