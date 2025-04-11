@@ -52,7 +52,14 @@ export const Footer = () => {
               </div>
             </div>
             
-            {/* Social Media Icons moved below white section */}
+            {/* Desktop: Copyright Notice first, Social Media Icons second */}
+            {/* Mobile: Social Media Icons first as before */}
+            <div className="text-xs text-white/70 mt-3 text-center md:text-left w-full hidden md:block">
+              <span className="text-xs align-text-top mr-1">©</span> 2025
+              GCRFP. Alle Rechte vorbehalten.
+            </div>
+            
+            {/* Social Media Icons */}
             <div className="flex gap-4 mt-3 justify-center md:justify-start">
               <a
                 href="https://www.youtube.com/@tradicoesportuguesasdeharb1754"
@@ -102,6 +109,12 @@ export const Footer = () => {
                 </svg>
                 <span className="sr-only">TikTok</span>
               </a>
+            </div>
+            
+            {/* Mobile-only copyright notice */}
+            <div className="text-xs text-white/70 mt-3 text-center w-full md:hidden">
+              <span className="text-xs align-text-top mr-1">©</span> 2025
+              GCRFP. Alle Rechte vorbehalten.
             </div>
           </div>
 
@@ -169,12 +182,6 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
-            
-            {/* Copyright notice */}
-            <div className="text-xs text-white/70 mt-4 text-center md:text-left w-full">
-              <span className="text-xs align-text-top mr-1">©</span> 2025
-              GCRFP. Alle Rechte vorbehalten.
-            </div>
           </div>
         </div>
       </div>

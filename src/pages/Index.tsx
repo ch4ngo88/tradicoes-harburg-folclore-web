@@ -2,8 +2,13 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CallToActionButtons } from "@/components/CallToActionButtons";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -54,11 +59,24 @@ const Index = () => {
           <div className="animate-on-load md:w-2/5 w-full flex justify-center md:justify-end">
             <div className="relative">
               <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg"></div>
-              <img
-                src="/images/gruppe.jpg"
-                alt="Group photo"
-                className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40"
-              />
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:brightness-110">
+                    <img
+                      src="/images/gruppe.jpg"
+                      alt="Group photo"
+                      className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40"
+                    />
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="p-0 max-w-4xl border-none">
+                  <img
+                    src="/images/gruppe.jpg"
+                    alt="Group photo"
+                    className="w-full h-full object-contain rounded-lg"
+                  />
+                </DialogContent>
+              </Dialog>
               <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg"></div>
             </div>
           </div>
