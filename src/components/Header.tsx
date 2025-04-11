@@ -98,11 +98,11 @@ export const Header = () => {
               </li>
               <li className="md:py-1.5 py-2">
                 <Link 
-                  to="/center" 
-                  className={`block md:inline-block ${isActive('/center') ? 'current' : 'nav-link'}`}
+                  to="/membros" 
+                  className={`block md:inline-block ${isActive('/membros') ? 'current' : 'nav-link'}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {t('center')}
+                  {t('membros')}
                 </Link>
               </li>
               <li className="md:py-1.5 py-2">

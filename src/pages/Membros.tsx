@@ -12,7 +12,7 @@ type MemberData = {
   description?: string;
 };
 
-const Center = () => {
+const Membros = () => {
   const { language } = useLanguage();
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
   
@@ -95,7 +95,7 @@ const Center = () => {
           <div className="mx-auto w-28 h-28 rounded-full bg-gradient-to-br from-seagreen to-portuguesered p-1 mb-6 mt-8">
             <img 
               src="/images/logo.jpg" 
-              alt="Centro logo" 
+              alt="Membros logo" 
               className="w-full h-full rounded-full object-cover" 
             />
           </div>
@@ -166,4 +166,4 @@ const Center = () => {
   );
 };
 
-export default Center;
+export default Membros;

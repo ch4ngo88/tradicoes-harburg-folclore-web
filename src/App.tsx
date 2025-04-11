@@ -10,7 +10,7 @@ import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import Activities from "./pages/Activities";
 import Archive from "./pages/Archive";
-import Center from "./pages/Center";
+import Membros from "./pages/Membros"; // Renamed from Center to Membros
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import NotFound from "./pages/NotFound";
@@ -31,7 +31,7 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/activities" element={<Activities />} />
                 <Route path="/archive" element={<Archive />} />
-                <Route path="/center" element={<Center />} />
+                <Route path="/membros" element={<Membros />} /> {/* Updated path from /center to /membros */}
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="*" element={<NotFound />} />
