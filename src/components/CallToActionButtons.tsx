@@ -11,7 +11,7 @@ export const CallToActionButtons = () => {
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
       <Button
         variant="default"
-        className="bg-seagreen hover:bg-seagreen/90 text-white flex items-center gap-2"
+        className="bg-seagreen hover:bg-seagreen/90 text-white flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
         asChild
       >
         <Link to="/activities">
@@ -24,7 +24,7 @@ export const CallToActionButtons = () => {
 
       <Button
         variant="default"
-        className="bg-portuguesered hover:bg-portuguesered/90 text-white flex items-center gap-2"
+        className="bg-portuguesered hover:bg-portuguesered/90 text-white flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
         asChild
       >
         <Link to="/contact">

@@ -112,7 +112,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
           <div className="animate-on-load pt-4">
             <Link
               to="/activities"
-              className="button-primary inline-flex items-center gap-2 group font-lusitana hover:shadow-lg transition-all duration-300"
+              className="px-6 py-3 bg-seagreen text-white rounded-lg shadow-md transition-all duration-300 inline-flex items-center gap-2 group font-lusitana hover:shadow-lg hover:scale-[1.02]"
             >
               {language === "pt" ? "Descobrir Mais" : "Mehr Entdecken"}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
