@@ -1,9 +1,7 @@
-
 import { useLanguage } from "@/hooks/useLanguage";
 import { useState, useEffect, lazy, Suspense } from "react";
 import { Users, UserRound, Music } from "lucide-react";
 
-// Custom dancing icon component that's more appropriate for dancers
 const CustomDancingIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     {...props}
@@ -27,7 +25,6 @@ const CustomDancingIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-// Lazy load Avatar components
 const Avatar = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.Avatar })));
 const AvatarImage = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarImage })));
 const AvatarFallback = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarFallback })));
@@ -47,7 +44,6 @@ const Membros = () => {
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
 
-  // Member data with added category property
   const members: MemberData[] = [
     {
       id: 1,
@@ -131,18 +127,14 @@ const Membros = () => {
     },
   ];
 
-  // Implement progressive loading of sections
   useEffect(() => {
     const loadSections = () => {
-      // First load leadership section
       setVisibleSections(["leadership"]);
       
-      // Load music section after a delay
       setTimeout(() => {
         setVisibleSections(prev => [...prev, "music"]);
       }, 300);
       
-      // Load dancers section last
       setTimeout(() => {
         setVisibleSections(prev => [...prev, "dancers"]);
       }, 600);
@@ -151,7 +143,6 @@ const Membros = () => {
     loadSections();
   }, []);
 
-  // Filter members by category
   const leadershipMembers = members.filter(
     (member) => member.category === "leadership",
   );
@@ -160,7 +151,6 @@ const Membros = () => {
     (member) => member.category === "dancers",
   );
 
-  // Component for displaying a member card with optimized image loading
   const MemberCard = ({ member }: { member: MemberData }) => {
     const [imageLoaded, setImageLoaded] = useState(false);
     
@@ -204,7 +194,6 @@ const Membros = () => {
     );
   };
 
-  // Component for displaying a section of members
   const MemberSection = ({
     title,
     icon: Icon,
@@ -237,13 +226,12 @@ const Membros = () => {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="section-title inline-block">
+        <div className="mb-8">
+          <h2 className="section-title">
             {language === "pt" ? "Nossa Equipe" : "Unser Team"}
           </h2>
         </div>
 
-        {/* Leadership Section */}
         <MemberSection
           title={language === "pt" ? "Direção" : "Leitung"}
           icon={UserRound}
@@ -251,7 +239,6 @@ const Membros = () => {
           isVisible={visibleSections.includes("leadership")}
         />
 
-        {/* Music Section */}
         <MemberSection
           title={language === "pt" ? "Coro" : "Chor"}
           icon={Music}
@@ -259,7 +246,6 @@ const Membros = () => {
           isVisible={visibleSections.includes("music")}
         />
 
-        {/* Dancers Section */}
         <MemberSection
           title={language === "pt" ? "Dançarinos" : "Tänzer/innen"}
           icon={CustomDancingIcon}

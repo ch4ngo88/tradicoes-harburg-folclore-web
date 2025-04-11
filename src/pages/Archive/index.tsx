@@ -61,16 +61,18 @@ const Archive = () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="section-title mb-8 text-center">
-        {language === "pt" ? "Arquivo" : "Archiv"}
-      </h1>
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="section-title mb-0">
+          {language === "pt" ? "Arquivo" : "Archiv"}
+        </h1>
 
-      {/* Navigation Tabs */}
-      <NavigationTabs 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab} 
-        language={language} 
-      />
+        {/* Navigation Tabs */}
+        <NavigationTabs 
+          activeTab={activeTab} 
+          setActiveTab={setActiveTab} 
+          language={language} 
+        />
+      </div>
 
       {/* Photos Tab */}
       {activeTab === "photos" && (
