@@ -13,4 +13,23 @@
   .glass-card {
     @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-white/20 transition-all duration-300 hover:shadow-lg;
   }
+  
+  /* Image optimization styles */
+  .lazy-image {
+    @apply transition-opacity duration-300;
+  }
+  
+  .lazy-image-loading {
+    @apply opacity-0;
+  }
+  
+  .lazy-image-loaded {
+    @apply opacity-100;
+  }
+  
+  /* Placeholder for images that are loading */
+  .image-placeholder {
+    @apply bg-gray-200 animate-pulse rounded;
+  }
 }
+

@@ -1,5 +1,6 @@
+
 import { useLanguage } from "@/hooks/useLanguage";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +10,11 @@ import {
 } from "@/components/ui/carousel";
 import { Play, Volume2 } from "lucide-react";
 
+// Lazy load components
+const LazyCarouselContent = lazy(() => import('@/components/ui/carousel').then(module => ({ 
+  default: module.CarouselContent 
+})));
+
 const Archive = () => {
   const { language } = useLanguage();
   const [images, setImages] = useState<string[]>([]);
@@ -17,35 +23,53 @@ const Archive = () => {
   );
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  // Load images
+  // Load images progressively
   useEffect(() => {
-    const archiveImages = [
-      "/images/Zeitungsartikel.jpg",
-      "/images/Alt1.jpg",
-      "/images/Alt2.jpg",
-      "/images/Alt3.jpg",
-      "/images/Alt4.jpg",
-      "/images/Jung1.jpg",
-      "/images/Jung2.jpg",
-      "/images/Jung4.jpg",
-      "/images/Jung5.jpg",
-      "/images/Jung8.jpg",
-      "/images/mata.jpg",
-      "/images/Jung9.jpg",
-      "/images/Festival1.jpg",
-      "/images/Festival2.jpg",
-      "/images/Festival3.jpg",
-      "/images/Festival4.jpg",
-      "/images/Festival5.jpg",
-      "/images/Neu1.jpg",
-      "/images/Neu4.jpg",
-      "/images/Bus.jpg",
-      "/images/Neu5.jpg",
-      "/images/Neu6.jpg",
-    ];
+    const loadFirstBatchImages = () => {
+      const firstBatchImages = [
+        "/images/Zeitungsartikel.jpg",
+        "/images/Alt1.jpg",
+        "/images/Alt2.jpg",
+        "/images/Alt3.jpg",
+      ];
+      setImages(firstBatchImages);
+      setImagesLoaded(true);
+    };
 
-    setImages(archiveImages);
+    const loadRemainingImages = () => {
+      const remainingImages = [
+        "/images/Alt4.jpg",
+        "/images/Jung1.jpg",
+        "/images/Jung2.jpg",
+        "/images/Jung4.jpg",
+        "/images/Jung5.jpg",
+        "/images/Jung8.jpg",
+        "/images/mata.jpg",
+        "/images/Jung9.jpg",
+        "/images/Festival1.jpg",
+        "/images/Festival2.jpg",
+        "/images/Festival3.jpg",
+        "/images/Festival4.jpg",
+        "/images/Festival5.jpg",
+        "/images/Neu1.jpg",
+        "/images/Neu4.jpg",
+        "/images/Bus.jpg",
+        "/images/Neu5.jpg",
+        "/images/Neu6.jpg",
+      ];
+      
+      setImages(prev => [...prev, ...remainingImages]);
+    };
+
+    // Load first batch immediately
+    loadFirstBatchImages();
+    
+    // Load the rest after the page has rendered
+    const timer = setTimeout(loadRemainingImages, 1000);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleAudio = () => {
@@ -117,29 +141,40 @@ const Archive = () => {
 
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
             <Carousel className="w-full">
-              <CarouselContent>
-                {images.map((image, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="md:basis-1/2 lg:basis-1/3 p-1"
-                  >
-                    <div className="photo-grid-item h-full aspect-square">
-                      <a
-                        href={image}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block h-full"
+              {imagesLoaded ? (
+                <Suspense fallback={<div className="w-full h-64 bg-gray-100 animate-pulse rounded-lg"></div>}>
+                  <LazyCarouselContent>
+                    {images.map((image, index) => (
+                      <CarouselItem
+                        key={index}
+                        className="md:basis-1/2 lg:basis-1/3 p-1"
                       >
-                        <img
-                          src={image}
-                          alt={`Archive image ${index + 1}`}
-                          className="gallery-photo"
-                        />
-                      </a>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
+                        <div className="photo-grid-item h-full aspect-square">
+                          <a
+                            href={image}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block h-full"
+                          >
+                            <img
+                              src={image}
+                              alt={`Archive image ${index + 1}`}
+                              className="gallery-photo"
+                              loading="lazy"
+                              width="300"
+                              height="300"
+                            />
+                          </a>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </LazyCarouselContent>
+                </Suspense>
+              ) : (
+                <div className="flex justify-center items-center w-full h-64">
+                  <div className="w-12 h-12 border-4 border-seagreen border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              )}
               <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
               <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
             </Carousel>
@@ -191,6 +226,7 @@ const Archive = () => {
                   ref={audioRef}
                   className="hidden"
                   onEnded={() => setIsAudioPlaying(false)}
+                  preload="metadata"
                 >
                   <source
                     src="/audio/Café com Leite & Pimenta Interview Tradicoes.mp3"
@@ -223,6 +259,8 @@ const Archive = () => {
                 controls
                 className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
                 poster="/images/video-thumbnail-1.jpg"
+                preload="metadata"
+                loading="lazy"
               >
                 <source
                   src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
@@ -245,6 +283,8 @@ const Archive = () => {
                 controls
                 className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
                 poster="/images/video-thumbnail-2.jpg"
+                preload="metadata"
+                loading="lazy"
               >
                 <source
                   src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"

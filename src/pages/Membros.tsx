@@ -1,8 +1,7 @@
 
 import { useLanguage } from "@/hooks/useLanguage";
-import { useState } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Users, UserRound, Music } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 // Custom dancing icon component that's more appropriate for dancers
 const CustomDancingIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -28,6 +27,11 @@ const CustomDancingIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+// Lazy load Avatar components
+const Avatar = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.Avatar })));
+const AvatarImage = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarImage })));
+const AvatarFallback = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarFallback })));
+
 type MemberData = {
   id: number;
   name: string;
@@ -41,6 +45,7 @@ type MemberData = {
 const Membros = () => {
   const { language } = useLanguage();
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
+  const [visibleSections, setVisibleSections] = useState<string[]>([]);
 
   // Member data with added category property
   const members: MemberData[] = [
@@ -126,6 +131,26 @@ const Membros = () => {
     },
   ];
 
+  // Implement progressive loading of sections
+  useEffect(() => {
+    const loadSections = () => {
+      // First load leadership section
+      setVisibleSections(["leadership"]);
+      
+      // Load music section after a delay
+      setTimeout(() => {
+        setVisibleSections(prev => [...prev, "music"]);
+      }, 300);
+      
+      // Load dancers section last
+      setTimeout(() => {
+        setVisibleSections(prev => [...prev, "dancers"]);
+      }, 600);
+    };
+    
+    loadSections();
+  }, []);
+
   // Filter members by category
   const leadershipMembers = members.filter(
     (member) => member.category === "leadership",
@@ -135,17 +160,67 @@ const Membros = () => {
     (member) => member.category === "dancers",
   );
 
+  // Component for displaying a member card with optimized image loading
+  const MemberCard = ({ member }: { member: MemberData }) => {
+    const [imageLoaded, setImageLoaded] = useState(false);
+    
+    return (
+      <div
+        key={member.id}
+        className="member-card"
+        onMouseEnter={() => setHoveredMember(member.id)}
+        onMouseLeave={() => setHoveredMember(null)}
+      >
+        <div className="member-card-image-container">
+          {!imageLoaded && (
+            <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
+          )}
+          <img
+            src={hoveredMember === member.id ? member.costumeImage : member.regularImage}
+            alt={member.name}
+            className={`member-card-image ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            loading="lazy"
+            width="240" 
+            height="240"
+            onLoad={() => setImageLoaded(true)}
+          />
+          <div className="member-card-overlay">
+            <div className="text-white p-4 w-full">
+              <p className="font-bold">{member.name}</p>
+              <p className="text-sm text-white/90">{member.role}</p>
+              {member.description && (
+                <p className="text-xs mt-1 text-white/70">
+                  {member.description}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="member-card-info">
+          <h4 className="font-semibold text-seagreen">{member.name}</h4>
+          <p className="text-sm text-gray-600">{member.role}</p>
+        </div>
+      </div>
+    );
+  };
+
   // Component for displaying a section of members
   const MemberSection = ({
     title,
     icon: Icon,
     members,
+    isVisible
   }: {
     title: string;
     icon: React.ElementType;
     members: MemberData[];
+    isVisible: boolean;
   }) => (
-    <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg mb-8">
+    <div 
+      className={`bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg mb-8 transition-opacity duration-500 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
       <div className="flex items-center gap-2 mb-6">
         <Icon className="text-seagreen" />
         <h3 className="text-xl font-bold text-seagreen">{title}</h3>
@@ -153,39 +228,7 @@ const Membros = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {members.map((member) => (
-          <div
-            key={member.id}
-            className="member-card"
-            onMouseEnter={() => setHoveredMember(member.id)}
-            onMouseLeave={() => setHoveredMember(null)}
-          >
-            <div className="member-card-image-container">
-              <img
-                src={
-                  hoveredMember === member.id
-                    ? member.costumeImage
-                    : member.regularImage
-                }
-                alt={member.name}
-                className="member-card-image"
-              />
-              <div className="member-card-overlay">
-                <div className="text-white p-4 w-full">
-                  <p className="font-bold">{member.name}</p>
-                  <p className="text-sm text-white/90">{member.role}</p>
-                  {member.description && (
-                    <p className="text-xs mt-1 text-white/70">
-                      {member.description}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className="member-card-info">
-              <h4 className="font-semibold text-seagreen">{member.name}</h4>
-              <p className="text-sm text-gray-600">{member.role}</p>
-            </div>
-          </div>
+          <MemberCard key={member.id} member={member} />
         ))}
       </div>
     </div>
@@ -205,6 +248,7 @@ const Membros = () => {
           title={language === "pt" ? "Direção" : "Leitung"}
           icon={UserRound}
           members={leadershipMembers}
+          isVisible={visibleSections.includes("leadership")}
         />
 
         {/* Music Section */}
@@ -212,6 +256,7 @@ const Membros = () => {
           title={language === "pt" ? "Coro" : "Chor"}
           icon={Music}
           members={musicMembers}
+          isVisible={visibleSections.includes("music")}
         />
 
         {/* Dancers Section */}
@@ -219,6 +264,7 @@ const Membros = () => {
           title={language === "pt" ? "Dançarinos" : "Tänzer/innen"}
           icon={CustomDancingIcon}
           members={dancerMembers}
+          isVisible={visibleSections.includes("dancers")}
         />
       </div>
     </div>
