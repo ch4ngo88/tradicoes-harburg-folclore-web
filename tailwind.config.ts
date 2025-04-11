@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,10 +52,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Updated colors with darker tones
-        seagreen: "#0A3D22", // Darker forest green (was #1a6741)
-        portuguesered: "#8B0000", // Darker wine red (was #c01a1a)
-        cream: "#fff8e8", // Keeping the same cream color
+        seagreen: "#0A3D22",
+        portuguesered: "#8B0000",
+        cream: "#fff8e8",
       },
       fontFamily: {
         lusitana: ["Lusitana", "serif"],
@@ -115,6 +113,9 @@ export default {
           'linear-gradient(90deg, rgba(10,61,34,0.6) 0%, rgba(139,0,0,0.6) 100%), url("/images/gruppe.jpg")',
         "hero-gradient":
           "linear-gradient(90deg, rgba(10,61,34,0.6) 0%, rgba(139,0,0,0.6) 100%)",
+      },
+      scale: {
+        '98': '0.98',
       },
     },
   },
