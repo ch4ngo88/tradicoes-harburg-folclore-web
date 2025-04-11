@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
@@ -118,17 +117,25 @@
 
   .nav-link {
     @apply relative overflow-hidden py-1.5 transition-colors duration-300 
-           before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 
+           before:absolute before:bottom-1 before:left-0 before:h-0.5 before:w-0 
            before:bg-white before:transition-all before:duration-300 
            hover:before:w-full;
   }
 
-  /* Enhanced glass card with subtle animation */
+  @media (max-width: 767px) {
+    .footer-content {
+      @apply text-left pl-4;
+    }
+    
+    .footer-contact-info > div {
+      @apply flex items-start;
+    }
+  }
+
   .glass-card {
     @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-white/20 transition-all duration-300 hover:shadow-lg;
   }
 
-  /* Enhanced button styles */
   .button-primary {
     @apply px-6 py-3 bg-seagreen text-white rounded-lg shadow-md 
            hover:bg-seagreen/90 transition-all duration-300 
@@ -149,7 +156,6 @@
     @apply bg-white/20 after:hidden;
   }
 
-  /* Improved photo styling */
   .photo-grid-item {
     @apply overflow-hidden rounded-lg shadow-md transition-all duration-300 
            hover:shadow-lg hover:scale-[1.02];
@@ -160,7 +166,6 @@
            hover:scale-110;
   }
 
-  /* Enhanced member cards */
   .member-card {
     @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-xl;
   }
@@ -183,7 +188,6 @@
     @apply p-4;
   }
 
-  /* Form elements with modern styling */
   .form-container {
     @apply bg-white rounded-xl shadow-lg p-6;
   }
@@ -206,7 +210,6 @@
            focus:ring-opacity-50 transition-colors;
   }
 
-  /* UI component styling */
   .accordion-custom {
     @apply border-none rounded-lg overflow-hidden bg-white shadow-md;
   }
@@ -220,7 +223,6 @@
   }
 }
 
-/* Premium animation effects for hero section */
 @keyframes fadeInUp {
   from {
     opacity: 0;

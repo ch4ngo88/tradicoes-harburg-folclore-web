@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -48,7 +49,7 @@ export const Header = () => {
           {isActive("/") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
       <li className="md:py-1.5 py-4 relative group">
@@ -62,7 +63,7 @@ export const Header = () => {
           {isActive("/activities") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
       <li className="md:py-1.5 py-4 relative group">
@@ -76,7 +77,7 @@ export const Header = () => {
           {isActive("/archive") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
       <li className="md:py-1.5 py-4 relative group">
@@ -90,7 +91,7 @@ export const Header = () => {
           {isActive("/membros") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
       <li className="md:py-1.5 py-4 relative group">
@@ -104,7 +105,7 @@ export const Header = () => {
           {isActive("/contact") && (
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
           )}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+          <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
         </Link>
       </li>
     </ul>
@@ -169,7 +170,7 @@ export const Header = () => {
       className={`w-full sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "shadow-md bg-white/95 backdrop-blur-sm" : "bg-white"}`}
     >
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between py-2 px-4 gap-2">
+        <div className="flex items-center justify-between py-2 px-4">
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={scrollToTop}
@@ -196,8 +197,39 @@ export const Header = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex flex-col gap-2 items-end">
-            <LanguageSwitcher />
+          <div className="flex items-center gap-3">
+            {/* Mobile Navigation */}
+            <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <button
+                    className="p-1.5 rounded-md border border-seagreen/30 hover:bg-seagreen/10 transition-colors text-seagreen"
+                    aria-label="Open menu"
+                  >
+                    <Menu size={20} />
+                  </button>
+                </SheetTrigger>
+                <SheetContent
+                  side="right"
+                  className="bg-seagreen text-white w-64 p-0"
+                >
+                  <div className="flex flex-col h-full">
+                    <div className="p-4 border-b border-white/10 flex items-center justify-between">
+                      <span className="font-lusitana font-bold">Menu</span>
+                      <SheetClose className="rounded-full p-1 hover:bg-white/10 transition-colors">
+                        <X size={18} />
+                      </SheetClose>
+                    </div>
+                    <MobileNavLinks />
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
+            
+            {/* Language switcher (desktop only) */}
+            <div className="hidden md:block">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
 
@@ -209,35 +241,6 @@ export const Header = () => {
             <NavLinks />
           </div>
         </nav>
-
-        {/* Mobile Navigation */}
-        <div className="md:hidden flex justify-between items-center px-4 py-2">
-          <LanguageSwitcher />
-          <Sheet>
-            <SheetTrigger asChild>
-              <button
-                className="p-1.5 rounded-md border border-seagreen/30 hover:bg-seagreen/10 transition-colors text-seagreen"
-                aria-label="Open menu"
-              >
-                <Menu size={20} />
-              </button>
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="bg-seagreen text-white w-64 p-0"
-            >
-              <div className="flex flex-col h-full">
-                <div className="p-4 border-b border-white/10 flex items-center justify-between">
-                  <span className="font-lusitana font-bold">Menu</span>
-                  <SheetClose className="rounded-full p-1 hover:bg-white/10 transition-colors">
-                    <X size={18} />
-                  </SheetClose>
-                </div>
-                <MobileNavLinks />
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
       </div>
     </header>
   );

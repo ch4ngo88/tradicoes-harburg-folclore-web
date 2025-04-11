@@ -40,15 +40,11 @@ export const Footer = () => {
                   <p className="text-xs text-gray-600 italic">
                     {language === "pt" ? (
                       <>
-                        Preservando a cultura portuguesa em Hamburgo
-                        <br />
-                        desde 1979
+                        Preservando a cultura portuguesa em Hamburgo desde 1979
                       </>
                     ) : (
                       <>
-                        Bewahrung der portugiesischen Kultur in Hamburg
-                        <br />
-                        seit 1979
+                        Bewahrung der portugiesischen Kultur in Hamburg seit 1979
                       </>
                     )}
                   </p>
