@@ -10,11 +10,14 @@
     <meta name="description" content="Rancho Folclórico Tradições Portuguesas - Bewahrung der portugiesischen Kultur in Hamburg seit 1979" />
     
     <!-- Security -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.gpteng.co 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.gpteng.co 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.google.com https://www.gstatic.com;" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="no-referrer" />
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
     
     <!-- SEO -->
     <meta name="author" content="Marco da Silva Dácio" />
@@ -28,6 +31,7 @@
     <!-- Mobile & PWA -->
     <meta name="theme-color" content="#1a6741" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="HandheldFriendly" content="true" />

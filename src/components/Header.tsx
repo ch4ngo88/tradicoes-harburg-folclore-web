@@ -4,9 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Menu, X } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t, language } = useLanguage();
   const location = useLocation();
@@ -36,6 +36,71 @@ export const Header = () => {
     };
   }, []);
 
+  const NavLinks = () => (
+    <ul className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-8 w-full text-center">
+      <li className="md:py-1.5 py-4 relative group">
+        <Link 
+          to="/" 
+          className={`block md:inline-block hover:text-portuguesered transition-colors ${
+            isActive('/') ? 'font-bold relative' : ''
+          }`}
+        >
+          {t('home')}
+          {isActive('/') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+      </li>
+      <li className="md:py-1.5 py-4 relative group">
+        <Link 
+          to="/activities" 
+          className={`block md:inline-block hover:text-portuguesered transition-colors ${
+            isActive('/activities') ? 'font-bold relative' : ''
+          }`}
+        >
+          {t('activities')}
+          {isActive('/activities') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+      </li>
+      <li className="md:py-1.5 py-4 relative group">
+        <Link 
+          to="/archive" 
+          className={`block md:inline-block hover:text-portuguesered transition-colors ${
+            isActive('/archive') ? 'font-bold relative' : ''
+          }`}
+        >
+          {t('archive')}
+          {isActive('/archive') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+      </li>
+      <li className="md:py-1.5 py-4 relative group">
+        <Link 
+          to="/membros" 
+          className={`block md:inline-block hover:text-portuguesered transition-colors ${
+            isActive('/membros') ? 'font-bold relative' : ''
+          }`}
+        >
+          {language === 'de' ? 'Mitglieder' : 'Membros'}
+          {isActive('/membros') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+      </li>
+      <li className="md:py-1.5 py-4 relative group">
+        <Link 
+          to="/contact" 
+          className={`block md:inline-block hover:text-portuguesered transition-colors ${
+            isActive('/contact') ? 'font-bold relative' : ''
+          }`}
+        >
+          {t('contact')}
+          {isActive('/contact') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+      </li>
+    </ul>
+  );
+
   return (
     <header className={`w-full sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md bg-white/95 backdrop-blur-sm' : 'bg-white'}`}>
       <div className="container mx-auto">
@@ -45,6 +110,8 @@ export const Header = () => {
               src="/images/logo.jpg" 
               alt="Rancho logo" 
               className="w-12 h-12 object-cover" 
+              width={48}
+              height={48}
             />
             <div className="text-center md:text-left">
               <span className="text-portuguesered text-sm font-medium block">Rancho Folclórico</span> 
@@ -64,89 +131,30 @@ export const Header = () => {
           </div>
         </div>
         
-        <nav className={`relative py-0.5 ${isScrolled ? 'bg-seagreen/95 backdrop-blur-sm' : 'bg-seagreen'} text-white rounded-md mb-2 transition-all duration-300`}>
+        {/* Desktop Navigation */}
+        <nav className={`relative py-0.5 ${isScrolled ? 'bg-seagreen/95 backdrop-blur-sm' : 'bg-seagreen'} text-white rounded-md mb-2 transition-all duration-300 hidden md:block`}>
           <div className="px-4 md:px-6 flex justify-between items-center">
-            <div className="md:hidden flex justify-between items-center w-full py-1">
-              <LanguageSwitcher />
-              <button 
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-1 rounded-md border border-white/30 hover:bg-white/10 transition-colors"
-                aria-label="Toggle menu"
-              >
-                {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
-              </button>
-            </div>
-            
-            <ul className={`flex flex-col md:flex-row md:justify-center md:items-center md:gap-8 w-full text-center transition-all duration-300 
-                          ${isMenuOpen ? 'max-h-[300px] opacity-100 pb-2' : 'max-h-0 md:max-h-full opacity-0 md:opacity-100 overflow-hidden md:overflow-visible'}`}>
-              <li className="md:py-1.5 py-2 relative group">
-                <Link 
-                  to="/" 
-                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
-                    isActive('/') ? 'font-bold relative' : ''
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('home')}
-                  {isActive('/') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-              <li className="md:py-1.5 py-2 relative group">
-                <Link 
-                  to="/activities" 
-                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
-                    isActive('/activities') ? 'font-bold relative' : ''
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('activities')}
-                  {isActive('/activities') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-              <li className="md:py-1.5 py-2 relative group">
-                <Link 
-                  to="/archive" 
-                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
-                    isActive('/archive') ? 'font-bold relative' : ''
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('archive')}
-                  {isActive('/archive') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-              <li className="md:py-1.5 py-2 relative group">
-                <Link 
-                  to="/membros" 
-                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
-                    isActive('/membros') ? 'font-bold relative' : ''
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {language === 'de' ? 'Member' : 'Membros'}
-                  {isActive('/membros') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-              <li className="md:py-1.5 py-2 relative group">
-                <Link 
-                  to="/contact" 
-                  className={`block md:inline-block hover:text-portuguesered transition-colors ${
-                    isActive('/contact') ? 'font-bold relative' : ''
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('contact')}
-                  {isActive('/contact') && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-            </ul>
+            <NavLinks />
           </div>
         </nav>
+        
+        {/* Mobile Navigation */}
+        <div className="md:hidden flex justify-between items-center px-4 py-2">
+          <LanguageSwitcher />
+          <Sheet>
+            <SheetTrigger asChild>
+              <button 
+                className="p-1.5 rounded-md border border-seagreen/30 hover:bg-seagreen/10 transition-colors text-seagreen"
+                aria-label="Open menu"
+              >
+                <Menu size={20} />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-seagreen text-white w-64 pt-8">
+              <NavLinks />
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
