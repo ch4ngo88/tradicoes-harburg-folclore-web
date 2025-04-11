@@ -18,34 +18,46 @@ export const Footer = () => {
     <footer className="w-full bg-seagreen text-white">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Logo and Description Column */}
+          {/* Logo Column with styled text in white background */}
           <div className="flex flex-col items-center md:items-start">
-            <div className="flex flex-col mb-3">
-              {/* Logo with white background to ensure visibility */}
-              <div className="bg-white p-1 rounded-sm inline-block mb-2">
+            <div className="bg-white p-4 rounded-md inline-block mb-3 w-full md:w-auto">
+              <div className="flex items-center justify-center md:justify-start gap-3">
                 <img
                   src="/images/logo.jpg"
                   alt="Rancho logo"
-                  className="w-10 h-10 object-cover"
+                  className="w-10 h-10 object-cover rounded-sm"
                   width={40}
                   height={40}
                   loading="lazy"
                 />
-              </div>
-              <div>
-                <h3 className="font-lusitana font-bold text-base">
-                  Tradições Portuguesas
-                </h3>
-                <p className="text-xs text-white/70 italic">
-                  {language === "pt"
-                    ? "Preservando a cultura portuguesa em Hamburgo\ndesde 1979"
-                    : "Bewahrung der portugiesischen Kultur in Hamburg\nseit 1979"}
-                </p>
+                <div>
+                  <h3 className="font-lusitana font-bold text-base">
+                    <span className="text-seagreen">Trad</span>
+                    <span className="text-portuguesered">ições</span>
+                    <span className="text-seagreen"> Port</span>
+                    <span className="text-portuguesered">uguesas</span>
+                  </h3>
+                  <p className="text-xs text-gray-600 italic">
+                    {language === "pt" ? (
+                      <>
+                        Preservando a cultura portuguesa em Hamburgo
+                        <br />
+                        desde 1979
+                      </>
+                    ) : (
+                      <>
+                        Bewahrung der portugiesischen Kultur in Hamburg
+                        <br />
+                        seit 1979
+                      </>
+                    )}
+                  </p>
+                </div>
               </div>
             </div>
             
-            {/* Social Media Icons */}
-            <div className="flex gap-4 mt-3 mb-4">
+            {/* Social Media Icons moved below white section */}
+            <div className="flex gap-4 mt-3 justify-center md:justify-start">
               <a
                 href="https://www.youtube.com/@tradicoesportuguesasdeharb1754"
                 target="_blank"
@@ -83,7 +95,7 @@ export const Footer = () => {
                 className="text-white hover:text-white/60 transition-colors"
                 aria-label="TikTok"
               >
-                {/* Correct TikTok SVG icon */}
+                {/* TikTok SVG icon */}
                 <svg
                   width="18"
                   height="18"
@@ -97,8 +109,8 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Information Column */}
-          <div className="flex flex-col items-center md:items-start">
+          {/* Contact Information Column with responsive design */}
+          <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
             <div className="space-y-2 text-sm">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-white/80 mt-1 flex-shrink-0" />
@@ -133,8 +145,8 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Legal Links Column - Now vertically stacked */}
-          <div className="flex flex-col items-center md:items-start">
+          {/* Legal Links Column - Vertically stacked with improved mobile design */}
+          <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
             <ul className="flex flex-col space-y-1">
               <li>
                 <Link
@@ -162,7 +174,7 @@ export const Footer = () => {
               </li>
             </ul>
             
-            {/* Copyright notice moved under legal links */}
+            {/* Copyright notice */}
             <div className="text-xs text-white/70 mt-4">
               <span className="text-xs align-text-top mr-1">©</span> 2025
               GCRFP. Alle Rechte vorbehalten.
