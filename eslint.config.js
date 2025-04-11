@@ -1,29 +1,38 @@
+import { defineConfig } from "eslint/config";
 import js from "@eslint/js";
 import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
 
-export default tseslint.config(
-  { ignores: ["dist"] },
+export default defineConfig([
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    plugins: { js },
+    extends: ["js/recommended"],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     languageOptions: {
-      ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
     },
-    plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
+  },
+  tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+
+  // ⛔️ Regeln ganz zum Schluss überschreiben!
+  {
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
-      "@typescript-eslint/no-unused-vars": "off",
+      "react/react-in-jsx-scope": "off",
     },
-  }
-);
+  },
+]);

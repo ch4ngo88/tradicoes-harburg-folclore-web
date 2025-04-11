@@ -1,4 +1,3 @@
-
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -11,7 +10,7 @@ const NotFound = () => {
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",
-      location.pathname
+      location.pathname,
     );
   }, [location.pathname]);
 
@@ -23,16 +22,15 @@ const NotFound = () => {
         </div>
         <h1 className="text-5xl font-bold text-portuguesered mb-4">404</h1>
         <p className="text-xl text-gray-600 mb-8">
-          {language === 'pt' 
-            ? 'Oops! Página não encontrada' 
-            : 'Oops! Seite nicht gefunden'}
+          {language === "pt"
+            ? "Oops! Página não encontrada"
+            : "Oops! Seite nicht gefunden"}
         </p>
-        <Link 
-          to="/" 
-          className="button-primary inline-flex items-center gap-2"
-        >
+        <Link to="/" className="button-primary inline-flex items-center gap-2">
           <Home className="w-4 h-4" />
-          {language === 'pt' ? 'Voltar à página inicial' : 'Zurück zur Startseite'}
+          {language === "pt"
+            ? "Voltar à página inicial"
+            : "Zurück zur Startseite"}
         </Link>
       </div>
     </div>

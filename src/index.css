@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -82,10 +81,15 @@
   }
   body {
     @apply bg-[#f9f9f9] text-foreground font-lusitana;
-    background-image: url('/images/subtle-azulejo.png');
+    background-image: url("/images/subtle-azulejo.png");
     background-attachment: fixed;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-lusitana;
   }
 }
@@ -94,11 +98,11 @@
   .current {
     @apply font-bold text-white relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white;
   }
-  
+
   .icon {
     @apply h-6 w-6 transition-all duration-300 hover:scale-125 hover:opacity-80;
   }
-  
+
   .gruppo-image {
     @apply w-full max-w-md mx-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
   }
@@ -106,18 +110,18 @@
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
-  
+
   .section-title {
     @apply text-2xl font-bold text-seagreen mb-6 relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-3/4 after:h-1 after:bg-portuguesered after:rounded-full;
   }
-  
+
   .nav-link {
     @apply relative overflow-hidden py-1.5 transition-colors duration-300 
            before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-0 
            before:bg-white before:transition-all before:duration-300 
            hover:before:w-full;
   }
-  
+
   .glass-card {
     @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-white/20;
   }
@@ -127,7 +131,7 @@
            hover:bg-seagreen/90 transition-all duration-300 
            active:scale-95 font-medium;
   }
-  
+
   .button-secondary {
     @apply px-6 py-2 bg-portuguesered text-white rounded-lg shadow-md 
            hover:bg-portuguesered/90 transition-all duration-300 
@@ -137,7 +141,7 @@
   .flag-button {
     @apply flex items-center gap-1 px-3 py-1 rounded-full transition-colors;
   }
-  
+
   .flag-button.current {
     @apply bg-white/20 after:hidden;
   }
@@ -146,7 +150,7 @@
     @apply overflow-hidden rounded-lg shadow-md transition-all duration-300 
            hover:shadow-lg hover:scale-[1.02];
   }
-  
+
   .gallery-photo {
     @apply w-full h-full object-cover transition-transform duration-500 
            hover:scale-110;
@@ -155,41 +159,41 @@
   .member-card {
     @apply relative overflow-hidden rounded-xl shadow-md bg-white;
   }
-  
+
   .member-card-image-container {
     @apply relative overflow-hidden h-64;
   }
-  
+
   .member-card-image {
     @apply w-full h-full object-cover transition-all duration-500 ease-in-out;
   }
-  
+
   .member-card-overlay {
     @apply absolute inset-0 bg-gradient-to-t from-black/70 to-transparent 
            opacity-0 hover:opacity-100 transition-opacity duration-300 
            flex items-end;
   }
-  
+
   .member-card-info {
     @apply p-4;
   }
-  
+
   .form-container {
     @apply bg-white rounded-xl shadow-lg p-6;
   }
-  
+
   .form-field {
     @apply mb-4;
   }
-  
+
   .form-label {
     @apply block text-sm font-medium text-gray-700 mb-1;
   }
-  
+
   .form-input {
     @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring focus:ring-seagreen/30 focus:border-seagreen outline-none;
   }
-  
+
   .form-button {
     @apply w-full bg-seagreen text-white font-medium py-2 px-4 rounded-lg 
            hover:bg-seagreen/90 focus:outline-none focus:ring-2 focus:ring-seagreen 
@@ -199,11 +203,11 @@
   .accordion-custom {
     @apply border-none rounded-lg overflow-hidden bg-white shadow-md;
   }
-  
+
   .accordion-trigger {
     @apply p-4 text-lg font-medium text-seagreen hover:bg-slate-50;
   }
-  
+
   .link-item {
     @apply flex items-center p-3 rounded-md hover:bg-slate-100 transition-colors;
   }

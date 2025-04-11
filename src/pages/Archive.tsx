@@ -1,49 +1,50 @@
-
-import { useLanguage } from '@/hooks/useLanguage';
-import { useState, useEffect, useRef } from 'react';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
-} from '@/components/ui/carousel';
-import { Play, Volume2 } from 'lucide-react';
+import { useLanguage } from "@/hooks/useLanguage";
+import { useState, useEffect, useRef } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Play, Volume2 } from "lucide-react";
 
 const Archive = () => {
   const { language } = useLanguage();
   const [images, setImages] = useState<string[]>([]);
-  const [activeTab, setActiveTab] = useState<'photos' | 'audio' | 'videos'>('photos');
+  const [activeTab, setActiveTab] = useState<"photos" | "audio" | "videos">(
+    "photos",
+  );
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  
+
   // Load images
   useEffect(() => {
     const archiveImages = [
-      '/images/Zeitungsartikel.jpg',
-      '/images/Alt1.jpg',
-      '/images/Alt2.jpg',
-      '/images/Alt3.jpg',
-      '/images/Alt4.jpg',
-      '/images/Jung1.jpg',
-      '/images/Jung2.jpg',
-      '/images/Jung4.jpg',
-      '/images/Jung5.jpg',
-      '/images/Jung8.jpg',
-      '/images/mata.jpg',
-      '/images/Jung9.jpg',
-      '/images/Festival1.jpg',
-      '/images/Festival2.jpg',
-      '/images/Festival3.jpg',
-      '/images/Festival4.jpg',
-      '/images/Festival5.jpg',
-      '/images/Neu1.jpg',
-      '/images/Neu4.jpg',
-      '/images/Bus.jpg',
-      '/images/Neu5.jpg',
-      '/images/Neu6.jpg',
+      "/images/Zeitungsartikel.jpg",
+      "/images/Alt1.jpg",
+      "/images/Alt2.jpg",
+      "/images/Alt3.jpg",
+      "/images/Alt4.jpg",
+      "/images/Jung1.jpg",
+      "/images/Jung2.jpg",
+      "/images/Jung4.jpg",
+      "/images/Jung5.jpg",
+      "/images/Jung8.jpg",
+      "/images/mata.jpg",
+      "/images/Jung9.jpg",
+      "/images/Festival1.jpg",
+      "/images/Festival2.jpg",
+      "/images/Festival3.jpg",
+      "/images/Festival4.jpg",
+      "/images/Festival5.jpg",
+      "/images/Neu1.jpg",
+      "/images/Neu4.jpg",
+      "/images/Bus.jpg",
+      "/images/Neu5.jpg",
+      "/images/Neu6.jpg",
     ];
-    
+
     setImages(archiveImages);
   }, []);
 
@@ -61,69 +62,72 @@ const Archive = () => {
   return (
     <div className="container mx-auto py-8 px-4">
       <h1 className="section-title mb-8 text-center">
-        {language === 'pt' ? 'Arquivo' : 'Archiv'}
+        {language === "pt" ? "Arquivo" : "Archiv"}
       </h1>
-      
+
       {/* Navigation Tabs */}
       <div className="flex justify-center mb-8">
         <div className="inline-flex rounded-md bg-gray-100 p-1">
           <button
-            onClick={() => setActiveTab('photos')}
+            onClick={() => setActiveTab("photos")}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              activeTab === 'photos' 
-                ? 'bg-white shadow-sm text-seagreen' 
-                : 'text-gray-600 hover:text-seagreen'
+              activeTab === "photos"
+                ? "bg-white shadow-sm text-seagreen"
+                : "text-gray-600 hover:text-seagreen"
             }`}
           >
-            {language === 'pt' ? 'Fotos' : 'Fotos'}
+            {language === "pt" ? "Fotos" : "Fotos"}
           </button>
           <button
-            onClick={() => setActiveTab('audio')}
+            onClick={() => setActiveTab("audio")}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              activeTab === 'audio' 
-                ? 'bg-white shadow-sm text-seagreen' 
-                : 'text-gray-600 hover:text-seagreen'
+              activeTab === "audio"
+                ? "bg-white shadow-sm text-seagreen"
+                : "text-gray-600 hover:text-seagreen"
             }`}
           >
-            {language === 'pt' ? 'Áudio' : 'Audio'}
+            {language === "pt" ? "Áudio" : "Audio"}
           </button>
           <button
-            onClick={() => setActiveTab('videos')}
+            onClick={() => setActiveTab("videos")}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              activeTab === 'videos' 
-                ? 'bg-white shadow-sm text-seagreen' 
-                : 'text-gray-600 hover:text-seagreen'
+              activeTab === "videos"
+                ? "bg-white shadow-sm text-seagreen"
+                : "text-gray-600 hover:text-seagreen"
             }`}
           >
-            {language === 'pt' ? 'Vídeos' : 'Videos'}
+            {language === "pt" ? "Vídeos" : "Videos"}
           </button>
         </div>
       </div>
 
       {/* Photos Tab */}
-      {activeTab === 'photos' && (
+      {activeTab === "photos" && (
         <div className="w-full max-w-5xl mx-auto mb-12 animate-fade-in">
           <div className="text-center mb-6">
             <h3 className="text-xl font-bold text-portuguesered">
-              {language === 'pt' ? 'Galeria de Fotos' : 'Fotogalerie'}
+              {language === "pt" ? "Galeria de Fotos" : "Fotogalerie"}
             </h3>
             <p className="text-gray-600 mt-2">
-              {language === 'pt' 
-                ? 'Clique nas imagens para ampliar' 
-                : 'Klicken Sie auf die Bilder zum Vergrößern'}
+              {language === "pt"
+                ? "Clique nas imagens para ampliar"
+                : "Klicken Sie auf die Bilder zum Vergrößern"}
             </p>
           </div>
-          
+
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
             <Carousel className="w-full">
               <CarouselContent>
                 {images.map((image, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 p-1">
+                  <CarouselItem
+                    key={index}
+                    className="md:basis-1/2 lg:basis-1/3 p-1"
+                  >
                     <div className="photo-grid-item h-full aspect-square">
-                      <a 
-                        href={image} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href={image}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block h-full"
                       >
                         <img
@@ -144,21 +148,23 @@ const Archive = () => {
       )}
 
       {/* Audio Tab */}
-      {activeTab === 'audio' && (
+      {activeTab === "audio" && (
         <div className="w-full max-w-3xl mx-auto mb-12 animate-fade-in">
           <div className="text-center mb-6">
             <h3 className="text-xl font-bold text-portuguesered">
-              {language === 'pt' ? 'Entrevistas e Áudio' : 'Interviews und Audio'}
+              {language === "pt"
+                ? "Entrevistas e Áudio"
+                : "Interviews und Audio"}
             </h3>
           </div>
-          
+
           <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
             <div className="flex flex-col items-center">
               <div className="w-full max-w-md bg-gradient-to-r from-seagreen/10 to-portuguesered/10 p-6 rounded-xl shadow-md mb-6">
                 <div className="flex items-center gap-4 mb-4">
                   <button
                     onClick={toggleAudio}
-                    className={`p-4 rounded-full ${isAudioPlaying ? 'bg-portuguesered' : 'bg-seagreen'} text-white hover:opacity-90 transition-opacity`}
+                    className={`p-4 rounded-full ${isAudioPlaying ? "bg-portuguesered" : "bg-seagreen"} text-white hover:opacity-90 transition-opacity`}
                   >
                     {isAudioPlaying ? (
                       <span className="block w-3 h-8 bg-white"></span>
@@ -167,25 +173,32 @@ const Archive = () => {
                     )}
                   </button>
                   <div>
-                    <h4 className="font-medium">Café com Leite & Pimenta Interview</h4>
+                    <h4 className="font-medium">
+                      Café com Leite & Pimenta Interview
+                    </h4>
                     <p className="text-sm text-gray-600">2024</p>
                   </div>
                   <Volume2 className="w-6 h-6 ml-auto text-gray-400" />
                 </div>
-                
+
                 <div className="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden relative">
-                  <div className={`absolute left-0 top-0 h-full bg-gradient-to-r from-seagreen to-portuguesered rounded-full transition-all duration-300 ${isAudioPlaying ? 'animate-pulse w-full' : 'w-0'}`}></div>
+                  <div
+                    className={`absolute left-0 top-0 h-full bg-gradient-to-r from-seagreen to-portuguesered rounded-full transition-all duration-300 ${isAudioPlaying ? "animate-pulse w-full" : "w-0"}`}
+                  ></div>
                 </div>
-                
-                <audio 
+
+                <audio
                   ref={audioRef}
                   className="hidden"
                   onEnded={() => setIsAudioPlaying(false)}
                 >
-                  <source src="/audio/Café com Leite & Pimenta Interview Tradicoes.mp3" type="audio/mp3" />
+                  <source
+                    src="/audio/Café com Leite & Pimenta Interview Tradicoes.mp3"
+                    type="audio/mp3"
+                  />
                   Your browser does not support the audio element.
                 </audio>
-                
+
                 <p className="text-xs italic mt-4 text-center">
                   (Café com Leite & Pimenta Interview 2024)
                 </p>
@@ -196,42 +209,54 @@ const Archive = () => {
       )}
 
       {/* Videos Tab */}
-      {activeTab === 'videos' && (
+      {activeTab === "videos" && (
         <div className="w-full max-w-4xl mx-auto mb-12 animate-fade-in">
           <div className="text-center mb-6">
             <h3 className="text-xl font-bold text-portuguesered">
-              {language === 'pt' ? 'Vídeos' : 'Videos'}
+              {language === "pt" ? "Vídeos" : "Videos"}
             </h3>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="glass-card overflow-hidden">
-              <video 
-                controls 
+              <video
+                controls
                 className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
                 poster="/images/video-thumbnail-1.jpg"
               >
-                <source src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4" type="video/mp4" />
+                <source
+                  src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
               <div className="p-4">
-                <h4 className="font-medium text-seagreen">Portugueses da zona de Hamburgo</h4>
-                <p className="text-sm text-gray-600 mt-1">Comentários sobre a Seleção</p>
+                <h4 className="font-medium text-seagreen">
+                  Portugueses da zona de Hamburgo
+                </h4>
+                <p className="text-sm text-gray-600 mt-1">
+                  Comentários sobre a Seleção
+                </p>
               </div>
             </div>
-            
+
             <div className="glass-card overflow-hidden">
-              <video 
-                controls 
+              <video
+                controls
                 className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
                 poster="/images/video-thumbnail-2.jpg"
               >
-                <source src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4" type="video/mp4" />
+                <source
+                  src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
               <div className="p-4">
                 <h4 className="font-medium text-seagreen">Rancho Folclórico</h4>
-                <p className="text-sm text-gray-600 mt-1">Tradição portuguesa em Hamburgo</p>
+                <p className="text-sm text-gray-600 mt-1">
+                  Tradição portuguesa em Hamburgo
+                </p>
               </div>
             </div>
           </div>
