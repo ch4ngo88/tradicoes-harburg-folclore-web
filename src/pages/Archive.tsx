@@ -1,6 +1,6 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { 
   Carousel, 
   CarouselContent, 
@@ -8,14 +8,17 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from '@/components/ui/carousel';
+import { Play, Volume2 } from 'lucide-react';
 
 const Archive = () => {
   const { language } = useLanguage();
   const [images, setImages] = useState<string[]>([]);
+  const [activeTab, setActiveTab] = useState<'photos' | 'audio' | 'videos'>('photos');
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   
-  // This effect would load the images in a real environment
+  // Load images
   useEffect(() => {
-    // In a real implementation, these would be loaded from your actual images
     const archiveImages = [
       '/images/Zeitungsartikel.jpg',
       '/images/Alt1.jpg',
@@ -44,103 +47,196 @@ const Archive = () => {
     setImages(archiveImages);
   }, []);
 
-  return (
-    <div className="flex flex-col items-center px-4 py-6 max-w-4xl mx-auto">
-      <article className="w-full max-w-2xl mb-8 text-center zeitung">
-        <h2 className="text-2xl font-bold text-seagreen mb-6">
-          {language === 'pt' ? 'Arquivo' : 'Archiv'}
-        </h2>
-        
-        <div className="my-4 bg-white/80 p-6 rounded-lg shadow-md">
-          <audio 
-            controls 
-            title="Café com Leite & Pimenta Interview - Tradições"
-            className="max-w-full"
-          >
-            <source src="/audio/Café com Leite & Pimenta Interview Tradicoes.mp3" type="audio/mp3" />
-            Your browser does not support the audio element.
-          </audio>
-          <p className="text-xs italic mt-2">
-            (Café com Leite & Pimenta Interview 2024)
-          </p>
-        </div>
-      </article>
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isAudioPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsAudioPlaying(!isAudioPlaying);
+    }
+  };
 
-      {/* Photo Gallery */}
-      <div className="w-full max-w-3xl mb-12">
-        <h3 className="text-xl font-bold text-portuguesered mb-4 text-center">
-          {language === 'pt' ? 'Galeria de Fotos' : 'Fotogalerie'}
-        </h3>
-        
-        <Carousel className="w-full">
-          <CarouselContent>
-            {images.map((image, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <a 
-                    href={image} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block overflow-hidden rounded-lg border border-slate-200 hover:border-portuguesered transition-all duration-300"
-                  >
-                    <img
-                      src={image}
-                      alt={`Archive image ${index + 1}`}
-                      className="h-56 w-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                  </a>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
-          <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
-        </Carousel>
+  return (
+    <div className="container mx-auto py-8 px-4">
+      <h1 className="section-title mb-8 text-center">
+        {language === 'pt' ? 'Arquivo' : 'Archiv'}
+      </h1>
+      
+      {/* Navigation Tabs */}
+      <div className="flex justify-center mb-8">
+        <div className="inline-flex rounded-md bg-gray-100 p-1">
+          <button
+            onClick={() => setActiveTab('photos')}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+              activeTab === 'photos' 
+                ? 'bg-white shadow-sm text-seagreen' 
+                : 'text-gray-600 hover:text-seagreen'
+            }`}
+          >
+            {language === 'pt' ? 'Fotos' : 'Fotos'}
+          </button>
+          <button
+            onClick={() => setActiveTab('audio')}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+              activeTab === 'audio' 
+                ? 'bg-white shadow-sm text-seagreen' 
+                : 'text-gray-600 hover:text-seagreen'
+            }`}
+          >
+            {language === 'pt' ? 'Áudio' : 'Audio'}
+          </button>
+          <button
+            onClick={() => setActiveTab('videos')}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+              activeTab === 'videos' 
+                ? 'bg-white shadow-sm text-seagreen' 
+                : 'text-gray-600 hover:text-seagreen'
+            }`}
+          >
+            {language === 'pt' ? 'Vídeos' : 'Videos'}
+          </button>
+        </div>
       </div>
 
-      {/* Videos */}
-      <div className="w-full max-w-3xl mb-8">
-        <h3 className="text-xl font-bold text-portuguesered mb-4 text-center">
-          {language === 'pt' ? 'Vídeos' : 'Videos'}
-        </h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white/80 p-3 rounded-lg shadow-md">
-            <video 
-              controls 
-              className="w-full rounded-md shadow-inner"
-            >
-              <source src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+      {/* Photos Tab */}
+      {activeTab === 'photos' && (
+        <div className="w-full max-w-5xl mx-auto mb-12 animate-fade-in">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-bold text-portuguesered">
+              {language === 'pt' ? 'Galeria de Fotos' : 'Fotogalerie'}
+            </h3>
+            <p className="text-gray-600 mt-2">
+              {language === 'pt' 
+                ? 'Clique nas imagens para ampliar' 
+                : 'Klicken Sie auf die Bilder zum Vergrößern'}
+            </p>
           </div>
           
-          <div className="bg-white/80 p-3 rounded-lg shadow-md">
-            <video 
-              controls 
-              className="w-full rounded-md shadow-inner"
-            >
-              <source src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {images.map((image, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 p-1">
+                    <div className="photo-grid-item h-full aspect-square">
+                      <a 
+                        href={image} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="block h-full"
+                      >
+                        <img
+                          src={image}
+                          alt={`Archive image ${index + 1}`}
+                          className="gallery-photo"
+                        />
+                      </a>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
+              <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
+            </Carousel>
           </div>
         </div>
-      </div>
-      
-      <div className="md:hidden flex gap-4 mt-8">
-        <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer">
-          <img src="/images/youtube.png" alt="YouTube" className="icon" />
-        </a>
-        <a href="https://www.facebook.com/portugiesischerverein.harburg?locale=de_DE" target="_blank" rel="noopener noreferrer">
-          <img src="/images/facebook.webp" alt="Facebook" className="icon" />
-        </a>
-        <a href="https://www.instagram.com/centroportuguesharburg?igsh=MW9qbGpxNTZuN3M1Nw==" target="_blank" rel="noopener noreferrer">
-          <img src="/images/instagram.webp" alt="Instagram" className="icon" />
-        </a>
-        <a href="https://www.tiktok.com/@tradies.portugues?_t=8lbFMCvtLA8&_r=1" target="_blank" rel="noopener noreferrer">
-          <img src="/images/tiktok.webp" alt="TikTok" className="icon" />
-        </a>
-      </div>
+      )}
+
+      {/* Audio Tab */}
+      {activeTab === 'audio' && (
+        <div className="w-full max-w-3xl mx-auto mb-12 animate-fade-in">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-bold text-portuguesered">
+              {language === 'pt' ? 'Entrevistas e Áudio' : 'Interviews und Audio'}
+            </h3>
+          </div>
+          
+          <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+            <div className="flex flex-col items-center">
+              <div className="w-full max-w-md bg-gradient-to-r from-seagreen/10 to-portuguesered/10 p-6 rounded-xl shadow-md mb-6">
+                <div className="flex items-center gap-4 mb-4">
+                  <button
+                    onClick={toggleAudio}
+                    className={`p-4 rounded-full ${isAudioPlaying ? 'bg-portuguesered' : 'bg-seagreen'} text-white hover:opacity-90 transition-opacity`}
+                  >
+                    {isAudioPlaying ? (
+                      <span className="block w-3 h-8 bg-white"></span>
+                    ) : (
+                      <Play className="w-6 h-6" fill="white" />
+                    )}
+                  </button>
+                  <div>
+                    <h4 className="font-medium">Café com Leite & Pimenta Interview</h4>
+                    <p className="text-sm text-gray-600">2024</p>
+                  </div>
+                  <Volume2 className="w-6 h-6 ml-auto text-gray-400" />
+                </div>
+                
+                <div className="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden relative">
+                  <div className={`absolute left-0 top-0 h-full bg-gradient-to-r from-seagreen to-portuguesered rounded-full transition-all duration-300 ${isAudioPlaying ? 'animate-pulse w-full' : 'w-0'}`}></div>
+                </div>
+                
+                <audio 
+                  ref={audioRef}
+                  className="hidden"
+                  onEnded={() => setIsAudioPlaying(false)}
+                >
+                  <source src="/audio/Café com Leite & Pimenta Interview Tradicoes.mp3" type="audio/mp3" />
+                  Your browser does not support the audio element.
+                </audio>
+                
+                <p className="text-xs italic mt-4 text-center">
+                  (Café com Leite & Pimenta Interview 2024)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Videos Tab */}
+      {activeTab === 'videos' && (
+        <div className="w-full max-w-4xl mx-auto mb-12 animate-fade-in">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-bold text-portuguesered">
+              {language === 'pt' ? 'Vídeos' : 'Videos'}
+            </h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-card overflow-hidden">
+              <video 
+                controls 
+                className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
+                poster="/images/video-thumbnail-1.jpg"
+              >
+                <source src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-4">
+                <h4 className="font-medium text-seagreen">Portugueses da zona de Hamburgo</h4>
+                <p className="text-sm text-gray-600 mt-1">Comentários sobre a Seleção</p>
+              </div>
+            </div>
+            
+            <div className="glass-card overflow-hidden">
+              <video 
+                controls 
+                className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
+                poster="/images/video-thumbnail-2.jpg"
+              >
+                <source src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-4">
+                <h4 className="font-medium text-seagreen">Rancho Folclórico</h4>
+                <p className="text-sm text-gray-600 mt-1">Tradição portuguesa em Hamburgo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

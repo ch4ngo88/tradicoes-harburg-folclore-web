@@ -1,80 +1,156 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { t, language } = useLanguage();
   const location = useLocation();
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
+  
+  // Add scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="w-full">
-      <div className="flex flex-col md:flex-row items-center justify-between p-4 gap-4">
-        <div className="flex items-center gap-4">
-          <img src="/images/logo.jpg" alt="Rancho logo" className="w-32 h-auto" />
-          <h1 className="text-lg md:text-xl font-bold max-w-[160px]">
-            <span className="text-seagreen block">Rancho Folclórico</span> 
-            <span className="text-portuguesered">Tradições Portuguesas de Harburg</span>
-          </h1>
-        </div>
-        
-        <div className="hidden md:flex flex-col gap-2">
-          <LanguageSwitcher />
-          <div className="flex gap-2">
-            <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer">
-              <img src="/images/youtube.png" alt="YouTube" className="icon" />
-            </a>
-            <a href="https://www.facebook.com/portugiesischerverein.harburg?locale=de_DE" target="_blank" rel="noopener noreferrer">
-              <img src="/images/facebook.webp" alt="Facebook" className="icon" />
-            </a>
-            <a href="https://www.instagram.com/centroportuguesharburg?igsh=MW9qbGpxNTZuN3M1Nw==" target="_blank" rel="noopener noreferrer">
-              <img src="/images/instagram.webp" alt="Instagram" className="icon" />
-            </a>
-            <a href="https://www.tiktok.com/@tradies.portugues?_t=8lbFMCvtLA8&_r=1" target="_blank" rel="noopener noreferrer">
-              <img src="/images/tiktok.webp" alt="TikTok" className="icon" />
-            </a>
+    <header className={`w-full sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md bg-white/95 backdrop-blur-sm' : 'bg-white'}`}>
+      <div className="container mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between p-4 gap-4">
+          <div className="flex items-center gap-4">
+            <img src="/images/logo.jpg" alt="Rancho logo" className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-seagreen object-cover" />
+            <div className="text-center md:text-left">
+              <span className="text-portuguesered text-sm md:text-base font-medium block">Rancho Folclórico</span> 
+              <h1 className="text-lg md:text-xl font-bold text-seagreen leading-tight">
+                Tradições Portuguesas de Harburg
+              </h1>
+            </div>
+          </div>
+          
+          <div className="hidden md:flex flex-col gap-2 items-end">
+            <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+              <div className="flex gap-2">
+                <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer" 
+                   className="text-gray-600 hover:text-portuguesered transition-colors">
+                  <img src="/images/youtube.png" alt="YouTube" className="icon" />
+                </a>
+                <a href="https://www.facebook.com/portugiesischerverein.harburg?locale=de_DE" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-600 hover:text-portuguesered transition-colors">
+                  <img src="/images/facebook.webp" alt="Facebook" className="icon" />
+                </a>
+                <a href="https://www.instagram.com/centroportuguesharburg?igsh=MW9qbGpxNTZuN3M1Nw==" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-600 hover:text-portuguesered transition-colors">
+                  <img src="/images/instagram.webp" alt="Instagram" className="icon" />
+                </a>
+                <a href="https://www.tiktok.com/@tradies.portugues?_t=8lbFMCvtLA8&_r=1" target="_blank" rel="noopener noreferrer"
+                   className="text-gray-600 hover:text-portuguesered transition-colors">
+                  <img src="/images/tiktok.webp" alt="TikTok" className="icon" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+        
+        <nav className={`relative py-1 ${isScrolled ? 'bg-seagreen/95 backdrop-blur-sm' : 'bg-seagreen'} text-white rounded-md mb-2 transition-all duration-300`}>
+          <div className="px-4 md:px-6 flex justify-between items-center">
+            <div className="md:hidden flex justify-between items-center w-full py-2">
+              <LanguageSwitcher />
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-1.5 rounded-md border border-white/30 hover:bg-white/10 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
+            
+            <ul className={`flex flex-col md:flex-row md:justify-center md:items-center md:gap-8 w-full text-center transition-all duration-300 
+                          ${isMenuOpen ? 'max-h-[300px] opacity-100 pb-4' : 'max-h-0 md:max-h-full opacity-0 md:opacity-100 overflow-hidden md:overflow-visible'}`}>
+              <li className="md:py-2 py-3">
+                <Link 
+                  to="/" 
+                  className={`block md:inline-block ${isActive('/') ? 'current' : 'nav-link'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('home')}
+                </Link>
+              </li>
+              <li className="md:py-2 py-3">
+                <Link 
+                  to="/activities" 
+                  className={`block md:inline-block ${isActive('/activities') ? 'current' : 'nav-link'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('activities')}
+                </Link>
+              </li>
+              <li className="md:py-2 py-3">
+                <Link 
+                  to="/archive" 
+                  className={`block md:inline-block ${isActive('/archive') ? 'current' : 'nav-link'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('archive')}
+                </Link>
+              </li>
+              <li className="md:py-2 py-3">
+                <Link 
+                  to="/center" 
+                  className={`block md:inline-block ${isActive('/center') ? 'current' : 'nav-link'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('center')}
+                </Link>
+              </li>
+              <li className="md:py-2 py-3">
+                <Link 
+                  to="/contact" 
+                  className={`block md:inline-block ${isActive('/contact') ? 'current' : 'nav-link'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('contact')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
       
-      <nav className="bg-seagreen text-white p-4 relative">
-        <div className="md:hidden flex justify-between items-center">
-          <LanguageSwitcher />
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex flex-col justify-center items-center w-8 h-8 space-y-1.5"
-            aria-label="Toggle menu"
-          >
-            <span className={`block w-6 h-0.5 bg-white transition-transform ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-white transition-opacity ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-white transition-transform ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-          </button>
-        </div>
-        
-        <ul className={`flex flex-col md:flex-row justify-center md:gap-12 text-center ${isMenuOpen ? 'block' : 'hidden md:flex'}`}>
-          <li className={`py-3 ${isActive('/') ? 'current' : ''}`}>
-            <Link to="/">{t('home')}</Link>
-          </li>
-          <li className={`py-3 ${isActive('/activities') ? 'current' : ''}`}>
-            <Link to="/activities">{t('activities')}</Link>
-          </li>
-          <li className={`py-3 ${isActive('/archive') ? 'current' : ''}`}>
-            <Link to="/archive">{t('archive')}</Link>
-          </li>
-          <li className={`py-3 ${isActive('/center') ? 'current' : ''}`}>
-            <Link to="/center">{t('center')}</Link>
-          </li>
-          <li className={`py-3 ${isActive('/contact') ? 'current' : ''}`}>
-            <Link to="/contact">{t('contact')}</Link>
-          </li>
-        </ul>
-      </nav>
+      {/* Mobile social icons */}
+      <div className="md:hidden flex justify-center gap-4 py-2 bg-gray-50">
+        <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer">
+          <img src="/images/youtube.png" alt="YouTube" className="icon" />
+        </a>
+        <a href="https://www.facebook.com/portugiesischerverein.harburg?locale=de_DE" target="_blank" rel="noopener noreferrer">
+          <img src="/images/facebook.webp" alt="Facebook" className="icon" />
+        </a>
+        <a href="https://www.instagram.com/centroportuguesharburg?igsh=MW9qbGpxNTZuN3M1Nw==" target="_blank" rel="noopener noreferrer">
+          <img src="/images/instagram.webp" alt="Instagram" className="icon" />
+        </a>
+        <a href="https://www.tiktok.com/@tradies.portugues?_t=8lbFMCvtLA8&_r=1" target="_blank" rel="noopener noreferrer">
+          <img src="/images/tiktok.webp" alt="TikTok" className="icon" />
+        </a>
+      </div>
     </header>
   );
 };

@@ -11,7 +11,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ExternalLink } from 'lucide-react';
+import { 
+  ExternalLink, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  QrCode, 
+  Link as LinkIcon 
+} from 'lucide-react';
 
 type UsefulLink = {
   url: string;
@@ -90,169 +97,196 @@ const Contact = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center px-4 py-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold text-seagreen mb-6">
+    <div className="container mx-auto py-8 px-4">
+      <h1 className="section-title text-center mb-10">
         {language === 'pt' ? 'Contacto' : 'Kontakt'}
-      </h2>
+      </h1>
       
-      <div className="flex flex-col md:flex-row w-full gap-8 mb-8">
-        <div className="flex-1 w-full md:max-w-md">
-          <div className="mb-6 flex justify-center">
-            <img 
-              src="/images/QR Code.jpeg" 
-              alt="QR Code" 
-              className="h-32 rounded shadow-md"
-            />
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          {/* Contact Form */}
+          <div className="glass-card p-6">
+            <div className="flex gap-2 items-center mb-6">
+              <QrCode className="text-seagreen" />
+              <div>
+                <h3 className="text-xl font-bold text-seagreen">
+                  {language === 'pt' ? 'Código QR' : 'QR-Code'}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {language === 'pt' ? 'Escaneie para mais informações' : 'Scannen Sie für weitere Informationen'}
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/images/QR Code.jpeg" 
+                alt="QR Code" 
+                className="h-40 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              />
+            </div>
+            
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="name" className="form-label">
+                  {language === 'pt' ? 'Nome' : 'Name'}
+                </label>
+                <Input
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="subject" className="form-label">
+                  {language === 'pt' ? 'Assunto' : 'Betreff'}
+                </label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="form-label">
+                  {language === 'pt' ? 'Mensagem' : 'Nachricht'}
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  required
+                  className="form-input"
+                />
+              </div>
+              
+              <Button type="submit" className="w-full bg-seagreen hover:bg-seagreen/90 mt-2">
+                {language === 'pt' ? 'Enviar' : 'Senden'}
+              </Button>
+            </form>
           </div>
           
-          <form onSubmit={handleSubmit} className="space-y-4 bg-white/80 p-6 rounded-lg shadow-md">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                {language === 'pt' ? 'Nome' : 'Name'}
-              </label>
-              <Input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="bg-white"
-              />
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <div className="glass-card p-6">
+              <div className="flex gap-2 items-center mb-4">
+                <Mail className="text-portuguesered" />
+                <h3 className="text-xl font-bold text-portuguesered">
+                  {language === 'pt' ? 'Rancho Folclórico' : 'Rancho Folclórico'}
+                </h3>
+              </div>
+              
+              <div className="space-y-2 text-gray-700">
+                <p className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-seagreen" />
+                  <span>Gottschalkring 1, Hamburg 21073</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-seagreen" />
+                  <span>g.c.r.f.p@hotmail.com</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-seagreen" />
+                  <span>0160 63 79 525</span>
+                </p>
+              </div>
             </div>
             
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email
-              </label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="bg-white"
-              />
+            <div className="glass-card p-6">
+              <div className="flex gap-2 items-center mb-4">
+                <Mail className="text-portuguesered" />
+                <h3 className="text-xl font-bold text-portuguesered">
+                  {language === 'pt' ? 'Grupo Cultural' : 'Grupo Cultural'}
+                </h3>
+              </div>
+              
+              <div className="space-y-2 text-gray-700">
+                <p className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-seagreen" />
+                  <span>Gottschalkring 1, Hamburg 21073</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-seagreen" />
+                  <span>gcrfp@hotmail.de</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-seagreen" />
+                  <span>040 77 90 80</span>
+                </p>
+              </div>
             </div>
             
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                {language === 'pt' ? 'Assunto' : 'Betreff'}
-              </label>
-              <Input
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="bg-white"
+            <div className="overflow-hidden rounded-lg shadow-md h-64">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.3882674799974!2d9.965910060063711!3d53.45063187422865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191006ff27d9f%3A0x6701f53aa4f35d03!2sGottschalkring%201%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1715674267055!5m2!1sde!2sde" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Google Maps"
+                className="w-full h-full"
               />
             </div>
-            
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                {language === 'pt' ? 'Mensagem' : 'Nachricht'}
-              </label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={5}
-                required
-                className="bg-white"
-              />
-            </div>
-            
-            <Button type="submit" className="w-full bg-seagreen hover:bg-seagreen/90">
-              {language === 'pt' ? 'Enviar' : 'Senden'}
-            </Button>
-          </form>
+          </div>
         </div>
         
-        <div className="flex-1">
-          <div className="bg-white/80 p-6 rounded-lg shadow-md mb-6">
-            <h3 className="text-xl font-bold text-seagreen mb-4">
-              {language === 'pt' ? 'Rancho Folclórico Tradições Portuguesas de Harburg' : 'Rancho Folclórico Tradições Portuguesas de Harburg'}
-            </h3>
-            <p className="mb-4">
-              Gottschalkring 1<br />
-              Hamburg 21073<br />
-              <br />
-              g.c.r.f.p@hotmail.com<br />
-              0160 63 79 525
-            </p>
-          </div>
-          
-          <div className="bg-white/80 p-6 rounded-lg shadow-md mb-6">
-            <h3 className="text-xl font-bold text-seagreen mb-4">
-              {language === 'pt' ? 'Grupo Cultural Recreativo e Folclorio Portugues em Harburg e.V.' : 'Grupo Cultural Recreativo e Folclorio Portugues em Harburg e.V.'}
-            </h3>
-            <p className="mb-4">
-              Gottschalkring 1<br />
-              Hamburg 21073<br />
-              <br />
-              gcrfp@hotmail.de<br />
-              040 77 90 80
-            </p>
-          </div>
-          
-          <div className="overflow-hidden rounded-lg shadow-md">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.3882674799974!2d9.965910060063711!3d53.45063187422865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191006ff27d9f%3A0x6701f53aa4f35d03!2sGottschalkring%201%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1715674267055!5m2!1sde!2sde" 
-              width="100%" 
-              height="250" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Google Maps"
-              className="w-full"
-            />
-          </div>
+        {/* Useful Links */}
+        <div className="mb-8">
+          <Accordion type="single" collapsible className="accordion-custom">
+            <AccordionItem value="useful-links" className="border-none">
+              <AccordionTrigger className="accordion-trigger">
+                <div className="flex gap-2 items-center">
+                  <LinkIcon className="text-seagreen" />
+                  <span>{language === 'pt' ? 'Links Úteis' : 'Nützliche Links'}</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {usefulLinks.map((link, index) => (
+                    <a 
+                      key={index} 
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center p-3 rounded-md hover:bg-slate-100 transition-colors border border-transparent hover:border-seagreen/30 group"
+                    >
+                      <img src={link.icon} alt={link.title} className="w-6 h-6 mr-3 object-contain" />
+                      <span className="flex-1 text-sm">{link.title}</span>
+                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-seagreen transition-colors" />
+                    </a>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
-      </div>
-      
-      <div className="w-full mb-8">
-        <Accordion type="single" collapsible className="bg-white/80 rounded-lg shadow-md overflow-hidden">
-          <AccordionItem value="useful-links">
-            <AccordionTrigger className="px-6 py-4 hover:bg-slate-50 text-lg font-medium text-seagreen">
-              {language === 'pt' ? 'Links Úteis' : 'Nützliche Links'}
-            </AccordionTrigger>
-            <AccordionContent className="px-6 pb-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {usefulLinks.map((link, index) => (
-                  <a 
-                    key={index} 
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center p-3 rounded-md hover:bg-slate-100 transition-colors border border-transparent hover:border-seagreen/30"
-                  >
-                    <img src={link.icon} alt={link.title} className="w-6 h-6 mr-3 object-contain" />
-                    <span className="flex-1 text-sm">{link.title}</span>
-                    <ExternalLink className="w-4 h-4 text-gray-400" />
-                  </a>
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
-      
-      <div className="md:hidden flex gap-4 mt-8">
-        <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer">
-          <img src="/images/youtube.png" alt="YouTube" className="icon" />
-        </a>
-        <a href="https://www.facebook.com/portugiesischerverein.harburg?locale=de_DE" target="_blank" rel="noopener noreferrer">
-          <img src="/images/facebook.webp" alt="Facebook" className="icon" />
-        </a>
-        <a href="https://www.instagram.com/centroportuguesharburg?igsh=MW9qbGpxNTZuN3M1Nw==" target="_blank" rel="noopener noreferrer">
-          <img src="/images/instagram.webp" alt="Instagram" className="icon" />
-        </a>
-        <a href="https://www.tiktok.com/@tradies.portugues?_t=8lbFMCvtLA8&_r=1" target="_blank" rel="noopener noreferrer">
-          <img src="/images/tiktok.webp" alt="TikTok" className="icon" />
-        </a>
       </div>
     </div>
   );

@@ -1,96 +1,111 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
 import { Link } from 'react-router-dom';
+import { ChevronRight, ArrowRight } from 'lucide-react';
 
 const Index = () => {
   const { t, language } = useLanguage();
   
   return (
-    <div className="flex flex-col items-center px-4 py-6 max-w-4xl mx-auto">
-      <img 
-        src="/images/gruppe.jpg" 
-        alt="Gruppe" 
-        className="gruppo-image mb-8" 
-      />
-      
-      <h2 className="text-2xl font-bold text-seagreen mb-4">{t('aboutUs')}</h2>
-      
-      <article className="prose max-w-prose text-justify mb-8">
-        <p className="font-bold mb-4">{t('welcome')}</p>
-        
-        <p className="mb-4">{t('intro')}</p>
-        
-        <p className="font-bold mb-2">{t('generations')}</p>
-        <p className="mb-4">{t('generationsText')}</p>
-        
-        <p className="font-bold mb-2">{t('variety')}</p>
-        <p className="mb-4">{t('varietyText')}</p>
-        
-        <p className="font-bold mb-2">{t('timeTravel')}</p>
-        <p className="mb-4">{t('timeTravelText')}</p>
-        
-        <p className="mb-2">{t('joinUs')}</p>
-        <p className="mb-4">
-          {t('joinUsText').split('Atividades').map((text, i, arr) => {
-            if (i === 0) {
-              return (
-                <span key={i}>
-                  {text}
-                  <Link to="/activities" className="text-blue-800 italic">
-                    {language === 'pt' ? 'Atividades' : 'Aktivitäten'}
-                  </Link>
-                </span>
-              );
-            } else {
-              return (
-                <span key={i}>
-                  {text.split('Contacto').map((innerText, j, innerArr) => {
-                    if (j === 0) {
-                      return (
-                        <span key={j}>
-                          {innerText}
-                          <Link to="/contact" className="text-blue-800 italic">
-                            {language === 'pt' ? 'Contacto' : 'Kontakt'}
-                          </Link>
-                        </span>
-                      );
-                    } else {
-                      return <span key={j}>{innerText}</span>;
-                    }
-                  })}
-                </span>
-              );
-            }
-          })}
-        </p>
-        
-        <p className="font-bold">{t('finalMessage')}</p>
-      </article>
-      
-      <div className="w-full flex justify-center mb-8">
-        <video 
-          src="/images/offen.mp4" 
-          controls 
-          poster="/images/offen.jpeg"
-          className="w-full max-w-md rounded-md shadow-md"
-        >
-          Your browser cannot play this video
-        </video>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <div className="relative w-full h-[60vh] bg-hero-pattern bg-cover bg-center flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 mix-blend-multiply"/>
+        <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+            {language === 'pt' ? 'Tradições Portuguesas' : 'Portugiesische Traditionen'}
+          </h2>
+          <p className="text-xl md:text-2xl mb-8 opacity-90 animate-slide-up" style={{animationDelay: '0.2s'}}>
+            {language === 'pt' 
+              ? 'Preservando a cultura portuguesa em Hamburgo desde 1979' 
+              : 'Bewahrung der portugiesischen Kultur in Hamburg seit 1979'}
+          </p>
+          <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
+            <Link to="/activities" className="button-primary inline-flex items-center gap-2 group">
+              {language === 'pt' ? 'Descobrir Mais' : 'Mehr Entdecken'}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
       </div>
       
-      <div className="md:hidden flex gap-4 my-4">
-        <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer">
-          <img src="/images/youtube.png" alt="YouTube" className="icon" />
-        </a>
-        <a href="https://www.facebook.com/portugiesischerverein.harburg?locale=de_DE" target="_blank" rel="noopener noreferrer">
-          <img src="/images/facebook.webp" alt="Facebook" className="icon" />
-        </a>
-        <a href="https://www.instagram.com/centroportuguesharburg?igsh=MW9qbGpxNTZuN3M1Nw==" target="_blank" rel="noopener noreferrer">
-          <img src="/images/instagram.webp" alt="Instagram" className="icon" />
-        </a>
-        <a href="https://www.tiktok.com/@tradies.portugues?_t=8lbFMCvtLA8&_r=1" target="_blank" rel="noopener noreferrer">
-          <img src="/images/tiktok.webp" alt="TikTok" className="icon" />
-        </a>
+      {/* About Section */}
+      <div className="container mx-auto py-12 px-4">
+        <div className="glass-card p-8 max-w-4xl mx-auto">
+          <h2 className="section-title mb-8">{t('aboutUs')}</h2>
+          
+          <article className="prose max-w-none text-justify text-gray-700 space-y-6">
+            <p className="font-bold text-lg">{t('welcome')}</p>
+            
+            <p>{t('intro')}</p>
+            
+            <div className="rounded-lg overflow-hidden shadow-lg my-8">
+              <video 
+                src="/images/offen.mp4" 
+                controls 
+                poster="/images/offen.jpeg"
+                className="w-full rounded-md"
+              >
+                Your browser cannot play this video
+              </video>
+            </div>
+            
+            <div className="bg-cream p-6 rounded-xl border-l-4 border-seagreen shadow-md my-8">
+              <h3 className="text-xl font-bold text-seagreen mb-3">{t('generations')}</h3>
+              <p>{t('generationsText')}</p>
+            </div>
+            
+            <div className="bg-cream p-6 rounded-xl border-l-4 border-portuguesered shadow-md my-8">
+              <h3 className="text-xl font-bold text-portuguesered mb-3">{t('variety')}</h3>
+              <p>{t('varietyText')}</p>
+            </div>
+            
+            <div className="bg-cream p-6 rounded-xl border-l-4 border-seagreen shadow-md my-8">
+              <h3 className="text-xl font-bold text-seagreen mb-3">{t('timeTravel')}</h3>
+              <p>{t('timeTravelText')}</p>
+            </div>
+            
+            <div className="bg-lightgold/20 p-6 rounded-xl shadow-md">
+              <h3 className="text-xl font-bold text-portuguesered mb-3">{t('joinUs')}</h3>
+              <p>
+                {t('joinUsText').split('Atividades').map((text, i, arr) => {
+                  if (i === 0) {
+                    return (
+                      <span key={i}>
+                        {text}
+                        <Link to="/activities" className="text-portuguesered font-medium hover:underline inline-flex items-center gap-1">
+                          {language === 'pt' ? 'Atividades' : 'Aktivitäten'}
+                          <ChevronRight className="w-4 h-4" />
+                        </Link>
+                      </span>
+                    );
+                  } else {
+                    return (
+                      <span key={i}>
+                        {text.split('Contacto').map((innerText, j, innerArr) => {
+                          if (j === 0) {
+                            return (
+                              <span key={j}>
+                                {innerText}
+                                <Link to="/contact" className="text-portuguesered font-medium hover:underline inline-flex items-center gap-1">
+                                  {language === 'pt' ? 'Contacto' : 'Kontakt'}
+                                  <ChevronRight className="w-4 h-4" />
+                                </Link>
+                              </span>
+                            );
+                          } else {
+                            return <span key={j}>{innerText}</span>;
+                          }
+                        })}
+                      </span>
+                    );
+                  }
+                })}
+              </p>
+              <p className="font-bold mt-4 text-center">{t('finalMessage')}</p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   );
