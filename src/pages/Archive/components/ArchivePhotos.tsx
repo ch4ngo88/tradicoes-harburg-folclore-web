@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import PhotoGalleryItem from "./PhotoGalleryItem";
 
 interface ArchivePhotosProps {
   images: string[];
@@ -37,23 +38,7 @@ const ArchivePhotos = ({ images, imagesLoaded, language }: ArchivePhotosProps) =
                   key={index}
                   className="md:basis-1/2 lg:basis-1/3 p-1"
                 >
-                  <div className="photo-grid-item h-full aspect-square">
-                    <a
-                      href={image}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block h-full"
-                    >
-                      <img
-                        src={image}
-                        alt={`Archive image ${index + 1}`}
-                        className="gallery-photo"
-                        loading="lazy"
-                        width="300"
-                        height="300"
-                      />
-                    </a>
-                  </div>
+                  <PhotoGalleryItem image={image} index={index} />
                 </CarouselItem>
               ))}
             </CarouselContent>

@@ -1,5 +1,6 @@
 
 import React from "react";
+import VideoCard from "./VideoCard";
 
 interface ArchiveVideosProps {
   language: string;
@@ -15,49 +16,19 @@ const ArchiveVideos = ({ language }: ArchiveVideosProps) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="glass-card overflow-hidden">
-          <video
-            controls
-            className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
-            poster="/images/video-thumbnail-1.jpg"
-            preload="metadata"
-          >
-            <source
-              src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-          <div className="p-4">
-            <h4 className="font-medium text-seagreen">
-              Portugueses da zona de Hamburgo
-            </h4>
-            <p className="text-sm text-gray-600 mt-1">
-              Comentários sobre a Seleção
-            </p>
-          </div>
-        </div>
-
-        <div className="glass-card overflow-hidden">
-          <video
-            controls
-            className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
-            poster="/images/video-thumbnail-2.jpg"
-            preload="metadata"
-          >
-            <source
-              src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-          <div className="p-4">
-            <h4 className="font-medium text-seagreen">Rancho Folclórico</h4>
-            <p className="text-sm text-gray-600 mt-1">
-              Tradição portuguesa em Hamburgo
-            </p>
-          </div>
-        </div>
+        <VideoCard
+          videoSrc="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
+          posterSrc="/images/video-thumbnail-1.jpg"
+          title="Portugueses da zona de Hamburgo"
+          description="Comentários sobre a Seleção"
+        />
+        
+        <VideoCard
+          videoSrc="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"
+          posterSrc="/images/video-thumbnail-2.jpg"
+          title="Rancho Folclórico"
+          description="Tradição portuguesa em Hamburgo"
+        />
       </div>
     </div>
   );
