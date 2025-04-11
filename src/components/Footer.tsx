@@ -8,16 +8,16 @@ export const Footer = () => {
   
   return (
     <footer className="w-full bg-seagreen text-white">
-      <div className="container mx-auto px-4 py-6">
-        <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Description */}
-          <div className="flex flex-col items-center md:items-start h-full justify-between">
+          <div className="flex flex-col items-center md:items-start h-full">
             <div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-3">
                 <img 
                   src="/images/logo.jpg" 
                   alt="Rancho logo" 
-                  className="w-10 h-10 object-cover" 
+                  className="w-10 h-10 object-cover rounded-sm" 
                   width={40}
                   height={40}
                   loading="lazy"
@@ -31,21 +31,21 @@ export const Footer = () => {
                   </p>
                 </div>
               </div>
-              <p className="text-xs text-white/70 mt-1">
+              <p className="text-xs text-white/80 mt-1">
                 Centro Português Harburg e.V.
               </p>
             </div>
             
-            {/* Copyright positioned at the bottom of the column */}
-            <div className="text-xs text-white/70 mt-auto">
+            {/* Copyright positioned at the bottom of the column with flex-grow pushing it down */}
+            <div className="text-xs text-white/70 mt-auto pt-16">
               <span className="text-xs align-text-top mr-1">©</span> 2025 GCRFP. Alle Rechte vorbehalten.
             </div>
           </div>
           
           {/* Contact Information */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="font-lusitana font-bold text-base mb-2 border-b border-white/20 pb-1 px-2">Kontakt</h3>
-            <div className="space-y-1.5 text-xs">
+            <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">Kontakt</h3>
+            <div className="space-y-3 text-xs">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3 h-3 text-white/80 mt-1 flex-shrink-0" />
                 <span>
@@ -73,8 +73,8 @@ export const Footer = () => {
           
           {/* Social Media & Links */}
           <div className="flex flex-col items-center md:items-start">
-            <h3 className="font-lusitana font-bold text-base mb-2 border-b border-white/20 pb-1 px-2">Folgen Sie uns</h3>
-            <div className="flex gap-3 mb-3">
+            <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">Folgen Sie uns</h3>
+            <div className="flex gap-4 mb-4 justify-center md:justify-start">
               <a href="https://www.youtube.com/@tradicoesportuguesasdeharb1754" target="_blank" rel="noopener noreferrer" 
                 className="text-white hover:text-white/60 transition-colors" aria-label="YouTube">
                 <Youtube size={18} />
@@ -100,8 +100,8 @@ export const Footer = () => {
               </a>
             </div>
             
-            <h3 className="font-lusitana font-bold text-base mb-2 border-b border-white/20 pb-1 px-2">Rechtliches</h3>
-            <div className="grid grid-cols-1 gap-1">
+            <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">Rechtliches</h3>
+            <div className="grid grid-cols-1 gap-2">
               <Link to="/impressum" className="text-white hover:text-white/60 transition-colors text-xs">
                 Impressum
               </Link>
