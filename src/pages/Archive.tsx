@@ -260,7 +260,6 @@ const Archive = () => {
                 className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
                 poster="/images/video-thumbnail-1.jpg"
                 preload="metadata"
-                loading="lazy"
               >
                 <source
                   src="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
@@ -284,7 +283,6 @@ const Archive = () => {
                 className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
                 poster="/images/video-thumbnail-2.jpg"
                 preload="metadata"
-                loading="lazy"
               >
                 <source
                   src="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"

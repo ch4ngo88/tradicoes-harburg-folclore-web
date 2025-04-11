@@ -1,3 +1,4 @@
+
 import { useLanguage } from "@/hooks/useLanguage";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -147,7 +148,6 @@ const Index = () => {
                   poster="/images/offen.jpeg"
                   className="w-full rounded-md"
                   style={{ maxHeight: "400px", objectFit: "cover" }}
-                  loading="lazy"
                   preload="metadata"
                 >
                   Your browser cannot play this video

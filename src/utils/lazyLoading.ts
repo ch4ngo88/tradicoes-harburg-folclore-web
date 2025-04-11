@@ -1,4 +1,6 @@
 
+import React from 'react';
+
 /**
  * Lazy loading utilities for improving performance
  */
