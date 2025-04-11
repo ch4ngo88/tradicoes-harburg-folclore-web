@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,10 +53,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Updated Portuguese flag colors (slightly darker tones)
-        seagreen: "#1a6741", // Darker green
-        portuguesered: "#c01a1a", // Darker red
-        cream: "#fff8e8", // Softer background alternative
+        // Updated colors with darker tones
+        seagreen: "#0A3D22", // Darker forest green (was #1a6741)
+        portuguesered: "#8B0000", // Darker wine red (was #c01a1a)
+        cream: "#fff8e8", // Keeping the same cream color
       },
       fontFamily: {
         lusitana: ["Lusitana", "serif"],
@@ -111,9 +112,9 @@ export default {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "hero-pattern":
-          'linear-gradient(90deg, rgba(26,103,65,0.6) 0%, rgba(192,26,26,0.6) 100%), url("/images/gruppe.jpg")',
+          'linear-gradient(90deg, rgba(10,61,34,0.6) 0%, rgba(139,0,0,0.6) 100%), url("/images/gruppe.jpg")',
         "hero-gradient":
-          "linear-gradient(90deg, rgba(26,103,65,0.6) 0%, rgba(192,26,26,0.6) 100%)",
+          "linear-gradient(90deg, rgba(10,61,34,0.6) 0%, rgba(139,0,0,0.6) 100%)",
       },
     },
   },

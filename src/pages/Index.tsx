@@ -1,6 +1,7 @@
+
 import { useLanguage } from "@/hooks/useLanguage";
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { CallToActionButtons } from "@/components/CallToActionButtons";
 
