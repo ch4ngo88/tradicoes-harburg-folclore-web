@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="de">
   <head>
@@ -14,7 +15,7 @@
     <!-- Security -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' https://cdn.gpteng.co https://www.google.com https://www.gstatic.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.google.com https://www.gstatic.com;"
+      content="default-src 'self'; script-src 'self' https://cdn.gpteng.co https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.google.com https://www.gstatic.com;"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="no-referrer" />
@@ -27,7 +28,7 @@
       http-equiv="Strict-Transport-Security"
       content="max-age=31536000; includeSubDomains; preload"
     />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <!-- Removed X-Frame-Options meta tag as it should be set via HTTP headers -->
     <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
 
     <!-- SEO -->
