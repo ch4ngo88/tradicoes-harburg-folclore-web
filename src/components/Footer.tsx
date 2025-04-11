@@ -18,7 +18,7 @@ export const Footer = () => {
     <footer className="w-full bg-seagreen text-white">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Logo and Description */}
+          {/* Logo, Description and Social Media */}
           <div className="flex flex-col items-center md:items-start h-full">
             <div>
               <div className="flex items-center gap-2 mb-3">
@@ -36,66 +36,15 @@ export const Footer = () => {
                   </h3>
                   <p className="text-xs text-white/70">
                     {language === "pt"
-                      ? "Preservando a cultura portuguesa em Hamburgo desde 1979"
-                      : "Bewahrung der portugiesischen Kultur in Hamburg seit 1979"}
+                      ? "Preservando a cultura portuguesa em Hamburgo\ndesde 1979"
+                      : "Bewahrung der portugiesischen Kultur in Hamburg\nseit 1979"}
                   </p>
                 </div>
               </div>
-              {/* Removed "Centro Português Harburg e.V." as requested */}
             </div>
-
-            {/* Copyright positioned at the bottom of the column with flex-grow pushing it down */}
-            <div className="text-xs text-white/70 mt-auto pt-16">
-              <span className="text-xs align-text-top mr-1">©</span> 2025
-              GCRFP. Alle Rechte vorbehalten.
-            </div>
-          </div>
-
-          {/* Contact Information - Improved mobile layout */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">
-              Kontakt
-            </h3>
-            <div className="space-y-2 text-xs">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-3 h-3 text-white/80 mt-1 flex-shrink-0" />
-                <span>
-                  Reetwerder 23
-                  <br />
-                  21029 Hamburg
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-3 h-3 text-white/80 flex-shrink-0" />
-                <a
-                  href="mailto:info@tradicoesportuguesas.com"
-                  className="hover:text-white/60 transition-colors"
-                >
-                  info@tradicoesportuguesas.com
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-3 h-3 text-white/80 flex-shrink-0" />
-                <a
-                  href="tel:+4940123456789"
-                  className="hover:text-white/60 transition-colors"
-                >
-                  +49 (0) 40 123 456 789
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-3 h-3 text-white/80 flex-shrink-0" />
-                <span>Di. & Fr. 19:00 - 21:00 Uhr</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Social Media & Links - Improved mobile layout */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">
-              Folgen Sie uns
-            </h3>
-            <div className="flex gap-4 mb-4 justify-center md:justify-start">
+            
+            {/* Social Media Icons */}
+            <div className="flex gap-4 mt-3 mb-4 justify-center md:justify-start">
               <a
                 href="https://www.youtube.com/@tradicoesportuguesasdeharb1754"
                 target="_blank"
@@ -146,26 +95,67 @@ export const Footer = () => {
               </a>
             </div>
 
-            <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">
-              Rechtliches
-            </h3>
-            {/* Improved mobile layout for links */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2 md:flex-col">
+            {/* Copyright positioned at the bottom of the column with flex-grow pushing it down */}
+            <div className="text-xs text-white/70 mt-auto pt-8">
+              <span className="text-xs align-text-top mr-1">©</span> 2025
+              GCRFP. Alle Rechte vorbehalten.
+            </div>
+          </div>
+
+          {/* Contact Information - Improved mobile layout */}
+          <div className="flex flex-col items-center md:items-start">
+            <div className="space-y-2 text-sm">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-white/80 mt-1 flex-shrink-0" />
+                <span>
+                  Reetwerder 23
+                  <br />
+                  21029 Hamburg
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-white/80 flex-shrink-0" />
+                <a
+                  href="mailto:info@tradicoesportuguesas.com"
+                  className="hover:text-white/60 transition-colors"
+                >
+                  info@tradicoesportuguesas.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-white/80 flex-shrink-0" />
+                <a
+                  href="tel:+4940123456789"
+                  className="hover:text-white/60 transition-colors"
+                >
+                  +49 (0) 40 123 456 789
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-white/80 flex-shrink-0" />
+                <span>Di. & Fr. 19:00 - 21:00 Uhr</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Legal Links - Improved mobile layout */}
+          <div className="flex flex-col items-center md:items-start">
+            <div className="flex flex-wrap justify-center md:justify-start gap-3">
               <Link
                 to="/impressum"
-                className="text-white hover:text-white/60 transition-colors text-xs"
+                className="text-white hover:text-white/60 transition-colors text-sm"
               >
                 Impressum
               </Link>
               <Link
                 to="/datenschutz"
-                className="text-white hover:text-white/60 transition-colors text-xs"
+                className="text-white hover:text-white/60 transition-colors text-sm"
               >
                 Datenschutzerklärung
               </Link>
               <Link
                 to="/agb"
-                className="text-white hover:text-white/60 transition-colors text-xs"
+                className="text-white hover:text-white/60 transition-colors text-sm"
               >
                 AGB
               </Link>

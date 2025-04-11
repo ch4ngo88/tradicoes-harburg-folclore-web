@@ -1,8 +1,8 @@
-
 import { useLanguage } from "@/hooks/useLanguage";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { CallToActionButtons } from "@/components/CallToActionButtons";
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -69,11 +69,11 @@ const Index = () => {
                 : "Portugiesische Traditionen"}
             </h2>
             <p
-              className="animate-on-load text-xl md:text-2xl opacity-90 font-lusitana max-w-xl"
+              className="animate-on-load text-xl md:text-2xl opacity-90 font-lusitana max-w-xl italic"
             >
               {language === "pt"
-                ? "Preservando a cultura portuguesa em Hamburgo desde 1979"
-                : "Bewahrung der portugiesischen Kultur in Hamburg seit 1979"}
+                ? "Preservando a cultura portuguesa em Hamburgo\ndesde 1979"
+                : "Bewahrung der portugiesischen Kultur in Hamburg\nseit 1979"}
             </p>
             <div className="animate-on-load pt-4">
               <Link
@@ -99,13 +99,13 @@ const Index = () => {
 
             <p>{t("intro")}</p>
 
-            <div className="rounded-lg overflow-hidden shadow-lg my-8 max-w-2xl mx-auto">
+            <div className="rounded-lg overflow-hidden shadow-lg my-8 max-w-2xl mx-auto" style={{ maxHeight: "400px" }}>
               <video
                 src="/images/offen.mp4"
                 controls
                 poster="/images/offen.jpeg"
                 className="w-full rounded-md"
-                style={{ maxHeight: "400px" }}
+                style={{ maxHeight: "400px", objectFit: "cover" }}
               >
                 Your browser cannot play this video
               </video>
@@ -136,53 +136,22 @@ const Index = () => {
               <h3 className="text-xl font-bold text-portuguesered mb-3 font-lusitana">
                 {t("joinUs")}
               </h3>
-              <p>
-                {t("joinUsText")
-                  .split("Atividades")
-                  .map((text, i, arr) => {
-                    if (i === 0) {
-                      return (
-                        <span key={i}>
-                          {text}
-                          <Link
-                            to="/activities"
-                            className="text-portuguesered font-medium hover:underline inline-flex items-center gap-1 font-lusitana"
-                          >
-                            {language === "pt" ? "Atividades" : "Aktivitäten"}
-                            <ChevronRight className="w-4 h-4" />
-                          </Link>
-                        </span>
-                      );
-                    } else {
-                      return (
-                        <span key={i}>
-                          {text
-                            .split("Contacto")
-                            .map((innerText, j, innerArr) => {
-                              if (j === 0) {
-                                return (
-                                  <span key={j}>
-                                    {innerText}
-                                    <Link
-                                      to="/contact"
-                                      className="text-portuguesered font-medium hover:underline inline-flex items-center gap-1 font-lusitana"
-                                    >
-                                      {language === "pt"
-                                        ? "Contacto"
-                                        : "Kontakt"}
-                                      <ChevronRight className="w-4 h-4" />
-                                    </Link>
-                                  </span>
-                                );
-                              } else {
-                                return <span key={j}>{innerText}</span>;
-                              }
-                            })}
-                        </span>
-                      );
-                    }
-                  })}
+              <p className="mb-6">
+                {language === "pt" 
+                  ? "Visite-nos em uma das nossas próximas apresentações ou surpreenda os seus convidados com algo especial e contrate-nos para o seu próximo evento."
+                  : "Besuchen Sie uns bei einem unserer nächsten Auftritte oder überraschen Sie Ihre Gäste mit etwas Besonderem und buchen Sie uns für Ihre nächste Veranstaltung."
+                }
               </p>
+              
+              <CallToActionButtons />
+              
+              <p className="mt-6">
+                {language === "pt" 
+                  ? "Seja como músico ou dançarino, estamos sempre à procura de novos talentos para enriquecer o nosso grupo. Junte-se a nós e viva a paixão pela cultura folclórica portuguesa!"
+                  : "Ob als Musiker oder Tänzer, wir sind immer auf der Suche nach neuen Talenten, um unsere Gruppe zu bereichern. Werden Sie Teil von uns und erleben Sie die Leidenschaft für die portugiesische Folklorekultur!"
+                }
+              </p>
+              
               <p className="font-bold mt-4 text-center">{t("finalMessage")}</p>
             </div>
           </article>
