@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
@@ -122,18 +123,20 @@
            hover:before:w-full;
   }
 
+  /* Enhanced glass card with subtle animation */
   .glass-card {
-    @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-white/20;
+    @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-white/20 transition-all duration-300 hover:shadow-lg;
   }
 
+  /* Enhanced button styles */
   .button-primary {
-    @apply px-6 py-2 bg-seagreen text-white rounded-lg shadow-md 
+    @apply px-6 py-3 bg-seagreen text-white rounded-lg shadow-md 
            hover:bg-seagreen/90 transition-all duration-300 
            active:scale-95 font-medium;
   }
 
   .button-secondary {
-    @apply px-6 py-2 bg-portuguesered text-white rounded-lg shadow-md 
+    @apply px-6 py-3 bg-portuguesered text-white rounded-lg shadow-md 
            hover:bg-portuguesered/90 transition-all duration-300 
            active:scale-95 font-medium;
   }
@@ -146,6 +149,7 @@
     @apply bg-white/20 after:hidden;
   }
 
+  /* Improved photo styling */
   .photo-grid-item {
     @apply overflow-hidden rounded-lg shadow-md transition-all duration-300 
            hover:shadow-lg hover:scale-[1.02];
@@ -156,8 +160,9 @@
            hover:scale-110;
   }
 
+  /* Enhanced member cards */
   .member-card {
-    @apply relative overflow-hidden rounded-xl shadow-md bg-white;
+    @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-xl;
   }
 
   .member-card-image-container {
@@ -178,6 +183,7 @@
     @apply p-4;
   }
 
+  /* Form elements with modern styling */
   .form-container {
     @apply bg-white rounded-xl shadow-lg p-6;
   }
@@ -200,6 +206,7 @@
            focus:ring-opacity-50 transition-colors;
   }
 
+  /* UI component styling */
   .accordion-custom {
     @apply border-none rounded-lg overflow-hidden bg-white shadow-md;
   }
@@ -211,4 +218,39 @@
   .link-item {
     @apply flex items-center p-3 rounded-md hover:bg-slate-100 transition-colors;
   }
+}
+
+/* Premium animation effects for hero section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtlePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(26, 103, 65, 0.4);
+  }
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(26, 103, 65, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(26, 103, 65, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: subtlePulse 4s infinite;
 }

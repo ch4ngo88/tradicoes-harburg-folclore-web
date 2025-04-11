@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import {
@@ -40,9 +41,7 @@ export const Footer = () => {
                   </p>
                 </div>
               </div>
-              <p className="text-xs text-white/80 mt-1">
-                Centro Português Harburg e.V.
-              </p>
+              {/* Removed "Centro Português Harburg e.V." as requested */}
             </div>
 
             {/* Copyright positioned at the bottom of the column with flex-grow pushing it down */}
@@ -52,12 +51,12 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact Information - Improved mobile layout */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">
               Kontakt
             </h3>
-            <div className="space-y-3 text-xs">
+            <div className="space-y-2 text-xs">
               <div className="flex items-start gap-2">
                 <MapPin className="w-3 h-3 text-white/80 mt-1 flex-shrink-0" />
                 <span>
@@ -91,7 +90,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Social Media & Links */}
+          {/* Social Media & Links - Improved mobile layout */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">
               Folgen Sie uns
@@ -150,7 +149,8 @@ export const Footer = () => {
             <h3 className="font-lusitana font-bold text-base mb-3 border-b border-white/20 pb-1 w-full text-center md:text-left md:w-auto md:px-0">
               Rechtliches
             </h3>
-            <div className="grid grid-cols-1 gap-2">
+            {/* Improved mobile layout for links */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2 md:flex-col">
               <Link
                 to="/impressum"
                 className="text-white hover:text-white/60 transition-colors text-xs"
