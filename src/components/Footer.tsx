@@ -11,7 +11,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4 py-6">
         <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Logo and Description */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start h-full">
             <div className="flex items-center gap-2 mb-2">
               <img 
                 src="/images/logo.jpg" 
@@ -30,7 +30,9 @@ export const Footer = () => {
             <p className="text-xs text-white/70 mt-1">
               Centro Português Harburg e.V.
             </p>
-            <div className="mt-auto text-xs text-white/70 absolute bottom-4 md:relative md:bottom-auto md:mt-2">
+            
+            {/* Copyright positioned at the bottom of the column */}
+            <div className="text-xs text-white/70 mt-auto pt-8">
               <span className="text-xs align-text-top mr-1">©</span> 2025 GCRFP. Alle Rechte vorbehalten.
             </div>
           </div>
@@ -87,7 +89,7 @@ export const Footer = () => {
                 className="text-white hover:text-white/60 transition-colors">
                 {/* Correct TikTok SVG icon */}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.321 5.562a5.122 5.122 0 0 1-3.414-1.267 5.111 5.111 0 0 1-1.65-3.295h-3.36v13.328a2.579 2.579 0 0 1-2.568 2.567c-1.42 0-2.568-1.147-2.568-2.568 0-1.421 1.148-2.568 2.568-2.568.287 0 .569.045.83.135V8.084a6.033 6.033 0 0 0-.83-.05C5.068 8.034 2 11.102 2 14.863c0 3.76 3.068 6.829 6.829 6.829 3.76 0 6.828-3.069 6.828-6.83V9.805a8.615 8.615 0 0 0 3.664.822V7.304a5.178 5.178 0 0 1-3.664-1.471v.562c0 .047-.047-.047 0 0 0-.047.047-.094 0-.047-.047.047 0-.094 0-.047s.047.047 0 0c0-.046 0 .047 0 0s0-.094 0 0v-.14l-.047-.094s0 .094 0 0l.047-.094s-.047.094 0 0c0-.047 0 0 0 0v-.047s0 .047 0 0v-.047s0 .047 0 0l-.047-.094h.047z"/>
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                 </svg>
                 <span className="sr-only">TikTok</span>
               </a>

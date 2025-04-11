@@ -1,7 +1,8 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
 import { useState } from 'react';
-import { Users } from 'lucide-react';
+import { Users, UserRound, Music, ScanFace } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 type MemberData = {
   id: number;
@@ -10,157 +11,173 @@ type MemberData = {
   regularImage: string;
   costumeImage: string;
   description?: string;
+  category: 'leadership' | 'music' | 'dancers';
 };
 
 const Membros = () => {
   const { language } = useLanguage();
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
   
-  // Example member data - in a real implementation, this would come from a database or API
+  // Member data with added category property
   const members: MemberData[] = [
     {
       id: 1,
       name: "Maria Silva",
       role: language === 'pt' ? "Dançarina" : "Tänzerin",
-      regularImage: "/images/member-1.jpg", // Replace with actual member images
-      costumeImage: "/images/member-1-costume.jpg", // Replace with actual member costume images
-      description: language === 'pt' ? "Membro desde 2015" : "Mitglied seit 2015"
+      regularImage: "/images/member-1.jpg",
+      costumeImage: "/images/member-1-costume.jpg",
+      description: language === 'pt' ? "Membro desde 2015" : "Mitglied seit 2015",
+      category: "dancers"
     },
     {
       id: 2,
       name: "João Santos",
       role: language === 'pt' ? "Músico" : "Musiker",
-      regularImage: "/images/member-2.jpg", // Replace with actual member images
-      costumeImage: "/images/member-2-costume.jpg", // Replace with actual member costume images
-      description: language === 'pt' ? "Membro desde 2010" : "Mitglied seit 2010"
+      regularImage: "/images/member-2.jpg",
+      costumeImage: "/images/member-2-costume.jpg",
+      description: language === 'pt' ? "Membro desde 2010" : "Mitglied seit 2010",
+      category: "music"
     },
     {
       id: 3,
       name: "Ana Rodrigues",
       role: language === 'pt' ? "Dançarina" : "Tänzerin",
-      regularImage: "/images/member-3.jpg", // Replace with actual member images
-      costumeImage: "/images/member-3-costume.jpg", // Replace with actual member costume images
-      description: language === 'pt' ? "Membro desde 2018" : "Mitglied seit 2018"
+      regularImage: "/images/member-3.jpg",
+      costumeImage: "/images/member-3-costume.jpg",
+      description: language === 'pt' ? "Membro desde 2018" : "Mitglied seit 2018",
+      category: "dancers"
     },
     {
       id: 4,
       name: "Pedro Almeida",
-      role: language === 'pt' ? "Dançarino" : "Tänzer",
-      regularImage: "/images/member-4.jpg", // Replace with actual member images
-      costumeImage: "/images/member-4-costume.jpg", // Replace with actual member costume images
-      description: language === 'pt' ? "Membro desde 2014" : "Mitglied seit 2014"
+      role: language === 'pt' ? "Diretor" : "Direktor",
+      regularImage: "/images/member-4.jpg",
+      costumeImage: "/images/member-4-costume.jpg",
+      description: language === 'pt' ? "Membro desde 2014" : "Mitglied seit 2014",
+      category: "leadership"
     },
     {
       id: 5,
       name: "Sofia Costa",
-      role: language === 'pt' ? "Dançarina" : "Tänzerin",
-      regularImage: "/images/logo.jpg", // Placeholder
-      costumeImage: "/images/logo.jpg", // Placeholder
-      description: language === 'pt' ? "Membro desde 2019" : "Mitglied seit 2019"
+      role: language === 'pt' ? "Presidente" : "Präsidentin",
+      regularImage: "/images/logo.jpg",
+      costumeImage: "/images/logo.jpg",
+      description: language === 'pt' ? "Membro desde 2019" : "Mitglied seit 2019",
+      category: "leadership"
     },
     {
       id: 6,
       name: "Manuel Ferreira",
       role: language === 'pt' ? "Músico" : "Musiker",
-      regularImage: "/images/logo.jpg", // Placeholder
-      costumeImage: "/images/logo.jpg", // Placeholder
-      description: language === 'pt' ? "Membro desde 2017" : "Mitglied seit 2017"
+      regularImage: "/images/logo.jpg",
+      costumeImage: "/images/logo.jpg",
+      description: language === 'pt' ? "Membro desde 2017" : "Mitglied seit 2017",
+      category: "music"
     },
     {
       id: 7,
       name: "Inês Oliveira",
       role: language === 'pt' ? "Dançarina" : "Tänzerin",
-      regularImage: "/images/logo.jpg", // Placeholder
-      costumeImage: "/images/logo.jpg", // Placeholder
-      description: language === 'pt' ? "Membro desde 2020" : "Mitglied seit 2020"
+      regularImage: "/images/logo.jpg",
+      costumeImage: "/images/logo.jpg",
+      description: language === 'pt' ? "Membro desde 2020" : "Mitglied seit 2020",
+      category: "dancers"
     },
     {
       id: 8,
       name: "Ricardo Santos",
-      role: language === 'pt' ? "Dançarino" : "Tänzer",
-      regularImage: "/images/logo.jpg", // Placeholder
-      costumeImage: "/images/logo.jpg", // Placeholder
-      description: language === 'pt' ? "Membro desde 2016" : "Mitglied seit 2016"
+      role: language === 'pt' ? "Músico" : "Musiker",
+      regularImage: "/images/logo.jpg",
+      costumeImage: "/images/logo.jpg",
+      description: language === 'pt' ? "Membro desde 2016" : "Mitglied seit 2016",
+      category: "music"
     },
   ];
+
+  // Filter members by category
+  const leadershipMembers = members.filter(member => member.category === 'leadership');
+  const musicMembers = members.filter(member => member.category === 'music');
+  const dancerMembers = members.filter(member => member.category === 'dancers');
+  
+  // Component for displaying a section of members
+  const MemberSection = ({ 
+    title, 
+    icon: Icon, 
+    members 
+  }: { 
+    title: string, 
+    icon: React.ElementType,
+    members: MemberData[] 
+  }) => (
+    <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg mb-8">
+      <div className="flex items-center gap-2 mb-6">
+        <Icon className="text-seagreen" />
+        <h3 className="text-xl font-bold text-seagreen">{title}</h3>
+      </div>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {members.map(member => (
+          <div 
+            key={member.id} 
+            className="member-card"
+            onMouseEnter={() => setHoveredMember(member.id)}
+            onMouseLeave={() => setHoveredMember(null)}
+          >
+            <div className="member-card-image-container">
+              <img 
+                src={hoveredMember === member.id ? member.costumeImage : member.regularImage} 
+                alt={member.name}
+                className="member-card-image"
+              />
+              <div className="member-card-overlay">
+                <div className="text-white p-4 w-full">
+                  <p className="font-bold">{member.name}</p>
+                  <p className="text-sm text-white/90">{member.role}</p>
+                  {member.description && (
+                    <p className="text-xs mt-1 text-white/70">{member.description}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="member-card-info">
+              <h4 className="font-semibold text-seagreen">{member.name}</h4>
+              <p className="text-sm text-gray-600">{member.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
   
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="section-title inline-block">
-            {language === 'pt' ? 'Membros' : 'Mitglieder'}
+            {language === 'pt' ? 'Nossa Equipe' : 'Unser Team'}
           </h2>
-          
-          <div className="mx-auto w-28 h-28 rounded-full bg-gradient-to-br from-seagreen to-portuguesered p-1 mb-6 mt-8">
-            <img 
-              src="/images/logo.jpg" 
-              alt="Membros logo" 
-              className="w-full h-full rounded-full object-cover" 
-            />
-          </div>
-          
-          <article className="prose max-w-2xl mx-auto text-center text-gray-700 mb-8">
-            <p className="mb-4">
-              {language === 'pt' 
-                ? 'O Centro Português de Harburg é um ponto de encontro cultural e social para a comunidade portuguesa em Hamburgo.'
-                : 'Das Portugiesische Zentrum in Harburg ist ein kultureller und sozialer Treffpunkt für die portugiesische Gemeinschaft in Hamburg.'}
-            </p>
-            
-            <p className="mb-4">
-              {language === 'pt'
-                ? 'Oferecemos diversas atividades como aulas de dança folclórica, encontros comunitários, eventos culturais e muito mais.'
-                : 'Wir bieten verschiedene Aktivitäten wie Volkstanzunterricht, Gemeinschaftstreffen, kulturelle Veranstaltungen und vieles mehr an.'}
-            </p>
-            
-            <p>
-              {language === 'pt'
-                ? 'O nosso espaço está aberto a todos os interessados na cultura portuguesa. Venha visitar-nos!'
-                : 'Unser Raum steht allen offen, die sich für die portugiesische Kultur interessieren. Besuchen Sie uns!'}
-            </p>
-          </article>
         </div>
         
-        <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg mb-12">
-          <div className="flex items-center gap-2 mb-6">
-            <Users className="text-seagreen" />
-            <h3 className="text-xl font-bold text-seagreen">
-              {language === 'pt' ? 'Nossa Equipe' : 'Unser Team'}
-            </h3>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {members.map(member => (
-              <div 
-                key={member.id} 
-                className="member-card"
-                onMouseEnter={() => setHoveredMember(member.id)}
-                onMouseLeave={() => setHoveredMember(null)}
-              >
-                <div className="member-card-image-container">
-                  <img 
-                    src={hoveredMember === member.id ? member.costumeImage : member.regularImage} 
-                    alt={member.name}
-                    className="member-card-image"
-                  />
-                  <div className="member-card-overlay">
-                    <div className="text-white p-4 w-full">
-                      <p className="font-bold">{member.name}</p>
-                      <p className="text-sm text-white/90">{member.role}</p>
-                      {member.description && (
-                        <p className="text-xs mt-1 text-white/70">{member.description}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="member-card-info">
-                  <h4 className="font-semibold text-seagreen">{member.name}</h4>
-                  <p className="text-sm text-gray-600">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Leadership Section */}
+        <MemberSection 
+          title={language === 'pt' ? 'Direção' : 'Leitung'} 
+          icon={UserRound} 
+          members={leadershipMembers} 
+        />
+        
+        {/* Music Section */}
+        <MemberSection 
+          title={language === 'pt' ? 'Coro' : 'Chor'} 
+          icon={Music} 
+          members={musicMembers} 
+        />
+        
+        {/* Dancers Section */}
+        <MemberSection 
+          title={language === 'pt' ? 'Dançarinos' : 'Tänzer/innen'} 
+          icon={ScanFace} 
+          members={dancerMembers} 
+        />
       </div>
     </div>
   );
