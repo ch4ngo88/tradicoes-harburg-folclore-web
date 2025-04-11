@@ -10,9 +10,11 @@ import { Footer } from "@/components/Footer";
 import Index from "./pages/Index";
 import Activities from "./pages/Activities";
 import Archive from "./pages/Archive";
-import Membros from "./pages/Membros"; // Renamed from Center to Membros
+import Membros from "./pages/Membros";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
+import Agb from "./pages/Agb";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,9 +33,11 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/activities" element={<Activities />} />
                 <Route path="/archive" element={<Archive />} />
-                <Route path="/membros" element={<Membros />} /> {/* Updated path from /center to /membros */}
+                <Route path="/membros" element={<Membros />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/impressum" element={<Impressum />} />
+                <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route path="/agb" element={<Agb />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>

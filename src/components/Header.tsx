@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -72,7 +71,7 @@ export const Header = () => {
               <li className="md:py-1.5 py-2">
                 <Link 
                   to="/" 
-                  className={`block md:inline-block ${isActive('/') ? 'current' : 'nav-link'}`}
+                  className={`block md:inline-block hover:text-lightgold transition-colors ${isActive('/') ? 'font-bold text-portuguesered' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('home')}
@@ -81,7 +80,7 @@ export const Header = () => {
               <li className="md:py-1.5 py-2">
                 <Link 
                   to="/activities" 
-                  className={`block md:inline-block ${isActive('/activities') ? 'current' : 'nav-link'}`}
+                  className={`block md:inline-block hover:text-lightgold transition-colors ${isActive('/activities') ? 'font-bold text-portuguesered' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('activities')}
@@ -90,7 +89,7 @@ export const Header = () => {
               <li className="md:py-1.5 py-2">
                 <Link 
                   to="/archive" 
-                  className={`block md:inline-block ${isActive('/archive') ? 'current' : 'nav-link'}`}
+                  className={`block md:inline-block hover:text-lightgold transition-colors ${isActive('/archive') ? 'font-bold text-portuguesered' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('archive')}
@@ -99,7 +98,7 @@ export const Header = () => {
               <li className="md:py-1.5 py-2">
                 <Link 
                   to="/membros" 
-                  className={`block md:inline-block ${isActive('/membros') ? 'current' : 'nav-link'}`}
+                  className={`block md:inline-block hover:text-lightgold transition-colors ${isActive('/membros') ? 'font-bold text-portuguesered' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('membros')}
@@ -108,7 +107,7 @@ export const Header = () => {
               <li className="md:py-1.5 py-2">
                 <Link 
                   to="/contact" 
-                  className={`block md:inline-block ${isActive('/contact') ? 'current' : 'nav-link'}`}
+                  className={`block md:inline-block hover:text-lightgold transition-colors ${isActive('/contact') ? 'font-bold text-portuguesered' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('contact')}
