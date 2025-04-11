@@ -1,0 +1,18 @@
+
+@layer components {
+  .accordion-custom {
+    @apply border-none rounded-lg overflow-hidden bg-white shadow-md;
+  }
+
+  .accordion-trigger {
+    @apply p-4 text-lg font-medium text-seagreen hover:bg-slate-50;
+  }
+
+  .link-item {
+    @apply flex items-center p-3 rounded-md hover:bg-slate-100 transition-colors;
+  }
+  
+  .group:hover .group-hover\:translate-x-1 {
+    @apply translate-x-1;
+  }
+}

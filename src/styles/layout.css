@@ -1,0 +1,16 @@
+
+@layer components {
+  @media (max-width: 767px) {
+    .footer-content {
+      @apply text-left pl-4;
+    }
+    
+    .footer-contact-info > div {
+      @apply flex items-start;
+    }
+  }
+
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-white/20 transition-all duration-300 hover:shadow-lg;
+  }
+}
