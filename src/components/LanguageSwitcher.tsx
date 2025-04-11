@@ -1,6 +1,5 @@
 
 import { useLanguage } from '@/hooks/useLanguage';
-import { Flag } from 'lucide-react';
 
 export const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
@@ -13,7 +12,11 @@ export const LanguageSwitcher = () => {
         aria-label="Switch to Portuguese"
       >
         <span className="flex items-center gap-1">
-          <Flag className="w-4 h-4 text-portuguesered" />
+          <img 
+            src="/images/pt-flag.png" 
+            alt="Portuguese flag" 
+            className="w-5 h-3.5 object-cover shadow-sm" 
+          />
           <span>PT</span>
         </span>
       </button>
@@ -24,7 +27,11 @@ export const LanguageSwitcher = () => {
         aria-label="Switch to German"
       >
         <span className="flex items-center gap-1">
-          <Flag className="w-4 h-4 text-black" />
+          <img 
+            src="/images/de-flag.png" 
+            alt="German flag" 
+            className="w-5 h-3.5 object-cover shadow-sm" 
+          />
           <span>DE</span>
         </span>
       </button>

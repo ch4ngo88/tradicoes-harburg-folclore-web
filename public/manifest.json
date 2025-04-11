@@ -1,0 +1,22 @@
+
+{
+  "name": "Tradições Portuguesas - Rancho Folclórico Hamburg",
+  "short_name": "Tradições PT",
+  "description": "Bewahrung der portugiesischen Kultur in Hamburg seit 1979",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a6741",
+  "icons": [
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'pt' | 'de';
@@ -24,7 +25,7 @@ const translations: Translations = {
   },
   membros: {
     pt: 'Membros',
-    de: 'Membros',
+    de: 'Member',
   },
   contact: {
     pt: 'Contacto',

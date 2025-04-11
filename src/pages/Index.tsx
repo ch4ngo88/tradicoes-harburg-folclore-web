@@ -12,6 +12,13 @@ const Index = () => {
       <div className="relative w-full h-[60vh] bg-hero-pattern bg-cover bg-center flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 mix-blend-multiply"/>
         <div className="relative z-10 text-center text-white max-w-3xl mx-auto px-4">
+          <div className="mb-6 flex justify-center">
+            <img 
+              src="/images/gruppe.jpg" 
+              alt="Group photo" 
+              className="w-32 h-32 rounded-full border-2 border-white object-cover shadow-lg" 
+            />
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in font-lusitana">
             {language === 'pt' ? 'Tradições Portuguesas' : 'Portugiesische Traditionen'}
           </h2>
