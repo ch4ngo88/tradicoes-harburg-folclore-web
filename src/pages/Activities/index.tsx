@@ -2,12 +2,14 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import NewsSection from "./components/NewsSection";
 import EventsSection from "./components/EventsSection";
-import { useNewsItems, useUpcomingEvents } from "./data/activitiesData";
+import EnsaiosSection from "./components/EnsaiosSection";
+import { useNewsItems, useUpcomingEvents, useEnsaios } from "./data/activitiesData";
 
 const Activities = () => {
   const { language } = useLanguage();
   const newsItems = useNewsItems();
   const upcomingEvents = useUpcomingEvents();
+  const ensaios = useEnsaios();
 
   return (
     <div className="container mx-auto py-8 px-4">
@@ -20,6 +22,9 @@ const Activities = () => {
 
       {/* Events Calendar Section */}
       <EventsSection events={upcomingEvents} />
+      
+      {/* Ensaios Section */}
+      <EnsaiosSection ensaios={ensaios} />
     </div>
   );
 };

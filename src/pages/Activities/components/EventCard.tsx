@@ -5,7 +5,8 @@ export type EventType = {
   id: number;
   title: string;
   date: string;
-  image: string;
+  image?: string;
+  video?: string;
   description: string;
   location: string;
 };
@@ -23,11 +24,24 @@ const EventCard = ({ event }: EventCardProps) => {
       className="bg-white/90 rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row card-hover"
     >
       <div className="md:w-1/3 relative">
-        <img
-          src={event.image}
-          alt={event.title}
-          className="w-full h-full object-cover"
-        />
+        {event.video ? (
+          <div className="w-full h-full object-cover aspect-video">
+            <video 
+              src={event.video} 
+              controls 
+              poster={event.image} 
+              className="w-full h-full object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ) : (
+          <img
+            src={event.image}
+            alt={event.title}
+            className="w-full h-full object-cover"
+          />
+        )}
         <div className="absolute top-0 left-0 bg-seagreen text-white px-4 py-2 rounded-br-lg font-medium">
           {new Date(event.date).toLocaleDateString(
             language === "pt" ? "pt-PT" : "de-DE",

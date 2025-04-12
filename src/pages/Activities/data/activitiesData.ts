@@ -2,6 +2,7 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { NewsItemType } from "../components/NewsItem";
 import { EventType } from "../components/EventCard";
+import { EnsaioType } from "../components/EnsaiosSection";
 
 export const useNewsItems = (): NewsItemType[] => {
   const { language } = useLanguage();
@@ -49,6 +50,7 @@ export const useUpcomingEvents = (): EventType[] => {
       title: "Dia de Portugal",
       date: "2025-06-10",
       image: "/images/dia_de_Portugal.jpeg",
+      video: "/videos/offen.mp4",
       description:
         language === "pt"
           ? "Celebração do Dia de Portugal com música tradicional e apresentações de dança."
@@ -66,5 +68,26 @@ export const useUpcomingEvents = (): EventType[] => {
           : "Lernen Sie traditionelle portugiesische Tänze in unserem speziellen Workshop.",
       location: "Centro Português de Harburg",
     },
+  ];
+};
+
+export const useEnsaios = (): EnsaioType[] => {
+  const { language } = useLanguage();
+  
+  return [
+    {
+      title: language === "pt" ? "Ensaio Grupo Adultos" : "Probe Erwachsenengruppe",
+      schedule: language === "pt" 
+        ? "Todos os Domingos (menos Feriados) das 10:00 - 11:30"
+        : "Jeden Sonntag (außer an Feiertagen) von 10:00 - 11:30",
+      image: "/images/gruppe.jpg",
+    },
+    {
+      title: language === "pt" ? "Ensaio Grupo Crianças" : "Probe Kindergruppe",
+      schedule: language === "pt"
+        ? "Todos os Domingos das 11:30 às 13:00"
+        : "Jeden Sonntag von 11:30 bis 13:00 Uhr",
+      image: "/images/kinder.jpg",
+    }
   ];
 };
