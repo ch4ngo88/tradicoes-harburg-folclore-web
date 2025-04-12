@@ -17,7 +17,13 @@ const OptimizedImage = ({
   height?: string;
   loading?: "lazy" | "eager";
 }): JSX.Element => {
-  const basePath = src.substring(0, src.lastIndexOf('.'));
+  // Extract the base path by removing the file extension
+  const getBasePath = (path: string) => {
+    const lastDotIndex = path.lastIndexOf('.');
+    return lastDotIndex !== -1 ? path.substring(0, lastDotIndex) : path;
+  };
+  
+  const basePath = getBasePath(src);
   const webPSrc = `${basePath}.webp`;
   
   return (
