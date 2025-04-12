@@ -36,4 +36,18 @@
   .content-placeholder {
     @apply min-h-[60vh] bg-white;
   }
+  
+  /* Enhanced focus styles for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-seagreen outline-offset-2;
+  }
+  
+  /* Optimized image container */
+  .optimized-image {
+    @apply relative overflow-hidden;
+  }
+
+  .optimized-image img {
+    @apply transition-opacity duration-300;
+  }
 }

@@ -1,13 +1,43 @@
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { CallToActionButtons } from "@/components/CallToActionButtons";
 
 const AboutUsSection = () => {
   const { t, language } = useLanguage();
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add animation classes when the section comes into view
+            entry.target.classList.add("opacity-100");
+            entry.target.classList.remove("opacity-0", "translate-y-4");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div 
+      ref={sectionRef}
+      className="container mx-auto py-12 px-4 transition-all duration-500 opacity-0 translate-y-4"
+    >
       <div className="glass-card p-8 max-w-4xl mx-auto">
         <h2 className="section-title mb-8 font-lusitana">{t("aboutUs")}</h2>
 
@@ -20,7 +50,7 @@ const AboutUsSection = () => {
             <video
               src="/images/offen.mp4"
               controls
-              poster="/images/offen.jpeg"
+              poster="/images/offen.webp"
               className="w-full rounded-md"
               style={{ maxHeight: "400px", objectFit: "cover" }}
               preload="metadata"
@@ -62,8 +92,6 @@ const AboutUsSection = () => {
             </p>
             
             <CallToActionButtons />
-            
-            
             
             <p className="font-bold mt-4 text-center">{t("finalMessage")}</p>
           </div>

@@ -7,6 +7,7 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface HeroSectionProps {
   language: string;
@@ -15,10 +16,12 @@ interface HeroSectionProps {
 const HeroSection = ({ language }: HeroSectionProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
   
-  const heroImageSrc = "/images/gruppe.jpg";
+  // Use WebP format for better compression
+  const heroImageSrc = "/images/gruppe.webp";
+  const heroImageFallback = "/images/gruppe.jpg";
   const heroImageSrcSet = `
-    /images/gruppe-800w.jpg 800w, 
-    /images/gruppe.jpg 1200w
+    /images/gruppe-800w.webp 800w, 
+    /images/gruppe.webp 1200w
   `;
   
   useEffect(() => {
@@ -70,32 +73,35 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                   {/* Top-left decorative border - now positioned above but part of the clickable area */}
                   <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg"></div>
                   
-                  {/* The image */}
-                  <img
-                    src={heroImageSrc}
-                    srcSet={heroImageSrcSet}
-                    sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 33vw"
-                    width="512"
-                    height="384"
-                    alt="Group photo"
-                    className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
+                  {/* The image with modern loading attributes and WebP support */}
+                  <picture>
+                    <source srcSet={heroImageSrcSet} type="image/webp" />
+                    <img
+                      src={heroImageFallback}
+                      width="512"
+                      height="384"
+                      alt="Group photo"
+                      className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                    />
+                  </picture>
                   
                   {/* Bottom-right decorative border - now positioned above but part of the clickable area */}
                   <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg"></div>
                 </div>
               </DialogTrigger>
               <DialogContent className="p-0 max-w-4xl border-none">
-                <img
-                  src={heroImageSrc}
-                  srcSet={heroImageSrcSet}
-                  sizes="(max-width: 1200px) 90vw, 1200px"
-                  alt="Group photo"
-                  className="w-full h-full object-contain rounded-lg"
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcSet={heroImageSrcSet} type="image/webp" />
+                  <img
+                    src={heroImageFallback}
+                    alt="Group photo"
+                    className="w-full h-full object-contain rounded-lg"
+                    loading="lazy"
+                  />
+                </picture>
               </DialogContent>
             </Dialog>
           </div>
