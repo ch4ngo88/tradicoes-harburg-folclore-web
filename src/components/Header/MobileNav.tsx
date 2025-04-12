@@ -52,7 +52,7 @@ const MobileNav = () => {
             <div className="p-4 border-b border-white/10 flex items-center justify-between">
               <span className="font-lusitana font-bold">Menu</span>
               <SheetClose className="rounded-full p-1 hover:bg-white/10 transition-colors">
-                <X size={18} />
+                <X size={18} className="text-[#ea384c]" />
               </SheetClose>
             </div>
             <ul className="flex flex-col w-full text-center pt-4">
@@ -78,12 +78,12 @@ const MobileNav = () => {
                     {getNavIcon(item.path)}
                     {item.label}
                     {isActive(item.path) && (
-                      <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-white rounded-r-md"></span>
+                      <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-[#ea384c] rounded-r-md"></span>
                     )}
                   </Link>
                 </li>
               ))}
-              <li className="mt-auto py-6 border-t border-white/10 px-6 flex justify-center">
+              <li className="mt-auto py-6 border-t border-[#ea384c]/30 px-6 flex justify-center">
                 <LanguageSwitcher />
               </li>
             </ul>
