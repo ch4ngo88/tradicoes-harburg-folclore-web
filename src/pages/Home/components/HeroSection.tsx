@@ -80,7 +80,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                     alt="Group photo"
                     className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
                     loading="eager"
-                    fetchPriority="high"
+                    fetchpriority="high"
                   />
                   
                   {/* Bottom-right decorative border - now positioned above but part of the clickable area */}
