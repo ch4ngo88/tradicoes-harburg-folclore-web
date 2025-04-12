@@ -37,32 +37,14 @@ export const generateSizes = (): string => {
   return '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw';
 };
 
-// Create a picture element with WebP support
-export const createPictureHTML = (
-  src: string, 
-  alt: string, 
-  className: string = "",
-  width?: string,
-  height?: string,
-  loading: "lazy" | "eager" = "lazy"
-): JSX.Element => {
-  const basePath = src.substring(0, src.lastIndexOf('.'));
-  const webPSrc = `${basePath}.webp`;
-  
-  return (
-    <picture>
-      <source srcSet={webPSrc} type="image/webp" />
-      <img 
-        src={src} 
-        alt={alt} 
-        className={className} 
-        width={width} 
-        height={height}
-        loading={loading}
-        decoding="async"
-      />
-    </picture>
-  );
+// Create a picture element with WebP support - exported as a type definition since we can't use JSX in .ts files
+export type PictureElementProps = {
+  src: string;
+  alt: string;
+  className?: string;
+  width?: string;
+  height?: string;
+  loading?: "lazy" | "eager";
 };
 
 // Function to determine if an image should be eager loaded

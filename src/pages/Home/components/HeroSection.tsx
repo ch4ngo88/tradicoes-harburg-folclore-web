@@ -8,6 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
+import OptimizedImage from "@/components/OptimizedImage";
 
 interface HeroSectionProps {
   language: string;
@@ -93,15 +94,12 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                 </div>
               </DialogTrigger>
               <DialogContent className="p-0 max-w-4xl border-none">
-                <picture>
-                  <source srcSet={heroImageSrcSet} type="image/webp" />
-                  <img
-                    src={heroImageFallback}
-                    alt="Group photo"
-                    className="w-full h-full object-contain rounded-lg"
-                    loading="lazy"
-                  />
-                </picture>
+                <OptimizedImage 
+                  src={heroImageFallback}
+                  alt="Group photo"
+                  className="w-full h-full object-contain rounded-lg"
+                  loading="lazy"
+                />
               </DialogContent>
             </Dialog>
           </div>
