@@ -87,7 +87,8 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                       alt="Group photo"
                       className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
                       loading="eager"
-                      fetchpriority="high"
+                      // Fixed: Using correct capitalization for TypeScript - fetchPriority instead of fetchpriority
+                      fetchPriority="high" 
                       decoding="async"
                     />
                   </picture>
