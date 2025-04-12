@@ -1,3 +1,4 @@
+
 import {
   HoverCard,
   HoverCardContent,
@@ -8,6 +9,8 @@ import { useLanguage } from "@/hooks/useLanguage";
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
+  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
@@ -51,6 +54,10 @@ const NewsItem = ({ item, index }: NewsItemProps) => {
           </div>
         </DialogTrigger>
         <DialogContent className="sm:max-w-xl p-0 overflow-hidden">
+          <DialogTitle className="sr-only">{item.title}</DialogTitle>
+          <DialogDescription className="sr-only">
+            {item.description || item.title}
+          </DialogDescription>
           <img
             src={item.source}
             alt={item.title}
