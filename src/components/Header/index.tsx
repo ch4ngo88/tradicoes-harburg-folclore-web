@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 
-export const Header = () => {
+const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const scrollToTop = () => {
