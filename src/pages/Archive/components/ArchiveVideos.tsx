@@ -21,6 +21,8 @@ const ArchiveVideos = ({ language }: ArchiveVideosProps) => {
           posterSrc="/images/video-thumbnail-1.jpg"
           title="Portugueses da zona de Hamburgo"
           description="Comentários sobre a Seleção"
+          captionSrc="/videos/hamburgo-pt.vtt"
+          captionLang="pt"
         />
         
         <VideoCard
@@ -28,6 +30,8 @@ const ArchiveVideos = ({ language }: ArchiveVideosProps) => {
           posterSrc="/images/video-thumbnail-2.jpg"
           title="Rancho Folclórico"
           description="Tradição portuguesa em Hamburgo"
+          captionSrc="/videos/tradicao-pt.vtt"
+          captionLang="pt"
         />
       </div>
     </div>

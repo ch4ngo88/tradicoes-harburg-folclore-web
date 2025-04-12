@@ -70,9 +70,12 @@ const HeroSection = ({ language }: HeroSectionProps) => {
           <div className="relative">
             <Dialog>
               <DialogTrigger asChild>
-                <div className="cursor-pointer relative">
+                <button 
+                  className="relative cursor-pointer"
+                  aria-label={language === "pt" ? "Ampliar imagem do grupo" : "Gruppenbild vergrößern"}
+                >
                   {/* Top-left decorative border - now positioned above but part of the clickable area */}
-                  <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg"></div>
+                  <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
                   
                   {/* The image with modern loading attributes and WebP support */}
                   <picture>
@@ -90,8 +93,8 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                   </picture>
                   
                   {/* Bottom-right decorative border - now positioned above but part of the clickable area */}
-                  <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg"></div>
-                </div>
+                  <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
+                </button>
               </DialogTrigger>
               <DialogContent className="p-0 max-w-4xl border-none">
                 <OptimizedImage 

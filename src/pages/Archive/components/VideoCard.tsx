@@ -6,6 +6,8 @@ interface VideoCardProps {
   posterSrc?: string;
   title: string;
   description: string;
+  captionSrc?: string; // Add optional caption track source
+  captionLang?: string; // Add optional caption language
 }
 
 const VideoCard = ({
@@ -13,6 +15,8 @@ const VideoCard = ({
   posterSrc,
   title,
   description,
+  captionSrc,
+  captionLang = "pt", // Default to Portuguese
 }: VideoCardProps) => {
   return (
     <div className="glass-card overflow-hidden">
@@ -23,6 +27,21 @@ const VideoCard = ({
         preload="metadata"
       >
         <source src={videoSrc} type="video/mp4" />
+        {captionSrc ? (
+          <track 
+            src={captionSrc} 
+            kind="captions" 
+            srcLang={captionLang} 
+            label={captionLang === "pt" ? "Português" : "Deutsch"} 
+          />
+        ) : (
+          // Add a placeholder empty track to satisfy accessibility requirements
+          <track 
+            kind="captions" 
+            srcLang={captionLang} 
+            label={captionLang === "pt" ? "Português" : "Deutsch"}
+          />
+        )}
         Your browser does not support the video tag.
       </video>
       <div className="p-4">
