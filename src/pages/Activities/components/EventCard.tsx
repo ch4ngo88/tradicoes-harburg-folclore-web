@@ -1,5 +1,6 @@
 
 import { useLanguage } from "@/hooks/useLanguage";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 export type EventType = {
   id: number;
@@ -35,12 +36,26 @@ const EventCard = ({ event }: EventCardProps) => {
               Your browser does not support the video tag.
             </video>
           </div>
-        ) : (
-          <img
-            src={event.image}
-            alt={event.title}
-            className="w-full h-full object-cover"
-          />
+        ) : event.image && (
+          <Dialog>
+            <DialogTrigger asChild>
+              <div className="cursor-pointer w-full h-full">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </DialogTrigger>
+            <DialogContent className="p-0 max-w-4xl border-none">
+              <img
+                src={event.image}
+                alt={event.title}
+                className="w-full h-full object-contain rounded-lg"
+                loading="lazy"
+              />
+            </DialogContent>
+          </Dialog>
         )}
         <div className="absolute top-0 left-0 bg-seagreen text-white px-4 py-2 rounded-br-lg font-medium">
           {new Date(event.date).toLocaleDateString(
