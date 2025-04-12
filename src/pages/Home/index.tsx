@@ -6,18 +6,25 @@ import AboutUsSection from "./components/AboutUsSection";
 
 const Home = () => {
   const { language } = useLanguage();
-  const [isContentLoaded, setIsContentLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    const timer = setTimeout(() => setIsContentLoaded(true), 1000);
+    // Add a short timeout to ensure smooth transition
+    const timer = setTimeout(() => setIsLoading(false), 100);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="flex flex-col">
       <HeroSection language={language} />
-
-      {isContentLoaded && <AboutUsSection />}
+      
+      {isLoading ? (
+        <div className="min-h-[60vh] flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-seagreen border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      ) : (
+        <AboutUsSection />
+      )}
     </div>
   );
 };
