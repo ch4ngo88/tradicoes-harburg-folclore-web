@@ -15,15 +15,44 @@ interface HeroSectionProps {
 const HeroSection = ({ language }: HeroSectionProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
   
-  // Define image paths - using absolute paths for reliability
+  // Define image path - using only the JPG version which we know exists
   const heroImageSrc = "/images/gruppe.jpg";
-  const heroImageWebp = "/images/gruppe.webp";
   
   useEffect(() => {
     const heroElement = heroRef.current;
     if (!heroElement) return;
     
-    // ... keep existing code (animation and scroll effect implementation)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-on-screen");
+            observer.unobserve(entry.target); // Stop observing after animating
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+      }
+    );
+
+    // Observe all elements with the class 'animate-on-load' inside the hero
+    heroElement.querySelectorAll(".animate-on-load").forEach((element) => {
+      observer.observe(element);
+    });
+
+    // Simple parallax effect on the hero image
+    const handleScroll = () => {
+      const scrollPosition = window.pageYOffset;
+      heroElement.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect(); // Clean up the observer
+    };
   }, []);
 
   return (
@@ -47,33 +76,27 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                   {/* Top-left decorative border */}
                   <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
                   
-                  {/* The image with WebP support - directly embedded for simplicity */}
-                  <picture>
-                    <source srcSet={heroImageWebp} type="image/webp" />
-                    <img
-                      src={heroImageSrc}
-                      width="512"
-                      height="384"
-                      alt="Group photo"
-                      className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
-                      loading="eager"
-                    />
-                  </picture>
+                  {/* The image - using direct img tag */}
+                  <img
+                    src={heroImageSrc}
+                    width="512"
+                    height="384"
+                    alt="Group photo"
+                    className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
+                    loading="eager"
+                  />
                   
                   {/* Bottom-right decorative border */}
                   <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
                 </button>
               </DialogTrigger>
               <DialogContent className="p-0 max-w-4xl border-none">
-                <picture>
-                  <source srcSet={heroImageWebp} type="image/webp" />
-                  <img
-                    src={heroImageSrc}
-                    alt="Group photo"
-                    className="w-full h-full object-contain rounded-lg"
-                    loading="lazy"
-                  />
-                </picture>
+                <img
+                  src={heroImageSrc}
+                  alt="Group photo"
+                  className="w-full h-full object-contain rounded-lg"
+                  loading="lazy"
+                />
               </DialogContent>
             </Dialog>
           </div>
