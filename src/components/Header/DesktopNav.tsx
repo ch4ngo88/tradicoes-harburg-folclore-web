@@ -18,71 +18,71 @@ const DesktopNav = () => {
           <li className="md:py-1.5 py-4 relative group">
             <Link
               to="/"
-              className={`block md:inline-block hover:text-portuguesered transition-colors ${
+              className={`block md:inline-block hover:text-[#ea384c] transition-colors ${
                 isActive("/") ? "font-bold relative" : ""
               }`}
             >
               {t("home")}
               {isActive("/") && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
+                <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-portuguesered"></span>
               )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#ea384c] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </li>
           <li className="md:py-1.5 py-4 relative group">
             <Link
               to="/activities"
-              className={`block md:inline-block hover:text-portuguesered transition-colors ${
+              className={`block md:inline-block hover:text-[#ea384c] transition-colors ${
                 isActive("/activities") ? "font-bold relative" : ""
               }`}
             >
               {t("activities")}
               {isActive("/activities") && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
+                <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-portuguesered"></span>
               )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#ea384c] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </li>
           <li className="md:py-1.5 py-4 relative group">
             <Link
               to="/archive"
-              className={`block md:inline-block hover:text-portuguesered transition-colors ${
+              className={`block md:inline-block hover:text-[#ea384c] transition-colors ${
                 isActive("/archive") ? "font-bold relative" : ""
               }`}
             >
               {t("archive")}
               {isActive("/archive") && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
+                <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-portuguesered"></span>
               )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#ea384c] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </li>
           <li className="md:py-1.5 py-4 relative group">
             <Link
               to="/membros"
-              className={`block md:inline-block hover:text-portuguesered transition-colors ${
+              className={`block md:inline-block hover:text-[#ea384c] transition-colors ${
                 isActive("/membros") ? "font-bold relative" : ""
               }`}
             >
               {language === "de" ? "Mitglieder" : "Membros"}
               {isActive("/membros") && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
+                <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-portuguesered"></span>
               )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#ea384c] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </li>
           <li className="md:py-1.5 py-4 relative group">
             <Link
               to="/contact"
-              className={`block md:inline-block hover:text-portuguesered transition-colors ${
+              className={`block md:inline-block hover:text-[#ea384c] transition-colors ${
                 isActive("/contact") ? "font-bold relative" : ""
               }`}
             >
               {t("contact")}
               {isActive("/contact") && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-portuguesered"></span>
+                <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-portuguesered"></span>
               )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portuguesered transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#ea384c] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </li>
         </ul>
