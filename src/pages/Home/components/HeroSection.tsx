@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -17,13 +16,9 @@ interface HeroSectionProps {
 const HeroSection = ({ language }: HeroSectionProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
   
-  // Use WebP format for better compression
-  const heroImageSrc = "/images/gruppe.webp";
-  const heroImageFallback = "/images/gruppe.jpg";
-  const heroImageSrcSet = `
-    /images/gruppe-800w.webp 800w, 
-    /images/gruppe.webp 1200w
-  `;
+  // Define image paths
+  const heroImageSrc = "/images/gruppe.jpg";
+  const heroImageWebp = "/images/gruppe.webp";
   
   useEffect(() => {
     const heroElement = heroRef.current;
@@ -74,32 +69,31 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                   className="relative cursor-pointer"
                   aria-label={language === "pt" ? "Ampliar imagem do grupo" : "Gruppenbild vergrößern"}
                 >
-                  {/* Top-left decorative border - now positioned above but part of the clickable area */}
+                  {/* Top-left decorative border */}
                   <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
                   
-                  {/* The image with modern loading attributes and WebP support */}
+                  {/* The image with WebP support */}
                   <picture>
-                    <source srcSet={heroImageSrcSet} type="image/webp" />
+                    <source srcSet={heroImageWebp} type="image/webp" />
                     <img
-                      src={heroImageFallback}
+                      src={heroImageSrc}
                       width="512"
                       height="384"
                       alt="Group photo"
                       className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
                       loading="eager"
-                      // Fixed: Using correct capitalization for TypeScript - fetchPriority instead of fetchpriority
                       fetchPriority="high" 
                       decoding="async"
                     />
                   </picture>
                   
-                  {/* Bottom-right decorative border - now positioned above but part of the clickable area */}
+                  {/* Bottom-right decorative border */}
                   <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
                 </button>
               </DialogTrigger>
               <DialogContent className="p-0 max-w-4xl border-none">
                 <OptimizedImage 
-                  src={heroImageFallback}
+                  src={heroImageSrc}
                   alt="Group photo"
                   className="w-full h-full object-contain rounded-lg"
                   loading="lazy"
