@@ -1,4 +1,5 @@
 
+
 @layer components {
   @media (max-width: 767px) {
     .footer-content {
@@ -7,6 +8,10 @@
     
     .footer-contact-info > div {
       @apply flex items-start;
+    }
+    
+    .footer-separator {
+      @apply my-4 bg-[#ea384c]/30 h-px w-full;
     }
   }
 

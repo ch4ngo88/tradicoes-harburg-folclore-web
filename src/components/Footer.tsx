@@ -10,6 +10,7 @@ import {
   Phone,
   Clock,
 } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 export const Footer = () => {
   const { language } = useLanguage();
@@ -57,6 +58,11 @@ export const Footer = () => {
             </div>
           </div>
 
+          {/* Mobile-only separator */}
+          <div className="md:hidden w-full mb-5 mt-2">
+            <Separator className="bg-[#ea384c]/30" />
+          </div>
+
           {/* Contact Information Column with improved mobile design */}
           <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
             <div className="space-y-2 text-sm md:text-left text-center w-full">
@@ -91,6 +97,11 @@ export const Footer = () => {
                 <span>Di. & Fr. 19:00 - 21:00 Uhr</span>
               </div>
             </div>
+          </div>
+
+          {/* Mobile-only separator */}
+          <div className="md:hidden w-full mb-5 mt-2">
+            <Separator className="bg-[#ea384c]/30" />
           </div>
 
           {/* Legal Links Column with social media icons (for desktop) */}
