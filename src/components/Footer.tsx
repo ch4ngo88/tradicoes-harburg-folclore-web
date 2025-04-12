@@ -31,12 +31,10 @@ export const Footer = () => {
                   loading="lazy"
                 />
                 <div>
-                  <h3 className="font-lusitana font-bold text-base">
-                    <span className="text-seagreen">Trad</span>
-                    <span className="text-portuguesered">ições</span>
-                    <span className="text-seagreen"> Port</span>
-                    <span className="text-portuguesered">uguesas</span>
-                  </h3>
+                <h3 className="font-lusitana font-bold text-base text-seagreen">
+  Tradições Portuguesas
+</h3>
+
                   <p className="text-xs text-gray-600 italic">
                     {language === "pt" ? (
                       <>

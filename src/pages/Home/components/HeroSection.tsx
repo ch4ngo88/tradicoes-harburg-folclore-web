@@ -107,13 +107,20 @@ const HeroSection = ({ language }: HeroSectionProps) => {
               ? "Tradições Portuguesas"
               : "Portugiesische Traditionen"}
           </h2>
-          <p
-            className="animate-on-load text-xl md:text-2xl opacity-90 font-lusitana max-w-xl italic"
-          >
-            {language === "pt"
-              ? "Preservando a cultura portuguesa em Hamburgo\ndesde 1979"
-              : "Bewahrung der portugiesischen Kultur in Hamburg\nseit 1979"}
-          </p>
+          <p className="animate-on-load text-xl md:text-2xl opacity-90 font-lusitana max-w-xl italic">
+  {language === "pt" ? (
+    <>
+      Preservando a cultura portuguesa em Hamburgo<br />
+      desde 1979
+    </>
+  ) : (
+    <>
+      Bewahrung der portugiesischen Kultur in Hamburg<br />
+      seit 1979
+    </>
+  )}
+</p>
+
           <div className="animate-on-load pt-4">
             <Link
               to="/activities"

@@ -63,12 +63,7 @@ const AboutUsSection = () => {
             
             <CallToActionButtons />
             
-            <p className="font-bold text-center mt-6">
-              {language === "pt" 
-                ? "Seja como músico ou dançarino, estamos sempre à procura de novos talentos para enriquecer o nosso grupo. Junte-se a nós e viva a paixão pela cultura folclórica portuguesa!"
-                : "Ob als Musiker oder Tänzer, wir sind immer auf der Suche nach neuen Talenten, um unsere Gruppe zu bereichern. Werden Sie Teil von uns und erleben Sie die Leidenschaft für die portugiesische Folklorekultur!"
-              }
-            </p>
+            
             
             <p className="font-bold mt-4 text-center">{t("finalMessage")}</p>
           </div>
