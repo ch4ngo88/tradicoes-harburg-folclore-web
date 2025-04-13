@@ -4,33 +4,14 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { Users, UserRound, Music } from "lucide-react";
 import CustomDancingIcon from "./components/DancingIcon";
 import MemberSection from "./components/MemberSection";
-import { useMembersData, MemberData } from "./data/membersData";
-
-const Avatar = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.Avatar })));
-const AvatarImage = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarImage })));
-const AvatarFallback = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarFallback })));
+import { useMembersData } from "./data/membersData";
+import { useSectionVisibility } from "./hooks/useSectionVisibility";
 
 const Membros = () => {
   const { language } = useLanguage();
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
-  const [visibleSections, setVisibleSections] = useState<string[]>([]);
+  const { visibleSections } = useSectionVisibility();
   const members = useMembersData();
-
-  useEffect(() => {
-    const loadSections = () => {
-      setVisibleSections(["leadership"]);
-      
-      setTimeout(() => {
-        setVisibleSections(prev => [...prev, "music"]);
-      }, 300);
-      
-      setTimeout(() => {
-        setVisibleSections(prev => [...prev, "dancers"]);
-      }, 600);
-    };
-    
-    loadSections();
-  }, []);
 
   const leadershipMembers = members.filter(
     (member) => member.category === "leadership",
