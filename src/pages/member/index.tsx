@@ -1,16 +1,12 @@
 
 import { useLanguage } from "@/hooks/useLanguage";
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { Users, UserRound, Music } from "lucide-react";
 import CustomDancingIcon from "./components/DancingIcon";
 import MemberSection from "./components/MemberSection";
 import { useMembersData } from "./data/membersData";
 
-const Avatar = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.Avatar })));
-const AvatarImage = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarImage })));
-const AvatarFallback = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarFallback })));
-
-const Membros = () => {
+const MembrosPage = () => {
   const { language } = useLanguage();
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
@@ -44,7 +40,7 @@ const Membros = () => {
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="mb-8">
-          <h2 className="section-title text-left">
+          <h2 className="section-title">
             {language === "pt" ? "Nossa Equipe" : "Unser Team"}
           </h2>
         </div>
@@ -80,4 +76,4 @@ const Membros = () => {
   );
 };
 
-export default Membros;
+export default MembrosPage;
