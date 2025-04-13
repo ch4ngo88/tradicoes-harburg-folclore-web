@@ -13,10 +13,21 @@ const LoadingFallback = () => (
   </div>
 );
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <Suspense fallback={<LoadingFallback />}>
-      <App />
-    </Suspense>
-  </React.StrictMode>,
-);
+// Get the root element
+const rootElement = document.getElementById('root');
+
+// Check if we already have a root before creating a new one
+let root;
+if (rootElement) {
+  // Create root only if it doesn't exist yet
+  // This helps prevent the "container has already been passed to createRoot()" warning
+  root = ReactDOM.createRoot(rootElement);
+  
+  root.render(
+    <React.StrictMode>
+      <Suspense fallback={<LoadingFallback />}>
+        <App />
+      </Suspense>
+    </React.StrictMode>
+  );
+}
