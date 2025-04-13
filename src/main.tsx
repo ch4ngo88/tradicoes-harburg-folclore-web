@@ -3,8 +3,8 @@ import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-// Use lazy loading for the main App component
-const App = lazy(() => import('./App.tsx'));
+// Use lazy loading for the main App component - without file extension
+const App = lazy(() => import('./App'));
 
 // Simple loading component
 const LoadingFallback = () => (
