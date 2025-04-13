@@ -1,10 +1,8 @@
 
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './App';
 import './index.css';
-
-// Use lazy loading for the main App component - without file extension
-const App = lazy(() => import('./App'));
 
 // Simple loading component
 const LoadingFallback = () => (
@@ -17,11 +15,9 @@ const LoadingFallback = () => (
 const rootElement = document.getElementById('root');
 
 // Check if we already have a root before creating a new one
-let root;
 if (rootElement) {
   // Create root only if it doesn't exist yet
-  // This helps prevent the "container has already been passed to createRoot()" warning
-  root = ReactDOM.createRoot(rootElement);
+  const root = ReactDOM.createRoot(rootElement);
   
   root.render(
     <React.StrictMode>
