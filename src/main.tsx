@@ -1,8 +1,10 @@
 
-import React, { Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import './index.css';
+
+// Use lazy loading for the main App component
+const App = lazy(() => import('./App.tsx'));
 
 // Simple loading component
 const LoadingFallback = () => (
@@ -11,19 +13,10 @@ const LoadingFallback = () => (
   </div>
 );
 
-// Get the root element
-const rootElement = document.getElementById('root');
-
-// Check if we already have a root before creating a new one
-if (rootElement) {
-  // Create root only if it doesn't exist yet
-  const root = ReactDOM.createRoot(rootElement);
-  
-  root.render(
-    <React.StrictMode>
-      <Suspense fallback={<LoadingFallback />}>
-        <App />
-      </Suspense>
-    </React.StrictMode>
-  );
-}
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <Suspense fallback={<LoadingFallback />}>
+      <App />
+    </Suspense>
+  </React.StrictMode>,
+);
