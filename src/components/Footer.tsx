@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import {
@@ -58,12 +57,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Mobile-only separator */}
-          <div className="md:hidden w-full mb-5 mt-2">
-            <Separator className="bg-white" />
-          </div>
-
-          {/* Mobile-only social media icons */}
+          {/* Mobile: Social Media Section */}
           <div className="flex flex-col md:hidden items-center justify-center mb-6">
             <div className="flex gap-4 justify-center">
               <a
@@ -117,11 +111,6 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Mobile-only separator */}
-          <div className="md:hidden w-full mb-5">
-            <Separator className="bg-white" />
-          </div>
-
           {/* Contact Information Column with improved mobile design */}
           <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
             <div className="space-y-2 text-sm md:text-left text-center w-full">
@@ -156,11 +145,6 @@ export const Footer = () => {
                 <span>Di. & Fr. 19:00 - 21:00 Uhr</span>
               </div>
             </div>
-          </div>
-
-          {/* Mobile-only separator */}
-          <div className="md:hidden w-full my-5">
-            <Separator className="bg-white" />
           </div>
 
           {/* Legal Links Column */}
