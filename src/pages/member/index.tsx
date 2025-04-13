@@ -4,7 +4,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { Users, UserRound, Music } from "lucide-react";
 import CustomDancingIcon from "./components/DancingIcon";
 import MemberSection from "./components/MemberSection";
-import { useMembersData, MemberData } from "./data/membersData";
+import { useMembersData } from "./data/membersData";
 
 const Avatar = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.Avatar })));
 const AvatarImage = lazy(() => import("@/components/ui/avatar").then(module => ({ default: module.AvatarImage })));
