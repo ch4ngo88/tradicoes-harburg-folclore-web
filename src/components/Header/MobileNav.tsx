@@ -49,7 +49,7 @@ const MobileNav = () => {
           className="bg-seagreen text-white w-64 p-0 rounded-l-2xl"
         >
           <div className="flex flex-col h-full">
-            <div className="p-4 border-b border-[#ea384c]/30 flex items-center justify-between">
+            <div className="p-4 border-b border-white flex items-center justify-between">
               <span className="font-lusitana font-bold">Menu</span>
               <SheetClose className="rounded-full p-1 hover:bg-white/10 transition-colors">
                 <X size={18} className="text-[#ea384c]" />
@@ -83,7 +83,7 @@ const MobileNav = () => {
                   </Link>
                 </li>
               ))}
-              <li className="mt-auto py-6 border-t border-[#ea384c]/30 px-6 flex justify-center">
+              <li className="mt-auto py-6 border-t border-white px-6 flex justify-center">
                 <LanguageSwitcher />
               </li>
             </ul>

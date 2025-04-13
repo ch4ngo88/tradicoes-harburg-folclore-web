@@ -1,5 +1,4 @@
 
-
 @layer components {
   @media (max-width: 767px) {
     .footer-content {
@@ -11,7 +10,7 @@
     }
     
     .footer-separator {
-      @apply my-4 bg-[#ea384c]/30 h-px w-full;
+      @apply my-4 bg-white h-px w-full;
     }
   }
 
