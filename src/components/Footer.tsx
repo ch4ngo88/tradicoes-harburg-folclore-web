@@ -136,7 +136,7 @@ export const Footer = () => {
                   href="tel:+4915731625061"
                   className="hover:text-white/60 transition-colors"
                 >
-                  +49 (0) 15731625061
+                  +49 (0) 157 316 250 61
                 </a>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-2">

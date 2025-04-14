@@ -293,7 +293,7 @@ const Contact = () => {
                 <div className="space-y-2 text-gray-700">
                   <p className="flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-seagreen" />
-                    <span>Gottschalkring 1, Hamburg 21073</span>
+                    <span>Hastedtstraße 30, 21073 Hamburg</span>
                   </p>
                   <p className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-seagreen" />
@@ -301,31 +301,7 @@ const Contact = () => {
                   </p>
                   <p className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-seagreen" />
-                    <span>0160 63 79 525</span>
-                  </p>
-                </div>
-              </div>
-
-              <div className="glass-card p-6">
-                <div className="flex gap-2 items-center mb-4">
-                  <Mail className="text-portuguesered" />
-                  <h3 className="text-xl font-bold text-portuguesered">
-                    {language === "pt" ? "Grupo Cultural" : "Grupo Cultural"}
-                  </h3>
-                </div>
-
-                <div className="space-y-2 text-gray-700">
-                  <p className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-seagreen" />
-                    <span>Gottschalkring 1, Hamburg 21073</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-seagreen" />
-                    <span>gcrfp@hotmail.de</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-seagreen" />
-                    <span>040 77 90 80</span>
+                    <span>+49 (0) 157 316 250 61</span>
                   </p>
                 </div>
               </div>
