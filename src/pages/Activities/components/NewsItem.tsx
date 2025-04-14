@@ -15,13 +15,16 @@ interface NewsItemProps {
 }
 
 const NewsItem = ({ item }: NewsItemProps) => {
+  // Use the thumbnail for videos, not the source
+  const thumbnailSrc = item.thumbnail || item.source;
+  
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="relative overflow-hidden rounded-lg shadow-md bg-white/90 card-hover cursor-pointer h-28">
+        <div className="relative overflow-hidden rounded-lg shadow-md bg-white/90 card-hover cursor-pointer h-24">
           <div className="aspect-auto h-full">
             <img
-              src={item.type === "video" ? item.source : item.thumbnail}
+              src={thumbnailSrc}
               alt={item.title}
               className="w-full h-full object-cover"
             />
@@ -30,8 +33,8 @@ const NewsItem = ({ item }: NewsItemProps) => {
                 <div className="bg-black/50 rounded-full p-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -48,16 +51,16 @@ const NewsItem = ({ item }: NewsItemProps) => {
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-2xl p-0 overflow-hidden">
+      <DialogContent className="sm:max-w-lg p-0 overflow-hidden">
         {item.type === "video" ? (
-          <video controls autoPlay className="w-full max-h-[80vh]">
+          <video controls autoPlay className="w-full max-h-[70vh]">
             <source src={item.source} type="video/mp4" />
           </video>
         ) : (
           <img
             src={item.source}
             alt={item.title}
-            className="w-full max-h-[80vh] object-contain"
+            className="w-full max-h-[70vh] object-contain"
           />
         )}
       </DialogContent>

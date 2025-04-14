@@ -41,11 +41,11 @@ const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
                   />
                 </div>
               </DialogTrigger>
-              <DialogContent className="p-0 max-w-4xl border-none">
+              <DialogContent className="p-0 max-w-2xl border-none">
                 <img
                   src={ensaio.image}
                   alt={ensaio.title}
-                  className="w-full h-full object-contain rounded-lg"
+                  className="w-full h-full max-h-[70vh] object-contain rounded-lg"
                   loading="lazy"
                 />
               </DialogContent>
