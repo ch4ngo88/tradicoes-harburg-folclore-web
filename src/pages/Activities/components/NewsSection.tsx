@@ -17,7 +17,7 @@ const NewsSection = ({ newsItems }: NewsSectionProps) => {
         <h3 className="text-xl font-bold text-portuguesered">{t("news")}</h3>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto">
         {newsItems.map((item, index) => (
           <NewsItem key={index} item={item} index={index} />
         ))}
