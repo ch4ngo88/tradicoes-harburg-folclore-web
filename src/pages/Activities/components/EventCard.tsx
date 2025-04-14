@@ -68,7 +68,7 @@ const EventCard = ({ event }: EventCardProps) => {
           )}
         </div>
       </div>
-      <div className="p-6 md:w-2/3 flex flex-col justify-center">
+       <div className="p-6 md:w-2/3 flex flex-col justify-center">
         <h3 className="text-xl font-bold text-portuguesered mb-2">
           {event.title}
         </h3>
@@ -102,7 +102,7 @@ const EventCard = ({ event }: EventCardProps) => {
             ? "Mais Informações"
             : "Mehr Informationen"}
         </button>
-      </div>
+      </div> 
     </div>
   );
 };
