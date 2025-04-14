@@ -11,7 +11,7 @@ export const useNewsItems = (): NewsItemType[] => {
     {
       type: "image",
       thumbnail: "/images/activity/news/info.jpg",
-      source: "/images/info.jpg",
+      source: "/images/activity/news/info.jpg",
       title: language === "pt" ? "Folheto Informativo" : "Information Flyer",
       description:
         language === "pt"
@@ -20,8 +20,8 @@ export const useNewsItems = (): NewsItemType[] => {
     },
     {
       type: "video",
-      thumbnail: "/images//activity/news/kinder.jpg", // Thumbnail for the video
-      source: "/images//activity/news/kinder.mp4",
+      thumbnail: "/images/activity/news/kinder.jpg",
+      source: "/images/activity/news/kinder.mp4",
       title: language === "pt" ? "Vídeo das Crianças" : "Kinder Video",
       description:
         language === "pt"

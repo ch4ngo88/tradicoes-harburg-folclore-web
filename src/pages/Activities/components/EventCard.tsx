@@ -20,55 +20,71 @@ const EventCard = ({ event }: EventCardProps) => {
   const { language } = useLanguage();
   
   return (
-    <div
-      key={event.id}
-      className="bg-white/90 rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row card-hover"
-    >
-      <div className="md:w-1/3 relative">
-        {event.video ? (
-          <div className="w-full h-full object-cover aspect-video">
-            <video 
-              src={event.video} 
-              controls 
-              poster={event.image} 
-              className="w-full h-full object-cover"
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        ) : event.image && (
-          <Dialog>
-            <DialogTrigger asChild>
-              <div className="cursor-pointer w-full h-full">
+    <div className="bg-white/90 rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row card-hover">
+      <Dialog>
+        <DialogTrigger asChild>
+          <div className="md:w-1/3 relative cursor-pointer">
+            {event.image && (
+              <>
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover aspect-video"
                 />
-              </div>
-            </DialogTrigger>
-            <DialogContent className="p-0 max-w-4xl border-none">
-              <img
-                src={event.image}
-                alt={event.title}
-                className="w-full h-full object-contain rounded-lg"
-                loading="lazy"
-              />
-            </DialogContent>
-          </Dialog>
-        )}
-        <div className="absolute top-0 left-0 bg-seagreen text-white px-4 py-2 rounded-br-lg font-medium">
-          {new Date(event.date).toLocaleDateString(
-            language === "pt" ? "pt-PT" : "de-DE",
-            {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            },
-          )}
-        </div>
-      </div>
-       <div className="p-6 md:w-2/3 flex flex-col justify-center">
+                {event.video && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-black/50 rounded-full p-2 animate-pulse">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+            <div className="absolute top-0 left-0 bg-seagreen text-white px-4 py-2 rounded-br-lg font-medium">
+              {new Date(event.date).toLocaleDateString(
+                language === "pt" ? "pt-PT" : "de-DE",
+                {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                }
+              )}
+            </div>
+          </div>
+        </DialogTrigger>
+        <DialogContent className="p-0 max-w-4xl">
+          <div className="w-full">
+            {event.video ? (
+              <video controls className="w-full h-full">
+                <source src={event.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              event.image && (
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-contain"
+                />
+              )
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+      <div className="p-6 md:w-2/3 flex flex-col justify-center">
         <h3 className="text-xl font-bold text-portuguesered mb-2">
           {event.title}
         </h3>
@@ -96,13 +112,10 @@ const EventCard = ({ event }: EventCardProps) => {
           <span>{event.location}</span>
         </div>
         <p className="text-gray-700">{event.description}</p>
-
         <button className="mt-4 button-secondary self-start">
-          {language === "pt"
-            ? "Mais Informações"
-            : "Mehr Informationen"}
+          {language === "pt" ? "Mais Informações" : "Mehr Informationen"}
         </button>
-      </div> 
+      </div>
     </div>
   );
 };
