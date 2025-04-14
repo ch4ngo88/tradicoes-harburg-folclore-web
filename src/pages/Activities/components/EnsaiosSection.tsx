@@ -18,12 +18,18 @@ const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
   
   return (
     <section className="mb-12">
-      <div className="flex items-center gap-2 mb-8">
+      <div className="flex items-center gap-2 mb-4">
         <Users className="text-portuguesered" />
         <h3 className="text-xl font-bold text-portuguesered">
           {language === "pt" ? "Ensaios" : "Proben"}
         </h3>
       </div>
+
+      <p className="text-gray-600 italic mb-8 text-center">
+        {language === "pt" 
+          ? "(Pausa durante as férias de verão e inverno)" 
+          : "(Pause während der Sommer- und Winterferien)"}
+      </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {ensaios.map((ensaio, index) => (

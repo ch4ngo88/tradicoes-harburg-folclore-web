@@ -43,6 +43,17 @@ export const useUpcomingEvents = (): EventType[] => {
           ? "Celebração do Dia de Portugal com o 31º Festival de Folclore Português. Live Band: NOVO SOM e diretamente de Portugal: Claudia Martins & Minhotos Marotos. Comida, bebida, música, folclore e atividades para crianças. Horário: 12:00 - 22:00."
           : "31. Portugiesisches Folklore Festival mit Live Band NOVO SOM und direkt aus Portugal: Claudia Martins & Minhotos Marotos. Von 12:00 bis 22:00 Uhr gibt es Essen, Trinken, Musik, Folklore und Aktivitäten für Kinder.",
       location: "Landhaus Walter, Otto-Wels-Straße 2, 22303 Hamburg",
+    },
+    {
+      id: 2,
+      title: language === "pt" 
+        ? "Harburg Feiert Vielfalt" 
+        : "Harburg Feiert Vielfalt",
+      date: "2025-07-06",
+      description: language === "pt"
+        ? "Apresentação em cooperação com o Kulturpalast Harburg no evento 'Harburg Feiert Vielfalt'"
+        : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",
+      location: "Harburger Rathausplatz, 21073 Hamburg",
     }
   ];
 };
