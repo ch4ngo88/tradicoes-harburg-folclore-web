@@ -65,10 +65,10 @@ const EventCard = ({ event }: EventCardProps) => {
             </div>
           </div>
         </DialogTrigger>
-        <DialogContent className="p-0 max-w-4xl">
+        <DialogContent className="p-0 max-w-2xl">
           <div className="w-full">
             {event.video ? (
-              <video controls className="w-full h-full">
+              <video controls className="w-full h-full max-h-[70vh]">
                 <source src={event.video} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>

@@ -1,3 +1,4 @@
+
 import { useLanguage } from "@/hooks/useLanguage";
 import { NewsItemType } from "../components/NewsItem";
 import { EventType } from "../components/EventCard";
@@ -35,7 +36,7 @@ export const useUpcomingEvents = (): EventType[] => {
     {
       id: 1,
       title: "31. Portugiesisches Folklore Festival - Dia de Portugal",
-      date: "2025-06-10",
+      date: "2025-06-14",
       image: "/images/activity/next/diadeportugal.mp4",
       video: "/images/activity/next/diadeportugal.mp4",
       description:
@@ -50,6 +51,7 @@ export const useUpcomingEvents = (): EventType[] => {
         ? "Harburg Feiert Vielfalt" 
         : "Harburg Feiert Vielfalt",
       date: "2025-07-06",
+      image: "/images/logo.jpg",  // placeholder image
       description: language === "pt"
         ? "Apresentação em cooperação com o Kulturpalast Harburg no evento 'Harburg Feiert Vielfalt'"
         : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",

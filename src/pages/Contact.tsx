@@ -29,8 +29,7 @@ type UsefulLink = {
   title: string;
 };
 
-// Recaptcha site key - in a real app, you'd use an env variable
-const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // This is Google's test key
+const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
 const ContactForm = () => {
   const { language } = useLanguage();
@@ -61,12 +60,9 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // This will execute reCAPTCHA and return a token
       const token = await executeRecaptcha("contact_form");
       console.log("reCAPTCHA token:", token);
 
-      // In a real application, you would send this data to your server
-      // along with the token for verification
       console.log("Form submitted:", { ...formData, token });
 
       toast({
@@ -254,11 +250,35 @@ const Contact = () => {
         </h1>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-            {/* Contact Form */}
-            <ContactForm />
+          <div className="glass-card p-6 mb-10">
+            <div className="flex gap-2 items-center mb-6">
+              <QrCode className="text-seagreen" />
+              <div>
+                <h3 className="text-xl font-bold text-seagreen">
+                  {language === "pt" ? "Código QR" : "QR-Code"}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {language === "pt"
+                    ? "Escaneie para mais informações"
+                    : "Scannen Sie für weitere Informationen"}
+                </p>
+              </div>
+            </div>
 
-            {/* Contact Information */}
+            <div className="flex justify-center">
+              <img
+                src="/images/QR Code.jpeg"
+                alt="QR Code"
+                className="h-40 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <div className="glass-card p-6">
+              <ContactForm />
+            </div>
+
             <div className="space-y-6">
               <div className="glass-card p-6">
                 <div className="flex gap-2 items-center mb-4">
@@ -326,7 +346,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Useful Links */}
           <div className="mb-8">
             <Accordion type="single" collapsible className="accordion-custom">
               <AccordionItem value="useful-links" className="border-none">
