@@ -1,6 +1,7 @@
 
 import React from "react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface LogoProps {
   scrollToTop: () => void;
@@ -8,10 +9,11 @@ interface LogoProps {
 
 const Logo = ({ scrollToTop }: LogoProps) => {
   const { language } = useLanguage();
+  const isMobile = useIsMobile();
   
   return (
     <div
-      className="flex items-center gap-3 cursor-pointer"
+      className="flex items-center md:gap-3 cursor-pointer"
       onClick={scrollToTop}
     >
       <img
@@ -21,7 +23,7 @@ const Logo = ({ scrollToTop }: LogoProps) => {
         width={48}
         height={48}
       />
-      <div className="text-center md:text-left">
+      <div className={`text-center ${isMobile ? 'absolute left-1/2 -translate-x-1/2' : 'text-left'}`}>
         <span className="text-portuguesered text-sm font-medium block">
           Rancho Folclórico
         </span>

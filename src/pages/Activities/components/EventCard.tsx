@@ -112,9 +112,16 @@ const EventCard = ({ event }: EventCardProps) => {
           <span>{event.location}</span>
         </div>
         <p className="text-gray-700">{event.description}</p>
-        <button className="mt-4 button-secondary self-start">
-          {language === "pt" ? "Mais Informações" : "Mehr Informationen"}
-        </button>
+        {event.id === 1 && (
+          <a
+            href="https://diadeportugal.ticket.io/eg0vus7w/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 button-secondary self-start"
+          >
+            {language === "pt" ? "Comprar Bilhetes" : "Tickets kaufen"}
+          </a>
+        )}
       </div>
     </div>
   );
