@@ -17,21 +17,15 @@ const ArchiveVideos = ({ language }: ArchiveVideosProps) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <VideoCard
-          videoSrc="/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
-          posterSrc="/images/video-thumbnail-1.jpg"
+          videoSrc="/images/archive/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
           title="Portugueses da zona de Hamburgo"
           description="Comentários sobre a Seleção"
-          captionSrc="/videos/hamburgo-pt.vtt"
-          captionLang="pt"
         />
         
         <VideoCard
-          videoSrc="/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"
-          posterSrc="/images/video-thumbnail-2.jpg"
+          videoSrc="/images/archive/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"
           title="Rancho Folclórico"
           description="Tradição portuguesa em Hamburgo"
-          captionSrc="/videos/tradicao-pt.vtt"
-          captionLang="pt"
         />
       </div>
     </div>
