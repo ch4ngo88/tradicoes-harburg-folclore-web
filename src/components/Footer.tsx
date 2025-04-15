@@ -7,8 +7,7 @@ import {
   MapPin,
   Mail,
   Phone,
-  Clock,
-  TikTok
+  Clock
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
