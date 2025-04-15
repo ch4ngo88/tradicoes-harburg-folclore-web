@@ -1,4 +1,6 @@
+
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type MemberData = {
   id: number;
@@ -18,13 +20,23 @@ interface MemberCardProps {
 
 const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const isMobile = useIsMobile();
+  
+  const handleInteraction = () => {
+    if (hoveredMember === member.id) {
+      setHoveredMember(null);
+    } else {
+      setHoveredMember(member.id);
+    }
+  };
   
   return (
     <div
       key={member.id}
       className="member-card max-w-[240px]"
-      onMouseEnter={() => setHoveredMember(member.id)}
-      onMouseLeave={() => setHoveredMember(null)}
+      onMouseEnter={() => !isMobile && setHoveredMember(member.id)}
+      onMouseLeave={() => !isMobile && setHoveredMember(null)}
+      onClick={() => isMobile && handleInteraction()}
     >
       <div className="member-card-image-container w-[240px] h-[240px]">
         {!imageLoaded && (
@@ -39,17 +51,7 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
           height="240"
           onLoad={() => setImageLoaded(true)}
         />
-        <div className="member-card-overlay rounded-t-lg">
-          <div className="text-white p-4 w-full">
-            <p className="font-bold">{member.name}</p>
-            <p className="text-sm text-white/90">{member.role}</p>
-            {member.description && (
-              <p className="text-xs mt-1 text-white/70">
-                {member.description}
-              </p>
-            )}
-          </div>
-        </div>
+        <div className={`member-card-overlay rounded-t-lg ${hoveredMember === member.id ? 'opacity-0' : 'opacity-100'}`} />
       </div>
       <div className="member-card-info">
         <h4 className="font-semibold text-seagreen">{member.name}</h4>

@@ -1,3 +1,4 @@
+
 @layer components {
   .photo-grid-item {
     @apply overflow-hidden rounded-lg shadow-md transition-all duration-300 
@@ -10,7 +11,7 @@
   }
 
   .member-card {
-    @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-xl max-w-[280px] mx-auto;
+    @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-xl max-w-[280px] mx-auto cursor-pointer;
   }
 
   .member-card-image-container {
@@ -23,8 +24,7 @@
 
   .member-card-overlay {
     @apply absolute inset-0 bg-gradient-to-t from-black/70 to-transparent 
-           opacity-0 hover:opacity-100 transition-opacity duration-300 
-           flex items-end;
+           transition-opacity duration-300;
   }
 
   .member-card-info {
