@@ -1,12 +1,11 @@
 
 import React from "react";
 import VideoCard from "./VideoCard";
+import { useLanguage } from "@/hooks/useLanguage";
 
-interface ArchiveVideosProps {
-  language: string;
-}
-
-const ArchiveVideos = ({ language }: ArchiveVideosProps) => {
+const ArchiveVideos = () => {
+  const { language } = useLanguage();
+  
   return (
     <div className="w-full max-w-4xl mx-auto mb-12 animate-fade-in">
       <div className="text-center mb-6">
@@ -18,7 +17,11 @@ const ArchiveVideos = ({ language }: ArchiveVideosProps) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <VideoCard
           videoSrc="/images/archive/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
-          title={language === "pt" ? "Entrevista para A Bola" : "Interview für A Bola"}
+          title={
+            <>
+              Entrevista para <span className="text-[#ea384c]">A BOLA</span>
+            </>
+          }
           description={
             language === "pt"
               ? "Entrevista sobre como a comunidade portuguesa em Hamburgo acompanha a Seleção Nacional"
@@ -28,7 +31,11 @@ const ArchiveVideos = ({ language }: ArchiveVideosProps) => {
         
         <VideoCard
           videoSrc="/images/archive/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"
-          title={language === "pt" ? "História no A Bola" : "Geschichte in A Bola"}
+          title={
+            <>
+              Entrevista para <span className="text-[#ea384c]">A BOLA</span>
+            </>
+          }
           description={
             language === "pt"
               ? "Reportagem sobre a nossa história e a preservação da cultura portuguesa no estrangeiro"
