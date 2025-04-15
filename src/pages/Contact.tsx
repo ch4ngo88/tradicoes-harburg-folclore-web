@@ -96,28 +96,6 @@ const ContactForm = () => {
 
   return (
     <div className="glass-card p-6">
-      <div className="flex gap-2 items-center mb-6">
-        <QrCode className="text-seagreen" />
-        <div>
-          <h3 className="text-xl font-bold text-seagreen">
-            {language === "pt" ? "Código QR" : "QR-Code"}
-          </h3>
-          <p className="text-sm text-gray-600">
-            {language === "pt"
-              ? "Escaneie para mais informações"
-              : "Scannen Sie für weitere Informationen"}
-          </p>
-        </div>
-      </div>
-
-      <div className="flex justify-center mb-6">
-        <img
-          src="/images/QR Code.jpeg"
-          alt="QR Code"
-          className="h-40 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-        />
-      </div>
-
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
           <label htmlFor="name" className="form-label">
@@ -260,9 +238,7 @@ const Contact = () => {
                 <div className="flex gap-2 items-center mb-4">
                   <Mail className="text-portuguesered" />
                   <h3 className="text-xl font-bold text-portuguesered">
-                    {language === "pt"
-                      ? "Rancho Folclórico Tradicoes Portuguesas"
-                      : "Rancho Folclórico Tradicoes Portuguesas"}
+                    Rancho Folclórico Tradicoes Portuguesas
                   </h3>
                 </div>
 
@@ -332,6 +308,28 @@ const Contact = () => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+          </div>
+          
+          <div className="flex gap-2 items-center mb-6">
+            <QrCode className="text-seagreen" />
+            <div>
+              <h3 className="text-xl font-bold text-seagreen">
+                {language === "pt" ? "Código QR" : "QR-Code"}
+              </h3>
+              <p className="text-sm text-gray-600">
+                {language === "pt"
+                  ? "Escaneie para mais informações"
+                  : "Scannen Sie für weitere Informationen"}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-center mb-6">
+            <img
+              src="/images/QR Code.jpeg"
+              alt="QR Code"
+              className="h-40 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+            />
           </div>
         </div>
       </div>

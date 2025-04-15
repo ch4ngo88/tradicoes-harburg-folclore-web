@@ -1,9 +1,9 @@
 
 import React from "react";
-import { Smile } from "lucide-react";
+import { Footprints } from "lucide-react";
 
 const CustomDancingIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <Smile {...props} />
+  <Footprints {...props} />
 );
 
 export default CustomDancingIcon;
