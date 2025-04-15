@@ -16,9 +16,7 @@ export const CallToActionButtons = () => {
       >
         <Link to="/activities">
           <Calendar size={18} />
-          {language === "pt"
-            ? "Ver próximas apresentações"
-            : "Nächste Auftritte ansehen"}
+          {language === "pt" ? "Ver Proximas Atividades" : "Nächste Auftritte ansehen"}
         </Link>
       </Button>
 
@@ -29,7 +27,7 @@ export const CallToActionButtons = () => {
       >
         <Link to="/contact">
           <Mail size={18} />
-          {language === "pt" ? "Contratar para eventos" : "Für Events buchen"}
+          {language === "pt" ? "Contactar" : "Für Events buchen"}
         </Link>
       </Button>
     </div>

@@ -14,13 +14,11 @@ const CustomDancingIcon = (props: React.SVGProps<SVGSVGElement>) => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <circle cx="12" cy="5" r="2" />
-    <path d="m15 22-3-9-3 9" />
-    <path d="M15 8v2l-3 1-3-1V8Z" />
-    <path d="m9 22 1-14" />
-    <path d="m15 22-1-14" />
-    <path d="M12 8v14" />
-    <path d="m7 6 1 2c.7 1.3 2.3 1.3 3 0 .7-1.3 2.3-1.3 3 0l1-2" />
+    <path d="M12 3a3 3 0 0 0-3 3v12a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z" />
+    <path d="m8 16 4-4 4 4" />
+    <path d="M12 17v4" />
+    <circle cx="17" cy="7" r="2" />
+    <circle cx="7" cy="7" r="2" />
   </svg>
 );
 

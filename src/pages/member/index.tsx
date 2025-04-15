@@ -41,12 +41,12 @@ const MembrosPage = () => {
       <div className="max-w-5xl mx-auto">
         <div className="mb-8">
           <h2 className="section-title">
-            {language === "pt" ? "Nossa Equipe" : "Unser Team"}
+            {language === "pt" ? "A nossa Equipa" : "Unser Team"}
           </h2>
         </div>
 
         <MemberSection
-          title={language === "pt" ? "Direção" : "Leitung"}
+          title={language === "pt" ? "Gerência" : "Leitung"}
           icon={UserRound}
           members={leadershipMembers}
           isVisible={visibleSections.includes("leadership")}

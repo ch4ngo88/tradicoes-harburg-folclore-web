@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 type MemberData = {
@@ -23,18 +22,18 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   return (
     <div
       key={member.id}
-      className="member-card"
+      className="member-card max-w-[240px]"
       onMouseEnter={() => setHoveredMember(member.id)}
       onMouseLeave={() => setHoveredMember(null)}
     >
-      <div className="member-card-image-container">
+      <div className="member-card-image-container h-[240px]">
         {!imageLoaded && (
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
         )}
         <img
           src={hoveredMember === member.id ? member.costumeImage : member.regularImage}
           alt={member.name}
-          className={`member-card-image ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`member-card-image object-cover w-full h-full ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           loading="lazy"
           width="240" 
           height="240"
