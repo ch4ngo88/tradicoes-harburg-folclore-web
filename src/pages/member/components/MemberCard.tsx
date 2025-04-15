@@ -26,20 +26,20 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
       onMouseEnter={() => setHoveredMember(member.id)}
       onMouseLeave={() => setHoveredMember(null)}
     >
-      <div className="member-card-image-container h-[240px]">
+      <div className="member-card-image-container w-[240px] h-[240px]">
         {!imageLoaded && (
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
         )}
         <img
           src={hoveredMember === member.id ? member.costumeImage : member.regularImage}
           alt={member.name}
-          className={`member-card-image object-cover w-full h-full ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`member-card-image object-cover w-full h-full rounded-t-lg ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           loading="lazy"
           width="240" 
           height="240"
           onLoad={() => setImageLoaded(true)}
         />
-        <div className="member-card-overlay">
+        <div className="member-card-overlay rounded-t-lg">
           <div className="text-white p-4 w-full">
             <p className="font-bold">{member.name}</p>
             <p className="text-sm text-white/90">{member.role}</p>
