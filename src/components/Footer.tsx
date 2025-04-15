@@ -18,10 +18,10 @@ export const Footer = () => {
     <footer className="w-full bg-seagreen text-white">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-5xl mx-auto md:grid md:grid-cols-3 md:gap-8">
-          {/* Logo Column with styled text in white background */}
-          <div className="flex flex-col items-center md:items-start">
-            <div className="bg-white p-4 rounded-md inline-block mb-3 w-full md:w-auto">
-              <div className="flex items-center justify-center md:justify-start gap-3">
+          {/* Logo Column with centered content */}
+          <div className="flex flex-col items-center justify-between h-full">
+            <div className="bg-white p-4 rounded-md inline-block mb-3 w-full md:w-auto text-center">
+              <div className="flex flex-col items-center justify-center gap-3">
                 <img
                   src="/images/logo.jpg"
                   alt="Rancho logo"
@@ -30,20 +30,15 @@ export const Footer = () => {
                   height={40}
                   loading="lazy"
                 />
-                <div>
-                <h3 className="font-lusitana font-bold text-base text-seagreen">
-                  Tradições Portuguesas
-                </h3>
-
+                <div className="text-center">
+                  <h3 className="font-lusitana font-bold text-base text-seagreen">
+                    Tradições Portuguesas
+                  </h3>
                   <p className="text-xs text-gray-600 italic">
                     {language === "pt" ? (
-                      <>
-                        Preservando a cultura portuguesa em Hamburgo desde 1979
-                      </>
+                      "Preservando a cultura portuguesa em Hamburgo desde 1979"
                     ) : (
-                      <>
-                        Bewahrung der portugiesischen Kultur in Hamburg seit 1979
-                      </>
+                      "Bewahrung der portugiesischen Kultur in Hamburg seit 1979"
                     )}
                   </p>
                 </div>
@@ -51,8 +46,8 @@ export const Footer = () => {
             </div>
             
             {/* Desktop: Copyright Notice */}
-            <div className="text-xs text-white/70 mt-3 text-center md:text-left w-full hidden md:block">
-              <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
+            <div className="text-xs text-white/70 mt-auto text-center w-full hidden md:block">
+              © 2025. Alle Rechte vorbehalten.
             </div>
           </div>
 
@@ -103,14 +98,9 @@ export const Footer = () => {
                 </a>
               ))}
             </div>
-            
-            {/* Separator AFTER social media icons - soft, rounded style */}
-            <div className="w-full my-4 px-4">
-              <div className="h-0.5 bg-white/20 rounded-full"></div>
-            </div>
           </div>
 
-          {/* Contact Information Column with improved mobile design */}
+          {/* Contact Information Column */}
           <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm">
             <div className="space-y-2 text-sm md:text-left text-center w-full">
               <div className="flex items-start md:items-center justify-center md:justify-start gap-2">
@@ -144,17 +134,10 @@ export const Footer = () => {
                 <span>So. von 11 - 14:00 Uhr</span>
               </div>
             </div>
-            
-            {/* Mobile only: Separator AFTER address info - soft, rounded style */}
-            <div className="w-full mt-4 md:hidden px-4">
-              <div className="h-0.5 bg-white/20 rounded-full"></div>
-            </div>
           </div>
 
           {/* Legal Links Column */}
-          <div className="flex flex-col md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm">
-            
-
+          <div className="flex flex-col md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm relative">
             <ul className="flex flex-col space-y-1 items-center md:items-start w-full">
               <li>
                 <Link
@@ -181,12 +164,12 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
-            
           </div>
+
           {/* Mobile-only copyright notice */}
-            <div className="text-xs text-white/70 mb-4 text-center w-full md:hidden">
-              <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
-            </div>
+          <div className="text-xs text-white/70 mb-4 text-center w-full md:hidden">
+            © 2025. Alle Rechte vorbehalten.
+          </div>
         </div>
       </div>
     </footer>
