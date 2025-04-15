@@ -250,30 +250,6 @@ const Contact = () => {
         </h1>
 
         <div className="max-w-6xl mx-auto">
-          <div className="glass-card p-6 mb-10">
-            <div className="flex gap-2 items-center mb-6">
-              <QrCode className="text-seagreen" />
-              <div>
-                <h3 className="text-xl font-bold text-seagreen">
-                  {language === "pt" ? "Código QR" : "QR-Code"}
-                </h3>
-                <p className="text-sm text-gray-600">
-                  {language === "pt"
-                    ? "Escaneie para mais informações"
-                    : "Scannen Sie für weitere Informationen"}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <img
-                src="/images/QR Code.jpeg"
-                alt="QR Code"
-                className="h-40 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-              />
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
             <div className="glass-card p-6">
               <ContactForm />
@@ -285,8 +261,8 @@ const Contact = () => {
                   <Mail className="text-portuguesered" />
                   <h3 className="text-xl font-bold text-portuguesered">
                     {language === "pt"
-                      ? "Rancho Folclórico"
-                      : "Rancho Folclórico"}
+                      ? "Rancho Folclórico Tradicoes Portuguesas"
+                      : "Rancho Folclórico Tradicoes Portuguesas"}
                   </h3>
                 </div>
 
