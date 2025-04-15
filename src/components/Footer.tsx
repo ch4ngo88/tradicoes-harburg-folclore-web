@@ -77,26 +77,30 @@ export const Footer = () => {
                       </>
                     )}
                   </p>
-                  {/* Desktop: Social Media Icons - NEW LOCATION */}
-                  <div className="hidden md:flex gap-3 justify-center mt-3">
-                    {socialMediaLinks.map((item) => (
-                      <a
-                        key={item.label}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-seagreen hover:text-seagreen/60 transition-all duration-300 hover:scale-110 hover:shadow-md rounded-full p-2 hover:bg-seagreen/10"
-                        aria-label={item.label}
-                      >
-                        {item.icon}
-                        <span className="sr-only">{item.label}</span>
-                      </a>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Desktop: Social Media Icons - MOVED OUTSIDE WHITE BOX */}
+          <div className="hidden md:flex items-center justify-center">
+            <div className="flex gap-4">
+              {socialMediaLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white/60 transition-all duration-300 hover:scale-110 hover:shadow-md rounded-full p-2 hover:bg-white/10"
+                  aria-label={item.label}
+                >
+                  {item.icon}
+                  <span className="sr-only">{item.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           {/* Mobile: Social Media Section - WITHOUT separator before it */}
           <div className="flex flex-col md:hidden items-center justify-center">
             <div className="flex gap-4 justify-center">
@@ -194,8 +198,6 @@ export const Footer = () => {
 
           {/* Legal Links Column */}
           <div className="flex flex-col md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm">
-            
-
             <ul className="flex flex-col space-y-1 items-center md:items-start w-full">
               <li>
                 <Link
@@ -223,15 +225,15 @@ export const Footer = () => {
               </li>
             </ul>
             {/* Desktop: Copyright Notice */}
- <div className="text-xs text-white/70 mt-3 text-center md:text-left w-full hidden md:block">
+            <div className="text-xs text-white/70 mt-3 text-center md:text-left w-full hidden md:block">
               <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
             </div>
             
           </div>
           {/* Mobile-only copyright notice */}
-            <div className="text-xs text-white/70 mb-4 text-center w-full md:hidden">
-              <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
-            </div>
+          <div className="text-xs text-white/70 mb-4 text-center w-full md:hidden">
+            <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
+          </div>
         </div>
       </div>
     </footer>
