@@ -57,7 +57,7 @@ export const Footer = () => {
           </div>
 
           {/* Mobile: Social Media Section - WITHOUT separator before it */}
-          <div className="flex flex-col md:hidden items-center justify-center mb-6">
+          <div className="flex flex-col md:hidden items-center justify-center">
             <div className="flex gap-4 justify-center">
               {[
                 { 
@@ -111,7 +111,7 @@ export const Footer = () => {
           </div>
 
           {/* Contact Information Column with improved mobile design */}
-          <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
+          <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm">
             <div className="space-y-2 text-sm md:text-left text-center w-full">
               <div className="flex items-start md:items-center justify-center md:justify-start gap-2">
                 <MapPin className="w-4 h-4 text-white/80 mt-1 flex-shrink-0" />
@@ -152,11 +152,8 @@ export const Footer = () => {
           </div>
 
           {/* Legal Links Column */}
-          <div className="flex flex-col md:items-start bg-seagreen/20 p-4 rounded-md backdrop-blur-sm">
-            {/* Mobile-only copyright notice */}
-            <div className="text-xs text-white/70 mb-4 text-center w-full md:hidden">
-              <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
-            </div>
+          <div className="flex flex-col md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm">
+            
 
             <ul className="flex flex-col space-y-1 items-center md:items-start w-full">
               <li>
@@ -184,7 +181,12 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
+            
           </div>
+          {/* Mobile-only copyright notice */}
+            <div className="text-xs text-white/70 mb-4 text-center w-full md:hidden">
+              <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
+            </div>
         </div>
       </div>
     </footer>

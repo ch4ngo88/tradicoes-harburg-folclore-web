@@ -23,7 +23,14 @@ const Logo = ({ scrollToTop }: LogoProps) => {
         width={48}
         height={48}
       />
-      <div className={`text-center ${isMobile ? 'absolute left-1/2 -translate-x-1/2' : 'text-left'}`}>
+      <div
+  className={`${
+    isMobile
+      ? "absolute left-1/2 -translate-x-1/2 w-full max-w px-4 text-center"
+      : "text-left"
+  }`}
+>
+
         <span className="text-portuguesered text-sm font-medium block">
           Rancho Folclórico
         </span>
