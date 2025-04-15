@@ -129,7 +129,7 @@ const EventCard = ({ event }: EventCardProps) => {
             href="https://diadeportugal.ticket.io/eg0vus7w/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 button-secondary self-start"
+            className="mt-4 button-secondary min-w-[200px] text-center self-start"
           >
             {language === "pt" ? "Comprar Bilhetes" : "Tickets kaufen"}
           </a>

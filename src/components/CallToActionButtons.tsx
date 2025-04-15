@@ -11,18 +11,18 @@ export const CallToActionButtons = () => {
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
       <Button
         variant="default"
-        className="bg-seagreen hover:bg-seagreen/90 text-white flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+        className="bg-seagreen hover:bg-seagreen/90 text-white flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] min-w-[200px] justify-center"
         asChild
       >
         <Link to="/activities">
           <Calendar size={18} />
-          {language === "pt" ? "Ver Proximas Atividades" : "Nächste Auftritte ansehen"}
+          {language === "pt" ? "Ver Atividades" : "Aktivitäten ansehen"}
         </Link>
       </Button>
 
       <Button
         variant="default"
-        className="bg-portuguesered hover:bg-portuguesered/90 text-white flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+        className="bg-portuguesered hover:bg-portuguesered/90 text-white flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] min-w-[200px] justify-center"
         asChild
       >
         <Link to="/contact">
