@@ -67,20 +67,22 @@ const MobileNav = () => {
                 { path: "/contact", label: t("contact") },
               ].map((item) => (
                 <li key={item.path} className="py-3 relative">
-                  <Link
-                    to={item.path}
-                    className={`flex items-center px-6 py-2 rounded-lg transition-all ${
-                      isActive(item.path)
-                        ? "bg-white/10 font-bold text-white"
-                        : "hover:bg-white/5"
-                    }`}
-                  >
-                    {getNavIcon(item.path)}
-                    {item.label}
-                    {isActive(item.path) && (
-                      <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-[#ea384c] rounded-r-md shadow-md"></span>
-                    )}
-                  </Link>
+                  <SheetClose asChild>
+                    <Link
+                      to={item.path}
+                      className={`flex items-center px-6 py-2 rounded-lg transition-all ${
+                        isActive(item.path)
+                          ? "bg-white/10 font-bold text-white"
+                          : "hover:bg-white/5"
+                      }`}
+                    >
+                      {getNavIcon(item.path)}
+                      {item.label}
+                      {isActive(item.path) && (
+                        <span className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-[#ea384c] rounded-r-md shadow-md"></span>
+                      )}
+                    </Link>
+                  </SheetClose>
                 </li>
               ))}
               <li className="mt-auto py-6 border-t border-white/20 px-6 flex justify-center">
