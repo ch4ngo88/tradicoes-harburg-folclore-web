@@ -77,23 +77,23 @@ export const Footer = () => {
                       </>
                     )}
                   </p>
+                  {/* Desktop: Social Media Icons - NEW LOCATION */}
+                  <div className="hidden md:flex gap-3 justify-center mt-3">
+                    {socialMediaLinks.map((item) => (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-seagreen hover:text-seagreen/60 transition-all duration-300 hover:scale-110 hover:shadow-md rounded-full p-2 hover:bg-seagreen/10"
+                        aria-label={item.label}
+                      >
+                        {item.icon}
+                        <span className="sr-only">{item.label}</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              {/* Desktop: Social Media Icons */}
-              <div className="hidden md:flex gap-3 justify-center mt-3">
-                {socialMediaLinks.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-seagreen hover:text-seagreen/60 transition-all duration-300 hover:scale-110 hover:shadow-md rounded-full p-2 hover:bg-seagreen/10"
-                    aria-label={item.label}
-                  >
-                    {item.icon}
-                    <span className="sr-only">{item.label}</span>
-                  </a>
-                ))}
               </div>
             </div>
           </div>
