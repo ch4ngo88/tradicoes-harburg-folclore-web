@@ -20,8 +20,8 @@ export const useMembersData = (): MemberData[] => {
       id: 1,
       name: "Marco da Silva",
       role: language === "pt" ? "Diretor" : "Direktor",
-      regularImage: "/images/member/marco1.png",
-      costumeImage: "/images/member/marco2.png",
+      regularImage: "/images/members/marco1.png",
+      costumeImage: "/images/members/marco2.png",
       category: "leadership",
     },
     {

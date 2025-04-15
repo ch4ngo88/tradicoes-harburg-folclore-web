@@ -24,33 +24,45 @@ const EventCard = ({ event }: EventCardProps) => {
       <Dialog>
         <DialogTrigger asChild>
           <div className="md:w-1/3 relative cursor-pointer">
-            {event.image && (
-              <>
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-full object-cover aspect-video"
-                />
-                {event.video && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-black/50 rounded-full p-2 animate-pulse">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-white"
-                      >
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                      </svg>
-                    </div>
-                  </div>
-                )}
+          {event.image && (
+  <>
+    {event.image.endsWith(".mp4") ? (
+      <video
+        src={event.image}
+        muted
+        loop
+        playsInline
+        className="w-full h-full object-cover aspect-video"
+      />
+    ) : (
+      <img
+        src={event.image}
+        alt={event.title}
+        className="w-full h-full object-cover aspect-video"
+      />
+    )}
+
+    {event.video && (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="bg-black/50 rounded-full p-2 animate-pulse">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-white"
+          >
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </div>
+      </div>
+    )}
+  
               </>
             )}
             <div className="absolute top-0 left-0 bg-seagreen text-white px-4 py-2 rounded-br-lg font-medium">

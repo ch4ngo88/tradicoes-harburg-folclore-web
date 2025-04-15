@@ -16,13 +16,12 @@ export const useNewsItems = (): NewsItemType[] => {
     },
     {
       type: "video",
-      thumbnail: "/images/activity/news/kinder.mp4",
+      
       source: "/images/activity/news/kinder.mp4",
       title: language === "pt" ? "Vídeo das Crianças" : "Kinder Video",
     },
     {
       type: "video",
-      thumbnail: "/images/activity/news/tiktok.mp4",
       source: "/images/activity/news/tiktok.mp4",
       title: "TikTok",
     },
@@ -51,7 +50,7 @@ export const useUpcomingEvents = (): EventType[] => {
         ? "Harburg Feiert Vielfalt" 
         : "Harburg Feiert Vielfalt",
       date: "2025-07-06",
-      image: "/images/logo.jpg",  // placeholder image
+      image: "/images/activity/next/harburgvielfalt.jpg",  // placeholder image
       description: language === "pt"
         ? "Apresentação em cooperação com o Kulturpalast Harburg no evento 'Harburg Feiert Vielfalt'"
         : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",
