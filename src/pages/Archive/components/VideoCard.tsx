@@ -3,7 +3,7 @@ import React from "react";
 
 interface VideoCardProps {
   videoSrc: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
 }
 

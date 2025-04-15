@@ -30,7 +30,7 @@ const Archive = () => {
       {activeTab === "audio" && <ArchiveAudio language={language} />}
 
       {/* Videos Tab */}
-      {activeTab === "videos" && <ArchiveVideos language={language} />}
+      {activeTab === "videos" && <ArchiveVideos />}
     </ArchiveLayout>
   );
 };
