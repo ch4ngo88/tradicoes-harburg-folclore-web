@@ -18,14 +18,22 @@ const ArchiveVideos = ({ language }: ArchiveVideosProps) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <VideoCard
           videoSrc="/images/archive/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
-          title="Portugueses da zona de Hamburgo"
-          description="Comentários sobre a Seleção"
+          title={language === "pt" ? "Entrevista para A Bola" : "Interview für A Bola"}
+          description={
+            language === "pt"
+              ? "Entrevista sobre como a comunidade portuguesa em Hamburgo acompanha a Seleção Nacional"
+              : "Interview über die portugiesische Community in Hamburg und ihre Verbindung zur Nationalmannschaft"
+          }
         />
         
         <VideoCard
           videoSrc="/images/archive/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"
-          title="Rancho Folclórico"
-          description="Tradição portuguesa em Hamburgo"
+          title={language === "pt" ? "História no A Bola" : "Geschichte in A Bola"}
+          description={
+            language === "pt"
+              ? "Reportagem sobre a nossa história e a preservação da cultura portuguesa no estrangeiro"
+              : "Bericht über unsere Geschichte und die Bewahrung der portugiesischen Kultur im Ausland"
+          }
         />
       </div>
     </div>

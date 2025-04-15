@@ -22,11 +22,6 @@ const ArchivePhotos = ({ images, imagesLoaded, language }: ArchivePhotosProps) =
         <h3 className="text-xl font-bold text-portuguesered">
           {language === "pt" ? "Galeria de Fotos" : "Fotogalerie"}
         </h3>
-        <p className="text-gray-600 mt-2">
-          {language === "pt"
-            ? "Clique nas imagens para ampliar"
-            : "Klicken Sie auf die Bilder zum Vergrößern"}
-        </p>
       </div>
 
       <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
@@ -47,8 +42,8 @@ const ArchivePhotos = ({ images, imagesLoaded, language }: ArchivePhotosProps) =
               <div className="w-12 h-12 border-4 border-seagreen border-t-transparent rounded-full animate-spin"></div>
             </div>
           )}
-          <CarouselPrevious className="left-2 bg-white/80 hover:bg-white" />
-          <CarouselNext className="right-2 bg-white/80 hover:bg-white" />
+          <CarouselPrevious className="left-2 bg-black/40 hover:bg-black/60 backdrop-blur-sm" />
+          <CarouselNext className="right-2 bg-black/40 hover:bg-black/60 backdrop-blur-sm" />
         </Carousel>
       </div>
     </div>
