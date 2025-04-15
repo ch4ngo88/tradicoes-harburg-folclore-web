@@ -18,7 +18,7 @@ const ArchiveAudio = ({ language }: ArchiveAudioProps) => {
       <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
         <div className="flex flex-col items-center">
           <AudioPlayer 
-            audioSrc="/audio/Café com Leite & Pimenta Interview Tradicoes.mp3"
+            audioSrc="/images/archive/audio/Café com Leite & Pimenta Interview Tradicoes.mp3"
             title="Café com Leite & Pimenta Interview"
             year="2024"
             description="(Café com Leite & Pimenta Interview 2024)"
