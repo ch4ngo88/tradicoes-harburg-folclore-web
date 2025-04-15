@@ -50,12 +50,9 @@ export const Footer = () => {
               </div>
             </div>
             
-            {/* Desktop: Copyright Notice */}
-            <div className="text-xs text-white/70 mt-3 text-center md:text-left w-full hidden md:block">
-              <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
-            </div>
+           
+ 
           </div>
-
           {/* Mobile: Social Media Section - WITHOUT separator before it */}
           <div className="flex flex-col md:hidden items-center justify-center">
             <div className="flex gap-4 justify-center">
@@ -181,6 +178,10 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
+            {/* Desktop: Copyright Notice */}
+ <div className="text-xs text-white/70 mt-3 text-center md:text-left w-full hidden md:block">
+              <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
+            </div>
             
           </div>
           {/* Mobile-only copyright notice */}
