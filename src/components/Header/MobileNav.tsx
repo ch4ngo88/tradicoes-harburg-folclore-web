@@ -34,7 +34,7 @@ const MobileNav = () => {
   };
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden z-30">
       <Sheet>
         <SheetTrigger asChild>
           <button

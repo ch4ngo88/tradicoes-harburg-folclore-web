@@ -54,4 +54,15 @@
   .optimized-image img {
     @apply transition-opacity duration-300;
   }
+
+  /* Mobile header styles */
+  @media (max-width: 767px) {
+    .header-container {
+      @apply relative;
+    }
+    
+    .mobile-nav-button {
+      @apply z-30;
+    }
+  }
 }

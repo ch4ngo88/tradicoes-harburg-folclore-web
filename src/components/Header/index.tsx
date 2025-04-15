@@ -35,10 +35,12 @@ const Header = () => {
       className={`w-full sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "shadow-md bg-white/95 backdrop-blur-sm" : "bg-white"}`}
     >
       <div className="container mx-auto">
-        <div className="flex items-center justify-between py-2 px-0">
-          <Logo scrollToTop={scrollToTop} />
+        <div className="flex items-center justify-between py-2 px-4 md:px-0">
+          <div className="flex-1 md:flex-initial">
+            <Logo scrollToTop={scrollToTop} />
+          </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 z-20">
             {/* Mobile Navigation */}
             <MobileNav />
             
