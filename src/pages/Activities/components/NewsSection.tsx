@@ -12,7 +12,7 @@ const NewsSection = ({ newsItems }: NewsSectionProps) => {
   
   return (
     <section className="mb-12 mt-8">
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center justify-center gap-2 mb-6">
         <Info className="text-portuguesered" />
         <h3 className="text-xl font-bold text-portuguesered">{t("news")}</h3>
       </div>

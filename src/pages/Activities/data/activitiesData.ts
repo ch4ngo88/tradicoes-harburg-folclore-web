@@ -66,15 +66,15 @@ export const useEnsaios = (): EnsaioType[] => {
     {
       title: language === "pt" ? "Ensaio Grupo Adultos" : "Probe Erwachsenengruppe",
       schedule: language === "pt" 
-        ? "Todos os Domingos (menos Feriados) das 10:00 - 11:30"
-        : "Jeden Sonntag (außer an Feiertagen) von 10:00 - 11:30",
+        ? "Todos os Domingos (menos Feriados) das 11:00 - 12:30"
+        : "Jeden Sonntag (außer an Feiertagen) von 11:00 - 12:30",
       image: "/images/activity/ensaios/ensaioadultos.png",
     },
     {
       title: language === "pt" ? "Ensaio Grupo Crianças" : "Probe Kindergruppe",
       schedule: language === "pt"
-        ? "Todos os Domingos (menos Feriados) das 11:30 às 13:00"
-        : "Jeden Sonntag (außer an Feiertagen) von 11:30 bis 13:00 Uhr",
+        ? "Todos os Domingos (menos Feriados) das 12:30 às 14:00"
+        : "Jeden Sonntag (außer an Feiertagen) von 12:30 bis 14:00 Uhr",
       image: "/images/activity/ensaios/ensaiocriancas.png",
     }
   ];
