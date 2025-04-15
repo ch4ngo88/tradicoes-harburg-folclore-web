@@ -1,4 +1,5 @@
-import { MapPin, Mail, Shield, BookOpen, Link, FileText } from "lucide-react";
+
+import { MapPin, Mail, Shield, FileText } from "lucide-react";
 
 const Impressum = () => {
   return (
@@ -17,15 +18,15 @@ const Impressum = () => {
             <div className="pl-6 space-y-2">
               <p className="flex items-start gap-2">
                 <span className="text-gray-700">
-                  Centro Português Harburg e.V.
+                  Tradicoes Portuguesas
                 </span>
               </p>
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-portuguesered mt-1" />
                 <span className="text-gray-700">
-                  Reetwerder 23
+                  Hastedtstraße 30
                   <br />
-                  21029 Hamburg
+                  21073 Hamburg
                 </span>
               </p>
             </div>
@@ -35,11 +36,11 @@ const Impressum = () => {
             <div className="flex items-center gap-2 mb-4">
               <Shield className="text-seagreen" />
               <h3 className="text-xl font-bold text-seagreen">
-                Vertreten durch
+                Verantwortlich für den Inhalt
               </h3>
             </div>
             <p className="pl-6 text-gray-700">
-              Vorstand des Centro Português Harburg e.V.
+              Marco da Silva Dácio
             </p>
           </section>
 
@@ -49,23 +50,7 @@ const Impressum = () => {
               <h3 className="text-xl font-bold text-seagreen">Kontakt</h3>
             </div>
             <p className="pl-6 text-gray-700">
-              E-Mail: info@tradicoesportuguesas.com
-            </p>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-2 mb-4">
-              <BookOpen className="text-seagreen" />
-              <h3 className="text-xl font-bold text-seagreen">
-                Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
-              </h3>
-            </div>
-            <p className="pl-6 text-gray-700">
-              Centro Português Harburg e.V.
-              <br />
-              Reetwerder 23
-              <br />
-              21029 Hamburg
+              E-Mail: g.c.r.f.p@hotmail.com
             </p>
           </section>
         </div>

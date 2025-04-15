@@ -1,3 +1,4 @@
+
 import { Shield, FileText, User, Database, Globe, Mail } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 
@@ -36,13 +37,13 @@ const Datenschutz = () => {
             </div>
             <div className="pl-6 space-y-2 text-gray-700">
               <p>
-                Centro Português Harburg e.V.
+                Marco da Silva Dácio
                 <br />
-                Reetwerder 23
+                Hastedtstraße 30
                 <br />
-                21029 Hamburg
+                21073 Hamburg
                 <br />
-                E-Mail: info@tradicoesportuguesas.com
+                E-Mail: g.c.r.f.p@hotmail.com
               </p>
             </div>
           </section>
@@ -58,21 +59,17 @@ const Datenschutz = () => {
               <h4 className="font-bold">Wie erfassen wir Ihre Daten?</h4>
               <p>
                 Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese
-                mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie
-                in ein Kontaktformular eingeben.
-              </p>
-              <p>
-                Andere Daten werden automatisch oder nach Ihrer Einwilligung
-                beim Besuch der Website durch unsere IT-Systeme erfasst. Das
-                sind vor allem technische Daten (z.B. Internetbrowser,
+                mitteilen, zum Beispiel über das Kontaktformular. Andere Daten
+                werden automatisch beim Besuch der Website durch unsere IT-Systeme
+                erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser,
                 Betriebssystem oder Uhrzeit des Seitenaufrufs).
               </p>
 
               <h4 className="font-bold">Wofür nutzen wir Ihre Daten?</h4>
               <p>
-                Ein Teil der Daten wird erhoben, um eine fehlerfreie
-                Bereitstellung der Website zu gewährleisten. Andere Daten können
-                zur Analyse Ihres Nutzerverhaltens verwendet werden.
+                Die Daten werden ausschließlich für die Bereitstellung der Website
+                und die Kommunikation mit Interessenten verwendet. Es findet keine
+                kommerzielle Nutzung statt.
               </p>
             </div>
           </section>
@@ -84,29 +81,9 @@ const Datenschutz = () => {
             </div>
             <div className="pl-6 space-y-2 text-gray-700">
               <p>
-                Unsere Website verwendet Cookies, um unseren Internetauftritt
-                benutzerfreundlicher zu gestalten. Cookies sind kleine
-                Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr
-                Browser speichert.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <div className="flex items-center gap-2 mb-4">
-              <Mail className="text-seagreen" />
-              <h3 className="text-xl font-bold text-seagreen">
-                Kontaktformular
-              </h3>
-            </div>
-            <div className="pl-6 space-y-2 text-gray-700">
-              <p>
-                Wenn Sie uns per Kontaktformular Anfragen zukommen lassen,
-                werden Ihre Angaben aus dem Anfrageformular inklusive der von
-                Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der
-                Anfrage und für den Fall von Anschlussfragen bei uns
-                gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung
-                weiter.
+                Unsere Website verwendet Cookies ausschließlich für technisch
+                notwendige Funktionen. Diese dienen dazu, unseren Internetauftritt
+                nutzerfreundlicher zu gestalten.
               </p>
             </div>
           </section>
@@ -118,12 +95,9 @@ const Datenschutz = () => {
             </div>
             <div className="pl-6 space-y-2 text-gray-700">
               <p>
-                Sie haben jederzeit das Recht, unentgeltlich Auskunft über
-                Herkunft, Empfänger und Zweck Ihrer gespeicherten
-                personenbezogenen Daten zu erhalten. Sie haben außerdem ein
-                Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.
-                Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben,
-                können Sie diese Einwilligung jederzeit widerrufen.
+                Sie haben jederzeit das Recht auf Auskunft über die Sie
+                betreffenden personenbezogenen Daten. Sie können sich jederzeit
+                an uns wenden, um Ihre Rechte geltend zu machen.
               </p>
             </div>
           </section>
