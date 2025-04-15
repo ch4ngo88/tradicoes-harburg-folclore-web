@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import {
@@ -137,7 +138,7 @@ export const Footer = () => {
           </div>
 
           {/* Legal Links Column */}
-          <div className="flex flex-col md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm relative">
+          <div className="flex flex-col md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm relative h-full">
             <ul className="flex flex-col space-y-1 items-center md:items-start w-full">
               <li>
                 <Link
@@ -164,12 +165,14 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
+            
+            {/* Copyright notice added at the bottom of this column */}
+            <div className="text-xs text-white/70 mt-auto text-center w-full">
+              © 2025. Alle Rechte vorbehalten.
+            </div>
           </div>
 
-          {/* Mobile-only copyright notice */}
-          <div className="text-xs text-white/70 mb-4 text-center w-full md:hidden">
-            © 2025. Alle Rechte vorbehalten.
-          </div>
+          {/* Remove mobile copyright notice as it's now in the third column */}
         </div>
       </div>
     </footer>
