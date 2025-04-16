@@ -39,7 +39,7 @@ const ArchivePhotos = ({ images, imagesLoaded, language }: ArchivePhotosProps) =
 
       <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
         {isGridView ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
             {imagesLoaded && images.map((image, index) => (
               <PhotoGalleryItem key={index} image={image} index={index} />
             ))}
