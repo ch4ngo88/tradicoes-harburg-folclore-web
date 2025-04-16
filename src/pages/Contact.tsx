@@ -6,10 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import {
-  GoogleReCaptchaProvider,
-  useGoogleReCaptcha,
-} from "react-google-recaptcha-v3";
-import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -29,8 +25,6 @@ type UsefulLink = {
   icon: string;
   title: string;
 };
-
-const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
 const ContactForm = () => {
   const { language } = useLanguage();
@@ -180,116 +174,114 @@ const Contact = () => {
   ];
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_SITE_KEY}>
-      <div className="container mx-auto py-8 px-4">
-        <h1 className="section-title text-center mb-10">
-          {language === "pt" ? "Contacto" : "Kontakt"}
-        </h1>
+    <div className="container mx-auto py-8 px-4">
+      <h1 className="section-title text-center mb-10">
+        {language === "pt" ? "Contacto" : "Kontakt"}
+      </h1>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col items-center mb-10">
-            <div className="glass-card p-6 mb-4">
-              <div className="flex gap-2 items-center mb-4 justify-center">
-                <QrCode className="text-seagreen" />
-                <h3 className="text-xl font-bold text-seagreen">
-                  {language === "pt" ? "Código QR" : "QR-Code"}
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col items-center mb-10">
+          <div className="glass-card p-6 mb-4">
+            <div className="flex gap-2 items-center mb-4 justify-center">
+              <QrCode className="text-seagreen" />
+              <h3 className="text-xl font-bold text-seagreen">
+                {language === "pt" ? "Código QR" : "QR-Code"}
+              </h3>
+            </div>
+
+            <div className="flex justify-center">
+              <img
+                src="/images/QR Code.jpeg"
+                alt="QR Code"
+                className="h-40 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          <div className="glass-card p-6">
+            <ContactForm />
+          </div>
+
+          <div className="space-y-6">
+            <div className="glass-card p-6">
+              <div className="flex gap-2 items-center mb-4">
+                <Mail className="text-portuguesered" />
+                <h3 className="text-xl font-bold text-portuguesered">
+                  Tradicoes Portuguesas
                 </h3>
               </div>
 
-              <div className="flex justify-center">
-                <img
-                  src="/images/QR Code.jpeg"
-                  alt="QR Code"
-                  className="h-40 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                />
+              <div className="space-y-2 text-gray-700">
+                <p className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-seagreen" />
+                  <span>Hastedtstraße 30, 21073 Hamburg</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-seagreen" />
+                  <span>g.c.r.f.p@hotmail.com</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-seagreen" />
+                  <span>+49 (0) 157 316 250 61</span>
+                </p>
               </div>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-            <div className="glass-card p-6">
-              <ContactForm />
+            <div className="overflow-hidden rounded-lg shadow-md h-64">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.3882674799974!2d9.965910060063711!3d53.45063187422865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191006ff27d9f%3A0x6701f53aa4f35d03!2sGottschalkring%201%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1715674267055!5m2!1sde!2sde"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Google Maps"
+                className="w-full h-full"
+              />
             </div>
-
-            <div className="space-y-6">
-              <div className="glass-card p-6">
-                <div className="flex gap-2 items-center mb-4">
-                  <Mail className="text-portuguesered" />
-                  <h3 className="text-xl font-bold text-portuguesered">
-                    Tradicoes Portuguesas
-                  </h3>
-                </div>
-
-                <div className="space-y-2 text-gray-700">
-                  <p className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-seagreen" />
-                    <span>Hastedtstraße 30, 21073 Hamburg</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-seagreen" />
-                    <span>g.c.r.f.p@hotmail.com</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-seagreen" />
-                    <span>+49 (0) 157 316 250 61</span>
-                  </p>
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-lg shadow-md h-64">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.3882674799974!2d9.965910060063711!3d53.45063187422865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191006ff27d9f%3A0x6701f53aa4f35d03!2sGottschalkring%201%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1715674267055!5m2!1sde!2sde"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Google Maps"
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <Accordion type="single" collapsible className="accordion-custom">
-              <AccordionItem value="useful-links" className="border-none">
-                <AccordionTrigger className="accordion-trigger">
-                  <div className="flex gap-2 items-center">
-                    <LinkIcon className="text-seagreen" />
-                    <span>
-                      {language === "pt" ? "Links Úteis" : "Nützliche Links"}
-                    </span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {usefulLinks.map((link, index) => (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center p-3 rounded-md hover:bg-slate-100 transition-colors border border-transparent hover:border-seagreen/30 group"
-                      >
-                        <img
-                          src={link.icon}
-                          alt={link.title}
-                          className="w-6 h-6 mr-3 object-contain"
-                        />
-                        <span className="flex-1 text-sm">{link.title}</span>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-seagreen transition-colors" />
-                      </a>
-                    ))}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
           </div>
         </div>
+
+        <div className="mb-8">
+          <Accordion type="single" collapsible className="accordion-custom">
+            <AccordionItem value="useful-links" className="border-none">
+              <AccordionTrigger className="accordion-trigger">
+                <div className="flex gap-2 items-center">
+                  <LinkIcon className="text-seagreen" />
+                  <span>
+                    {language === "pt" ? "Links Úteis" : "Nützliche Links"}
+                  </span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {usefulLinks.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center p-3 rounded-md hover:bg-slate-100 transition-colors border border-transparent hover:border-seagreen/30 group"
+                    >
+                      <img
+                        src={link.icon}
+                        alt={link.title}
+                        className="w-6 h-6 mr-3 object-contain"
+                      />
+                      <span className="flex-1 text-sm">{link.title}</span>
+                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-seagreen transition-colors" />
+                    </a>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
       </div>
-    </GoogleReCaptchaProvider>
+    </div>
   );
 };
 
