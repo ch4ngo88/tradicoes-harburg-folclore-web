@@ -53,11 +53,11 @@ export const Footer = () => {
   return (
     <footer className="w-full bg-seagreen text-white">
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-5xl mx-auto md:grid md:grid-cols-3 md:gap-8">
-          {/* Logo Column with styled text in white background */}
-          <div className="flex flex-col items-center md:items-start">
-            <div className="bg-white p-4 rounded-md inline-block mb-3 w-full md:w-auto">
-              <div className="flex items-center justify-center md:justify-start gap-3">
+      <div className="max-w-5xl mx-auto md:grid md:grid-cols-[2.5fr_0.9fr_0.9fr] md:gap-4">
+      {/* Logo Column with styled text in white background */}
+          <div className="flex flex-col items-center md:items-center">
+          <div className="bg-white p-4 rounded-md inline-block mb-3 w-full md:max-w-sm">
+          <div className="flex items-center justify-center md:justify-start gap-3">
                 <img
                   src="/images/logo.jpg"
                   alt="Rancho logo"
@@ -86,7 +86,7 @@ export const Footer = () => {
               {/* Remove Social Media Icons from white box for desktop */}
             </div>
             {/* Desktop: Social Media Icons - Moved outside white box */}
-            <div className="hidden md:flex gap-3 justify-center mt-3 w-full">
+            <div className="hidden md:flex gap-3 justify-center w-full">
               {socialMediaLinks.map((item) => (
                 <a
                   key={item.label}
