@@ -11,11 +11,11 @@
   }
 
   .member-card {
-    @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-xl max-w-[280px] mx-auto cursor-pointer;
+    @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 hover:shadow-xl mx-auto cursor-pointer;
   }
 
   .member-card-image-container {
-    @apply relative overflow-hidden h-48;
+    @apply relative overflow-hidden;
   }
 
   .member-card-image {
@@ -28,6 +28,6 @@
   }
 
   .member-card-info {
-    @apply p-4;
+    @apply p-3 text-center;
   }
 }

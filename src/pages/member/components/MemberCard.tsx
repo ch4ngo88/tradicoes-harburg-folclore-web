@@ -33,12 +33,12 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   return (
     <div
       key={member.id}
-      className="member-card max-w-[240px]"
+      className="member-card max-w-full"
       onMouseEnter={() => !isMobile && setHoveredMember(member.id)}
       onMouseLeave={() => !isMobile && setHoveredMember(null)}
       onClick={() => isMobile && handleInteraction()}
     >
-      <div className="member-card-image-container w-[240px] h-[240px]">
+      <div className="member-card-image-container w-full h-auto aspect-square">
         {!imageLoaded && (
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
         )}
@@ -47,8 +47,8 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
           alt={member.name}
           className={`member-card-image object-cover w-full h-full rounded-t-lg ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           loading="lazy"
-          width="240" 
-          height="240"
+          width="180" 
+          height="180"
           onLoad={() => setImageLoaded(true)}
         />
         <div className={`member-card-overlay rounded-t-lg ${hoveredMember === member.id ? 'opacity-0' : 'opacity-100'}`} />
