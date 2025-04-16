@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ui/toaster";
 import {
   GoogleReCaptchaProvider,
   useGoogleReCaptcha,
@@ -33,14 +33,12 @@ const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
 const ContactForm = () => {
   const { language } = useLanguage();
-  const { executeRecaptcha } = useGoogleReCaptcha();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -49,54 +47,17 @@ const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!executeRecaptcha) {
-      console.error("Execute recaptcha not available");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const token = await executeRecaptcha("contact_form");
-      console.log("reCAPTCHA token:", token);
-
-      console.log("Form submitted:", { ...formData, token });
-
-      toast({
-        title: language === "pt" ? "Mensagem enviada!" : "Nachricht gesendet!",
-        description:
-          language === "pt"
-            ? "Obrigado pelo seu contacto. Responderemos em breve."
-            : "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    } catch (error) {
-      console.error("reCAPTCHA error:", error);
-      toast({
-        title: language === "pt" ? "Erro!" : "Fehler!",
-        description:
-          language === "pt"
-            ? "Ocorreu um erro. Por favor, tente novamente."
-            : "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="glass-card p-6">
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form 
+        action="https://formsubmit.co/marco.dacio@icloud.com" 
+        method="POST"
+        className="space-y-5"
+      >
+        <input type="hidden" name="_subject" value="Neue Nachricht über Kontaktformular" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://tradicionalisboa.lovable.app/contact" />
+
         <div>
           <label htmlFor="name" className="form-label">
             {language === "pt" ? "Nome" : "Name"}
@@ -108,6 +69,7 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             className="form-input"
+            placeholder={language === "pt" ? "Seu nome" : "Ihr Name"}
           />
         </div>
 
@@ -123,6 +85,7 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             className="form-input"
+            placeholder={language === "pt" ? "Seu email" : "Ihre E-Mail"}
           />
         </div>
 
@@ -137,6 +100,7 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             className="form-input"
+            placeholder={language === "pt" ? "Assunto da mensagem" : "Betreff der Nachricht"}
           />
         </div>
 
@@ -152,27 +116,21 @@ const ContactForm = () => {
             rows={4}
             required
             className="form-input"
+            placeholder={language === "pt" ? "Sua mensagem" : "Ihre Nachricht"}
           />
         </div>
 
         <Button
           type="submit"
           className="w-full bg-seagreen hover:bg-seagreen/90 mt-2"
-          disabled={isSubmitting}
         >
-          {isSubmitting
-            ? language === "pt"
-              ? "A enviar..."
-              : "Senden..."
-            : language === "pt"
-              ? "Enviar"
-              : "Senden"}
+          {language === "pt" ? "Enviar" : "Senden"}
         </Button>
 
         <p className="text-xs text-gray-500 text-center">
           {language === "pt"
-            ? "Este site é protegido por reCAPTCHA e aplicam-se a Política de Privacidade e os Termos de Serviço do Google."
-            : "Diese Website wird durch reCAPTCHA geschützt und es gelten die Datenschutzbestimmungen und Nutzungsbedingungen von Google."}
+            ? "Este site é protegido por FormSubmit e aplicam-se a Política de Privacidade e os Termos de Serviço."
+            : "Diese Website wird durch FormSubmit geschützt und es gelten die Datenschutzbestimmungen und Nutzungsbedingungen."}
         </p>
       </form>
     </div>
