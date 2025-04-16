@@ -79,24 +79,27 @@ export const Footer = () => {
                   </p>
                 </div>
               </div>
-              {/* Desktop: Social Media Icons */}
-              <div className="hidden md:flex gap-3 justify-center mt-3">
-                {socialMediaLinks.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-seagreen hover:text-seagreen/60 transition-all duration-300 hover:scale-110 hover:shadow-md rounded-full p-2 hover:bg-seagreen/10"
-                    aria-label={item.label}
-                  >
-                    {item.icon}
-                    <span className="sr-only">{item.label}</span>
-                  </a>
-                ))}
-              </div>
+              {/* Remove Social Media Icons from white box for desktop */}
+            </div>
+            {/* Desktop: Social Media Icons - Moved outside white box */}
+            <div className="hidden md:flex gap-3 justify-center mt-3 w-full">
+              {socialMediaLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white/60 transition-all duration-300 hover:scale-110 hover:shadow-md rounded-full p-2 hover:bg-white/10"
+                  aria-label={item.label}
+                >
+                  {item.icon}
+                  <span className="sr-only">{item.label}</span>
+                </a>
+              ))}
             </div>
           </div>
+
+          {/* Rest of the Footer remains the same */}
           {/* Mobile: Social Media Section - WITHOUT separator before it */}
           <div className="flex flex-col md:hidden items-center justify-center">
             <div className="flex gap-4 justify-center">
