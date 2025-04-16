@@ -14,6 +14,10 @@ import { Separator } from "@/components/ui/separator";
 export const Footer = () => {
   const { language } = useLanguage();
 
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const socialMediaLinks = [
     { 
       href: "https://www.youtube.com/@tradicoesportuguesasdeharb1754", 
@@ -203,6 +207,7 @@ export const Footer = () => {
               <li>
                 <Link
                   to="/impressum"
+                  onClick={handleClick}
                   className="text-white hover:text-white/60 transition-colors text-sm"
                 >
                   Impressum
@@ -211,6 +216,7 @@ export const Footer = () => {
               <li>
                 <Link
                   to="/datenschutz"
+                  onClick={handleClick}
                   className="text-white hover:text-white/60 transition-colors text-sm"
                 >
                   Datenschutzerklärung
@@ -219,6 +225,7 @@ export const Footer = () => {
               <li>
                 <Link
                   to="/agb"
+                  onClick={handleClick}
                   className="text-white hover:text-white/60 transition-colors text-sm"
                 >
                   AGB

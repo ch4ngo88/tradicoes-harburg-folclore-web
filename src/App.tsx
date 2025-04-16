@@ -1,10 +1,10 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/hooks/useLanguage";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Home from "./pages/Home";
@@ -19,6 +19,11 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const ScrollToTopWrapper = ({ children }: { children: React.ReactNode }) => {
+  useScrollToTop();
+  return <>{children}</>;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
@@ -26,23 +31,25 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/activities" element={<Activities />} />
-                <Route path="/archive" element={<Archive />} />
-                <Route path="/membros" element={<Membros />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/impressum" element={<Impressum />} />
-                <Route path="/datenschutz" element={<Datenschutz />} />
-                <Route path="/agb" element={<Agb />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
+          <ScrollToTopWrapper>
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/activities" element={<Activities />} />
+                  <Route path="/archive" element={<Archive />} />
+                  <Route path="/membros" element={<Membros />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/impressum" element={<Impressum />} />
+                  <Route path="/datenschutz" element={<Datenschutz />} />
+                  <Route path="/agb" element={<Agb />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          </ScrollToTopWrapper>
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>

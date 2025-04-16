@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -15,7 +14,10 @@ const MobileNav = () => {
     return location.pathname === path;
   };
 
-  // Nav icons for mobile
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const getNavIcon = (path: string) => {
     switch (path) {
       case "/":
@@ -70,6 +72,7 @@ const MobileNav = () => {
                   <SheetClose asChild>
                     <Link
                       to={item.path}
+                      onClick={handleClick}
                       className={`flex items-center px-6 py-2 rounded-lg transition-all ${
                         isActive(item.path)
                           ? "bg-white/10 font-bold text-white"
