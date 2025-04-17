@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import OptimizedImage from "@/components/OptimizedImage";
 
 type MemberData = {
   id: number;
@@ -35,9 +36,10 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   const displayHoverText = member.hoverText || 
     (member.name === "Marco da Silva" ? "Ribatejo" : "");
   
+  const isHovered = hoveredMember === member.id;
+  
   return (
     <div
-      key={member.id}
       className="member-card max-w-full"
       onMouseEnter={() => !isMobile && setHoveredMember(member.id)}
       onMouseLeave={() => !isMobile && setHoveredMember(null)}
@@ -47,8 +49,8 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
         {!imageLoaded && (
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
         )}
-        <img
-          src={hoveredMember === member.id ? member.costumeImage : member.regularImage}
+        <OptimizedImage
+          src={isHovered ? member.costumeImage : member.regularImage}
           alt={member.name}
           className={`member-card-image object-cover w-full h-full rounded-t-lg ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
           loading="lazy"
@@ -56,12 +58,12 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
           height="180"
           onLoad={() => setImageLoaded(true)}
         />
-        {hoveredMember === member.id && displayHoverText && (
+        {isHovered && displayHoverText && (
           <div className="absolute bottom-0 left-0 w-full bg-seagreen/70 text-white text-center py-2 px-1">
             {displayHoverText}
           </div>
         )}
-        <div className={`member-card-overlay rounded-t-lg ${hoveredMember === member.id ? 'opacity-0' : 'opacity-30'}`} />
+        <div className={`member-card-overlay rounded-t-lg ${isHovered ? 'opacity-0' : 'opacity-30'}`} />
       </div>
       <div className="member-card-info">
         <h4 className="font-semibold text-seagreen">{member.name}</h4>

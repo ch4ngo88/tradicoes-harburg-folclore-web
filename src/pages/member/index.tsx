@@ -1,6 +1,6 @@
 
 import { useLanguage } from "@/hooks/useLanguage";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Users, UserRound, Music } from "lucide-react";
 import CustomDancingIcon from "./components/DancingIcon";
 import MemberSection from "./components/MemberSection";
@@ -12,7 +12,15 @@ const MembrosPage = () => {
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
   const members = useMembersData();
 
+  // Filter members by category - memoized to prevent unnecessary recalculations
+  const categorizedMembers = useMemo(() => ({
+    leadership: members.filter(member => member.category === "leadership"),
+    music: members.filter(member => member.category === "music"),
+    dancers: members.filter(member => member.category === "dancers")
+  }), [members]);
+
   useEffect(() => {
+    // Staggered loading for better performance
     const loadSections = () => {
       setVisibleSections(["leadership"]);
       
@@ -26,15 +34,12 @@ const MembrosPage = () => {
     };
     
     loadSections();
+    
+    // Cleanup function
+    return () => {
+      setHoveredMember(null);
+    };
   }, []);
-
-  const leadershipMembers = members.filter(
-    (member) => member.category === "leadership",
-  );
-  const musicMembers = members.filter((member) => member.category === "music");
-  const dancerMembers = members.filter(
-    (member) => member.category === "dancers",
-  );
 
   return (
     <div className="container mx-auto py-8 px-4">
@@ -48,7 +53,7 @@ const MembrosPage = () => {
         <MemberSection
           title={language === "pt" ? "Gerência" : "Leitung"}
           icon={UserRound}
-          members={leadershipMembers}
+          members={categorizedMembers.leadership}
           isVisible={visibleSections.includes("leadership")}
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
@@ -57,7 +62,7 @@ const MembrosPage = () => {
         <MemberSection
           title={language === "pt" ? "Coro" : "Chor"}
           icon={Music}
-          members={musicMembers}
+          members={categorizedMembers.music}
           isVisible={visibleSections.includes("music")}
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
@@ -66,7 +71,7 @@ const MembrosPage = () => {
         <MemberSection
           title={language === "pt" ? "Dançarinos" : "Tänzer/innen"}
           icon={CustomDancingIcon}
-          members={dancerMembers}
+          members={categorizedMembers.dancers}
           isVisible={visibleSections.includes("dancers")}
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}

@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Language = "pt" | "de";
 
@@ -102,11 +103,30 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined,
 );
 
+// Get initial language from localStorage or default to "pt"
+const getInitialLanguage = (): Language => {
+  if (typeof window === 'undefined') return "pt";
+  
+  const savedLanguage = localStorage.getItem("language") as Language;
+  return savedLanguage === "de" ? "de" : "pt";
+};
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<Language>("pt");
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
 
+  // Set language and save to localStorage
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    try {
+      localStorage.setItem("language", lang);
+    } catch (error) {
+      console.warn("Could not save language preference to localStorage");
+    }
+  };
+
+  // Translation function
   const t = (key: string): string => {
     if (!translations[key]) {
       console.warn(`Translation key "${key}" not found.`);
@@ -114,6 +134,11 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
     }
     return translations[key][language];
   };
+
+  // Update document lang attribute when language changes
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
