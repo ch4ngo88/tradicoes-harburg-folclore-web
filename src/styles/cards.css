@@ -37,7 +37,7 @@
   }
 
   .member-card-info {
-    @apply p-3 text-center;
+    @apply p-2 text-center;
     height: 100px;
     display: flex;
     flex-direction: column;

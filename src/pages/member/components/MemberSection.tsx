@@ -31,16 +31,16 @@ const MemberSection = ({
   setHoveredMember
 }: MemberSectionProps) => (
   <div 
-    className={`bg-white/70 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg mb-8 transition-opacity duration-500 ${
+    className={`bg-white/70 backdrop-blur-sm rounded-xl p-4 sm:p-5 shadow-lg mb-6 transition-opacity duration-500 ${
       isVisible ? 'opacity-100' : 'opacity-0'
     }`}
   >
-    <div className="flex items-center gap-2 mb-4 sm:mb-6">
+    <div className="flex items-center gap-2 mb-3 sm:mb-4">
       <Icon className="text-seagreen" />
       <h3 className="text-xl font-bold text-seagreen">{title}</h3>
     </div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
       {members.map((member) => (
         <MemberCard 
           key={member.id} 

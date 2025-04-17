@@ -26,11 +26,11 @@ const MembrosPage = () => {
       
       setTimeout(() => {
         setVisibleSections(prev => [...prev, "music"]);
-      }, 300);
+      }, 200);
       
       setTimeout(() => {
         setVisibleSections(prev => [...prev, "dancers"]);
-      }, 600);
+      }, 400);
     };
     
     loadSections();
@@ -42,9 +42,9 @@ const MembrosPage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto py-6 px-3">
       <div className="max-w-5xl mx-auto">
-        <div className="mb-8">
+        <div className="mb-6">
           <h2 className="section-title">
             {language === "pt" ? "A nossa Equipa" : "Unser Team"}
           </h2>

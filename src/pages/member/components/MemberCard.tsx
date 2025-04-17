@@ -41,6 +41,10 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   // Don't show role for dancers
   const showRole = member.category !== "dancers";
   
+  // Fix potential issues with image paths
+  const regularImage = member.regularImage.startsWith('/') ? member.regularImage : `/images/members/${member.regularImage}`;
+  const costumeImage = member.costumeImage.startsWith('/') ? member.costumeImage : `/images/members/${member.costumeImage}`;
+  
   return (
     <div
       className="member-card max-w-full"
@@ -53,7 +57,7 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
         )}
         <OptimizedImage
-          src={isHovered ? member.costumeImage : member.regularImage}
+          src={isHovered ? costumeImage : regularImage}
           alt={member.name}
           className="member-card-image object-cover rounded-t-lg"
           loading="lazy"
