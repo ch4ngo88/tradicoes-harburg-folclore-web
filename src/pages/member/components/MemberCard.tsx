@@ -10,6 +10,7 @@ type MemberData = {
   costumeImage: string;
   description?: string;
   category: "leadership" | "music" | "dancers";
+  hoverText?: string;
 };
 
 interface MemberCardProps {
@@ -29,6 +30,10 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
       setHoveredMember(member.id);
     }
   };
+
+  // Default hover text if not provided
+  const displayHoverText = member.hoverText || 
+    (member.name === "Marco da Silva" ? "Ribatejo" : "");
   
   return (
     <div
@@ -51,7 +56,12 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
           height="180"
           onLoad={() => setImageLoaded(true)}
         />
-        <div className={`member-card-overlay rounded-t-lg ${hoveredMember === member.id ? 'opacity-0' : 'opacity-100'}`} />
+        {hoveredMember === member.id && displayHoverText && (
+          <div className="absolute bottom-0 left-0 w-full bg-seagreen/70 text-white text-center py-2 px-1">
+            {displayHoverText}
+          </div>
+        )}
+        <div className={`member-card-overlay rounded-t-lg ${hoveredMember === member.id ? 'opacity-0' : 'opacity-30'}`} />
       </div>
       <div className="member-card-info">
         <h4 className="font-semibold text-seagreen">{member.name}</h4>
