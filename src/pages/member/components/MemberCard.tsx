@@ -48,7 +48,7 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
       onMouseLeave={() => !isMobile && setHoveredMember(null)}
       onClick={() => isMobile && handleInteraction()}
     >
-      <div className="member-card-image-container w-full h-40">
+      <div className="member-card-image-container w-full">
         {!imageLoaded && (
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
         )}
@@ -57,8 +57,8 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
           alt={member.name}
           className="member-card-image object-cover rounded-t-lg"
           loading="lazy"
-          width="180" 
-          height="180"
+          width="200" 
+          height="200"
           onLoad={() => setImageLoaded(true)}
         />
         {isHovered && displayHoverText && (
@@ -69,8 +69,8 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
         <div className={`member-card-overlay rounded-t-lg ${isHovered ? 'opacity-0' : 'opacity-30'}`} />
       </div>
       <div className="member-card-info">
-        <h4 className="font-semibold text-seagreen line-clamp-2">{member.name}</h4>
-        {showRole && <p className="text-sm text-gray-600 line-clamp-1">{member.role}</p>}
+        <h4 className="font-semibold text-seagreen line-clamp-2 text-base">{member.name}</h4>
+        {showRole && <p className="text-sm text-gray-600 line-clamp-1 mt-1">{member.role}</p>}
       </div>
     </div>
   );

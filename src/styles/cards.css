@@ -13,15 +13,15 @@
   .member-card {
     @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 
            hover:shadow-xl mx-auto cursor-pointer;
-    width: 150px;
-    height: 210px;
+    width: 200px;
+    height: 300px;
     backface-visibility: hidden; /* Fixes issues in some browsers */
     transform: translateZ(0); /* Enables hardware acceleration */
   }
 
   .member-card-image-container {
     @apply relative overflow-hidden;
-    height: 150px;
+    height: 200px;
     -webkit-mask-image: -webkit-radial-gradient(white, black); /* Fixes border-radius overflow in Safari */
   }
 
@@ -38,7 +38,7 @@
 
   .member-card-info {
     @apply p-3 text-center;
-    height: 60px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
