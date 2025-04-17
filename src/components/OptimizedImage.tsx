@@ -22,14 +22,19 @@ const OptimizedImage = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   
-  // Extract the base path by removing the file extension
+  // Extract the base path and extension
   const getBasePath = (path: string) => {
     const lastDotIndex = path.lastIndexOf('.');
-    return lastDotIndex !== -1 ? path.substring(0, lastDotIndex) : path;
+    return {
+      base: lastDotIndex !== -1 ? path.substring(0, lastDotIndex) : path,
+      ext: lastDotIndex !== -1 ? path.substring(lastDotIndex + 1).toLowerCase() : ''
+    };
   };
   
-  const basePath = getBasePath(src);
-  const webPSrc = `${basePath}.webp`;
+  const { base, ext } = getBasePath(src);
+  
+  // Only create WebP alternative if the source is not already WebP
+  const webPSrc = ext !== 'webp' ? `${base}.webp` : src;
   
   const handleLoad = () => {
     setIsLoaded(true);
@@ -49,7 +54,8 @@ const OptimizedImage = ({
 
   return (
     <picture>
-      <source srcSet={actualWebPSrc} type="image/webp" />
+      {/* Only use WebP source if not already using WebP format */}
+      {ext !== 'webp' && <source srcSet={actualWebPSrc} type="image/webp" />}
       <img 
         src={actualSrc} 
         alt={alt} 

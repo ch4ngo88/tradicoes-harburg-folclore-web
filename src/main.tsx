@@ -13,6 +13,7 @@ const LoadingFallback = () => (
   </div>
 );
 
+// Render the app directly without using data URIs that might get preloaded incorrectly
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Suspense fallback={<LoadingFallback />}>
