@@ -38,6 +38,9 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   
   const isHovered = hoveredMember === member.id;
   
+  // Don't show role for dancers
+  const showRole = member.category !== "dancers";
+  
   return (
     <div
       className="member-card max-w-full"
@@ -45,14 +48,14 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
       onMouseLeave={() => !isMobile && setHoveredMember(null)}
       onClick={() => isMobile && handleInteraction()}
     >
-      <div className="member-card-image-container w-full h-auto aspect-square">
+      <div className="member-card-image-container w-full h-40">
         {!imageLoaded && (
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
         )}
         <OptimizedImage
           src={isHovered ? member.costumeImage : member.regularImage}
           alt={member.name}
-          className={`member-card-image object-cover w-full h-full rounded-t-lg ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className="member-card-image object-cover rounded-t-lg"
           loading="lazy"
           width="180" 
           height="180"
@@ -66,8 +69,8 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
         <div className={`member-card-overlay rounded-t-lg ${isHovered ? 'opacity-0' : 'opacity-30'}`} />
       </div>
       <div className="member-card-info">
-        <h4 className="font-semibold text-seagreen">{member.name}</h4>
-        <p className="text-sm text-gray-600">{member.role}</p>
+        <h4 className="font-semibold text-seagreen line-clamp-2">{member.name}</h4>
+        {showRole && <p className="text-sm text-gray-600 line-clamp-1">{member.role}</p>}
       </div>
     </div>
   );

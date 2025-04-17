@@ -20,6 +20,7 @@ const OptimizedImage = ({
   onLoad?: () => void;
 }): JSX.Element => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   
   // Extract the base path by removing the file extension
   const getBasePath = (path: string) => {
@@ -35,11 +36,21 @@ const OptimizedImage = ({
     if (onLoad) onLoad();
   };
 
+  const handleError = () => {
+    setHasError(true);
+    // Still trigger onLoad to remove placeholder
+    if (onLoad) onLoad();
+  };
+
+  // Use fallback image if original has error
+  const actualSrc = hasError ? "/images/logo.jpg" : src;
+  const actualWebPSrc = hasError ? "/images/logo.webp" : webPSrc;
+
   return (
     <picture>
-      <source srcSet={webPSrc} type="image/webp" />
+      <source srcSet={actualWebPSrc} type="image/webp" />
       <img 
-        src={src} 
+        src={actualSrc} 
         alt={alt} 
         className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`} 
         width={width} 
@@ -47,6 +58,7 @@ const OptimizedImage = ({
         loading={loading}
         decoding="async"
         onLoad={handleLoad}
+        onError={handleError}
       />
     </picture>
   );
