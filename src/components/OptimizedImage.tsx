@@ -37,7 +37,7 @@ const OptimizedImage = ({
   };
 
   const handleError = () => {
-    console.log(`Image failed to load: ${src}`);
+    console.error(`Image failed to load: ${src}`);
     setHasError(true);
     // Still trigger onLoad to remove placeholder
     if (onLoad) onLoad();

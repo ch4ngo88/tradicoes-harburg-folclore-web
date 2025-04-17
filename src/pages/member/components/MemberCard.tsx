@@ -41,28 +41,18 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   // Don't show role for dancers
   const showRole = member.category !== "dancers";
   
-  // Fix potential issues with image paths - ensure they start with / and remove any duplicate /images/
-  let regularImage = member.regularImage;
-  let costumeImage = member.costumeImage;
-  
-  if (!regularImage.startsWith('/')) {
-    regularImage = `/images/members/${regularImage}`;
-  }
-  
-  if (!costumeImage.startsWith('/')) {
-    costumeImage = `/images/members/${costumeImage}`;
-  }
-  
-  // Prevent duplicate paths if both prefixes exist
-  regularImage = regularImage.replace('/images/members/images/members/', '/images/members/');
-  costumeImage = costumeImage.replace('/images/members/images/members/', '/images/members/');
-  
-  console.log("Regular image path:", regularImage);
-  console.log("Costume image path:", costumeImage);
+  // Fix potential issues with image paths - ensure they use correct format
+  const regularImage = member.regularImage.startsWith('/') 
+    ? member.regularImage 
+    : `/images/members/${member.regularImage}`;
+    
+  const costumeImage = member.costumeImage.startsWith('/') 
+    ? member.costumeImage 
+    : `/images/members/${member.costumeImage}`;
   
   return (
     <div
-      className="member-card max-w-full"
+      className="member-card mx-auto"
       onMouseEnter={() => !isMobile && setHoveredMember(member.id)}
       onMouseLeave={() => !isMobile && setHoveredMember(null)}
       onClick={() => isMobile && handleInteraction()}
@@ -87,7 +77,7 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
         )}
         <div className={`member-card-overlay rounded-t-lg ${isHovered ? 'opacity-0' : 'opacity-30'}`} />
       </div>
-      <div className="member-card-info">
+      <div className="member-card-info px-1">
         <h4 className="font-semibold text-seagreen line-clamp-2 text-base">{member.name}</h4>
         {showRole && <p className="text-sm text-gray-600 line-clamp-1 mt-1">{member.role}</p>}
       </div>

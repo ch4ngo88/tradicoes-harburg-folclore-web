@@ -12,7 +12,7 @@
 
   .member-card {
     @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 
-           hover:shadow-xl mx-auto cursor-pointer;
+           hover:shadow-xl cursor-pointer;
     width: 200px;
     height: 300px;
     backface-visibility: hidden; /* Fixes issues in some browsers */

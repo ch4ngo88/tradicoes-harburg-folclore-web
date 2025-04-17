@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -5,6 +6,8 @@ import {
   Dialog,
   DialogContent,
   DialogTrigger,
+  DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -91,6 +94,12 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                 </button>
               </DialogTrigger>
               <DialogContent className="p-0 max-w-4xl border-none">
+                <DialogTitle className="sr-only">
+                  {language === "pt" ? "Foto do grupo" : "Gruppenfoto"}
+                </DialogTitle>
+                <DialogDescription className="sr-only">
+                  {language === "pt" ? "Imagem ampliada do grupo" : "Vergrößertes Gruppenbild"}
+                </DialogDescription>
                 <img
                   src={heroImageSrc}
                   alt="Group photo"
