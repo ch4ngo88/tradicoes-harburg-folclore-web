@@ -1,4 +1,3 @@
-
 import { useLanguage } from "@/hooks/useLanguage";
 
 export type MemberData = {
@@ -9,6 +8,7 @@ export type MemberData = {
   costumeImage: string;
   description?: string;
   category: "leadership" | "music" | "dancers";
+  hoverText?: string;
 };
 
 export const useMembersData = (): MemberData[] => {
@@ -23,6 +23,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/members/marco1.png",
       costumeImage: "/images/members/marco2.png",
       category: "leadership",
+      hoverText: "Ribatejo"
     },
     {
       id: 2,

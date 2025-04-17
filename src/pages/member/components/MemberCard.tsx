@@ -41,9 +41,24 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   // Don't show role for dancers
   const showRole = member.category !== "dancers";
   
-  // Fix potential issues with image paths
-  const regularImage = member.regularImage.startsWith('/') ? member.regularImage : `/images/members/${member.regularImage}`;
-  const costumeImage = member.costumeImage.startsWith('/') ? member.costumeImage : `/images/members/${member.costumeImage}`;
+  // Fix potential issues with image paths - ensure they start with / and remove any duplicate /images/
+  let regularImage = member.regularImage;
+  let costumeImage = member.costumeImage;
+  
+  if (!regularImage.startsWith('/')) {
+    regularImage = `/images/members/${regularImage}`;
+  }
+  
+  if (!costumeImage.startsWith('/')) {
+    costumeImage = `/images/members/${costumeImage}`;
+  }
+  
+  // Prevent duplicate paths if both prefixes exist
+  regularImage = regularImage.replace('/images/members/images/members/', '/images/members/');
+  costumeImage = costumeImage.replace('/images/members/images/members/', '/images/members/');
+  
+  console.log("Regular image path:", regularImage);
+  console.log("Costume image path:", costumeImage);
   
   return (
     <div
