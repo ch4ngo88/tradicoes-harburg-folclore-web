@@ -22,7 +22,7 @@
   }
   
   .switch-icon {
-    @apply flex items-center text-gray-700 transition-colors;
+    @apply flex items-center text-gray-700 transition-colors opacity-80;
   }
   
   /* Mobile Nav Buttons */
