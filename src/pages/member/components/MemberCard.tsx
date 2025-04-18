@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -32,16 +31,13 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
     }
   };
 
-  // Default hover text if not provided
   const displayHoverText = member.hoverText || 
     (member.name === "Marco da Silva" ? "Ribatejo" : "");
   
   const isHovered = hoveredMember === member.id;
   
-  // Don't show role for dancers
   const showRole = member.category !== "dancers";
 
-  // Normalize image paths - handle both relative and absolute paths
   const normalizeImagePath = (imagePath: string): string => {
     if (imagePath.startsWith('/')) {
       return imagePath; // Already absolute path
@@ -55,7 +51,6 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   const regularImage = normalizeImagePath(member.regularImage);
   const costumeImage = normalizeImagePath(member.costumeImage);
   
-  // Debugging helper
   if (member.id === 1) { // Only log for first member to avoid console spam
     console.debug("Member image paths:", {
       regular: regularImage,
@@ -68,33 +63,34 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   return (
     <div
       className="member-card mx-auto"
+      style={{ width: '180px', height: '280px' }}
       onMouseEnter={() => !isMobile && setHoveredMember(member.id)}
       onMouseLeave={() => !isMobile && setHoveredMember(null)}
       onClick={() => isMobile && handleInteraction()}
     >
-      <div className="member-card-image-container w-full">
+      <div className="member-card-image-container w-full" style={{ height: '180px' }}>
         {!imageLoaded && (
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-t-lg"></div>
         )}
         <OptimizedImage
-          src={isHovered ? costumeImage : regularImage}
+          src={hoveredMember === member.id ? costumeImage : regularImage}
           alt={member.name}
           className="member-card-image object-cover rounded-t-lg"
           loading="lazy"
-          width="200" 
-          height="200"
+          width="180" 
+          height="180"
           onLoad={() => setImageLoaded(true)}
         />
-        {isHovered && displayHoverText && (
-          <div className="absolute bottom-0 left-0 w-full bg-seagreen/70 text-white text-center py-2 px-1">
+        {hoveredMember === member.id && displayHoverText && (
+          <div className="absolute bottom-0 left-0 w-full bg-seagreen/70 text-white text-center py-1 px-1 text-xs">
             {displayHoverText}
           </div>
         )}
-        <div className={`member-card-overlay rounded-t-lg ${isHovered ? 'opacity-0' : 'opacity-30'}`} />
+        <div className={`member-card-overlay rounded-t-lg ${hoveredMember === member.id ? 'opacity-0' : 'opacity-30'}`} />
       </div>
-      <div className="member-card-info px-1">
-        <h4 className="font-semibold text-seagreen line-clamp-2 text-base">{member.name}</h4>
-        {showRole && <p className="text-sm text-gray-600 line-clamp-1 mt-1">{member.role}</p>}
+      <div className="member-card-info px-1 py-1">
+        <h4 className="font-semibold text-seagreen line-clamp-2 text-sm">{member.name}</h4>
+        {showRole && <p className="text-xs text-gray-600 line-clamp-1 mt-0.5">{member.role}</p>}
       </div>
     </div>
   );

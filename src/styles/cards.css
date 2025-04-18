@@ -1,27 +1,14 @@
 
 @layer components {
-  .photo-grid-item {
-    @apply overflow-hidden rounded-lg shadow-md transition-all duration-300 
-           hover:shadow-lg hover:scale-[1.02];
-  }
-
-  .gallery-photo {
-    @apply w-full h-full object-cover transition-transform duration-500 
-           hover:scale-110;
-  }
-
   .member-card {
     @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 
            hover:shadow-xl cursor-pointer;
-    width: 200px;
-    height: 300px;
     backface-visibility: hidden; /* Fixes issues in some browsers */
     transform: translateZ(0); /* Enables hardware acceleration */
   }
 
   .member-card-image-container {
     @apply relative overflow-hidden;
-    height: 200px;
     -webkit-mask-image: -webkit-radial-gradient(white, black); /* Fixes border-radius overflow in Safari */
   }
 
@@ -37,8 +24,7 @@
   }
 
   .member-card-info {
-    @apply p-2 text-center;
-    height: 100px;
+    @apply p-1 text-center;
     display: flex;
     flex-direction: column;
     justify-content: center;
