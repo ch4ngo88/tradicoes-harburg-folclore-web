@@ -33,7 +33,7 @@ export const CallToActionButtons = () => {
       >
         <Link to="/contact">
           <Mail size={18} />
-          {t("contact")}
+          {t("contactBtn")}
         </Link>
       </Button>
     </div>

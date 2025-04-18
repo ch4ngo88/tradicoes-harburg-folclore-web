@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Language = "pt" | "de";
@@ -82,7 +83,7 @@ const translations: Translations = {
     pt: "Ver Atividades",
     de: "Aktivitäten ansehen",
   },
-  contact: {
+  contactBtn: {
     pt: "Contactar",
     de: "Kontaktieren",
   },
