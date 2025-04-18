@@ -52,8 +52,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        seagreen: "#0A3D22",
-        portuguesered: "#8B0000",
+        seagreen: {
+          DEFAULT: "#0A3D22",
+          light: "#1A5D32",
+        },
+        portuguesered: {
+          DEFAULT: "#8B0000",
+          light: "#A00000",
+        },
         cream: "#fff8e8",
       },
       fontFamily: {

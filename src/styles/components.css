@@ -1,29 +1,37 @@
 
 @layer components {
   .current {
-    @apply font-bold text-white relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white;
+    @apply font-bold text-white relative after:absolute after:bottom-0 after:left-0 
+           after:w-full after:h-0.5 after:bg-white;
   }
 
   .icon {
-    @apply h-6 w-6 transition-all duration-300 hover:scale-125 hover:opacity-80;
+    @apply h-6 w-6 transition-all duration-300 hover:scale-125 hover:opacity-80
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-seagreen;
   }
 
   .gruppo-image {
-    @apply w-full max-w-md mx-auto rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply w-full max-w-md mx-auto rounded-xl shadow-lg hover:shadow-xl 
+           transition-all duration-300;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1
+           focus:outline-none focus:ring-2 focus:ring-seagreen/50;
   }
 
   .section-title {
-    @apply text-2xl font-bold text-seagreen mb-6 relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-3/4 after:h-1 after:bg-portuguesered after:rounded-full;
+    @apply text-2xl font-bold text-seagreen mb-6 relative inline-block 
+           after:content-[''] after:absolute after:bottom-0 after:left-0 
+           after:w-3/4 after:h-1 after:bg-portuguesered after:rounded-full;
   }
 
   .nav-link {
     @apply relative overflow-hidden py-1.5 transition-colors duration-300 
-           before:absolute before:-bottom-0.5 before:left-0 before:h-0.5 before:w-0 
-           before:bg-[#ea384c] before:transition-all before:duration-300 
-           hover:before:w-full hover:text-[#ea384c];
+           text-gray-800 hover:text-portuguesered
+           focus:outline-none focus:ring-2 focus:ring-seagreen/50
+           before:absolute before:-bottom-0.5 before:left-0 before:h-0.5 
+           before:w-0 before:bg-portuguesered before:transition-all 
+           before:duration-300 hover:before:w-full;
   }
 }
