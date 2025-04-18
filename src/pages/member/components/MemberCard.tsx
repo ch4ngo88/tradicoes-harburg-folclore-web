@@ -59,7 +59,7 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   
   return (
     <div
-      className="member-card mx-auto mb-3"
+      className="member-card mx-auto mb-4"
       onMouseEnter={() => !isMobile && setHoveredMember(member.id)}
       onMouseLeave={() => !isMobile && setHoveredMember(null)}
       onClick={() => isMobile && handleInteraction()}

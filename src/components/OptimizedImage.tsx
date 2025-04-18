@@ -40,9 +40,9 @@ const OptimizedImage = ({
     if (onLoad) onLoad();
   };
 
-  const handleError = () => {
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement | HTMLSourceElement, Event>) => {
     // Don't log or set error for WebP fallbacks, just for main image errors
-    if (hasError || src.includes('webp')) return;
+    if (hasError || (src.includes('webp') && e.currentTarget instanceof HTMLSourceElement)) return;
     
     console.error(`Image failed to load: ${src}`);
     setHasError(true);
