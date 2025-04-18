@@ -43,6 +43,8 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
 
   // Normalize image paths - handle both relative and absolute paths
   const normalizeImagePath = (imagePath: string): string => {
+    if (!imagePath) return "/placeholder.svg";
+    
     if (imagePath.startsWith('/')) {
       return imagePath; // Already absolute path
     } else if (imagePath.startsWith('http')) {
@@ -55,19 +57,9 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   const regularImage = normalizeImagePath(member.regularImage);
   const costumeImage = normalizeImagePath(member.costumeImage);
   
-  // Debugging helper
-  if (member.id === 1) { // Only log for first member to avoid console spam
-    console.debug("Member image paths:", {
-      regular: regularImage,
-      costume: costumeImage,
-      originalRegular: member.regularImage,
-      originalCostume: member.costumeImage
-    });
-  }
-  
   return (
     <div
-      className="member-card mx-auto"
+      className="member-card mx-auto mb-3"
       onMouseEnter={() => !isMobile && setHoveredMember(member.id)}
       onMouseLeave={() => !isMobile && setHoveredMember(null)}
       onClick={() => isMobile && handleInteraction()}
@@ -86,7 +78,7 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
           onLoad={() => setImageLoaded(true)}
         />
         {isHovered && displayHoverText && (
-          <div className="absolute bottom-0 left-0 w-full bg-seagreen/70 text-white text-center py-2 px-1">
+          <div className="absolute bottom-0 left-0 w-full bg-seagreen/80 text-white text-center py-2 px-1">
             {displayHoverText}
           </div>
         )}

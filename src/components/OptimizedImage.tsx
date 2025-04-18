@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 
-// Improved picture element with WebP support and loading state
 const OptimizedImage = ({
   src,
   alt,
@@ -42,6 +41,9 @@ const OptimizedImage = ({
   };
 
   const handleError = () => {
+    // Don't log or set error for WebP fallbacks, just for main image errors
+    if (hasError || src.includes('webp')) return;
+    
     console.error(`Image failed to load: ${src}`);
     setHasError(true);
     // Still trigger onLoad to remove placeholder
@@ -49,13 +51,13 @@ const OptimizedImage = ({
   };
 
   // Use fallback image if original has error
-  const actualSrc = hasError ? "/images/logo.jpg" : src;
-  const actualWebPSrc = hasError ? "/images/logo.webp" : webPSrc;
+  const actualSrc = hasError ? "/placeholder.svg" : src;
+  const actualWebPSrc = hasError ? "/placeholder.svg" : webPSrc;
 
   return (
     <picture>
       {/* Only use WebP source if not already using WebP format */}
-      {ext !== 'webp' && <source srcSet={actualWebPSrc} type="image/webp" />}
+      {ext !== 'webp' && <source srcSet={actualWebPSrc} type="image/webp" onError={handleError} />}
       <img 
         src={actualSrc} 
         alt={alt} 

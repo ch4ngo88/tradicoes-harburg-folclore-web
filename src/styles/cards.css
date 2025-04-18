@@ -13,15 +13,15 @@
   .member-card {
     @apply relative overflow-hidden rounded-xl shadow-md bg-white transition-all duration-300 
            hover:shadow-xl cursor-pointer;
-    width: 200px;
-    height: 300px;
+    width: 160px;
+    height: 260px;
     backface-visibility: hidden; /* Fixes issues in some browsers */
     transform: translateZ(0); /* Enables hardware acceleration */
   }
 
   .member-card-image-container {
     @apply relative overflow-hidden;
-    height: 200px;
+    height: 160px;
     -webkit-mask-image: -webkit-radial-gradient(white, black); /* Fixes border-radius overflow in Safari */
   }
 
