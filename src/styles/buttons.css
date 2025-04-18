@@ -1,12 +1,12 @@
 
 @layer components {
-  /* Button styles mit verbessertem Kontrast */
   .button-primary {
     @apply px-6 py-3 bg-seagreen text-white rounded-lg shadow-md 
            transition-all duration-300 relative min-w-[200px] text-center
            hover:bg-seagreen/90 hover:shadow-lg hover:scale-[1.02]
            focus:ring-2 focus:ring-seagreen/50 focus:outline-none
-           active:scale-98 font-medium disabled:opacity-50 disabled:cursor-not-allowed;
+           active:scale-98 font-medium disabled:opacity-50 disabled:cursor-not-allowed
+           text-base;
   }
 
   .button-secondary {
@@ -14,23 +14,27 @@
            transition-all duration-300 relative min-w-[200px] text-center
            hover:bg-portuguesered/90 hover:shadow-lg hover:scale-[1.02]
            focus:ring-2 focus:ring-portuguesered/50 focus:outline-none
-           active:scale-98 font-medium disabled:opacity-50 disabled:cursor-not-allowed;
+           active:scale-98 font-medium disabled:opacity-50 disabled:cursor-not-allowed
+           text-base;
   }
 
   .flag-button {
     @apply flex items-center gap-1 px-3 py-1 rounded-full transition-colors
-           hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 focus:outline-none;
+           bg-gray-50 hover:bg-gray-200 
+           focus:ring-2 focus:ring-gray-300 focus:outline-none;
   }
 
   .flag-button.current {
-    @apply bg-white/20 after:hidden;
+    @apply bg-seagreen text-white after:hidden;
   }
   
+  /* Globale Button-Stile */
   button, .btn, a.button, 
   [type='button'], 
   [type='reset'], 
   [type='submit'] {
     @apply transition-all duration-300 hover:shadow-md active:scale-98 hover:scale-[1.02]
-           focus:ring-2 focus:ring-offset-2 focus:outline-none;
+           focus:ring-2 focus:ring-offset-2 focus:outline-none
+           min-h-[44px] min-w-[44px];
   }
 }

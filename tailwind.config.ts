@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,12 +54,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         seagreen: {
-          DEFAULT: "#0A3D22",
-          light: "#1A5D32",
+          DEFAULT: "#063821", // Dunkleres Seagreen für besseren Kontrast
+          light: "#0A4D2E",
         },
         portuguesered: {
-          DEFAULT: "#8B0000",
-          light: "#A00000",
+          DEFAULT: "#A00000", // Angepasstes Rot für besseren Kontrast
+          light: "#B31B1B",
         },
         cream: "#fff8e8",
       },
