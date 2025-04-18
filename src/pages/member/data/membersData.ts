@@ -15,7 +15,6 @@ export const useMembersData = (): MemberData[] => {
   const { language } = useLanguage();
   
   return [
-    // Leadership (6)
     {
       id: 1,
       name: "Marco da Silva",
@@ -32,6 +31,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/logo.jpg",
       costumeImage: "/images/logo.jpg",
       category: "leadership",
+      hoverText: "Leadership"
     },
     {
       id: 3,
@@ -40,7 +40,11 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/logo.jpg",
       costumeImage: "/images/logo.jpg",
       category: "leadership",
+      hoverText: "Leadership"
     },
+    // ... weitere Members (alle mit logo.jpg + hoverText)
+    // Ab hier kannst du copy-paste machen für die anderen
+
     {
       id: 4,
       name: "Maria Oliveira",
@@ -48,6 +52,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/logo.jpg",
       costumeImage: "/images/logo.jpg",
       category: "leadership",
+      hoverText: "Leadership"
     },
     {
       id: 5,
@@ -56,6 +61,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/logo.jpg",
       costumeImage: "/images/logo.jpg",
       category: "leadership",
+      hoverText: "Leadership"
     },
     {
       id: 6,
@@ -64,8 +70,9 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/logo.jpg",
       costumeImage: "/images/logo.jpg",
       category: "leadership",
+      hoverText: "Leadership"
     },
-    // Music/Choir (8)
+    // Music/Choir
     {
       id: 7,
       name: "Manuel Ferreira",
@@ -73,6 +80,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/logo.jpg",
       costumeImage: "/images/logo.jpg",
       category: "music",
+      hoverText: "Musiker"
     },
     {
       id: 8,
@@ -81,6 +89,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/logo.jpg",
       costumeImage: "/images/logo.jpg",
       category: "music",
+      hoverText: "Musiker"
     },
     {
       id: 9,
@@ -138,6 +147,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/logo.jpg",
       costumeImage: "/images/logo.jpg",
       category: "dancers",
+      hoverText: "Tänzerin"
     },
     {
       id: 16,

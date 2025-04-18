@@ -1,4 +1,3 @@
-
 import React from "react";
 import MemberCard from "./MemberCard";
 
@@ -31,16 +30,17 @@ const MemberSection = ({
   setHoveredMember
 }: MemberSectionProps) => (
   <div 
-    className={`bg-white/70 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg mb-5 transition-opacity duration-500 ${
+    className={`bg-white/70 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg mb-8 transition-opacity duration-500 ${
       isVisible ? 'opacity-100' : 'opacity-0'
     }`}
   >
-    <div className="flex items-center gap-2 mb-3 sm:mb-4">
-      <Icon className="text-seagreen" />
+    <div className="flex items-center gap-2 mb-6">
+      <Icon className="text-seagreen w-6 h-6" />
       <h3 className="text-xl font-bold text-seagreen">{title}</h3>
     </div>
 
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 justify-items-center">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-4 justify-items-center">
+
       {members.map((member) => (
         <MemberCard 
           key={member.id} 
