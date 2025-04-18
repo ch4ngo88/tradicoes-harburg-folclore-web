@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Language = "pt" | "de";
@@ -36,48 +35,60 @@ const translations: Translations = {
     de: "Über uns",
   },
   welcome: {
-    pt: "Bem-vindos ao nosso rancho folclórico Tradições Portuguesas!",
-    de: "Herzlich Willkommen bei Tradições Portuguesas!",
+    pt: "Bem-vindos ao Rancho Folclórico Tradições Portuguesas – a nossa segunda casa, o nosso pedaço de Portugal em Hamburgo.",
+    de: "Willkommen beim Rancho Folclórico Tradições Portuguesas – unser zweites Zuhause, unser Stück Portugal in Hamburg.",
   },
   intro: {
-    pt: "Descubra os diversos encantos da cultura portuguesa com o nosso grupo folclórico, que alegra o público com músicas e danças tradicionais desde 1979.",
-    de: "Tauchen Sie in die farbenfrohe, vielfältige Welt der portugiesischen Kultur, mit unser Tanzgruppe die seit 1979 das Publikum mit den traditionellen Folklore Tänzen begeistert.",
+    pt: "Desde 1979, celebramos juntos a cultura, a música e as tradições que nos ligam às nossas raízes.",
+    de: "Seit 1979 feiern wir gemeinsam die Kultur, Musik und Traditionen, die uns mit unseren Wurzeln verbinden.",
+  },
+  storyIntro: {
+    pt: "Aqui, cada passo conta uma história. Cada sorriso é um abraço de saudade.",
+    de: "Hier erzählt jeder Schritt eine Geschichte. Jedes Lächeln ist eine Umarmung der Sehnsucht.",
   },
   generations: {
-    pt: "Um lar para todas as gerações:",
-    de: "Von Klein bis Groß:",
+    pt: "Um lar para todas as gerações",
+    de: "Ein Zuhause für alle Generationen",
   },
   generationsText: {
-    pt: "Com cerca de 60 membros, o nosso rancho é composto por pessoas de todas as idades. No nosso grupo infantil, os mais pequenos descobrem o mundo da cultura portuguesas de uma forma divertida. No grupo adulto, os membros (a partir de 14 anos) podem aprofundar e desenvolver as suas habilidades.",
-    de: "Mit rund 60 talentierten Mitgliedern begeistert unsere Tanzgruppe Menschen jeden Alters. In unserer Kindergruppe entdecken die Kleinsten die Welt der portugiesischen Traditionen mit Spiel und Spaß. In der Erwachsenengruppe können motivierte Mitglieder (ab 14 Jahren) ihr Können vertiefen und neue Herausforderungen meistern.",
+    pt: "Com cerca de 60 membros, o nosso rancho é composto por pessoas de todas as idades. No grupo infantil, os mais pequenos descobrem o mundo da cultura portuguesa de forma divertida. No grupo adulto, a partir dos 14 anos, os membros aprofundam e desenvolvem as suas habilidades com paixão e alegria.",
+    de: "Mit rund 60 Mitgliedern besteht unsere Gruppe aus Menschen aller Altersgruppen. In der Kindergruppe entdecken die Kleinsten die Welt der portugiesischen Kultur auf spielerische Weise. In der Erwachsenengruppe vertiefen und entwickeln die Mitglieder ab 14 Jahren ihre Fähigkeiten mit Leidenschaft und Freude.",
   },
   variety: {
-    pt: "Representação do folclore de norte a sul:",
-    de: "Tänzerische Vielfalt von Nord bis Süd:",
+    pt: "Portugal de norte a sul",
+    de: "Portugal von Nord bis Süd",
   },
   varietyText: {
-    pt: "Preservamos a cultura portuguesa, desde as danças animadas e puladas do Minho, às danças elegantes e graciosas do Ribatejo, até aos passos alegres e movidos do Algarve.",
-    de: "Wir bewahren und repräsentieren die portugiesische Kultur, von den lebhaften und energetischen Tänzen des Nordens, zu den eleganten und anmutigen Tänzen des Zentrums, bis hin zu den fröhlichen und raschen Schrittfolgen des Süden Portugals.",
+    pt: "Representamos o folclore de todo o país – das danças animadas do Minho às elegantes do Ribatejo, até aos passos alegres do Algarve. Cada membro tem a oportunidade de mostrar com orgulho as tradições da sua região de origem. A nossa força está na diversidade que nos une!",
+    de: "Wir repräsentieren die Folklore des ganzen Landes – von den lebhaften Tänzen des Minho über die eleganten des Ribatejo bis zu den fröhlichen Schritten des Algarve. Jedes Mitglied hat die Möglichkeit, stolz die Traditionen seiner Herkunftsregion zu zeigen. Unsere Stärke liegt in der Vielfalt, die uns vereint!",
   },
   timeTravel: {
-    pt: "Viajem no tempo:",
-    de: "Erleben Sie eine Zeitreise:",
+    pt: "Uma viagem no tempo",
+    de: "Eine Zeitreise",
   },
   timeTravelText: {
-    pt: "As nossas atuações levam-vos a uma viagem cultural pelas antigas e ricas tradições do país. Deixe-se encantar pelos ritmos vibrantes, pelos trajes coloridos e pela energia contagiante do nosso grupo.",
-    de: "Unsere Auftritte führen Sie auf eine kulturelle Reise durch die alten Traditionen des Landes. Lassen Sie sich von den temperamentvollen Rhythmen, den farbenfrohen Trachten und der mitreißenden Energie unserer Gruppe verzaubern.",
+    pt: "As nossas atuações são uma viagem cultural pelas antigas tradições de Portugal. Deixe-se encantar pelos ritmos vibrantes, pelos trajes coloridos e pela energia contagiante do nosso grupo.",
+    de: "Unsere Aufführungen sind eine kulturelle Reise durch die alten Traditionen Portugals. Lassen Sie sich von den lebhaften Rhythmen, den farbenfrohen Trachten und der ansteckenden Energie unserer Gruppe verzaubern.",
   },
   joinUs: {
     pt: "Gostaria de fazer parte da nossa família folclórica?",
-    de: "Möchten Sie gemeinsam mit uns die Leidenschaft für portugiesische Folklore entdecken?",
+    de: "Möchten Sie Teil unserer Folklore-Familie werden?",
   },
   joinUsText: {
-    pt: "Visite-nos em uma das nossas próximas apresentações (datas sob a guia Atividades) ou surpreenda os seus convidados com algo especial e contrate-nos para o seu próximo evento (pedidos sob a guia Contacto).",
-    de: "Dann besuchen Sie uns doch bei einem unserer nächsten Auftritte (Termine unter dem Reiter Aktivitäten) oder überraschen Sie Ihre Gäste mit etwas ganz Besonderem und buchen Sie uns für Ihr nächstes Event (Anfragen unter dem Reiter Kontakt).",
+    pt: "Visite-nos em uma das nossas próximas apresentações ou surpreenda os seus convidados com algo especial ao contratar-nos para o seu evento!",
+    de: "Besuchen Sie uns bei einer unserer nächsten Aufführungen oder überraschen Sie Ihre Gäste mit etwas Besonderem, indem Sie uns für Ihre Veranstaltung buchen!",
+  },
+  seeActivities: {
+    pt: "Ver Atividades",
+    de: "Aktivitäten ansehen",
+  },
+  contact: {
+    pt: "Contactar",
+    de: "Kontaktieren",
   },
   finalMessage: {
-    pt: "Seja como músico ou dançarino, estamos sempre à procura de novos talentos para enriquecer o nosso grupo. Junte-se a nós e viva a paixão pela cultura folclórica portuguesa!",
-    de: "Mit uns erleben Sie ein Stück portugiesische Sonne und Lebensfreude!",
+    pt: "Estamos sempre de braços abertos para novos talentos! Seja como músico, dançarino ou amigo, junte-se a nós e viva a paixão pela cultura folclórica portuguesa.",
+    de: "Wir heißen neue Talente stets willkommen! Ob als Musiker, Tänzer oder Freund, schließen Sie sich uns an und erleben Sie die Leidenschaft für portugiesische Folklore.",
   },
   upcomingActivities: {
     pt: "Proximas atividades",

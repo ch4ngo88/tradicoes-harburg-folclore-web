@@ -5,7 +5,7 @@ import { Calendar, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const CallToActionButtons = () => {
-  const { language } = useLanguage();
+  const { t } = useLanguage();
 
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -21,7 +21,7 @@ export const CallToActionButtons = () => {
       >
         <Link to="/activities">
           <Calendar size={18} />
-          {language === "pt" ? "Ver Atividades" : "Aktivitäten ansehen"}
+          {t("seeActivities")}
         </Link>
       </Button>
 
@@ -33,7 +33,7 @@ export const CallToActionButtons = () => {
       >
         <Link to="/contact">
           <Mail size={18} />
-          {language === "pt" ? "Contactar" : "Für Events buchen"}
+          {t("contact")}
         </Link>
       </Button>
     </div>

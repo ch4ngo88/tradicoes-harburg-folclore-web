@@ -1,10 +1,9 @@
-
 import React, { useEffect, useRef } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { CallToActionButtons } from "@/components/CallToActionButtons";
 
 const AboutUsSection = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -12,7 +11,6 @@ const AboutUsSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Add animation classes when the section comes into view
             entry.target.classList.add("opacity-100");
             entry.target.classList.remove("opacity-0", "translate-y-4");
             observer.unobserve(entry.target);
@@ -43,8 +41,8 @@ const AboutUsSection = () => {
 
         <article className="prose max-w-none text-justify text-gray-700 space-y-6 font-lusitana">
           <p className="font-bold text-lg">{t("welcome")}</p>
-
           <p>{t("intro")}</p>
+          <p className="italic text-gray-600">{t("storyIntro")}</p>
 
           <div className="rounded-lg overflow-hidden shadow-lg my-8 max-w-2xl mx-auto" style={{ maxHeight: "400px" }}>
             <video
@@ -84,16 +82,11 @@ const AboutUsSection = () => {
             <h3 className="text-xl font-bold text-portuguesered mb-3 font-lusitana">
               {t("joinUs")}
             </h3>
-            <p className="mb-6">
-              {language === "pt" 
-                ? "Visite-nos em uma das nossas próximas apresentações ou surpreenda os seus convidados com algo especial e contrate-nos para o seu próximo evento."
-                : "Besuchen Sie uns bei einem unserer nächsten Auftritte oder überraschen Sie Ihre Gäste mit etwas Besonderem und buchen Sie uns für Ihre nächste Veranstaltung."
-              }
-            </p>
+            <p className="mb-6">{t("joinUsText")}</p>
             
             <CallToActionButtons />
             
-            <p className="font-bold mt-4 text-center">{t("finalMessage")}</p>
+            <p className="font-bold mt-6 text-center">{t("finalMessage")}</p>
           </div>
         </article>
       </div>
