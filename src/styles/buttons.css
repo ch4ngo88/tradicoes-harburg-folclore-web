@@ -1,40 +1,38 @@
 
 @layer components {
+  /* Base button styles with consistent hover */
+  .button-base {
+    @apply transition-all duration-300 
+           hover:shadow-md active:scale-[0.98] hover:scale-[1.02]
+           focus:ring-2 focus:ring-offset-2 focus:outline-none
+           disabled:opacity-50 disabled:cursor-not-allowed
+           min-h-[44px] min-w-[44px];
+  }
+
   .button-primary {
-    @apply px-6 py-3 bg-seagreen text-white rounded-lg shadow-md 
-           transition-all duration-300 relative min-w-[200px] text-center
-           hover:bg-seagreen/90 hover:shadow-lg hover:scale-[1.02]
-           focus:ring-2 focus:ring-seagreen/50 focus:outline-none
-           active:scale-98 font-medium disabled:opacity-50 disabled:cursor-not-allowed
-           text-base;
+    @apply button-base px-6 py-3 bg-seagreen text-white rounded-lg shadow-md 
+           relative min-w-[200px] text-center
+           hover:bg-seagreen/90 hover:shadow-lg
+           focus:ring-seagreen/50
+           text-base font-medium;
   }
 
   .button-secondary {
-    @apply px-6 py-3 bg-portuguesered text-white rounded-lg shadow-md 
-           transition-all duration-300 relative min-w-[200px] text-center
-           hover:bg-portuguesered/90 hover:shadow-lg hover:scale-[1.02]
-           focus:ring-2 focus:ring-portuguesered/50 focus:outline-none
-           active:scale-98 font-medium disabled:opacity-50 disabled:cursor-not-allowed
-           text-base;
+    @apply button-base px-6 py-3 bg-portuguesered text-white rounded-lg shadow-md
+           relative min-w-[200px] text-center
+           hover:bg-portuguesered/90 hover:shadow-lg
+           focus:ring-portuguesered/50
+           text-base font-medium;
   }
 
   .flag-button {
-    @apply flex items-center gap-1 px-3 py-1 rounded-full transition-colors
+    @apply button-base flex items-center gap-1 px-3 py-1 rounded-full
            bg-gray-50 hover:bg-gray-200 
-           focus:ring-2 focus:ring-gray-300 focus:outline-none;
+           focus:ring-gray-300;
   }
 
+  /* Keep existing .flag-button.current styles */
   .flag-button.current {
     @apply bg-seagreen text-white after:hidden;
-  }
-  
-  /* Globale Button-Stile */
-  button, .btn, a.button, 
-  [type='button'], 
-  [type='reset'], 
-  [type='submit'] {
-    @apply transition-all duration-300 hover:shadow-md active:scale-98 hover:scale-[1.02]
-           focus:ring-2 focus:ring-offset-2 focus:outline-none
-           min-h-[44px] min-w-[44px];
   }
 }
