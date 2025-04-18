@@ -15,4 +15,28 @@
   .group:hover .group-hover\:translate-x-1 {
     @apply translate-x-1;
   }
+  
+  /* Toggle Switch Verbesserungen */
+  .switch-container {
+    @apply flex items-center gap-2 bg-white/90 px-3 py-1.5 rounded-full shadow-sm;
+  }
+  
+  .switch-icon {
+    @apply flex items-center text-gray-700;
+  }
+  
+  /* Mobile Nav Buttons */
+  .mobile-nav-trigger {
+    @apply flex items-center justify-center p-2 rounded-md border border-seagreen/30 
+           hover:bg-seagreen/10 transition-colors text-seagreen 
+           focus:ring-2 focus:ring-seagreen focus:ring-offset-2 
+           min-h-[44px] min-w-[44px];
+  }
+  
+  .mobile-nav-close {
+    @apply rounded-full flex items-center justify-center p-2 
+           hover:bg-white/20 transition-colors 
+           focus:ring-2 focus:ring-white/50 focus:outline-none
+           min-h-[40px] min-w-[40px];
+  }
 }

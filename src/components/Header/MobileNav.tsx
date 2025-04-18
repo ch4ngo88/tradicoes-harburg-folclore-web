@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -40,10 +41,10 @@ const MobileNav = () => {
       <Sheet>
         <SheetTrigger asChild>
           <button
-            className="p-1.5 rounded-md border border-seagreen/30 hover:bg-seagreen/10 transition-colors text-seagreen"
-            aria-label="Open menu"
+            className="flex items-center justify-center p-2 rounded-md border border-seagreen/30 hover:bg-seagreen/10 transition-colors text-seagreen focus:ring-2 focus:ring-seagreen focus:ring-offset-2 min-h-[44px] min-w-[44px]"
+            aria-label="Öffne Hauptmenü"
           >
-            <Menu size={20} />
+            <Menu size={22} />
           </button>
         </SheetTrigger>
         <SheetContent
@@ -53,8 +54,9 @@ const MobileNav = () => {
           <div className="flex flex-col h-full">
             <div className="p-4 border-b border-white/20 flex items-center justify-between">
               <span className="font-lusitana font-bold">Menu</span>
-              <SheetClose className="rounded-full p-1 hover:bg-white/10 transition-colors">
-                <X size={18} className="text-[#ea384c]" />
+              <SheetClose className="rounded-full flex items-center justify-center p-2 hover:bg-white/20 transition-colors focus:ring-2 focus:ring-white/50 focus:outline-none min-h-[40px] min-w-[40px]">
+                <X size={20} className="text-white" aria-hidden="true" />
+                <span className="sr-only">Menü schließen</span>
               </SheetClose>
             </div>
             <ul className="flex flex-col w-full text-center pt-4">
