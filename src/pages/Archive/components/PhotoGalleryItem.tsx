@@ -7,13 +7,25 @@ interface PhotoGalleryItemProps {
 }
 
 const PhotoGalleryItem = ({ image, index }: PhotoGalleryItemProps) => {
+  const getDescriptiveAlt = (imagePath: string) => {
+    const fileName = imagePath.split('/').pop()?.split('.')[0];
+    if (!fileName) return "Archivbild von Rancho Folclórico Tradições Portuguesas";
+    
+    const imageDescriptions: Record<string, string> = {
+      '1': 'Historische Aufnahme der Tanzgruppe bei einer traditionellen Aufführung',
+      '2': 'Gruppenfoto der Mitglieder in traditionellen Trachten',
+    };
+
+    return imageDescriptions[fileName] || "Historisches Archivbild der portugiesischen Tanzgruppe in Hamburg";
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <div className="photo-grid-item h-full aspect-square cursor-pointer">
           <img
             src={image}
-            alt={`Archive image ${index + 1}`}
+            alt={getDescriptiveAlt(image)}
             className="gallery-photo w-full h-full object-cover rounded-md"
             loading="lazy"
             width="300"
@@ -24,7 +36,7 @@ const PhotoGalleryItem = ({ image, index }: PhotoGalleryItemProps) => {
       <DialogContent className="max-w-3xl p-0 overflow-hidden">
         <img
           src={image}
-          alt={`Archive image ${index + 1}`}
+          alt={getDescriptiveAlt(image)}
           className="w-full h-auto max-h-[80vh] object-contain"
         />
       </DialogContent>

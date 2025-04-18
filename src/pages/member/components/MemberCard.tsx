@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import OptimizedImage from "@/components/OptimizedImage";
-import { useCanHover } from "@/hooks/use-can-hover"; // NEU: Hover-Fähigkeit checken
-
-
+import { useCanHover } from "@/hooks/use-can-hover";
 
 type MemberData = {
   id: number;
@@ -42,27 +40,23 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
     <div
       className="relative w-[200px] h-[300px] flex flex-col items-center justify-start bg-white rounded-xl overflow-hidden shadow-md cursor-pointer mb-6"
       onMouseEnter={() => canHover && setHoveredMember(member.id)}
-onMouseLeave={() => canHover && setHoveredMember(null)}
-onClick={() => !canHover && handleInteraction()}
-
+      onMouseLeave={() => canHover && setHoveredMember(null)}
+      onClick={() => !canHover && handleInteraction()}
     >
-      {/* Bild */}
       <div className="relative w-full h-[70%] overflow-hidden">
         <OptimizedImage
           src={isHovered ? member.costumeImage : member.regularImage}
-          alt={member.name}
+          alt={isHovered 
+            ? `${member.name} in traditioneller portugiesischer Tracht als ${member.role}`
+            : `${member.name} - ${member.role} bei Rancho Folclórico Tradições Portuguesas`}
           className={`w-full h-full object-cover transition-transform duration-500 ease-in-out ${isHovered ? 'scale-105' : 'scale-100'}`}
         />
-
-        {/* Hover Text */}
         {isHovered && member.hoverText && (
           <div className="absolute bottom-0 left-0 w-full bg-seagreen/80 text-white text-center text-sm font-semibold py-2 px-1 z-10">
             {member.hoverText}
           </div>
         )}
       </div>
-
-      {/* Name + Rolle */}
       <div className="w-full h-[30%] flex flex-col items-center justify-center px-2 py-2">
         <h4 className="text-seagreen font-semibold text-base text-center">{member.name}</h4>
         {showRole && (

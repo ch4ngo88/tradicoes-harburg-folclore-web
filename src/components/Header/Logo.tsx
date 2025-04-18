@@ -18,7 +18,7 @@ const Logo = ({ scrollToTop }: LogoProps) => {
     >
       <img
         src="/images/logo.jpg"
-        alt="Rancho logo"
+        alt="Rancho Folclórico Tradições Portuguesas - Offizielles Logo der portugiesischen Tanzgruppe in Hamburg"
         className="w-12 h-12 object-cover"
         width={48}
         height={48}

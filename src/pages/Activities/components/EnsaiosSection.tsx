@@ -1,4 +1,3 @@
-
 import { Users } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -42,7 +41,9 @@ const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
                 <div className="relative h-48 cursor-pointer">
                   <img
                     src={ensaio.image}
-                    alt={ensaio.title}
+                    alt={language === "pt" 
+                      ? `Ensaio de ${ensaio.title} - ${ensaio.schedule}`
+                      : `${ensaio.title} Probe - ${ensaio.schedule}`}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -50,7 +51,9 @@ const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
               <DialogContent className="p-0 max-w-2xl border-none">
                 <img
                   src={ensaio.image}
-                  alt={ensaio.title}
+                  alt={language === "pt" 
+                    ? `Ensaio de ${ensaio.title} - ${ensaio.schedule}`
+                    : `${ensaio.title} Probe - ${ensaio.schedule}`}
                   className="w-full h-full max-h-[70vh] object-contain rounded-lg"
                   loading="lazy"
                 />

@@ -32,15 +32,18 @@ const EventCard = ({ event }: EventCardProps) => {
                     loop
                     playsInline
                     className="w-full h-full object-cover aspect-video"
+                    aria-label={`Event Video: ${event.title} am ${event.date} in ${event.location}`}
                   />
                 ) : (
                   <img
                     src={event.image}
-                    alt={event.title}
+                    alt={`${event.title} - ${language === "pt" ? "Evento em" : "Veranstaltung in"} ${event.location} ${language === "pt" ? "no dia" : "am"} ${new Date(event.date).toLocaleDateString(
+                      language === "pt" ? "pt-PT" : "de-DE",
+                      { day: "numeric", month: "long", year: "numeric" }
+                    )}`}
                     className="w-full h-full object-cover aspect-video"
                   />
                 )}
-
                 {event.video && (
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="bg-black/50 rounded-full p-2 animate-pulse">

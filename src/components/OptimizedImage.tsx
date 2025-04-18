@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const OptimizedImage = ({
@@ -28,7 +29,8 @@ const OptimizedImage = ({
   };
 
   if (!src || hasError) {
-    src = "/images/logo.jpg"; // fallback
+    src = "/images/logo.jpg"; // Fallback zum Rancho Logo
+    alt = "Rancho Folclórico Tradições Portuguesas Logo"; // Verbesserte Fallback Alt-Text
   }
 
   return (
