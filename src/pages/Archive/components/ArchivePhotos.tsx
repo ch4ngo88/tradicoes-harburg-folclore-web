@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { Grid2X2, View } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 import {
   Carousel,
   CarouselContent,
@@ -14,11 +15,11 @@ import PhotoGalleryItem from "./PhotoGalleryItem";
 interface ArchivePhotosProps {
   images: string[];
   imagesLoaded: boolean;
-  language: string;
 }
 
-const ArchivePhotos = ({ images, imagesLoaded, language }: ArchivePhotosProps) => {
+const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
   const [isGridView, setIsGridView] = useState(false);
+  const { t, language } = useLanguage();
 
   return (
     <div className="w-full max-w-5xl mx-auto mb-12 animate-fade-in">

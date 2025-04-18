@@ -24,8 +24,7 @@ const ArchiveLayout = ({
         </h1>
         <NavigationTabs 
           activeTab={activeTab} 
-          setActiveTab={setActiveTab} 
-          language={language} 
+          setActiveTab={setActiveTab}
         />
       </div>
       

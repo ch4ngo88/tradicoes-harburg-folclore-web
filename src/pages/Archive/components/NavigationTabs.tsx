@@ -1,6 +1,7 @@
 
 import React from "react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { type Language } from "@/hooks/useLanguage";
 
 interface NavigationTabsProps {
   activeTab: "photos" | "audio" | "videos";

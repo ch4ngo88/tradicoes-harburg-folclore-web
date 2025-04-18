@@ -4,13 +4,13 @@ import VideoCard from "./VideoCard";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const ArchiveVideos = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   
   return (
     <div className="w-full max-w-4xl mx-auto mb-12 animate-fade-in">
       <div className="text-center mb-6">
         <h3 className="text-xl font-bold text-portuguesered">
-          {language === "pt" ? "Vídeos" : "Videos"}
+          {t("videos")}
         </h3>
       </div>
 
