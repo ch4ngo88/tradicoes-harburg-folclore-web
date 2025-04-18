@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -69,7 +68,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
       
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="animate-on-load md:w-2/5 w-full flex justify-center md:justify-end">
-          <div className="relative">
+          <div className="relative hero-stagger-1">
             <Dialog>
               <DialogTrigger asChild>
                 <button 
@@ -112,12 +111,12 @@ const HeroSection = ({ language }: HeroSectionProps) => {
         </div>
 
         <div className="md:w-3/5 text-center md:text-left text-white space-y-4">
-          <h2 className="animate-on-load text-4xl md:text-5xl lg:text-6xl font-bold font-lusitana leading-tight">
+          <h2 className="hero-stagger-1 text-4xl md:text-5xl lg:text-6xl font-bold font-lusitana leading-tight">
             {language === "pt"
               ? "Tradições Portuguesas"
               : "Portugiesische Traditionen"}
           </h2>
-          <p className="animate-on-load text-xl md:text-2xl opacity-90 font-lusitana max-w-xl italic">
+          <p className="hero-stagger-2 text-xl md:text-2xl opacity-90 font-lusitana max-w-xl italic">
             {language === "pt" ? (
               <>
                 Preservando a cultura portuguesa em Hamburgo<br />
@@ -131,7 +130,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
             )}
           </p>
 
-          <div className="animate-on-load pt-4">
+          <div className="hero-stagger-3 pt-4">
             <Link
               to="/activities"
               className="px-6 py-3 bg-seagreen text-white rounded-lg shadow-md transition-all duration-300 inline-flex items-center gap-2 group font-lusitana hover:shadow-lg hover:scale-[1.02]"
