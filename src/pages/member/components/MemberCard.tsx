@@ -52,7 +52,6 @@ onClick={() => !canHover && handleInteraction()}
           src={isHovered ? member.costumeImage : member.regularImage}
           alt={member.name}
           className={`w-full h-full object-cover transition-transform duration-500 ease-in-out ${isHovered ? 'scale-105' : 'scale-100'}`}
-
         />
 
         {/* Hover Text */}
