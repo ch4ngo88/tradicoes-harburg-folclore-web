@@ -1,13 +1,15 @@
 
 import React from "react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface NavigationTabsProps {
   activeTab: "photos" | "audio" | "videos";
   setActiveTab: (tab: "photos" | "audio" | "videos") => void;
-  language: string;
 }
 
-const NavigationTabs = ({ activeTab, setActiveTab, language }: NavigationTabsProps) => {
+const NavigationTabs = ({ activeTab, setActiveTab }: NavigationTabsProps) => {
+  const { t } = useLanguage();
+  
   return (
     <div className="inline-flex rounded-md bg-gray-100 p-1">
       <button
@@ -18,7 +20,7 @@ const NavigationTabs = ({ activeTab, setActiveTab, language }: NavigationTabsPro
             : "text-gray-600 hover:text-seagreen"
         }`}
       >
-        {language === "pt" ? "Fotos" : "Fotos"}
+        {t("photos")}
       </button>
       <button
         onClick={() => setActiveTab("audio")}
@@ -28,7 +30,7 @@ const NavigationTabs = ({ activeTab, setActiveTab, language }: NavigationTabsPro
             : "text-gray-600 hover:text-seagreen"
         }`}
       >
-        {language === "pt" ? "Áudio" : "Audio"}
+        {t("audio")}
       </button>
       <button
         onClick={() => setActiveTab("videos")}
@@ -38,7 +40,7 @@ const NavigationTabs = ({ activeTab, setActiveTab, language }: NavigationTabsPro
             : "text-gray-600 hover:text-seagreen"
         }`}
       >
-        {language === "pt" ? "Vídeos" : "Videos"}
+        {t("videos")}
       </button>
     </div>
   );

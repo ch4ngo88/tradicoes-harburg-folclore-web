@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
 type Language = "pt" | "de";
@@ -102,6 +101,58 @@ const translations: Translations = {
   openInNewTab: {
     pt: "Abrir em nova aba",
     de: "In neuem Tab öffnen",
+  },
+  notFoundTitle: {
+    pt: "Oops! Página não encontrada",
+    de: "Oops! Seite nicht gefunden",
+  },
+  backToHome: {
+    pt: "Voltar à página inicial",
+    de: "Zurück zur Startseite",
+  },
+  photos: {
+    pt: "Fotos",
+    de: "Fotos",
+  },
+  audio: {
+    pt: "Áudio",
+    de: "Audio",
+  },
+  videos: {
+    pt: "Vídeos",
+    de: "Videos",
+  },
+  interviews: {
+    pt: "Entrevistas e Áudio",
+    de: "Interviews und Audio",
+  },
+  name: {
+    pt: "Nome",
+    de: "Name",
+  },
+  email: {
+    pt: "Email",
+    de: "E-Mail",
+  },
+  subject: {
+    pt: "Assunto",
+    de: "Betreff",
+  },
+  message: {
+    pt: "Mensagem",
+    de: "Nachricht",
+  },
+  send: {
+    pt: "Enviar",
+    de: "Senden",
+  },
+  formProtection: {
+    pt: "Este site é protegido por FormSubmit e aplicam-se a Política de Privacidade e os Termos de Serviço.",
+    de: "Diese Website wird durch FormSubmit geschützt und es gelten die Datenschutzbestimmungen und Nutzungsbedingungen.",
+  },
+  usefulLinks: {
+    pt: "Links Úteis",
+    de: "Nützliche Links",
   },
 };
 

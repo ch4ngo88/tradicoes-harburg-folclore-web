@@ -1,17 +1,16 @@
 
 import React from "react";
 import AudioPlayer from "./AudioPlayer";
+import { useLanguage } from "@/hooks/useLanguage";
 
-interface ArchiveAudioProps {
-  language: string;
-}
-
-const ArchiveAudio = ({ language }: ArchiveAudioProps) => {
+const ArchiveAudio = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="w-full max-w-3xl mx-auto mb-12 animate-fade-in">
       <div className="text-center mb-6">
         <h3 className="text-xl font-bold text-portuguesered">
-          {language === "pt" ? "Entrevistas e Áudio" : "Interviews und Audio"}
+          {t("interviews")}
         </h3>
       </div>
 

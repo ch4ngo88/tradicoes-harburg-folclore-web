@@ -1,3 +1,4 @@
+
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -5,8 +6,8 @@ import { AlertTriangle, Home } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
-  const { language } = useLanguage();
-
+  const { t } = useLanguage();
+  
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",
@@ -21,16 +22,10 @@ const NotFound = () => {
           <AlertTriangle className="h-10 w-10 text-portuguesered" />
         </div>
         <h1 className="text-5xl font-bold text-portuguesered mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-8">
-          {language === "pt"
-            ? "Oops! Página não encontrada"
-            : "Oops! Seite nicht gefunden"}
-        </p>
+        <p className="text-xl text-gray-600 mb-8">{t("notFoundTitle")}</p>
         <Link to="/" className="button-primary inline-flex items-center gap-2">
           <Home className="w-4 h-4" />
-          {language === "pt"
-            ? "Voltar à página inicial"
-            : "Zurück zur Startseite"}
+          {t("backToHome")}
         </Link>
       </div>
     </div>
