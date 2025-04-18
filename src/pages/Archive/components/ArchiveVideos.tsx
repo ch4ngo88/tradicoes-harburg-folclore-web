@@ -9,9 +9,9 @@ const ArchiveVideos = () => {
   return (
     <div className="w-full max-w-4xl mx-auto mb-12 animate-fade-in">
       <div className="text-center mb-6">
-        <h3 className="text-xl font-bold text-portuguesered">
+        <h2 className="text-xl font-bold text-portuguesered">
           {t("videos")}
-        </h3>
+        </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

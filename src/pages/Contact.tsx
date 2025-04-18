@@ -136,49 +136,6 @@ const Contact = () => {
   useMetaSEO("contact");
   const { language } = useLanguage();
 
-  const usefulLinks: UsefulLink[] = [
-    {
-      url: "https://www.rfptv.pt/",
-      icon: "/images/links/MYvhCGImba3MPCwmRu2pZgGkFhy2L6tkTLsSO3LN.png",
-      title: "Canal tv Digital do Folclore de Portugal",
-    },
-    {
-      url: "https://folclore.pt/",
-      icon: "/images/links/cropped-portal-logo.jpg",
-      title: "Folclore de Portugal – O Portal do Folclore Português",
-    },
-    {
-      url: "https://www.ffp.pt/",
-      icon: "/images/links/logotipo.png",
-      title: "Federação do Folclore Português",
-    },
-    {
-      url: "https://www.casabrincheiro.pt/",
-      icon: "/images/links/Screenshot+2023-12-22+at+09.47.32-240w.webp",
-      title: "Casa Brincheiro",
-    },
-    {
-      url: "https://portaldascomunidades.mne.gov.pt/pt/",
-      icon: "/images/links/pdc_66x66.png",
-      title: "Portal das Comunidades Portuguesas",
-    },
-    {
-      url: "https://missao-portuguesa-hamburg.de/cms3/p/Mission/index.php",
-      icon: "/images/links/logotipo_missao.jpg",
-      title: "Missão Católica de Língua Portuguesa de Hamburgo",
-    },
-    {
-      url: "https://www.instagram.com/musicoportuga",
-      icon: "/images/links/417154003_7628155877197537_3387848453821547182_n.jpg",
-      title: "Tiago Pinheiro - músico portuga de Hamburgo",
-    },
-    {
-      url: "https://www.kulturpalast-harburg.com/",
-      icon: "/lovable-uploads/7420b265-d33d-4e09-bac4-7f66325bd254.png",
-      title: "Kulturpalast Harburg",
-    },
-  ];
-
   return (
     <div className="container mx-auto py-8 px-4">
       <h1 className="section-title text-center mb-10">
@@ -190,9 +147,9 @@ const Contact = () => {
           <div className="glass-card p-6 mb-4">
             <div className="flex gap-2 items-center mb-4 justify-center">
               <QrCode className="text-seagreen" />
-              <h3 className="text-xl font-bold text-seagreen">
+              <h2 className="text-xl font-bold text-seagreen">
                 {language === "pt" ? "Código QR" : "QR-Code"}
-              </h3>
+              </h2>
             </div>
 
             <div className="flex justify-center">

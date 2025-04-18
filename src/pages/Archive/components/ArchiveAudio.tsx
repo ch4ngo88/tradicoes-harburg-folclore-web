@@ -9,9 +9,9 @@ const ArchiveAudio = () => {
   return (
     <div className="w-full max-w-3xl mx-auto mb-12 animate-fade-in">
       <div className="text-center mb-6">
-        <h3 className="text-xl font-bold text-portuguesered">
+        <h2 className="text-xl font-bold text-portuguesered">
           {t("interviews")}
-        </h3>
+        </h2>
       </div>
 
       <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">

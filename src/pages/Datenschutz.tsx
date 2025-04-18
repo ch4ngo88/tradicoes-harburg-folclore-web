@@ -9,15 +9,15 @@ const Datenschutz = () => {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="section-title text-center mb-8">Datenschutzerklärung</h2>
+        <h1 className="section-title text-center mb-8">Datenschutzerklärung</h1>
 
         <div className="glass-card p-8 space-y-8">
           <section>
             <div className="flex items-center gap-2 mb-4">
               <FileText className="text-seagreen" />
-              <h3 className="text-xl font-bold text-seagreen">
+              <h2 className="text-xl font-bold text-seagreen">
                 Allgemeine Hinweise
-              </h3>
+              </h2>
             </div>
             <div className="pl-6 space-y-2 text-gray-700">
               <p>

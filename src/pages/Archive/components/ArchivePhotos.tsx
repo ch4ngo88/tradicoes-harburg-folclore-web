@@ -24,9 +24,9 @@ const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
   return (
     <div className="w-full max-w-5xl mx-auto mb-12 animate-fade-in">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-bold text-portuguesered">
+        <h2 className="text-xl font-bold text-portuguesered">
           {language === "pt" ? "Galeria de Fotos" : "Fotogalerie"}
-        </h3>
+        </h2>
         <div className="flex items-center gap-2">
           <View className="w-4 h-4" />
           <Switch
