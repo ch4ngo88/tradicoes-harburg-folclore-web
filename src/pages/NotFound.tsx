@@ -1,13 +1,15 @@
-
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { AlertTriangle, Home } from "lucide-react";
+import { useMetaSEO } from "@/hooks/useMetaSEO";
 
 const NotFound = () => {
   const location = useLocation();
   const { t } = useLanguage();
   
+  useMetaSEO("home"); // Fallback to home metadata for 404 page
+
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",

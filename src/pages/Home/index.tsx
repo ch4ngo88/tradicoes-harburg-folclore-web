@@ -1,10 +1,11 @@
-
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useMetaSEO } from "@/hooks/useMetaSEO";
 import HeroSection from "./components/HeroSection";
 import AboutUsSection from "./components/AboutUsSection";
 
 const Home = () => {
+  useMetaSEO("home");
   const { language } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   

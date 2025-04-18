@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import { useMetaSEO } from "@/hooks/useMetaSEO";
 import ArchiveLayout from "./components/ArchiveLayout";
 import ArchivePhotos from "./components/ArchivePhotos";
 import ArchiveAudio from "./components/ArchiveAudio";
@@ -8,6 +8,7 @@ import useArchiveImages from "./hooks/useArchiveImages";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const Archive = () => {
+  useMetaSEO("archive");
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState<"photos" | "audio" | "videos">("photos");
   const { images, imagesLoaded } = useArchiveImages();

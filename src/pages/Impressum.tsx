@@ -1,7 +1,8 @@
-
+import { useMetaSEO } from "@/hooks/useMetaSEO";
 import { MapPin, Mail, Shield, FileText } from "lucide-react";
 
 const Impressum = () => {
+  useMetaSEO("impressum");
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-3xl mx-auto">

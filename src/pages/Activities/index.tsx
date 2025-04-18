@@ -1,11 +1,12 @@
-
 import { useLanguage } from "@/hooks/useLanguage";
+import { useMetaSEO } from "@/hooks/useMetaSEO";
 import NewsSection from "./components/NewsSection";
 import EventsSection from "./components/EventsSection";
 import EnsaiosSection from "./components/EnsaiosSection";
 import { useNewsItems, useUpcomingEvents, useEnsaios } from "./data/activitiesData";
 
 const Activities = () => {
+  useMetaSEO("activities");
   const { language } = useLanguage();
   const newsItems = useNewsItems();
   const upcomingEvents = useUpcomingEvents();

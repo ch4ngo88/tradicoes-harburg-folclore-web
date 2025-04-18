@@ -1,8 +1,9 @@
-
 import { Shield, FileText, User, Database, Globe, Mail } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { useMetaSEO } from "@/hooks/useMetaSEO";
 
 const Datenschutz = () => {
+  useMetaSEO("datenschutz");
   const { language } = useLanguage();
 
   return (

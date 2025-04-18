@@ -18,6 +18,7 @@ import {
   QrCode,
   Link as LinkIcon,
 } from "lucide-react";
+import { useMetaSEO } from "@/hooks/useMetaSEO";
 
 type UsefulLink = {
   url: string;
@@ -132,6 +133,7 @@ const ContactForm = () => {
 };
 
 const Contact = () => {
+  useMetaSEO("contact");
   const { language } = useLanguage();
 
   const usefulLinks: UsefulLink[] = [
