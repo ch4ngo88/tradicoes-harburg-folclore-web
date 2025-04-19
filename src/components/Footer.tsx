@@ -53,13 +53,12 @@ export const Footer = () => {
   return (
     <footer className="w-full bg-seagreen text-white">
       <div className="container mx-auto px-4 py-8">
-      <div className="max-w-5xl mx-auto md:grid md:grid-cols-[2.5fr_0.9fr_0.9fr] md:gap-4">
-      {/* Logo Column with styled text in white background */}
+        <div className="max-w-5xl mx-auto md:grid md:grid-cols-[2.5fr_0.9fr_0.9fr] md:gap-4">
           <div className="flex flex-col items-center md:items-center">
-          <div className="bg-white p-4 rounded-md inline-block mb-3 w-full md:max-w-sm">
-          <div className="flex items-center justify-center md:justify-start gap-3">
+            <div className="bg-white p-4 rounded-md inline-block mb-3 w-full md:max-w-sm">
+              <div className="flex items-center justify-center md:justify-start gap-3">
                 <img
-                  src="/images/logo.jpg"
+                  src="/logo.png"
                   alt="Rancho logo"
                   className="w-10 h-10 object-cover rounded-sm"
                   width={40}
@@ -83,9 +82,7 @@ export const Footer = () => {
                   </p>
                 </div>
               </div>
-              {/* Remove Social Media Icons from white box for desktop */}
             </div>
-            {/* Desktop: Social Media Icons - Moved outside white box */}
             <div className="hidden md:flex gap-3 justify-center w-full">
               {socialMediaLinks.map((item) => (
                 <a
@@ -102,9 +99,6 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-
-          {/* Rest of the Footer remains the same */}
-          {/* Mobile: Social Media Section - WITHOUT separator before it */}
           <div className="flex flex-col md:hidden items-center justify-center">
             <div className="flex gap-4 justify-center">
               {[
@@ -151,15 +145,11 @@ export const Footer = () => {
                 </a>
               ))}
             </div>
-            
-            {/* Separator AFTER social media icons - soft, rounded style */}
             <div className="w-full my-4 px-4">
               <div className="h-0.5 bg-white/20 rounded-full"></div>
             </div>
           </div>
-
-          {/* Contact Information Column with improved mobile design */}
-          <div className="flex flex-col items-center md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm">
+          <div className="flex flex-col md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm">
             <div className="space-y-2 text-sm md:text-left text-center w-full">
               <div className="flex items-start md:items-center justify-center md:justify-start gap-2">
                 <MapPin className="w-4 h-4 text-white/80 mt-1 flex-shrink-0" />
@@ -192,17 +182,11 @@ export const Footer = () => {
                 <span>So. von 11 - 14:00 Uhr</span>
               </div>
             </div>
-            
-            {/* Mobile only: Separator AFTER address info - soft, rounded style */}
             <div className="w-full mt-4 md:hidden px-4">
               <div className="h-0.5 bg-white/20 rounded-full"></div>
             </div>
           </div>
-
-          {/* Legal Links Column */}
           <div className="flex flex-col md:items-start bg-seagreen/20 p-1 rounded-md backdrop-blur-sm">
-            
-
             <ul className="flex flex-col space-y-1 items-center md:items-start w-full">
               <li>
                 <Link
@@ -232,16 +216,13 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
-            {/* Desktop: Copyright Notice */}
- <div className="text-xs text-white/70 mt-3 text-center md:text-left w-full hidden md:block">
+            <div className="text-xs text-white/70 mt-3 text-center md:text-left w-full hidden md:block">
               <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
             </div>
-            
-          </div>
-          {/* Mobile-only copyright notice */}
             <div className="text-xs text-white/70 mb-4 text-center w-full md:hidden">
               <span className="text-xs align-text-top mr-1">©</span> 2025. Alle Rechte vorbehalten.
             </div>
+          </div>
         </div>
       </div>
     </footer>
