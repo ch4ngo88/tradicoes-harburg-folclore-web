@@ -11,13 +11,11 @@ export const CallToActionButtons = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const buttonBaseClasses = "transition-all duration-300 hover:shadow-lg hover:scale-[1.02] min-w-[200px] justify-center text-white flex items-center gap-2";
-
   return (
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
       <Button
         variant="default"
-        className={`${buttonBaseClasses} bg-seagreen hover:bg-seagreen/90`}
+        className="bg-seagreen hover:bg-seagreen/90 text-white flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] min-w-[200px] justify-center"
         asChild
         onClick={handleClick}
       >
@@ -29,7 +27,7 @@ export const CallToActionButtons = () => {
 
       <Button
         variant="default"
-        className={`${buttonBaseClasses} bg-portuguesered hover:bg-portuguesered/90`}
+        className="bg-portuguesered hover:bg-portuguesered/90 text-white flex items-center gap-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] min-w-[200px] justify-center"
         asChild
         onClick={handleClick}
       >
