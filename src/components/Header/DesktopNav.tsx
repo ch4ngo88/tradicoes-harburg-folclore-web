@@ -31,15 +31,14 @@ const DesktopNav = () => {
                 to={item.path}
                 onClick={handleClick}
                 className={`relative block md:inline-block transition-all duration-300
-                          hover:text-[#ea384c] focus:text-[#ea384c]
-                          focus:outline-none focus:ring-2 focus:ring-[#ea384c]/50 rounded-sm
-                          ${isActive(item.path) ? "font-bold" : ""}`}
+                          hover:text-white/80 focus:text-white/80
+                          focus:outline-none focus:ring-2 focus:ring-white/50 rounded-sm
+                          ${isActive(item.path) ? "text-white" : "text-white/90"}`}
               >
                 {item.label}
-                {isActive(item.path) && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#ea384c]"></span>
-                )}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ea384c] 
+                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left transition-transform duration-300 ease-out
+                                ${isActive(item.path) ? 'scale-x-100' : 'scale-x-0'}`}></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white 
                                transition-all duration-300 group-hover:w-full"></span>
               </Link>
             </li>
