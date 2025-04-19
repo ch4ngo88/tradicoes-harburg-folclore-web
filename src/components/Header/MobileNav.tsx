@@ -15,8 +15,10 @@ const MobileNav = () => {
     return location.pathname === path;
   };
 
+  // Updated handleClick function to scroll to the very top of the page
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Using scrollTo with top: 0 and behavior: 'instant' to ensure immediate scrolling to the top
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const getNavIcon = (path: string) => {
