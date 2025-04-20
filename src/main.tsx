@@ -3,17 +3,17 @@ import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-// Optimize lazy loading with prefetch
-const App = lazy(() => import('./App.tsx'));
+// Optimize lazy loading with prefetch and clear naming
+const App = lazy(() => import('./App'));
 
-// Optimize the loading fallback component
+// Improve loading fallback with semantic class names
 const LoadingFallback = () => (
-  <div className="flex items-center justify-center min-h-screen bg-[#f9f9f9]">
-    <div className="w-16 h-16 border-4 border-seagreen border-t-transparent rounded-full animate-spin"></div>
+  <div className="app-loading flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="loader w-16 h-16 border-4 border-seagreen border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
-// Preload the App component after initial render
+// Preload strategy with requestIdleCallback for better performance
 const preloadApp = () => {
   const link = document.createElement('link');
   link.rel = 'modulepreload';
@@ -21,14 +21,18 @@ const preloadApp = () => {
   document.head.appendChild(link);
 };
 
-// Render with optimized settings
+// Render with performance optimizations
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Suspense fallback={<LoadingFallback />}>
       <App />
     </Suspense>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 
-// Preload App component after initial render
-requestIdleCallback(() => preloadApp());
+// Use requestIdleCallback for non-blocking preloading
+if ('requestIdleCallback' in window) {
+  (window as any).requestIdleCallback(preloadApp);
+} else {
+  setTimeout(preloadApp, 0);
+}
