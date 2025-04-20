@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
@@ -26,7 +25,6 @@ type UsefulLink = {
   title: string;
 };
 
-// Define the usefulLinks array with Portuguese resources
 const usefulLinks: UsefulLink[] = [
   {
     url: "https://www.consuladoportugal-hamburg.com/",
@@ -88,6 +86,11 @@ const ContactForm = () => {
 
   return (
     <div className="glass-card p-6">
+      <h2 className="text-xl font-semibold text-seagreen mb-6">
+        {language === "pt" 
+          ? "Envie-nos uma mensagem" 
+          : "Schreiben Sie uns eine Nachricht"}
+      </h2>
       <form 
         action="https://formsubmit.co/marco.dacio@icloud.com" 
         method="POST"
@@ -161,7 +164,7 @@ const ContactForm = () => {
 
         <Button
           type="submit"
-          className="w-full bg-seagreen hover:bg-seagreen/90 mt-2"
+          className="w-full bg-seagreen hover:bg-seagreen/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
         >
           {language === "pt" ? "Enviar" : "Senden"}
         </Button>
@@ -187,7 +190,6 @@ const Contact = () => {
       </h1>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-        {/* Contact Info Card */}
         <div className="space-y-6">
           <div className="glass-card p-6 hover:shadow-lg transition-all duration-300">
             <div className="flex gap-2 items-center mb-6">
@@ -215,27 +217,17 @@ const Contact = () => {
                 <Phone className="w-5 h-5 text-seagreen flex-shrink-0" />
                 <span>+49 (0) 157 316 250 61</span>
               </p>
+              
+              <div className="flex justify-end mt-4">
+                <img
+                  src="/images/QR Code.jpeg"
+                  alt="QR Code"
+                  className="h-32 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                />
+              </div>
             </div>
           </div>
 
-          {/* QR Code Card */}
-          <div className="glass-card p-6 hover:shadow-lg transition-all duration-300">
-            <div className="flex gap-2 items-center mb-4">
-              <QrCode className="text-seagreen w-6 h-6" />
-              <h3 className="text-xl font-bold text-seagreen">
-                {language === "pt" ? "Código QR" : "QR-Code"}
-              </h3>
-            </div>
-            <div className="flex justify-center">
-              <img
-                src="/images/QR Code.jpeg"
-                alt="QR Code"
-                className="h-40 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-              />
-            </div>
-          </div>
-
-          {/* Map */}
           <div className="glass-card overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.3882674799974!2d9.965910060063711!3d53.45063187422865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191006ff27d9f%3A0x6701f53aa4f35d03!2sHastedtstra%C3%9Fe%2030%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1715674267055!5m2!1sde!2sde"
@@ -251,13 +243,11 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div className="glass-card p-6 hover:shadow-lg transition-all duration-300 h-fit">
+        <div>
           <ContactForm />
         </div>
       </div>
 
-      {/* Useful Links Section */}
       <div className="mb-8">
         <Accordion type="single" collapsible className="accordion-custom">
           <AccordionItem value="useful-links" className="border-none">
