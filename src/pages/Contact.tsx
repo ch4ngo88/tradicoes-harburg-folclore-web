@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import React, { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -118,7 +119,7 @@ const ContactForm = () => {
 
         <div>
           <label htmlFor="email" className="form-label">
-            Email
+            {language === "pt" ? "Email" : "E-Mail"}
           </label>
           <Input
             id="email"
