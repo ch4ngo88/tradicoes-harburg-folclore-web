@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 
-const OptimizedImage = ({
+const OptimizedImage = memo(({
   src,
   alt,
   className = "",
@@ -22,28 +22,29 @@ const OptimizedImage = ({
     if (onLoad) onLoad();
   };
 
-  const handleError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+  const handleError = () => {
     console.error(`Image failed to load: ${src}`);
     setHasError(true);
     if (onLoad) onLoad();
   };
 
-  if (!src || hasError) {
-    src = "/images/logo.jpg"; // Fallback zum Rancho Logo
-    alt = "Rancho Folclórico Tradições Portuguesas Logo"; // Verbesserte Fallback Alt-Text
-  }
+  const imageSrc = !src || hasError ? "/images/logo.jpg" : src;
+  const imageAlt = !src || hasError ? "Rancho Folclórico Tradições Portuguesas Logo" : alt;
 
   return (
     <img 
-      src={src}
-      alt={alt}
+      src={imageSrc}
+      alt={imageAlt}
       className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
       loading={loading}
       decoding="async"
       onLoad={handleLoad}
       onError={handleError}
+      fetchPriority={loading === "eager" ? "high" : "auto"}
     />
   );
-};
+});
+
+OptimizedImage.displayName = 'OptimizedImage';
 
 export default OptimizedImage;

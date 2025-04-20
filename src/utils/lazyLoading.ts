@@ -1,22 +1,26 @@
 
 import React from 'react';
 
-/**
- * Lazy loading utilities for improving performance
- */
-
-// Dynamic import function that can be used for components that aren't needed immediately
-export const lazyImport = <T extends React.ComponentType<any>, I extends { [K2 in K]: T }, K extends keyof I>(
+export const lazyImport = <
+  T extends React.ComponentType<any>,
+  I extends { [K2 in K]: T },
+  K extends keyof I
+>(
   factory: () => Promise<I>,
-  name: K
+  name: K,
 ): React.LazyExoticComponent<T> => {
-  return React.lazy(() => factory().then((module) => ({ default: module[name] })));
+  return React.lazy(() => 
+    factory()
+      .then((module) => ({ default: module[name] }))
+      .catch((error) => {
+        console.error(`Error loading module: ${String(name)}`, error);
+        throw error;
+      })
+  );
 };
 
-// Load a script only when needed
 export const loadScriptWhenNeeded = (src: string, id: string): Promise<void> => {
   return new Promise((resolve, reject) => {
-    // Check if script already exists
     if (document.getElementById(id)) {
       resolve();
       return;
@@ -27,8 +31,20 @@ export const loadScriptWhenNeeded = (src: string, id: string): Promise<void> => 
     script.src = src;
     script.async = true;
     
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
+    const cleanup = () => {
+      script.onerror = null;
+      script.onload = null;
+    };
+    
+    script.onload = () => {
+      cleanup();
+      resolve();
+    };
+    
+    script.onerror = () => {
+      cleanup();
+      reject(new Error(`Failed to load script: ${src}`));
+    };
     
     document.body.appendChild(script);
   });

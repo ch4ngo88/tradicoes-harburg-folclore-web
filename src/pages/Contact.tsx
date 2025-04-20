@@ -77,12 +77,13 @@ const ContactForm = () => {
     message: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    },
+    []
+  );
 
   return (
     <div className="glass-card p-6">
@@ -179,7 +180,7 @@ const ContactForm = () => {
   );
 };
 
-const Contact = () => {
+const Contact = React.memo(() => {
   useMetaSEO("contact");
   const { language } = useLanguage();
 
@@ -283,6 +284,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Contact;
