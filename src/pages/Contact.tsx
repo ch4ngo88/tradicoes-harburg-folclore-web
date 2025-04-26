@@ -192,8 +192,9 @@ const Contact = React.memo(() => {
       </h1>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-        <div className="space-y-6">
-          <div className="glass-card p-6 hover:shadow-lg transition-all duration-300">
+      <div className="flex flex-col gap-6 h-full">
+  <div className="glass-card p-6 hover:shadow-lg transition-all duration-300 flex-grow">
+    
             <div className="flex gap-2 items-center mb-6">
               <Mail className="text-seagreen w-6 h-6" />
               <h3 className="text-xl font-bold text-seagreen">
@@ -201,36 +202,40 @@ const Contact = React.memo(() => {
               </h3>
             </div>
 
-            <div className="space-y-4 text-gray-700">
-              <p className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-seagreen flex-shrink-0" />
-                <span>Hastedtstraße 30, 21073 Hamburg</span>
-              </p>
-              <p className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-seagreen flex-shrink-0" />
-                <a 
-                  href="mailto:g.c.r.f.p@hotmail.com"
-                  className="hover:text-seagreen transition-colors duration-300"
-                >
-                  g.c.r.f.p@hotmail.com
-                </a>
-              </p>
-              <p className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-seagreen flex-shrink-0" />
-                <span>+49 (0) 157 316 250 61</span>
-              </p>
-              
-              <div className="flex justify-end mt-4">
-                <img
-                  src="/images/QR Code.jpeg"
-                  alt="QR Code"
-                  className="h-32 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                />
-              </div>
-            </div>
+            <div className="flex flex-col md:flex-row justify-between gap-6 text-gray-700 items-start">
+  <div className="space-y-4">
+    <p className="flex items-center gap-3">
+      <MapPin className="w-5 h-5 text-seagreen flex-shrink-0" />
+      <span>Hastedtstraße 30, 21073 Hamburg</span>
+    </p>
+    <p className="flex items-center gap-3">
+      <Mail className="w-5 h-5 text-seagreen flex-shrink-0" />
+      <a 
+        href="mailto:g.c.r.f.p@hotmail.com"
+        className="hover:text-seagreen transition-colors duration-300"
+      >
+        g.c.r.f.p@hotmail.com
+      </a>
+    </p>
+    <p className="flex items-center gap-3">
+      <Phone className="w-5 h-5 text-seagreen flex-shrink-0" />
+      <span>+49 (0) 157 316 250 61</span>
+    </p>
+  </div>
+
+  <div className="flex-shrink-0">
+    <img
+      src="/images/QR Code.jpeg"
+      alt="QR Code"
+      className="h-32 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+    />
+  </div>
+</div>
+
           </div>
 
-          <div className="glass-card overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="glass-card overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex-grow">
+
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.3882674799974!2d9.965910060063711!3d53.45063187422865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191006ff27d9f%3A0x6701f53aa4f35d03!2sHastedtstra%C3%9Fe%2030%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1715674267055!5m2!1sde!2sde"
               width="100%"

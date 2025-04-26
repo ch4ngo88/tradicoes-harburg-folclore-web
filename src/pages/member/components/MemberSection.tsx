@@ -39,7 +39,8 @@ const MemberSection = ({
       <h3 className="text-xl font-bold text-seagreen">{title}</h3>
     </div>
 
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-4 justify-items-center">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 py-4 justify-items-center">
+
 
       {members.map((member) => (
         <MemberCard 
