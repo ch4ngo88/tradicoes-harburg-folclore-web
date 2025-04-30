@@ -42,9 +42,10 @@ export default defineConfig([
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.lint.json",
       },
     },
+    
     plugins: {
       "@typescript-eslint": tseslint.plugin,
     },
