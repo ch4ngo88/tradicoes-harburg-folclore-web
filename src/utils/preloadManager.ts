@@ -2,6 +2,7 @@
 /**
  * Utility for managing preloads and prefetches in the application
  */
+import React from 'react';
 
 type ResourceType = 'image' | 'script' | 'style' | 'font' | 'document';
 
