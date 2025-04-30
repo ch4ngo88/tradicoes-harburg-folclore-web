@@ -28,46 +28,47 @@ type UsefulLink = {
 
 const usefulLinks: UsefulLink[] = [
   {
-    url: "https://www.consuladoportugal-hamburg.com/",
-    icon: "/images/links/pdc_66x66.png",
-    title: "Consulado Português em Hamburgo",
+    url: "https://www.rfptv.pt/",
+    icon: "images/links/MYvhCGImba3MPCwmRu2pZgGkFhy2L6tkTLsSO3LN.png",
+    title: "Canal tv Digital do Folclore de Portugal",
   },
   {
-    url: "https://www.ccphh.org/",
-    icon: "/images/links/logotipo.png",
-    title: "Centro Cultural Português",
+    url: "https://folclore.pt/",
+    icon: "images/links/cropped-portal-logo.png",
+    title: "Folclore de Portugal – O Portal do Folclore Português",
   },
   {
-    url: "https://missao-catolica-hamburgo.de/",
-    icon: "/images/links/logotipo_missao.jpg",
-    title: "Missão Católica Portuguesa",
+    url: "https://www.ffp.pt/",
+    icon: "images/links/logotipo.png",
+    title: "Federação do Folclore Português",
   },
   {
-    url: "https://hamburg-portugal.de/",
-    icon: "/images/links/417154003_7628155877197537_3387848453821547182_n.jpg",
-    title: "Deutsch-Portugiesische Gesellschaft",
+    url: "https://www.casabrincheiro.pt/",
+    icon: "images/links/Screenshot+2023-12-22+at+09.47.32-240w.webp",
+    title: "Casa Brincheiro",
   },
   {
-    url: "https://www.facebook.com/hamburgerportugiesenwelt/",
-    icon: "/images/links/297537604_569168504998554_343296032616875640_n.jpg",
-    title: "Hamburger Portugiesen Welt",
+    url: "https://portaldascomunidades.mne.gov.pt/pt/",
+    icon: "images/links/pdc_66x66.png",
+    title: "Portal das Comunidades Portuguesas",
   },
   {
-    url: "https://www.mundoportugues.pt/",
-    icon: "/images/links/cropped-portal-logo.jpg",
-    title: "Mundo Português",
+    url: "https://missao-portuguesa-hamburg.de/cms3/p/Mission/index.php",
+    icon: "images/links/logotipo_missao.jpg",
+    title: "Missão Católica de Língua Portuguesa de Hamburgo",
   },
   {
-    url: "https://www.portugalpost.de/",
-    icon: "/images/links/Screenshot+2023-12-22+at+09.47.32-240w.webp",
-    title: "Portugal Post",
+    url: "https://www.instagram.com/musicoportuga",
+    icon: "images/links/417154003_7628155877197537_3387848453821547182_n.jpg",
+    title: "Tiago Pinheiro - músico portuga de Hamburgo",
   },
   {
-    url: "https://ahk-portugal.pt/",
-    icon: "/images/links/MYvhCGImba3MPCwmRu2pZgGkFhy2L6tkTLsSO3LN.png",
-    title: "Câmara de Comércio Luso-Alemã",
-  },
+    url: "https://www.kulturpalast-harburg.com/",
+    icon: "images/links/logokp.png",
+    title: "Kultur Palast Harburg",
+  }
 ];
+
 
 const ContactForm = () => {
   const { language } = useLanguage();

@@ -53,7 +53,7 @@ export const shouldEagerLoad = (imagePath: string): boolean => {
   const criticalImages = [
     'gruppe.jpg',
     'gruppe.webp',
-    'logo.jpg',
+    'logo.png',
     'logo.webp'
   ];
   
