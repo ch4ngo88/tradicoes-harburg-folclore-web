@@ -84,23 +84,24 @@ const AudioPlayer = ({ audioSrc, title, year, description }: AudioPlayerProps) =
       </div>
 
       {/* Volume horizontal unterhalb */}
-      <div className="flex items-center gap-2 mb-4 mt-2">
-        <Volume2 className="w-4 h-4 text-seagreen" />
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={handleVolumeChange}
-          className="w-full accent-seagreen appearance-none bg-seagreen/20 h-1 rounded-full 
-            [&::-webkit-slider-thumb]:appearance-none 
-            [&::-webkit-slider-thumb]:bg-seagreen 
-            [&::-webkit-slider-thumb]:rounded-full 
-            [&::-webkit-slider-thumb]:w-3 
-            [&::-webkit-slider-thumb]:h-3"
-        />
-      </div>
+      <div className="flex justify-end items-center gap-2 mb-4 mt-2">
+  <Volume2 className="w-4 h-4 text-seagreen" />
+  <input
+    type="range"
+    min="0"
+    max="1"
+    step="0.01"
+    value={volume}
+    onChange={handleVolumeChange}
+    className="w-24 accent-seagreen appearance-none bg-seagreen/20 h-1 rounded-full
+      [&::-webkit-slider-thumb]:appearance-none 
+      [&::-webkit-slider-thumb]:bg-seagreen 
+      [&::-webkit-slider-thumb]:rounded-full 
+      [&::-webkit-slider-thumb]:w-3 
+      [&::-webkit-slider-thumb]:h-3"
+  />
+</div>
+
 
       <div className="flex items-center gap-2">
         <span className="text-sm text-gray-600 w-12 text-right">{formatTime(progress)}</span>

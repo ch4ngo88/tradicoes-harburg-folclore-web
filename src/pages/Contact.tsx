@@ -237,7 +237,7 @@ const Contact = React.memo(() => {
           <div className="glass-card overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex-grow">
 
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.3882674799974!2d9.965910060063711!3d53.45063187422865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191006ff27d9f%3A0x6701f53aa4f35d03!2sHastedtstra%C3%9Fe%2030%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1715674267055!5m2!1sde!2sde"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1313.9650949059649!2d9.972878966582762!3d53.456673005038844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191aeb0dc1d0d%3A0x3c26db5800461ea7!2sHastedtstra%C3%9Fe%2030%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1746009846108!5m2!1sde!2sde"
               width="100%"
               height="300"
               style={{ border: 0 }}
