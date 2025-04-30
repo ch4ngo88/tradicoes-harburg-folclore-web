@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -9,6 +10,9 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
+import OptimizedImage from "@/components/OptimizedImage";
+import { preloadImage } from "@/utils/preloadManager";
+import PreloadLink from "@/components/PreloadLink";
 
 interface HeroSectionProps {
   language: string;
@@ -46,7 +50,9 @@ const HeroSection = ({ language }: HeroSectionProps) => {
     // Simple parallax effect on the hero image
     const handleScroll = () => {
       const scrollPosition = window.pageYOffset;
-      heroElement.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+      if (heroElement) {
+        heroElement.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -78,14 +84,13 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                   {/* Top-left decorative border */}
                   <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
                   
-                  {/* The image - using direct img tag */}
-                  <img
+                  {/* The image - using OptimizedImage component */}
+                  <OptimizedImage
                     src={heroImageSrc}
-                    width="512"
-                    height="384"
                     alt="Group photo"
                     className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
                     loading="eager"
+                    preload={true}
                   />
                   
                   {/* Bottom-right decorative border */}
@@ -99,7 +104,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                 <DialogDescription className="sr-only">
                   {language === "pt" ? "Imagem ampliada do grupo" : "Vergrößertes Gruppenbild"}
                 </DialogDescription>
-                <img
+                <OptimizedImage
                   src={heroImageSrc}
                   alt="Group photo"
                   className="w-full h-full object-contain rounded-lg"
@@ -131,13 +136,18 @@ const HeroSection = ({ language }: HeroSectionProps) => {
           </p>
 
           <div className="hero-stagger-3 pt-4">
-            <Link
+            <PreloadLink
               to="/activities"
               className="px-6 py-3 bg-seagreen text-white rounded-lg shadow-md transition-all duration-300 inline-flex items-center gap-2 group font-lusitana hover:shadow-lg hover:scale-[1.02]"
+              preloadResources={[
+                { href: "/images/activity/ensaios/ensaioadultos.png", as: "image" },
+                { href: "/images/activity/ensaios/ensaiocriancas.png", as: "image" }
+              ]}
+              onlyPrefetchOnHover={true}
             >
               {language === "pt" ? "Descobrir Mais" : "Mehr Entdecken"}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </PreloadLink>
           </div>
         </div>
       </div>

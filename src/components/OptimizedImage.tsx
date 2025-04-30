@@ -1,18 +1,23 @@
+
 import React, { useState, memo, useRef, useEffect } from 'react';
+
+interface OptimizedImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  loading?: "lazy" | "eager";
+  onLoad?: () => void;
+  preload?: boolean; // New prop to control preloading
+}
 
 const OptimizedImage = memo(({
   src,
   alt,
   className = "",
   loading = "lazy",
-  onLoad
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-  loading?: "lazy" | "eager";
-  onLoad?: () => void;
-}): JSX.Element => {
+  onLoad,
+  preload = false
+}: OptimizedImageProps): JSX.Element => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -31,12 +36,37 @@ const OptimizedImage = memo(({
   const imageSrc = !src || hasError ? "/logo.png" : src;
   const imageAlt = !src || hasError ? "Rancho Folclórico Tradições Portuguesas Logo" : alt;
 
-  // 👉 Direktes DOM-Setzen des fetchpriority-Attributs
+  // Set fetchpriority attribute based on loading strategy
   useEffect(() => {
     if (imgRef.current) {
       imgRef.current.setAttribute('fetchpriority', loading === 'eager' ? 'high' : 'auto');
+      
+      // If preload is true, add a preload link for this image
+      if (preload && loading === 'eager' && src) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        link.setAttribute('fetchpriority', 'high');
+        
+        // Add appropriate type attribute based on image extension
+        if (src.endsWith('.jpg') || src.endsWith('.jpeg')) {
+          link.type = 'image/jpeg';
+        } else if (src.endsWith('.png')) {
+          link.type = 'image/png';
+        } else if (src.endsWith('.webp')) {
+          link.type = 'image/webp';
+        }
+        
+        document.head.appendChild(link);
+        
+        // Clean up preload when component unmounts
+        return () => {
+          document.head.removeChild(link);
+        };
+      }
     }
-  }, [loading]);
+  }, [loading, src, preload]);
 
   return (
     <img 

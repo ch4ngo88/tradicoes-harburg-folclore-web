@@ -59,3 +59,45 @@ export const shouldEagerLoad = (imagePath: string): boolean => {
   
   return criticalImages.some(img => imagePath.includes(img));
 };
+
+// Function to determine if an image should be preloaded
+export const shouldPreload = (imagePath: string): boolean => {
+  // Only preload critical above-the-fold images that are visible immediately
+  // This is a more restrictive list than shouldEagerLoad
+  const preloadImages = [
+    'gruppe.jpg'
+  ];
+  
+  return preloadImages.some(img => imagePath.includes(img));
+};
+
+// Get image type based on file extension
+export const getImageType = (src: string): string | undefined => {
+  if (src.endsWith('.jpg') || src.endsWith('.jpeg')) return 'image/jpeg';
+  if (src.endsWith('.png')) return 'image/png';
+  if (src.endsWith('.webp')) return 'image/webp';
+  if (src.endsWith('.gif')) return 'image/gif';
+  if (src.endsWith('.svg')) return 'image/svg+xml';
+  return undefined;
+};
+
+// Create a preload link for a critical image
+export const preloadCriticalImage = (src: string): HTMLLinkElement | null => {
+  if (!src || !shouldPreload(src)) return null;
+
+  // Check if we already have a preload for this image
+  const existingPreload = document.querySelector(`link[rel="preload"][href="${src}"]`);
+  if (existingPreload) return existingPreload as HTMLLinkElement;
+
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.href = src;
+  link.as = 'image';
+  link.setAttribute('fetchpriority', 'high');
+  
+  const imageType = getImageType(src);
+  if (imageType) link.type = imageType;
+  
+  document.head.appendChild(link);
+  return link;
+};

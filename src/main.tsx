@@ -3,25 +3,17 @@ import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-// Optimize lazy loading with prefetch and clear naming
+// Define a properly structured lazy loading for App
 const App = lazy(() => import('./App'));
 
-// Improve loading fallback with semantic class names
+// Improved loading fallback with semantic class names
 const LoadingFallback = () => (
-  <div className="app-loading flex items-center justify-center min-h-screen bg-gray-100">
+  <div className="app-loading flex items-center justify-center min-h-screen bg-[#f9f9f9]">
     <div className="loader w-16 h-16 border-4 border-seagreen border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
-// Preload strategy with requestIdleCallback for better performance
-const preloadApp = () => {
-  const link = document.createElement('link');
-  link.rel = 'modulepreload';
-  link.href = '/src/App.tsx';
-  document.head.appendChild(link);
-};
-
-// Render with performance optimizations
+// Render the app
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Suspense fallback={<LoadingFallback />}>
@@ -30,9 +22,23 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>
 );
 
-// Use requestIdleCallback for non-blocking preloading
+// Use requestIdleCallback for prefetching non-critical routes
 if ('requestIdleCallback' in window) {
-  (window as any).requestIdleCallback(preloadApp);
-} else {
-  setTimeout(preloadApp, 0);
+  window.requestIdleCallback(() => {
+    // Prefetch other important routes that users might navigate to
+    const routesToPrefetch = [
+      '/activities',
+      '/archive',
+      '/contact',
+      '/membros'
+    ];
+    
+    routesToPrefetch.forEach(route => {
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = route;
+      link.as = 'document';
+      document.head.appendChild(link);
+    });
+  });
 }

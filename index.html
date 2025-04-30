@@ -11,21 +11,19 @@
       content="Rancho Folclórico Tradições Portuguesas - Bewahrung der portugiesischen Kultur in Hamburg seit 1979"
     />
 
-    <!-- Performance Optimizations: Updated preload with correct as attribute -->
+    <!-- Performance Optimizations - Critical Resources Only -->
+    <!-- Only preload the hero image since it's critical for all pages -->
     <link
       rel="preload"
       href="/images/gruppe.jpg"
       as="image"
       fetchpriority="high"
+      type="image/jpeg"
     />
-    <link rel="preload" href="/src/main.tsx" as="script" />
-
-    <!-- Preload Fonts -->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lusitana:wght@400;700&display=swap"
-      as="style"
-    />
+    
+    <!-- Preconnect to domains we'll use resources from -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- Load fonts with display=swap -->
     <link
@@ -237,16 +235,6 @@
         }
       }
     </script>
-
-    <!-- Update preload with correct attributes -->
-    <link
-      rel="preload"
-      href="/src/main.tsx"
-      as="script"
-      crossorigin="anonymous"
-    />
-
-    <link rel="modulepreload" href="/src/App.tsx" />
   </head>
 
   <body>
