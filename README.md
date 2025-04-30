@@ -1,73 +1,71 @@
-# Welcome to your Lovable project
+# Website: Tradições Portuguesas Hamburg
 
-## Project info
+Dies ist der Quellcode für die offizielle Website der Tanzgruppe **Tradições Portuguesas** aus Hamburg.  
+Die Seite wurde mit einem modernen Frontend-Stack gebaut und bietet Infos über die Gruppe, Veranstaltungen und Kontaktmöglichkeiten.
 
-**URL**: https://lovable.dev/projects/3b39a5f4-1c4a-4ec4-a724-da0cc00cc649
+---
 
-## How can I edit this code?
+## 🔧 Projektstruktur & Technologien
 
-There are several ways of editing your application.
+- **Framework**: [React](https://react.dev) (mit TypeScript)
+- **Build-Tool**: [Vite](https://vitejs.dev)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **UI-Komponenten**: [shadcn/ui](https://ui.shadcn.com)
+- **Routing**: `react-router-dom`
+- **Formulare**: statisch + [FormSubmit](https://formsubmit.co) für E-Mail-Versand
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3b39a5f4-1c4a-4ec4-a724-da0cc00cc649) and start prompting.
+## 🚀 Entwicklung lokal starten
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+# Repository klonen
+git clone <DEIN_GIT_REPO_URL>
 
-**Use your preferred IDE**
+# In Projektverzeichnis wechseln
+cd <DEIN_PROJEKT_NAME>
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Abhängigkeiten installieren
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Dev-Server starten
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Anschließend ist das Projekt erreichbar unter: [http://localhost:8080](http://localhost:8080)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🛠 Nützliche Befehle
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+# Build für Produktion
+npm run build
 
-## What technologies are used for this project?
+# Build-Vorschau anzeigen
+npm run preview
 
-This project is built with:
+# Linting ausführen
+npm run lint
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Linting mit Auto-Fix
+npm run lint:fix
+```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/3b39a5f4-1c4a-4ec4-a724-da0cc00cc649) and click on Share -> Publish.
+## 🌐 Deployment
 
-## Can I connect a custom domain to my Lovable project?
+Die Seite wird über GitHub Pages (oder anderen statischen Hoster) deployed.  
+Build-Output liegt im `dist/`-Ordner.
 
-Yes it is!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## ✍️ Kontakt & Mitwirkung
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Falls du mitarbeiten willst, Issues findest oder Ideen hast – gerne via Pull Request oder Issue melden.  
+Diese Seite ist rein ehrenamtlich und dient der Unterstützung der Tanzgruppe.
+
+---
+
+© 2025 – Trad. Portuguesas Hamburg • [g.c.r.f.p@hotmail.com](mailto:g.c.r.f.p@hotmail.com)

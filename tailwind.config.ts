@@ -1,7 +1,7 @@
-
 import type { Config } from "tailwindcss";
+import animatePlugin from "tailwindcss-animate";
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -54,18 +54,18 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         seagreen: {
-          DEFAULT: "#063821", // Dunkleres Seagreen für besseren Kontrast
+          DEFAULT: "#063821",
           light: "#0A4D2E",
         },
         portuguesered: {
-          DEFAULT: "#A00000", // Angepasstes Rot für besseren Kontrast
+          DEFAULT: "#A00000",
           light: "#B31B1B",
         },
         cream: "#fff8e8",
       },
       fontFamily: {
+        sans: ["Lusitana", "serif"],
         lusitana: ["Lusitana", "serif"],
-        montserrat: ["Montserrat", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -74,20 +74,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
         pulse: {
           "0%, 100%": { transform: "scale(1)", opacity: "1" },
@@ -122,9 +114,11 @@ export default {
           "linear-gradient(90deg, rgba(10,61,34,0.6) 0%, rgba(139,0,0,0.6) 100%)",
       },
       scale: {
-        '98': '0.98',
+        "98": "0.98",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  plugins: [animatePlugin],
+};
+
+export default config;

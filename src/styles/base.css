@@ -1,11 +1,22 @@
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lusitana:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Removed the local @font-face as we're now using Google Fonts */
+@font-face {
+  font-family: "Lusitana";
+  src: url("/fonts/Lusitana-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: "Lusitana";
+  src: url("/fonts/Lusitana-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 @layer base {
   :root {
     --background: 210 40% 98%;
