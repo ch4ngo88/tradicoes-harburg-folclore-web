@@ -19,6 +19,9 @@ import {
   Link as LinkIcon,
 } from "lucide-react";
 import { useMetaSEO } from "@/hooks/useMetaSEO";
+import Map from "@/components/map"; // ganz oben hinzufügen
+
+
 
 type UsefulLink = {
   url: string;
@@ -95,75 +98,81 @@ const ContactForm = () => {
           : "Schreiben Sie uns eine Nachricht"}
       </h2>
       <form 
-        action="https://formsubmit.co/marco.dacio@icloud.com" 
-        method="POST"
-        className="space-y-5"
-      >
-        <input type="hidden" name="_subject" value="Neue Nachricht über Kontaktformular" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="https://tradicionalisboa.lovable.app/contact" />
+  action="https://formsubmit.co/marco.dacio@icloud.com" 
+  method="POST"
+  className="space-y-5"
+  autoComplete="on" // optional – unterstützt gesamtes Formular
+>
+  <input type="hidden" name="_subject" value="Neue Nachricht über Kontaktformular" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_next" value="https://tradicionalisboa.lovable.app/contact" />
 
-        <div>
-          <label htmlFor="name" className="form-label">
-            {language === "pt" ? "Nome" : "Name"}
-          </label>
-          <Input
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="form-input"
-            placeholder={language === "pt" ? "Seu nome" : "Ihr Name"}
-          />
-        </div>
+  <div>
+    <label htmlFor="name" className="form-label">
+      {language === "pt" ? "Nome" : "Name"}
+    </label>
+    <Input
+      id="name"
+      name="name"
+      autoComplete="name"
+      value={formData.name}
+      onChange={handleChange}
+      required
+      className="form-input"
+      placeholder={language === "pt" ? "Seu nome" : "Ihr Name"}
+    />
+  </div>
 
-        <div>
-          <label htmlFor="email" className="form-label">
-            {language === "pt" ? "Email" : "E-Mail"}
-          </label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="form-input"
-            placeholder={language === "pt" ? "Seu email" : "Ihre E-Mail"}
-          />
-        </div>
+  <div>
+    <label htmlFor="email" className="form-label">
+      {language === "pt" ? "Email" : "E-Mail"}
+    </label>
+    <Input
+      id="email"
+      name="email"
+      type="email"
+      autoComplete="email"
+      value={formData.email}
+      onChange={handleChange}
+      required
+      className="form-input"
+      placeholder={language === "pt" ? "Seu email" : "Ihre E-Mail"}
+    />
+  </div>
 
-        <div>
-          <label htmlFor="subject" className="form-label">
-            {language === "pt" ? "Assunto" : "Betreff"}
-          </label>
-          <Input
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-            className="form-input"
-            placeholder={language === "pt" ? "Assunto da mensagem" : "Betreff der Nachricht"}
-          />
-        </div>
+  <div>
+    <label htmlFor="subject" className="form-label">
+      {language === "pt" ? "Assunto" : "Betreff"}
+    </label>
+    <Input
+      id="subject"
+      name="subject"
+      autoComplete="off" // bewusst deaktivieren
+      value={formData.subject}
+      onChange={handleChange}
+      required
+      className="form-input"
+      placeholder={language === "pt" ? "Assunto da mensagem" : "Betreff der Nachricht"}
+    />
+  </div>
 
-        <div>
-          <label htmlFor="message" className="form-label">
-            {language === "pt" ? "Mensagem" : "Nachricht"}
-          </label>
-          <Textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={4}
-            required
-            className="form-input"
-            placeholder={language === "pt" ? "Sua mensagem" : "Ihre Nachricht"}
-          />
-        </div>
+  <div>
+    <label htmlFor="message" className="form-label">
+      {language === "pt" ? "Mensagem" : "Nachricht"}
+    </label>
+    <Textarea
+      id="message"
+      name="message"
+      autoComplete="off" // bewusst deaktivieren
+      value={formData.message}
+      onChange={handleChange}
+      rows={4}
+      required
+      className="form-input"
+      placeholder={language === "pt" ? "Sua mensagem" : "Ihre Nachricht"}
+    />
+  </div>
+
 
         <Button
           type="submit"
@@ -236,19 +245,9 @@ const Contact = React.memo(() => {
           </div>
 
           <div className="glass-card overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex-grow">
+  <Map />
+</div>
 
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1313.9650949059649!2d9.972878966582762!3d53.456673005038844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b191aeb0dc1d0d%3A0x3c26db5800461ea7!2sHastedtstra%C3%9Fe%2030%2C%2021073%20Hamburg!5e0!3m2!1sde!2sde!4v1746009846108!5m2!1sde!2sde"
-              width="100%"
-              height="300"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Google Maps"
-              className="w-full"
-            />
-          </div>
         </div>
 
         <div>

@@ -9,11 +9,19 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "noImplicitAny": false,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": true,
     "noUnusedParameters": false,
     "skipLibCheck": true,
+    "isolatedModules": true,
     "allowJs": true,
     "noUnusedLocals": false,
-    "strictNullChecks": false
+    "strictNullChecks": true
   }
 }
