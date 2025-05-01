@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from "react";
-import { useLanguage } from "@/hooks/useLanguage";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import Logo from "./Logo";
 import MobileNav from "./MobileNav";

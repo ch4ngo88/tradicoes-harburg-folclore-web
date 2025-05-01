@@ -1,5 +1,4 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { useLanguage } from "@/hooks/useLanguage";
 
 export type NewsItemType = {
   type: "image" | "video";

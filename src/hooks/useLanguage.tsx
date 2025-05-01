@@ -185,7 +185,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
     setLanguageState(lang);
     try {
       localStorage.setItem("language", lang);
-    } catch (error) {
+    } catch {
       console.warn("Could not save language preference to localStorage");
     }
   };

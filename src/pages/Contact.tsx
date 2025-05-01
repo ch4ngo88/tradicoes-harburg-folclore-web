@@ -15,7 +15,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  QrCode,
   Link as LinkIcon,
 } from "lucide-react";
 import { useMetaSEO } from "@/hooks/useMetaSEO";
@@ -191,7 +190,7 @@ const ContactForm = () => {
   );
 };
 
-const Contact = React.memo(() => {
+const ContactPage = React.memo(() => {
   useMetaSEO("contact");
   const { language } = useLanguage();
 
@@ -292,4 +291,4 @@ const Contact = React.memo(() => {
   );
 });
 
-export default Contact;
+export default ContactPage;

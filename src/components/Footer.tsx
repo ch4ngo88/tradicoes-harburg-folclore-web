@@ -9,7 +9,6 @@ import {
   Phone,
   Clock
 } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 
 export const Footer = () => {
   const { language } = useLanguage();

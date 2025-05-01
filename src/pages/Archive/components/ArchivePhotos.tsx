@@ -19,7 +19,7 @@ interface ArchivePhotosProps {
 
 const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
   const [isGridView, setIsGridView] = useState(false);
-  const { t, language } = useLanguage();
+  const {language } = useLanguage();
 
   return (
     <div className="w-full max-w-5xl mx-auto mb-12 animate-fade-in">

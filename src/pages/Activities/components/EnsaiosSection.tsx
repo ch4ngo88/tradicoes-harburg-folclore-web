@@ -13,7 +13,7 @@ interface EnsaiosSectionProps {
 }
 
 const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   
   return (
     <section className="mb-12">

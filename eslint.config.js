@@ -6,85 +6,53 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
 export default defineConfig([
-  // Allgemeines JavaScript-Setup (empfohlen von ESLint)
   {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    plugins: { js },
-    rules: js.configs.recommended.rules,
-  },
-
-  // Globale Umgebung für Browser und JSX
-  {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    files: ["**/*.{js,ts,jsx,tsx}"],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
+      parser: tseslint.parser,
       parserOptions: {
+        project: "./tsconfig.lint.json",
+        tsconfigRootDir: process.cwd(),
         ecmaVersion: "latest",
         sourceType: "module",
         ecmaFeatures: {
           jsx: true,
         },
       },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+      react: pluginReact,
     },
     settings: {
       react: {
         version: "detect",
       },
     },
-  },
-
-  // TypeScript mit Typ-Checks
-  {
-    files: ["**/*.{ts,tsx}"],
-    languageOptions: {
-      parser: tseslint.parser,
-      parserOptions: {
-        project: "./tsconfig.lint.json",
-      },
-    },
-    
-    plugins: {
-      "@typescript-eslint": tseslint.plugin,
-    },
     rules: {
+      // Basis: disable native JS-Regeln, wenn TS-Version genutzt wird
+      "no-unused-vars": "off",
+      "no-empty-function": "off",
+      "no-shadow": "off",
+
+      // TypeScript rules
       ...tseslint.configs.recommendedTypeChecked.rules,
-    },
-  },
-
-  // React (JSX) Regeln
-  {
-    files: ["**/*.{jsx,tsx}"],
-    plugins: {
-      react: pluginReact,
-    },
-    rules: {
-      ...pluginReact.configs.recommended.rules,
-    },
-  },
-
-  // Eigene Regeln / Overrides (nur was du wirklich brauchst)
-  {
-    files: ["**/*.{ts,tsx,js,jsx}"],
-    plugins: {
-      "@typescript-eslint": tseslint.plugin,
-      react: pluginReact,
-    },
-    rules: {
-      "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
-      "react/no-unescaped-entities": "off",
-  
       "@typescript-eslint/no-unused-vars": ["warn", {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_",
       }],
-      "@typescript-eslint/no-empty-object-type": "off",
-      "@typescript-eslint/no-unused-expressions": "warn",
-      "no-unused-expressions": "off",
+      "@typescript-eslint/no-empty-function": "warn",
+      "@typescript-eslint/no-empty-interface": "off",
+
+      // React
+      ...pluginReact.configs.recommended.rules,
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "react/no-unescaped-entities": "off",
     },
   },
-  
 ]);

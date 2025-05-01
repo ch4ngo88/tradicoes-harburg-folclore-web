@@ -1,13 +1,11 @@
 
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
-import React from "react";
-
 interface PhotoGalleryItemProps {
   image: string;
   index: number;
 }
 
-const PhotoGalleryItem = ({ image, index }: PhotoGalleryItemProps) => {
+const PhotoGalleryItem = ({ image,}: PhotoGalleryItemProps) => {
   const getDescriptiveAlt = (imagePath: string) => {
     const fileName = imagePath.split('/').pop()?.split('.')[0];
     if (!fileName) return "Archivbild von Rancho Folclórico Tradições Portuguesas";
