@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Grid2X2, Images } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -19,7 +18,7 @@ interface ArchivePhotosProps {
 
 const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
   const [isGridView, setIsGridView] = useState(false);
-  const {language } = useLanguage();
+  const { language } = useLanguage();
 
   return (
     <div className="w-full max-w-5xl mx-auto mb-12 animate-fade-in">
@@ -37,7 +36,11 @@ const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
             onCheckedChange={setIsGridView}
             className="data-[state=checked]:bg-seagreen data-[state=checked]:border-seagreen focus-visible:ring-2 focus-visible:ring-seagreen"
             id="view-switch"
-            aria-label={isGridView ? "Zur Karussell-Ansicht wechseln" : "Zur Rasteransicht wechseln"}
+            aria-label={
+              isGridView
+                ? "Zur Karussell-Ansicht wechseln"
+                : "Zur Rasteransicht wechseln"
+            }
           />
           <div className="flex items-center text-gray-700">
             <Grid2X2 size={18} aria-hidden="true" />
@@ -49,9 +52,10 @@ const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
       <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
         {isGridView ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {imagesLoaded && images.map((image, index) => (
-              <PhotoGalleryItem key={index} image={image} index={index} />
-            ))}
+            {imagesLoaded &&
+              images.map((image, index) => (
+                <PhotoGalleryItem key={index} image={image} index={index} />
+              ))}
           </div>
         ) : (
           <Carousel className="w-full">

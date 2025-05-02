@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -12,7 +11,7 @@ const DesktopNav = () => {
   };
 
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -23,8 +22,11 @@ const DesktopNav = () => {
             { path: "/", label: t("home") },
             { path: "/activities", label: t("activities") },
             { path: "/archive", label: t("archive") },
-            { path: "/membros", label: language === "de" ? "Mitglieder" : "Membros" },
-            { path: "/contact", label: t("contact") }
+            {
+              path: "/membros",
+              label: language === "de" ? "Mitglieder" : "Membros",
+            },
+            { path: "/contact", label: t("contact") },
           ].map((item) => (
             <li key={item.path} className="md:py-1.5 py-4">
               <Link
@@ -36,12 +38,14 @@ const DesktopNav = () => {
                           group`}
               >
                 {item.label}
-                <span 
+                <span
                   className={`absolute bottom-0 left-0 h-0.5 bg-[#ea384c] 
                               transition-all duration-300 
-                              ${isActive(item.path) 
-                                ? 'w-full' 
-                                : 'w-0 group-hover:w-full'}`}
+                              ${
+                                isActive(item.path)
+                                  ? "w-full"
+                                  : "w-0 group-hover:w-full"
+                              }`}
                 ></span>
               </Link>
             </li>

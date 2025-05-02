@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Calendar, Mail } from "lucide-react";
@@ -8,7 +7,7 @@ export const CallToActionButtons = () => {
   const { t } = useLanguage();
 
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

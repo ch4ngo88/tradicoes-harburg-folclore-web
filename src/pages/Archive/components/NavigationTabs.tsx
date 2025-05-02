@@ -7,7 +7,7 @@ interface NavigationTabsProps {
 
 const NavigationTabs = ({ activeTab, setActiveTab }: NavigationTabsProps) => {
   const { t } = useLanguage();
-  
+
   return (
     <div className="inline-flex rounded-md bg-gray-100 p-1">
       <button

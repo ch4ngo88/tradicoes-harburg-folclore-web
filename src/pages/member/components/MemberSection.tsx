@@ -27,11 +27,11 @@ const MemberSection = ({
   members,
   isVisible,
   hoveredMember,
-  setHoveredMember
+  setHoveredMember,
 }: MemberSectionProps) => (
-  <div 
+  <div
     className={`bg-white/70 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg mb-8 transition-opacity duration-500 ${
-      isVisible ? 'opacity-100' : 'opacity-0'
+      isVisible ? "opacity-100" : "opacity-0"
     }`}
   >
     <div className="flex items-center gap-2 mb-6">
@@ -40,12 +40,10 @@ const MemberSection = ({
     </div>
 
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 py-4 justify-items-center">
-
-
       {members.map((member) => (
-        <MemberCard 
-          key={member.id} 
-          member={member} 
+        <MemberCard
+          key={member.id}
+          member={member}
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
         />

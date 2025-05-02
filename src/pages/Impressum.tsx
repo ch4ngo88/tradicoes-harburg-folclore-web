@@ -1,5 +1,5 @@
 import { useMetaSEO } from "@/hooks/useMetaSEO";
-import { MapPin, Mail, Shield, FileText, AlertTriangle, Copyright } from "lucide-react";
+import { Mail, Shield, FileText, AlertTriangle, Copyright } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const Impressum = () => {
@@ -19,7 +19,9 @@ const Impressum = () => {
             <div className="flex items-center gap-2 mb-4">
               <FileText className="text-seagreen" />
               <h2 className="text-xl font-bold text-seagreen">
-                {language === "pt" ? "Informações conforme § 5 TMG" : "Angaben gemäß § 5 TMG"}
+                {language === "pt"
+                  ? "Informações conforme § 5 TMG"
+                  : "Angaben gemäß § 5 TMG"}
               </h2>
             </div>
             <div className="pl-6 space-y-2 text-gray-700">
@@ -43,9 +45,7 @@ const Impressum = () => {
                 {language === "pt" ? "Representado por" : "Vertreten durch"}
               </h2>
             </div>
-            <p className="pl-6 text-gray-700">
-              Marco da Silva Dácio
-            </p>
+            <p className="pl-6 text-gray-700">Marco da Silva Dácio</p>
           </section>
 
           {/* Abschnitt: Kontakt */}
@@ -56,9 +56,7 @@ const Impressum = () => {
                 {language === "pt" ? "Contato" : "Kontakt"}
               </h2>
             </div>
-            <p className="pl-6 text-gray-700">
-              E-Mail: g.c.r.f.p@hotmail.com
-            </p>
+            <p className="pl-6 text-gray-700">E-Mail: g.c.r.f.p@hotmail.com</p>
           </section>
 
           {/* Abschnitt: Verantwortlich nach RStV */}
@@ -71,9 +69,7 @@ const Impressum = () => {
                   : "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV"}
               </h2>
             </div>
-            <p className="pl-6 text-gray-700">
-              Marco da Silva Dácio
-            </p>
+            <p className="pl-6 text-gray-700">Marco da Silva Dácio</p>
           </section>
 
           {/* Abschnitt: Haftungsausschluss */}
@@ -81,7 +77,9 @@ const Impressum = () => {
             <div className="flex items-center gap-2 mb-4">
               <AlertTriangle className="text-seagreen" />
               <h2 className="text-xl font-bold text-seagreen">
-                {language === "pt" ? "Exclusão de responsabilidade" : "Haftungsausschluss"}
+                {language === "pt"
+                  ? "Exclusão de responsabilidade"
+                  : "Haftungsausschluss"}
               </h2>
             </div>
             <p className="pl-6 text-gray-700">
@@ -118,7 +116,9 @@ const Impressum = () => {
             <div className="flex items-center gap-2 mb-4">
               <AlertTriangle className="text-seagreen" />
               <h2 className="text-xl font-bold text-seagreen">
-                {language === "pt" ? "Objeção a publicidade" : "Werbewiderspruch"}
+                {language === "pt"
+                  ? "Objeção a publicidade"
+                  : "Werbewiderspruch"}
               </h2>
             </div>
             <p className="pl-6 text-gray-700">

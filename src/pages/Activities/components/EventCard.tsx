@@ -17,7 +17,7 @@ interface EventCardProps {
 
 const EventCard = ({ event }: EventCardProps) => {
   const { language } = useLanguage();
-  
+
   return (
     <div className="bg-white/90 rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row card-hover h-full">
       <Dialog>
@@ -37,9 +37,11 @@ const EventCard = ({ event }: EventCardProps) => {
                 ) : (
                   <img
                     src={event.image}
-                    alt={`${event.title} - ${language === "pt" ? "Evento em" : "Veranstaltung in"} ${event.location} ${language === "pt" ? "no dia" : "am"} ${new Date(event.date).toLocaleDateString(
+                    alt={`${event.title} - ${language === "pt" ? "Evento em" : "Veranstaltung in"} ${event.location} ${language === "pt" ? "no dia" : "am"} ${new Date(
+                      event.date,
+                    ).toLocaleDateString(
                       language === "pt" ? "pt-PT" : "de-DE",
-                      { day: "numeric", month: "long", year: "numeric" }
+                      { day: "numeric", month: "long", year: "numeric" },
                     )}`}
                     className="w-full h-full object-cover aspect-video"
                   />
@@ -73,7 +75,7 @@ const EventCard = ({ event }: EventCardProps) => {
                   day: "numeric",
                   month: "short",
                   year: "numeric",
-                }
+                },
               )}
             </div>
           </div>

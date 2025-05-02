@@ -1,13 +1,12 @@
-
-import React, { useEffect, useState, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { prefetchResource } from '../utils/preloadManager';
+import React, { useEffect, useState, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { prefetchResource } from "../utils/preloadManager";
 
 interface PreloadLinkProps {
   to: string;
   children: React.ReactNode;
   className?: string;
-  preloadResources?: Array<{ href: string, as: string, type?: string }>;
+  preloadResources?: Array<{ href: string; as: string; type?: string }>;
   prefetchDelay?: number; // Milliseconds to wait before prefetching
   onlyPrefetchOnHover?: boolean; // Only prefetch when user hovers
 }
@@ -21,29 +20,29 @@ const PreloadLink: React.FC<PreloadLinkProps> = ({
   className,
   preloadResources = [],
   prefetchDelay = 100,
-  onlyPrefetchOnHover = true
+  onlyPrefetchOnHover = true,
 }) => {
   const [hasPrefetched, setHasPrefetched] = useState(false);
   const linkRef = useRef<HTMLAnchorElement>(null);
   const location = useLocation();
-  
+
   // Don't prefetch if we're already on that route
   const shouldPrefetch = to !== location.pathname && !hasPrefetched;
 
   const prefetchLinkedResources = () => {
     if (!shouldPrefetch) return;
-    
+
     // Prefetch the route document itself
-    prefetchResource(to, { as: 'document' });
-    
+    prefetchResource(to, { as: "document" });
+
     // Prefetch additional resources if specified
-    preloadResources.forEach(resource => {
-      prefetchResource(resource.href, { 
+    preloadResources.forEach((resource) => {
+      prefetchResource(resource.href, {
         as: resource.as as any,
-        type: resource.type 
+        type: resource.type,
       });
     });
-    
+
     setHasPrefetched(true);
   };
 
@@ -57,16 +56,16 @@ const PreloadLink: React.FC<PreloadLinkProps> = ({
   // Optionally prefetch after delay (if not hover-only)
   useEffect(() => {
     if (onlyPrefetchOnHover || !shouldPrefetch) return;
-    
+
     const timer = setTimeout(() => {
       prefetchLinkedResources();
     }, prefetchDelay);
-    
+
     return () => clearTimeout(timer);
   }, [to, location.pathname]);
 
   return (
-    <Link 
+    <Link
       ref={linkRef}
       to={to}
       className={className}

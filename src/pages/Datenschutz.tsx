@@ -10,7 +10,9 @@ const Datenschutz = () => {
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="section-title text-center mb-8">
-          {language === "pt" ? "Política de Privacidade" : "Datenschutzerklärung"}
+          {language === "pt"
+            ? "Política de Privacidade"
+            : "Datenschutzerklärung"}
         </h1>
 
         <div className="glass-card p-8 space-y-8">
@@ -19,7 +21,9 @@ const Datenschutz = () => {
             <div className="flex items-center gap-2 mb-4">
               <FileText className="text-seagreen" />
               <h2 className="text-xl font-bold text-seagreen">
-                {language === "pt" ? "Informações Gerais" : "Allgemeine Hinweise"}
+                {language === "pt"
+                  ? "Informações Gerais"
+                  : "Allgemeine Hinweise"}
               </h2>
             </div>
             <div className="pl-6 space-y-2 text-gray-700">
@@ -41,9 +45,12 @@ const Datenschutz = () => {
             </div>
             <div className="pl-6 space-y-2 text-gray-700">
               <p>
-                Marco da Silva Dácio<br />
-                Hastedtstraße 30<br />
-                21073 Hamburg<br />
+                Marco da Silva Dácio
+                <br />
+                Hastedtstraße 30
+                <br />
+                21073 Hamburg
+                <br />
                 E-Mail: g.c.r.f.p@hotmail.com
               </p>
             </div>
@@ -61,7 +68,9 @@ const Datenschutz = () => {
             </div>
             <div className="pl-6 space-y-4 text-gray-700">
               <h3 className="font-bold">
-                {language === "pt" ? "Arquivos de Log do Servidor" : "Server-Log-Dateien"}
+                {language === "pt"
+                  ? "Arquivos de Log do Servidor"
+                  : "Server-Log-Dateien"}
               </h3>
               <p>
                 {language === "pt"
@@ -70,7 +79,9 @@ const Datenschutz = () => {
               </p>
 
               <h3 className="font-bold">
-                {language === "pt" ? "Formulário de Contato" : "Kontaktformular"}
+                {language === "pt"
+                  ? "Formulário de Contato"
+                  : "Kontaktformular"}
               </h3>
               <p>
                 {language === "pt"
@@ -78,9 +89,7 @@ const Datenschutz = () => {
                   : "Wenn Sie uns per Formular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular (einschließlich der dort angegebenen Kontaktdaten) zwecks Bearbeitung Ihrer Anfrage gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Das Kontaktformular wird über den Dienst FormSubmit abgewickelt. Es gelten zusätzlich die Datenschutzbestimmungen und Nutzungsbedingungen von FormSubmit."}
               </p>
 
-              <h3 className="font-bold">
-                Cookies
-              </h3>
+              <h3 className="font-bold">Cookies</h3>
               <p>
                 {language === "pt"
                   ? "Este site utiliza cookies exclusivamente para garantir a funcionalidade técnica necessária e no contexto da análise da web (veja abaixo)."
@@ -88,7 +97,9 @@ const Datenschutz = () => {
               </p>
 
               <h3 className="font-bold">
-                {language === "pt" ? "Análise da Web e Rastreamento" : "Webanalyse und Tracking"}
+                {language === "pt"
+                  ? "Análise da Web e Rastreamento"
+                  : "Webanalyse und Tracking"}
               </h3>
               <p>
                 {language === "pt"
@@ -107,7 +118,8 @@ const Datenschutz = () => {
                   rel="noopener noreferrer"
                   className="text-seagreen hover:text-seagreen/80 flex items-center gap-1"
                 >
-                  ➔ Google Analytics Opt-Out <ExternalLink className="h-4 w-4" />
+                  ➔ Google Analytics Opt-Out{" "}
+                  <ExternalLink className="h-4 w-4" />
                 </a>
               </p>
 
@@ -152,10 +164,26 @@ const Datenschutz = () => {
                   : "Sie haben jederzeit das Recht:"}
               </p>
               <ul className="list-disc pl-6 space-y-1">
-                <li>{language === "pt" ? "acessar seus dados pessoais armazenados," : "auf Auskunft über Ihre gespeicherten personenbezogenen Daten,"}</li>
-                <li>{language === "pt" ? "corrigir, apagar ou restringir o processamento," : "auf Berichtigung, Löschung oder Einschränkung der Verarbeitung,"}</li>
-                <li>{language === "pt" ? "opor-se ao processamento," : "auf Widerspruch gegen die Verarbeitung,"}</li>
-                <li>{language === "pt" ? "solicitar a portabilidade dos dados." : "auf Datenübertragbarkeit."}</li>
+                <li>
+                  {language === "pt"
+                    ? "acessar seus dados pessoais armazenados,"
+                    : "auf Auskunft über Ihre gespeicherten personenbezogenen Daten,"}
+                </li>
+                <li>
+                  {language === "pt"
+                    ? "corrigir, apagar ou restringir o processamento,"
+                    : "auf Berichtigung, Löschung oder Einschränkung der Verarbeitung,"}
+                </li>
+                <li>
+                  {language === "pt"
+                    ? "opor-se ao processamento,"
+                    : "auf Widerspruch gegen die Verarbeitung,"}
+                </li>
+                <li>
+                  {language === "pt"
+                    ? "solicitar a portabilidade dos dados."
+                    : "auf Datenübertragbarkeit."}
+                </li>
               </ul>
               <p className="mt-4">
                 {language === "pt"

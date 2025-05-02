@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -10,7 +9,7 @@ interface LogoProps {
 const Logo = ({ scrollToTop }: LogoProps) => {
   const { language } = useLanguage();
   const isMobile = useIsMobile();
-  
+
   return (
     <div
       className="flex items-center md:gap-3 cursor-pointer"

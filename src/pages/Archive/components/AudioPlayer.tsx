@@ -14,7 +14,12 @@ const formatTime = (time: number): string => {
   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 };
 
-const AudioPlayer = ({ audioSrc, title, year, description }: AudioPlayerProps) => {
+const AudioPlayer = ({
+  audioSrc,
+  title,
+  year,
+  description,
+}: AudioPlayerProps) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -54,10 +59,14 @@ const AudioPlayer = ({ audioSrc, title, year, description }: AudioPlayerProps) =
 
   useEffect(() => {
     if (audioRef.current) {
-      const onLoadedMetadata = () => setDuration(audioRef.current?.duration || 0);
+      const onLoadedMetadata = () =>
+        setDuration(audioRef.current?.duration || 0);
       audioRef.current.addEventListener("loadedmetadata", onLoadedMetadata);
       return () => {
-        audioRef.current?.removeEventListener("loadedmetadata", onLoadedMetadata);
+        audioRef.current?.removeEventListener(
+          "loadedmetadata",
+          onLoadedMetadata,
+        );
       };
     }
   }, []);
@@ -85,26 +94,27 @@ const AudioPlayer = ({ audioSrc, title, year, description }: AudioPlayerProps) =
 
       {/* Volume horizontal unterhalb */}
       <div className="flex justify-end items-center gap-2 mb-4 mt-2">
-  <Volume2 className="w-4 h-4 text-seagreen" />
-  <input
-    type="range"
-    min="0"
-    max="1"
-    step="0.01"
-    value={volume}
-    onChange={handleVolumeChange}
-    className="w-24 accent-seagreen appearance-none bg-seagreen/20 h-1 rounded-full
+        <Volume2 className="w-4 h-4 text-seagreen" />
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value={volume}
+          onChange={handleVolumeChange}
+          className="w-24 accent-seagreen appearance-none bg-seagreen/20 h-1 rounded-full
       [&::-webkit-slider-thumb]:appearance-none 
       [&::-webkit-slider-thumb]:bg-seagreen 
       [&::-webkit-slider-thumb]:rounded-full 
       [&::-webkit-slider-thumb]:w-3 
       [&::-webkit-slider-thumb]:h-3"
-  />
-</div>
-
+        />
+      </div>
 
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-600 w-12 text-right">{formatTime(progress)}</span>
+        <span className="text-sm text-gray-600 w-12 text-right">
+          {formatTime(progress)}
+        </span>
         <input
           type="range"
           min="0"
@@ -119,7 +129,9 @@ const AudioPlayer = ({ audioSrc, title, year, description }: AudioPlayerProps) =
             [&::-webkit-slider-thumb]:w-3 
             [&::-webkit-slider-thumb]:h-3"
         />
-        <span className="text-sm text-gray-600 w-12">{formatTime(duration)}</span>
+        <span className="text-sm text-gray-600 w-12">
+          {formatTime(duration)}
+        </span>
       </div>
 
       <audio
@@ -134,7 +146,9 @@ const AudioPlayer = ({ audioSrc, title, year, description }: AudioPlayerProps) =
       </audio>
 
       {description && (
-        <p className="text-xs italic mt-4 text-center">Hamburg Radio FSK 93,0 MHz Antenne </p>
+        <p className="text-xs italic mt-4 text-center">
+          Hamburg Radio FSK 93,0 MHz Antenne{" "}
+        </p>
       )}
     </div>
   );

@@ -1,5 +1,10 @@
-
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 export type Language = "pt" | "de";
 
@@ -169,8 +174,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 // Get initial language from localStorage or default to "pt"
 const getInitialLanguage = (): Language => {
-  if (typeof window === 'undefined') return "pt";
-  
+  if (typeof window === "undefined") return "pt";
+
   const savedLanguage = localStorage.getItem("language") as Language;
   return savedLanguage === "de" ? "de" : "pt";
 };

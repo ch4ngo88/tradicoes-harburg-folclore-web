@@ -1,4 +1,3 @@
-
 import { Calendar } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import EventCard, { EventType } from "./EventCard";
@@ -9,7 +8,7 @@ interface EventsSectionProps {
 
 const EventsSection = ({ events }: EventsSectionProps) => {
   const { t } = useLanguage();
-  
+
   return (
     <section className="mb-12">
       <div className="flex items-center gap-2 mb-8">

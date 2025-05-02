@@ -1,9 +1,13 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Home, LayoutGrid, Archive, Users, Mail, X } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 
@@ -18,7 +22,7 @@ const MobileNav = () => {
   // Updated handleClick function to scroll to the very top of the page
   const handleClick = () => {
     // Using scrollTo with top: 0 and behavior: 'instant' to ensure immediate scrolling to the top
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const getNavIcon = (path: string) => {

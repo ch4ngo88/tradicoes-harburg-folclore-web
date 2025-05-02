@@ -14,7 +14,7 @@ interface NewsItemProps {
 
 const NewsItem = ({ item }: NewsItemProps) => {
   const thumbnailSrc = item.thumbnail || item.source;
-  
+
   return (
     <Dialog>
       <DialogTrigger asChild>

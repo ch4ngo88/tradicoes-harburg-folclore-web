@@ -7,7 +7,7 @@ import { useMetaSEO } from "@/hooks/useMetaSEO";
 const NotFound = () => {
   const location = useLocation();
   const { t } = useLanguage();
-  
+
   useMetaSEO("home"); // Fallback to home metadata for 404 page
 
   useEffect(() => {

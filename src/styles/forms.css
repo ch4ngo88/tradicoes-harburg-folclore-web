@@ -1,4 +1,3 @@
-
 @layer components {
   .form-container {
     @apply bg-white rounded-xl shadow-lg p-6;

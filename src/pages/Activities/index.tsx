@@ -3,7 +3,11 @@ import { useMetaSEO } from "@/hooks/useMetaSEO";
 import NewsSection from "./components/NewsSection";
 import EventsSection from "./components/EventsSection";
 import EnsaiosSection from "./components/EnsaiosSection";
-import { useNewsItems, useUpcomingEvents, useEnsaios } from "./data/activitiesData";
+import {
+  useNewsItems,
+  useUpcomingEvents,
+  useEnsaios,
+} from "./data/activitiesData";
 
 const Activities = () => {
   useMetaSEO("activities");
@@ -23,7 +27,7 @@ const Activities = () => {
 
       {/* Events Calendar Section */}
       <EventsSection events={upcomingEvents} />
-      
+
       {/* Ensaios Section */}
       <EnsaiosSection ensaios={ensaios} />
     </div>

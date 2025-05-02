@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface VideoCardProps {
@@ -7,11 +6,7 @@ interface VideoCardProps {
   description: string;
 }
 
-const VideoCard = ({
-  videoSrc,
-  title,
-  description,
-}: VideoCardProps) => {
+const VideoCard = ({ videoSrc, title, description }: VideoCardProps) => {
   return (
     <div className="glass-card overflow-hidden">
       <video

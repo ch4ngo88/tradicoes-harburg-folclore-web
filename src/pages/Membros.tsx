@@ -1,4 +1,3 @@
-
 import { useMetaSEO } from "@/hooks/useMetaSEO";
 import MembrosPage from "./member";
 

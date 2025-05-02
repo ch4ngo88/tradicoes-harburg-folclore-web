@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useMetaSEO } from "@/hooks/useMetaSEO";
 import ArchiveLayout from "./components/ArchiveLayout";
@@ -9,20 +8,16 @@ import useArchiveImages from "./hooks/useArchiveImages";
 
 const Archive = () => {
   useMetaSEO("archive");
-  const [activeTab, setActiveTab] = useState<"photos" | "audio" | "videos">("photos");
+  const [activeTab, setActiveTab] = useState<"photos" | "audio" | "videos">(
+    "photos",
+  );
   const { images, imagesLoaded } = useArchiveImages();
 
   return (
-    <ArchiveLayout 
-      activeTab={activeTab} 
-      setActiveTab={setActiveTab}
-    >
+    <ArchiveLayout activeTab={activeTab} setActiveTab={setActiveTab}>
       {/* Photos Tab */}
       {activeTab === "photos" && (
-        <ArchivePhotos 
-          images={images} 
-          imagesLoaded={imagesLoaded} 
-        />
+        <ArchivePhotos images={images} imagesLoaded={imagesLoaded} />
       )}
 
       {/* Audio Tab */}

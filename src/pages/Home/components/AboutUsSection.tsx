@@ -17,7 +17,7 @@ const AboutUsSection = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -30,9 +30,9 @@ const AboutUsSection = () => {
       }
     };
   }, []);
-  
+
   return (
-    <div 
+    <div
       ref={sectionRef}
       className="container mx-auto py-12 px-4 transition-all duration-500 opacity-0 translate-y-4"
     >
@@ -44,7 +44,10 @@ const AboutUsSection = () => {
           <p>{t("intro")}</p>
           <p className="italic text-gray-600">{t("storyIntro")}</p>
 
-          <div className="rounded-lg overflow-hidden shadow-lg my-8 max-w-2xl mx-auto" style={{ maxHeight: "400px" }}>
+          <div
+            className="rounded-lg overflow-hidden shadow-lg my-8 max-w-2xl mx-auto"
+            style={{ maxHeight: "400px" }}
+          >
             <video
               src="/images/offen.mp4"
               controls
@@ -83,9 +86,9 @@ const AboutUsSection = () => {
               {t("joinUs")}
             </h3>
             <p className="mb-6">{t("joinUsText")}</p>
-            
+
             <CallToActionButtons />
-            
+
             <p className="font-bold mt-6 text-center">{t("finalMessage")}</p>
           </div>
         </article>

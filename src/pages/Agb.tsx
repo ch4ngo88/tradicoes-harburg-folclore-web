@@ -1,10 +1,5 @@
 import { useMetaSEO } from "@/hooks/useMetaSEO";
-import {
-  ScrollText,
-  Info,
-  AlertTriangle,
-  Copyright
-} from "lucide-react";
+import { ScrollText, Info, AlertTriangle, Copyright } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const Agb = () => {

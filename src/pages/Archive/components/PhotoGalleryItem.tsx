@@ -1,21 +1,24 @@
-
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 interface PhotoGalleryItemProps {
   image: string;
   index: number;
 }
 
-const PhotoGalleryItem = ({ image,}: PhotoGalleryItemProps) => {
+const PhotoGalleryItem = ({ image }: PhotoGalleryItemProps) => {
   const getDescriptiveAlt = (imagePath: string) => {
-    const fileName = imagePath.split('/').pop()?.split('.')[0];
-    if (!fileName) return "Archivbild von Rancho Folclórico Tradições Portuguesas";
-    
+    const fileName = imagePath.split("/").pop()?.split(".")[0];
+    if (!fileName)
+      return "Archivbild von Rancho Folclórico Tradições Portuguesas";
+
     const imageDescriptions: Record<string, string> = {
-      '1': 'Historische Aufnahme der Tanzgruppe bei einer traditionellen Aufführung',
-      '2': 'Gruppenfoto der Mitglieder in traditionellen Trachten',
+      "1": "Historische Aufnahme der Tanzgruppe bei einer traditionellen Aufführung",
+      "2": "Gruppenfoto der Mitglieder in traditionellen Trachten",
     };
 
-    return imageDescriptions[fileName] || "Historisches Archivbild der portugiesischen Tanzgruppe in Hamburg";
+    return (
+      imageDescriptions[fileName] ||
+      "Historisches Archivbild der portugiesischen Tanzgruppe in Hamburg"
+    );
   };
 
   return (

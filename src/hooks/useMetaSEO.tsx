@@ -1,6 +1,5 @@
-
-import { useEffect } from 'react';
-import { useLanguage } from './useLanguage';
+import { useEffect } from "react";
+import { useLanguage } from "./useLanguage";
 
 type MetaData = {
   [key: string]: {
@@ -105,13 +104,21 @@ export const useMetaSEO = (page: keyof typeof metadata) => {
     const currentMeta = metadata[page];
     if (currentMeta) {
       document.title = currentMeta.title[language];
-      const metaDescription = document.querySelector('meta[name="description"]');
+      const metaDescription = document.querySelector(
+        'meta[name="description"]',
+      );
       if (metaDescription) {
-        metaDescription.setAttribute('content', currentMeta.description[language]);
+        metaDescription.setAttribute(
+          "content",
+          currentMeta.description[language],
+        );
       } else {
-        const newMetaDescription = document.createElement('meta');
-        newMetaDescription.setAttribute('name', 'description');
-        newMetaDescription.setAttribute('content', currentMeta.description[language]);
+        const newMetaDescription = document.createElement("meta");
+        newMetaDescription.setAttribute("name", "description");
+        newMetaDescription.setAttribute(
+          "content",
+          currentMeta.description[language],
+        );
         document.head.appendChild(newMetaDescription);
       }
     }

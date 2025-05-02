@@ -1,4 +1,3 @@
-
 import { Info } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import NewsItem, { NewsItemType } from "./NewsItem";
@@ -9,7 +8,7 @@ interface NewsSectionProps {
 
 const NewsSection = ({ newsItems }: NewsSectionProps) => {
   const { t } = useLanguage();
-  
+
   return (
     <section className="mb-12 mt-8">
       <div className="flex items-center justify-center gap-2 mb-6">

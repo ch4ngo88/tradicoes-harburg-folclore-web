@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import Logo from "./Logo";
@@ -42,7 +41,7 @@ const Header = () => {
           <div className="flex items-center gap-3 z-20">
             {/* Mobile Navigation */}
             <MobileNav />
-            
+
             {/* Language switcher (desktop only) */}
             <div className="hidden md:block">
               <LanguageSwitcher />
@@ -51,7 +50,9 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className={`${isScrolled ? "bg-seagreen/95 backdrop-blur-sm" : "bg-seagreen"} text-white rounded-md mb-2 transition-all duration-300 hidden md:block`}>
+        <div
+          className={`${isScrolled ? "bg-seagreen/95 backdrop-blur-sm" : "bg-seagreen"} text-white rounded-md mb-2 transition-all duration-300 hidden md:block`}
+        >
           <DesktopNav />
         </div>
       </div>

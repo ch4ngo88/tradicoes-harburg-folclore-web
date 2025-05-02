@@ -1,6 +1,4 @@
-
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import {
   Dialog,
@@ -9,9 +7,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Skeleton } from "@/components/ui/skeleton";
 import OptimizedImage from "@/components/OptimizedImage";
-import { preloadImage } from "@/utils/preloadManager";
 import PreloadLink from "@/components/PreloadLink";
 
 interface HeroSectionProps {
@@ -20,14 +16,14 @@ interface HeroSectionProps {
 
 const HeroSection = ({ language }: HeroSectionProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
-  
+
   // Define image path - using only the JPG version which we know exists
   const heroImageSrc = "/images/gruppe.jpg";
-  
+
   useEffect(() => {
     const heroElement = heroRef.current;
     if (!heroElement) return;
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -39,7 +35,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
       },
       {
         threshold: 0.2, // Trigger when 20% of the element is visible
-      }
+      },
     );
 
     // Observe all elements with the class 'animate-on-load' inside the hero
@@ -64,26 +60,33 @@ const HeroSection = ({ language }: HeroSectionProps) => {
   }, []);
 
   return (
-    <div 
+    <div
       ref={heroRef}
       className="relative w-full h-[70vh] sm:h-[80vh] flex items-center justify-center overflow-hidden"
     >
       <div className="hero-overlay absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-seagreen/40 to-portuguesered/40 opacity-90 mix-blend-multiply" />
       </div>
-      
+
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="animate-on-load md:w-2/5 w-full flex justify-center md:justify-end">
           <div className="relative hero-stagger-1">
             <Dialog>
               <DialogTrigger asChild>
-                <button 
+                <button
                   className="relative cursor-pointer"
-                  aria-label={language === "pt" ? "Ampliar imagem do grupo" : "Gruppenbild vergrößern"}
+                  aria-label={
+                    language === "pt"
+                      ? "Ampliar imagem do grupo"
+                      : "Gruppenbild vergrößern"
+                  }
                 >
                   {/* Top-left decorative border */}
-                  <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
-                  
+                  <div
+                    className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg"
+                    aria-hidden="true"
+                  ></div>
+
                   {/* The image - using OptimizedImage component */}
                   <OptimizedImage
                     src={heroImageSrc}
@@ -92,9 +95,12 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                     loading="eager"
                     preload={true}
                   />
-                  
+
                   {/* Bottom-right decorative border */}
-                  <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg" aria-hidden="true"></div>
+                  <div
+                    className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg"
+                    aria-hidden="true"
+                  ></div>
                 </button>
               </DialogTrigger>
               <DialogContent className="p-0 max-w-4xl border-none">
@@ -102,13 +108,17 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                   {language === "pt" ? "Foto do grupo" : "Gruppenfoto"}
                 </DialogTitle>
                 <DialogDescription className="sr-only">
-                  {language === "pt" ? "Imagem ampliada do grupo" : "Vergrößertes Gruppenbild"}
+                  {language === "pt"
+                    ? "Imagem ampliada do grupo"
+                    : "Vergrößertes Gruppenbild"}
                 </DialogDescription>
                 <OptimizedImage
                   src={heroImageSrc}
                   alt="Group photo"
                   className="w-full h-full object-contain rounded-lg"
                   loading="lazy"
+                  preload={false} // 👈 diese Zeile ergänzt
+
                 />
               </DialogContent>
             </Dialog>
@@ -124,12 +134,14 @@ const HeroSection = ({ language }: HeroSectionProps) => {
           <p className="hero-stagger-2 text-xl md:text-2xl opacity-90 font-lusitana max-w-xl italic">
             {language === "pt" ? (
               <>
-                Preservando a cultura portuguesa em Hamburgo<br />
+                Preservando a cultura portuguesa em Hamburgo
+                <br />
                 desde 1979
               </>
             ) : (
               <>
-                Bewahrung der portugiesischen Kultur in Hamburg<br />
+                Bewahrung der portugiesischen Kultur in Hamburg
+                <br />
                 seit 1979
               </>
             )}
@@ -140,8 +152,14 @@ const HeroSection = ({ language }: HeroSectionProps) => {
               to="/activities"
               className="px-6 py-3 bg-seagreen text-white rounded-lg shadow-md transition-all duration-300 inline-flex items-center gap-2 group font-lusitana hover:shadow-lg hover:scale-[1.02]"
               preloadResources={[
-                { href: "/images/activity/ensaios/ensaioadultos.png", as: "image" },
-                { href: "/images/activity/ensaios/ensaiocriancas.png", as: "image" }
+                {
+                  href: "/images/activity/ensaios/ensaioadultos.png",
+                  as: "image",
+                },
+                {
+                  href: "/images/activity/ensaios/ensaiocriancas.png",
+                  as: "image",
+                },
               ]}
               onlyPrefetchOnHover={true}
             >

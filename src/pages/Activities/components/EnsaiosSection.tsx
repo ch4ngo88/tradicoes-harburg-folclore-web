@@ -14,7 +14,7 @@ interface EnsaiosSectionProps {
 
 const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
   const { language } = useLanguage();
-  
+
   return (
     <section className="mb-12">
       <div className="flex items-center gap-2 mb-4">
@@ -25,8 +25,8 @@ const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
       </div>
 
       <p className="text-gray-600 italic mb-8 text-center">
-        {language === "pt" 
-          ? "(Pausa durante as férias de verão e inverno)" 
+        {language === "pt"
+          ? "(Pausa durante as férias de verão e inverno)"
           : "(Pause während der Sommer- und Winterferien)"}
       </p>
 
@@ -41,9 +41,11 @@ const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
                 <div className="relative h-48 cursor-pointer">
                   <img
                     src={ensaio.image}
-                    alt={language === "pt" 
-                      ? `Ensaio de ${ensaio.title} - ${ensaio.schedule}`
-                      : `${ensaio.title} Probe - ${ensaio.schedule}`}
+                    alt={
+                      language === "pt"
+                        ? `Ensaio de ${ensaio.title} - ${ensaio.schedule}`
+                        : `${ensaio.title} Probe - ${ensaio.schedule}`
+                    }
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -51,9 +53,11 @@ const EnsaiosSection = ({ ensaios }: EnsaiosSectionProps) => {
               <DialogContent className="p-0 max-w-2xl border-none">
                 <img
                   src={ensaio.image}
-                  alt={language === "pt" 
-                    ? `Ensaio de ${ensaio.title} - ${ensaio.schedule}`
-                    : `${ensaio.title} Probe - ${ensaio.schedule}`}
+                  alt={
+                    language === "pt"
+                      ? `Ensaio de ${ensaio.title} - ${ensaio.schedule}`
+                      : `${ensaio.title} Probe - ${ensaio.schedule}`
+                  }
                   className="w-full h-full max-h-[70vh] object-contain rounded-lg"
                   loading="lazy"
                 />

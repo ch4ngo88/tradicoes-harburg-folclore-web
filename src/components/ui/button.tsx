@@ -9,9 +9,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-seagreen text-white hover:bg-seagreen-light focus:ring-seagreen/50",
-        destructive: "bg-portuguesered text-white hover:bg-portuguesered-light focus:ring-portuguesered/50",
-        outline: "border-2 border-seagreen text-seagreen bg-transparent hover:bg-seagreen/10",
+        default:
+          "bg-seagreen text-white hover:bg-seagreen-light focus:ring-seagreen/50",
+        destructive:
+          "bg-portuguesered text-white hover:bg-portuguesered-light focus:ring-portuguesered/50",
+        outline:
+          "border-2 border-seagreen text-seagreen bg-transparent hover:bg-seagreen/10",
         secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300",
         ghost: "hover:bg-gray-100 text-gray-900",
         link: "text-seagreen underline-offset-4 hover:underline",

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
@@ -19,8 +18,6 @@ import {
 } from "lucide-react";
 import { useMetaSEO } from "@/hooks/useMetaSEO";
 import Map from "@/components/map"; // ganz oben hinzufügen
-
-
 
 type UsefulLink = {
   url: string;
@@ -68,9 +65,8 @@ const usefulLinks: UsefulLink[] = [
     url: "https://www.kulturpalast-harburg.com/",
     icon: "images/links/logokp.png",
     title: "Kultur Palast Harburg",
-  }
+  },
 ];
-
 
 const ContactForm = () => {
   const { language } = useLanguage();
@@ -86,92 +82,103 @@ const ContactForm = () => {
       const { name, value } = e.target;
       setFormData((prev) => ({ ...prev, [name]: value }));
     },
-    []
+    [],
   );
 
   return (
     <div className="glass-card p-6">
       <h2 className="text-xl font-semibold text-seagreen mb-6">
-        {language === "pt" 
-          ? "Envie-nos uma mensagem" 
+        {language === "pt"
+          ? "Envie-nos uma mensagem"
           : "Schreiben Sie uns eine Nachricht"}
       </h2>
-      <form 
-  action="https://formsubmit.co/marco.dacio@icloud.com" 
-  method="POST"
-  className="space-y-5"
-  autoComplete="on" // optional – unterstützt gesamtes Formular
->
-  <input type="hidden" name="_subject" value="Neue Nachricht über Kontaktformular" />
-  <input type="hidden" name="_template" value="table" />
-  <input type="hidden" name="_next" value="https://tradicionalisboa.lovable.app/contact" />
+      <form
+        action="https://formsubmit.co/marco.dacio@icloud.com"
+        method="POST"
+        className="space-y-5"
+        autoComplete="on" // optional – unterstützt gesamtes Formular
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="Neue Nachricht über Kontaktformular"
+        />
+        <input type="hidden" name="_template" value="table" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://tradicionalisboa.lovable.app/contact"
+        />
 
-  <div>
-    <label htmlFor="name" className="form-label">
-      {language === "pt" ? "Nome" : "Name"}
-    </label>
-    <Input
-      id="name"
-      name="name"
-      autoComplete="name"
-      value={formData.name}
-      onChange={handleChange}
-      required
-      className="form-input"
-      placeholder={language === "pt" ? "Seu nome" : "Ihr Name"}
-    />
-  </div>
+        <div>
+          <label htmlFor="name" className="form-label">
+            {language === "pt" ? "Nome" : "Name"}
+          </label>
+          <Input
+            id="name"
+            name="name"
+            autoComplete="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="form-input"
+            placeholder={language === "pt" ? "Seu nome" : "Ihr Name"}
+          />
+        </div>
 
-  <div>
-    <label htmlFor="email" className="form-label">
-      {language === "pt" ? "Email" : "E-Mail"}
-    </label>
-    <Input
-      id="email"
-      name="email"
-      type="email"
-      autoComplete="email"
-      value={formData.email}
-      onChange={handleChange}
-      required
-      className="form-input"
-      placeholder={language === "pt" ? "Seu email" : "Ihre E-Mail"}
-    />
-  </div>
+        <div>
+          <label htmlFor="email" className="form-label">
+            {language === "pt" ? "Email" : "E-Mail"}
+          </label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="form-input"
+            placeholder={language === "pt" ? "Seu email" : "Ihre E-Mail"}
+          />
+        </div>
 
-  <div>
-    <label htmlFor="subject" className="form-label">
-      {language === "pt" ? "Assunto" : "Betreff"}
-    </label>
-    <Input
-      id="subject"
-      name="subject"
-      autoComplete="off" // bewusst deaktivieren
-      value={formData.subject}
-      onChange={handleChange}
-      required
-      className="form-input"
-      placeholder={language === "pt" ? "Assunto da mensagem" : "Betreff der Nachricht"}
-    />
-  </div>
+        <div>
+          <label htmlFor="subject" className="form-label">
+            {language === "pt" ? "Assunto" : "Betreff"}
+          </label>
+          <Input
+            id="subject"
+            name="subject"
+            autoComplete="off" // bewusst deaktivieren
+            value={formData.subject}
+            onChange={handleChange}
+            required
+            className="form-input"
+            placeholder={
+              language === "pt"
+                ? "Assunto da mensagem"
+                : "Betreff der Nachricht"
+            }
+          />
+        </div>
 
-  <div>
-    <label htmlFor="message" className="form-label">
-      {language === "pt" ? "Mensagem" : "Nachricht"}
-    </label>
-    <Textarea
-      id="message"
-      name="message"
-      autoComplete="off" // bewusst deaktivieren
-      value={formData.message}
-      onChange={handleChange}
-      rows={4}
-      required
-      className="form-input"
-      placeholder={language === "pt" ? "Sua mensagem" : "Ihre Nachricht"}
-    />
-  </div>
-
+        <div>
+          <label htmlFor="message" className="form-label">
+            {language === "pt" ? "Mensagem" : "Nachricht"}
+          </label>
+          <Textarea
+            id="message"
+            name="message"
+            autoComplete="off" // bewusst deaktivieren
+            value={formData.message}
+            onChange={handleChange}
+            rows={4}
+            required
+            className="form-input"
+            placeholder={language === "pt" ? "Sua mensagem" : "Ihre Nachricht"}
+          />
+        </div>
 
         <Button
           type="submit"
@@ -201,9 +208,8 @@ const ContactPage = React.memo(() => {
       </h1>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
-      <div className="flex flex-col gap-6 h-full">
-  <div className="glass-card p-6 hover:shadow-lg transition-all duration-300 flex-grow">
-    
+        <div className="flex flex-col gap-6 h-full">
+          <div className="glass-card p-6 hover:shadow-lg transition-all duration-300 flex-grow">
             <div className="flex gap-2 items-center mb-6">
               <Mail className="text-seagreen w-6 h-6" />
               <h3 className="text-xl font-bold text-seagreen">
@@ -212,41 +218,39 @@ const ContactPage = React.memo(() => {
             </div>
 
             <div className="flex flex-col md:flex-row justify-between gap-6 text-gray-700 items-start">
-  <div className="space-y-4">
-    <p className="flex items-center gap-3">
-      <MapPin className="w-5 h-5 text-seagreen flex-shrink-0" />
-      <span>Hastedtstraße 30, 21073 Hamburg</span>
-    </p>
-    <p className="flex items-center gap-3">
-      <Mail className="w-5 h-5 text-seagreen flex-shrink-0" />
-      <a 
-        href="mailto:g.c.r.f.p@hotmail.com"
-        className="hover:text-seagreen transition-colors duration-300"
-      >
-        g.c.r.f.p@hotmail.com
-      </a>
-    </p>
-    <p className="flex items-center gap-3">
-      <Phone className="w-5 h-5 text-seagreen flex-shrink-0" />
-      <span>+49 (0) 157 316 250 61</span>
-    </p>
-  </div>
+              <div className="space-y-4">
+                <p className="flex items-center gap-3">
+                  <MapPin className="w-5 h-5 text-seagreen flex-shrink-0" />
+                  <span>Hastedtstraße 30, 21073 Hamburg</span>
+                </p>
+                <p className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-seagreen flex-shrink-0" />
+                  <a
+                    href="mailto:g.c.r.f.p@hotmail.com"
+                    className="hover:text-seagreen transition-colors duration-300"
+                  >
+                    g.c.r.f.p@hotmail.com
+                  </a>
+                </p>
+                <p className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-seagreen flex-shrink-0" />
+                  <span>+49 (0) 157 316 250 61</span>
+                </p>
+              </div>
 
-  <div className="flex-shrink-0">
-    <img
-      src="/images/QR Code.jpeg"
-      alt="QR Code"
-      className="h-32 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-    />
-  </div>
-</div>
-
+              <div className="flex-shrink-0">
+                <img
+                  src="/images/QR Code.jpeg"
+                  alt="QR Code"
+                  className="h-32 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="glass-card overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex-grow">
-  <Map />
-</div>
-
+            <Map />
+          </div>
         </div>
 
         <div>
@@ -260,7 +264,9 @@ const ContactPage = React.memo(() => {
             <AccordionTrigger className="accordion-trigger">
               <div className="flex gap-2 items-center">
                 <LinkIcon className="text-seagreen" />
-                <span>{language === "pt" ? "Links Úteis" : "Nützliche Links"}</span>
+                <span>
+                  {language === "pt" ? "Links Úteis" : "Nützliche Links"}
+                </span>
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-4">
@@ -290,5 +296,6 @@ const ContactPage = React.memo(() => {
     </div>
   );
 });
+ContactPage.displayName = "ContactPage";
 
 export default ContactPage;

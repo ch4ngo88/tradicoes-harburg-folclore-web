@@ -1,10 +1,9 @@
-
-import React, { lazy, Suspense } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React, { lazy, Suspense } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
 // Define a properly structured lazy loading for App
-const App = lazy(() => import('./App'));
+const App = lazy(() => import("./App"));
 
 // Improved loading fallback with semantic class names
 const LoadingFallback = () => (
@@ -14,30 +13,30 @@ const LoadingFallback = () => (
 );
 
 // Render the app
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Suspense fallback={<LoadingFallback />}>
       <App />
     </Suspense>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // Use requestIdleCallback for prefetching non-critical routes
-if ('requestIdleCallback' in window) {
+if ("requestIdleCallback" in window) {
   window.requestIdleCallback(() => {
     // Prefetch other important routes that users might navigate to
     const routesToPrefetch = [
-      '/activities',
-      '/archive',
-      '/contact',
-      '/membros'
+      "/activities",
+      "/archive",
+      "/contact",
+      "/membros",
     ];
-    
-    routesToPrefetch.forEach(route => {
-      const link = document.createElement('link');
-      link.rel = 'prefetch';
+
+    routesToPrefetch.forEach((route) => {
+      const link = document.createElement("link");
+      link.rel = "prefetch";
       link.href = route;
-      link.as = 'document';
+      link.as = "document";
       document.head.appendChild(link);
     });
   });

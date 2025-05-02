@@ -1,4 +1,3 @@
-
 import { useLanguage } from "@/hooks/useLanguage";
 import { NewsItemType } from "../components/NewsItem";
 import { EventType } from "../components/EventCard";
@@ -6,7 +5,7 @@ import { EnsaioType } from "../components/EnsaiosSection";
 
 export const useNewsItems = (): NewsItemType[] => {
   const { language } = useLanguage();
-  
+
   return [
     {
       type: "image",
@@ -16,7 +15,7 @@ export const useNewsItems = (): NewsItemType[] => {
     },
     {
       type: "video",
-      
+
       source: "/images/activity/news/kinder.mp4",
       title: language === "pt" ? "Vídeo das Crianças" : "Kinder Video",
     },
@@ -30,7 +29,7 @@ export const useNewsItems = (): NewsItemType[] => {
 
 export const useUpcomingEvents = (): EventType[] => {
   const { language } = useLanguage();
-  
+
   return [
     {
       id: 1,
@@ -46,36 +45,41 @@ export const useUpcomingEvents = (): EventType[] => {
     },
     {
       id: 2,
-      title: language === "pt" 
-        ? "Harburg Feiert Vielfalt" 
-        : "Harburg Feiert Vielfalt",
+      title:
+        language === "pt"
+          ? "Harburg Feiert Vielfalt"
+          : "Harburg Feiert Vielfalt",
       date: "2025-07-06",
-      image: "/images/activity/next/harburgvielfalt.jpg",  // placeholder image
-      description: language === "pt"
-        ? "Apresentação em cooperação com o Kulturpalast Harburg no evento 'Harburg Feiert Vielfalt'"
-        : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",
+      image: "/images/activity/next/harburgvielfalt.jpg", // placeholder image
+      description:
+        language === "pt"
+          ? "Apresentação em cooperação com o Kulturpalast Harburg no evento 'Harburg Feiert Vielfalt'"
+          : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",
       location: "Harburger Rathausplatz, 21073 Hamburg",
-    }
+    },
   ];
 };
 
 export const useEnsaios = (): EnsaioType[] => {
   const { language } = useLanguage();
-  
+
   return [
     {
-      title: language === "pt" ? "Ensaio Grupo Adultos" : "Probe Erwachsenengruppe",
-      schedule: language === "pt" 
-        ? "Todos os Domingos (menos Feriados) das 11:00 - 12:30"
-        : "Jeden Sonntag (außer an Feiertagen) von 11:00 - 12:30",
+      title:
+        language === "pt" ? "Ensaio Grupo Adultos" : "Probe Erwachsenengruppe",
+      schedule:
+        language === "pt"
+          ? "Todos os Domingos (menos Feriados) das 11:00 - 12:30"
+          : "Jeden Sonntag (außer an Feiertagen) von 11:00 - 12:30",
       image: "/images/activity/ensaios/ensaioadultos.png",
     },
     {
       title: language === "pt" ? "Ensaio Grupo Crianças" : "Probe Kindergruppe",
-      schedule: language === "pt"
-        ? "Todos os Domingos (menos Feriados) das 12:30 às 14:00"
-        : "Jeden Sonntag (außer an Feiertagen) von 12:30 bis 14:00 Uhr",
+      schedule:
+        language === "pt"
+          ? "Todos os Domingos (menos Feriados) das 12:30 às 14:00"
+          : "Jeden Sonntag (außer an Feiertagen) von 12:30 bis 14:00 Uhr",
       image: "/images/activity/ensaios/ensaiocriancas.png",
-    }
+    },
   ];
 };
