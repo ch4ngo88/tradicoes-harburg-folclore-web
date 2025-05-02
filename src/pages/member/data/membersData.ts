@@ -14,8 +14,9 @@ export type MemberData = {
 export const useMembersData = (): MemberData[] => {
   const { language } = useLanguage();
 
-  return [
-    // Leadership
+  const members: MemberData[] = [
+
+  
     {
       id: 1,
       name: "Marco da Silva Dácio",
@@ -32,7 +33,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/members/mariana1.png",
       costumeImage: "/images/members/mariana2.png",
       category: "leadership",
-      hoverText: "Beira Baixa",
+      hoverText: "Alentejo",
     },
     {
       id: 3,
@@ -43,8 +44,6 @@ export const useMembersData = (): MemberData[] => {
       category: "leadership",
       hoverText: "Ribatejo",
     },
-
-    // Dancers
     {
       id: 4,
       name: "Yahima Rodriguez Rodriguez",
@@ -57,10 +56,10 @@ export const useMembersData = (): MemberData[] => {
     {
       id: 5,
       name: "Marta da Silva Dácio",
-      role: language === "pt" ? "Dançarina" : "Tänzerin",
+      role: language === "pt" ? "Interne Kommunikation" : "Comunicação interna",
       regularImage: "/images/members/marta1.png",
       costumeImage: "/logo.png",
-      category: "dancers",
+      category: "leadershipt",
       hoverText: "Ribatejo",
     },
     {
@@ -83,12 +82,23 @@ export const useMembersData = (): MemberData[] => {
     },
     {
       id: 8,
-      name: "Raquel Rodrigues",
+      name: "Raquel Bastos Rodrigues",
       role: language === "pt" ? "Dançarina" : "Tänzerin",
       regularImage: "/images/members/raquel1.png",
       costumeImage: "logo.png",
       category: "dancers",
-      hoverText: "Beira Baixa",
+      hoverText: "Minho",
     },
-  ];
+    {
+      id: 9,
+      name: "Sabrina Sena",
+      role: language === "pt" ? "Eventos e Relações Externas" : "Events & Außenbeziehungen",
+      regularImage: "logo.png",
+      costumeImage: "logo.png",
+      category: "leadership",
+      hoverText: "Estremadura",
+    },
+
+  ];  return members.sort((a, b) => a.name.localeCompare(b.name, language === "pt" ? "pt" : "de"));
 };
+

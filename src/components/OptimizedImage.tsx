@@ -1,4 +1,4 @@
-import React, { useState, memo, useRef, useEffect } from "react";
+import { useState, memo, useRef, useEffect } from "react";
 
 interface OptimizedImageProps {
   src: string;

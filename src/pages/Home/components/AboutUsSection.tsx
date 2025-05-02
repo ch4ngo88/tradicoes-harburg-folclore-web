@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { CallToActionButtons } from "@/components/CallToActionButtons";
 
