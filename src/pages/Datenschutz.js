@@ -1,0 +1,48 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Shield, FileText, User, Database, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
+import { useMetaSEO } from "@/hooks/useMetaSEO";
+const Datenschutz = () => {
+    useMetaSEO("datenschutz");
+    const { language } = useLanguage();
+    return (_jsx("div", { className: "container mx-auto py-8 px-4", children: _jsxs("div", { className: "max-w-4xl mx-auto", children: [_jsx("h1", { className: "section-title text-center mb-8", children: language === "pt"
+                        ? "Política de Privacidade"
+                        : "Datenschutzerklärung" }), _jsxs("div", { className: "glass-card p-8 space-y-8", children: [_jsxs("section", { children: [_jsxs("div", { className: "flex items-center gap-2 mb-4", children: [_jsx(FileText, { className: "text-seagreen" }), _jsx("h2", { className: "text-xl font-bold text-seagreen", children: language === "pt"
+                                                ? "Informações Gerais"
+                                                : "Allgemeine Hinweise" })] }), _jsx("div", { className: "pl-6 space-y-2 text-gray-700", children: _jsx("p", { children: language === "pt"
+                                            ? "A proteção dos seus dados pessoais é muito importante para nós. Tratamos os seus dados de forma confidencial e de acordo com os regulamentos legais de proteção de dados, bem como com esta política de privacidade."
+                                            : "Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung." }) })] }), _jsxs("section", { children: [_jsxs("div", { className: "flex items-center gap-2 mb-4", children: [_jsx(User, { className: "text-seagreen" }), _jsx("h2", { className: "text-xl font-bold text-seagreen", children: language === "pt" ? "Responsável" : "Verantwortlicher" })] }), _jsx("div", { className: "pl-6 space-y-2 text-gray-700", children: _jsxs("p", { children: ["Marco da Silva D\u00E1cio", _jsx("br", {}), "Hastedtstra\u00DFe 30", _jsx("br", {}), "21073 Hamburg", _jsx("br", {}), "E-Mail: g.c.r.f.p@hotmail.com"] }) })] }), _jsxs("section", { children: [_jsxs("div", { className: "flex items-center gap-2 mb-4", children: [_jsx(Database, { className: "text-seagreen" }), _jsx("h2", { className: "text-xl font-bold text-seagreen", children: language === "pt"
+                                                ? "Coleta de Dados em Nosso Site"
+                                                : "Datenerfassung auf unserer Website" })] }), _jsxs("div", { className: "pl-6 space-y-4 text-gray-700", children: [_jsx("h3", { className: "font-bold", children: language === "pt"
+                                                ? "Arquivos de Log do Servidor"
+                                                : "Server-Log-Dateien" }), _jsx("p", { children: language === "pt"
+                                                ? "Ao visitar este site, informações gerais são automaticamente coletadas (por exemplo, tipo de navegador, sistema operacional, URL de referência, horário da solicitação ao servidor). Esses dados são utilizados exclusivamente para garantir o funcionamento livre de erros do site."
+                                                : "Beim Besuch dieser Website werden automatisch Informationen allgemeiner Natur erfasst (z.B. Browsertyp, Betriebssystem, Referrer-URL, Uhrzeit der Serveranfrage). Diese Daten dienen ausschließlich zur Sicherstellung eines störungsfreien Betriebs der Website." }), _jsx("h3", { className: "font-bold", children: language === "pt"
+                                                ? "Formulário de Contato"
+                                                : "Kontaktformular" }), _jsx("p", { children: language === "pt"
+                                                ? "Se você nos enviar solicitações via formulário, seus dados do formulário (incluindo os dados de contato fornecidos) serão armazenados para o processamento da solicitação. Esses dados não serão repassados sem o seu consentimento. O formulário de contato é processado via FormSubmit. Aplicam-se também as políticas de privacidade e os termos de uso do FormSubmit."
+                                                : "Wenn Sie uns per Formular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular (einschließlich der dort angegebenen Kontaktdaten) zwecks Bearbeitung Ihrer Anfrage gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Das Kontaktformular wird über den Dienst FormSubmit abgewickelt. Es gelten zusätzlich die Datenschutzbestimmungen und Nutzungsbedingungen von FormSubmit." }), _jsx("h3", { className: "font-bold", children: "Cookies" }), _jsx("p", { children: language === "pt"
+                                                ? "Este site utiliza cookies exclusivamente para garantir a funcionalidade técnica necessária e no contexto da análise da web (veja abaixo)."
+                                                : "Diese Website verwendet Cookies ausschließlich zur technisch notwendigen Sicherstellung der Funktionalität sowie im Rahmen der Webanalyse (siehe unten)." }), _jsx("h3", { className: "font-bold", children: language === "pt"
+                                                ? "Análise da Web e Rastreamento"
+                                                : "Webanalyse und Tracking" }), _jsx("p", { children: language === "pt"
+                                                ? "Este site utiliza o Google Analytics e o Bing Webmaster Tools para avaliar estatisticamente o uso do site. Cookies podem ser definidos e informações (incluindo o endereço IP anonimizado) podem ser transmitidas para servidores nos EUA."
+                                                : "Diese Website nutzt Google Analytics sowie Bing Webmaster Tools, um die Nutzung der Website statistisch auszuwerten. Dabei können Cookies gesetzt und Informationen (einschließlich anonymisierter IP-Adresse) an Server in den USA übermittelt werden." }), _jsxs("p", { children: [language === "pt"
+                                                    ? "Você pode se opor à coleta e ao processamento dos seus dados pelo Google:"
+                                                    : "Sie können der Erhebung und Verarbeitung Ihrer Daten durch Google widersprechen:", _jsx("br", {}), _jsxs("a", { href: "https://tools.google.com/dlpage/gaoptout", target: "_blank", rel: "noopener noreferrer", className: "text-seagreen hover:text-seagreen/80 flex items-center gap-1", children: ["\u2794 Google Analytics Opt-Out", " ", _jsx(ExternalLink, { className: "h-4 w-4" })] })] }), _jsx("p", { children: language === "pt"
+                                                ? "Mais informações podem ser encontradas nas políticas de privacidade de:"
+                                                : "Weitere Informationen finden Sie in der Datenschutzerklärung von:" }), _jsxs("div", { className: "flex flex-col gap-2", children: [_jsxs("a", { href: "https://policies.google.com/privacy", target: "_blank", rel: "noopener noreferrer", className: "text-seagreen hover:text-seagreen/80 flex items-center gap-1", children: ["Google ", _jsx(ExternalLink, { className: "h-4 w-4" })] }), _jsxs("a", { href: "https://privacy.microsoft.com/de-de/privacystatement", target: "_blank", rel: "noopener noreferrer", className: "text-seagreen hover:text-seagreen/80 flex items-center gap-1", children: ["Microsoft ", _jsx(ExternalLink, { className: "h-4 w-4" })] })] })] })] }), _jsxs("section", { children: [_jsxs("div", { className: "flex items-center gap-2 mb-4", children: [_jsx(Shield, { className: "text-seagreen" }), _jsx("h2", { className: "text-xl font-bold text-seagreen", children: language === "pt" ? "Os Seus Direitos" : "Ihre Rechte" })] }), _jsxs("div", { className: "pl-6 space-y-2 text-gray-700", children: [_jsx("p", { children: language === "pt"
+                                                ? "Você tem o direito de, a qualquer momento:"
+                                                : "Sie haben jederzeit das Recht:" }), _jsxs("ul", { className: "list-disc pl-6 space-y-1", children: [_jsx("li", { children: language === "pt"
+                                                        ? "acessar seus dados pessoais armazenados,"
+                                                        : "auf Auskunft über Ihre gespeicherten personenbezogenen Daten," }), _jsx("li", { children: language === "pt"
+                                                        ? "corrigir, apagar ou restringir o processamento,"
+                                                        : "auf Berichtigung, Löschung oder Einschränkung der Verarbeitung," }), _jsx("li", { children: language === "pt"
+                                                        ? "opor-se ao processamento,"
+                                                        : "auf Widerspruch gegen die Verarbeitung," }), _jsx("li", { children: language === "pt"
+                                                        ? "solicitar a portabilidade dos dados."
+                                                        : "auf Datenübertragbarkeit." })] }), _jsx("p", { className: "mt-4", children: language === "pt"
+                                                ? "Por favor, entre em contato com o endereço acima indicado."
+                                                : "Bitte wenden Sie sich hierzu an die oben angegebene Kontaktadresse." })] })] })] })] }) }));
+};
+export default Datenschutz;

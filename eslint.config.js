@@ -41,10 +41,13 @@ export default defineConfig([
 
       // TypeScript rules
       ...tseslint.configs.recommendedTypeChecked.rules,
-      "@typescript-eslint/no-unused-vars": ["warn", {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
-      }],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
       "@typescript-eslint/no-empty-function": "warn",
       "@typescript-eslint/no-empty-interface": "off",
 

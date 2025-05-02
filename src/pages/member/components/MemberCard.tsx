@@ -38,14 +38,12 @@ const MemberCard = ({
   const showRole = member.category !== "dancers";
 
   return (
-  
     <div
-    className="relative w-[200px] h-[300px] flex flex-col items-center justify-start bg-white rounded-xl overflow-hidden shadow-md cursor-pointer mb-6 transform scale-[0.75] sm:scale-100"
-    onMouseEnter={() => canHover && setHoveredMember(member.id)}
-  onMouseLeave={() => canHover && setHoveredMember(null)}
-  onClick={() => !canHover && handleInteraction()}
->
-
+      className="relative w-[200px] h-[300px] flex flex-col items-center justify-start bg-white rounded-xl overflow-hidden shadow-md cursor-pointer mb-6 transform scale-[0.75] sm:scale-100"
+      onMouseEnter={() => canHover && setHoveredMember(member.id)}
+      onMouseLeave={() => canHover && setHoveredMember(null)}
+      onClick={() => !canHover && handleInteraction()}
+    >
       <div className="relative w-full h-[70%] overflow-hidden">
         <OptimizedImage
           src={isHovered ? member.costumeImage : member.regularImage}

@@ -15,12 +15,13 @@ export const useMembersData = (): MemberData[] => {
   const { language } = useLanguage();
 
   const members: MemberData[] = [
-
-  
     {
       id: 1,
       name: "Marco da Silva Dácio",
-      role: language === "pt" ? "Responsável e Ensaiador Rancho Adulto" : "Leiter und Tanztrainer Erwachsenengruppe",
+      role:
+        language === "pt"
+          ? "Responsável e Ensaiador Rancho Adulto"
+          : "Leiter und Tanztrainer Erwachsenengruppe",
       regularImage: "/images/members/marco1.png",
       costumeImage: "/images/members/marco2.png",
       category: "leadership",
@@ -29,7 +30,10 @@ export const useMembersData = (): MemberData[] => {
     {
       id: 2,
       name: "Mariana Marcelo Rodrigues",
-      role: language === "pt" ? "Responsável e Ensaiadora Rancho Adulto" : "Leiterin und Tanztrainerin Erwachsenengruppe",
+      role:
+        language === "pt"
+          ? "Responsável e Ensaiadora Rancho Adulto"
+          : "Leiterin und Tanztrainerin Erwachsenengruppe",
       regularImage: "/images/members/mariana1.png",
       costumeImage: "/images/members/mariana2.png",
       category: "leadership",
@@ -92,13 +96,17 @@ export const useMembersData = (): MemberData[] => {
     {
       id: 9,
       name: "Sabrina Sena",
-      role: language === "pt" ? "Eventos e Relações Externas" : "Events & Außenbeziehungen",
+      role:
+        language === "pt"
+          ? "Eventos e Relações Externas"
+          : "Events & Außenbeziehungen",
       regularImage: "logo.png",
       costumeImage: "logo.png",
       category: "leadership",
       hoverText: "Estremadura",
     },
-
-  ];  return members.sort((a, b) => a.name.localeCompare(b.name, language === "pt" ? "pt" : "de"));
+  ];
+  return members.sort((a, b) =>
+    a.name.localeCompare(b.name, language === "pt" ? "pt" : "de"),
+  );
 };
-

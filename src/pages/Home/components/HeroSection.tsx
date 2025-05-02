@@ -118,7 +118,6 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                   className="w-full h-full object-contain rounded-lg"
                   loading="lazy"
                   preload={false} // 👈 diese Zeile ergänzt
-
                 />
               </DialogContent>
             </Dialog>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Home, LayoutGrid, Archive, Users, Mail, X } from "lucide-react";

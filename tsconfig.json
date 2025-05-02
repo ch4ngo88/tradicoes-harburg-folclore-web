@@ -1,23 +1,16 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
-  "include": [
-    "src",
-    "vite.config.ts",
-    "tailwind.config.ts"
-  ],
+  "include": ["src", "vite.config.ts", "tailwind.config.ts"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
+
     "esModuleInterop": true,
-    "composite": true,
-    "noEmit": true,
     "strict": true,
+    "noEmit": true,
+    "composite": false,
+
     "noImplicitAny": true,
     "strictNullChecks": true,
     "exactOptionalPropertyTypes": true,
@@ -26,6 +19,7 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "isolatedModules": true,
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

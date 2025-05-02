@@ -40,7 +40,7 @@ const MemberSection = ({
     </div>
 
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-2 sm:gap-x-4 sm:gap-y-4 py-4 justify-items-center">
-    {members.map((member) => (
+      {members.map((member) => (
         <MemberCard
           key={member.id}
           member={member}

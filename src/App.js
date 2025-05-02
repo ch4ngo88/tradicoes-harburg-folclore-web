@@ -1,0 +1,26 @@
+import { Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "@/hooks/useLanguage";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
+import Header from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import Home from "./pages/Home";
+import Activities from "./pages/Activities";
+import Archive from "./pages/Archive";
+import Membros from "./pages/Membros";
+import Contact from "./pages/Contact";
+import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
+import Agb from "./pages/Agb";
+import NotFound from "./pages/NotFound";
+const queryClient = new QueryClient();
+const ScrollToTopWrapper = ({ children }) => {
+    useScrollToTop();
+    return _jsx(_Fragment, { children: children });
+};
+const App = () => (_jsx(QueryClientProvider, { client: queryClient, children: _jsx(LanguageProvider, { children: _jsxs(TooltipProvider, { children: [_jsx(Toaster, {}), _jsx(Sonner, {}), _jsx(BrowserRouter, { children: _jsx(ScrollToTopWrapper, { children: _jsxs("div", { className: "flex flex-col min-h-screen", children: [_jsx(Header, {}), _jsx("main", { className: "flex-grow", children: _jsxs(Routes, { children: [_jsx(Route, { path: "/", element: _jsx(Home, {}) }), _jsx(Route, { path: "/activities", element: _jsx(Activities, {}) }), _jsx(Route, { path: "/archive", element: _jsx(Archive, {}) }), _jsx(Route, { path: "/membros", element: _jsx(Membros, {}) }), _jsx(Route, { path: "/contact", element: _jsx(Contact, {}) }), _jsx(Route, { path: "/impressum", element: _jsx(Impressum, {}) }), _jsx(Route, { path: "/datenschutz", element: _jsx(Datenschutz, {}) }), _jsx(Route, { path: "/agb", element: _jsx(Agb, {}) }), _jsx(Route, { path: "*", element: _jsx(NotFound, {}) })] }) }), _jsx(Footer, {})] }) }) })] }) }) }));
+export default App;

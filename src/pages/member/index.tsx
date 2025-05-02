@@ -60,7 +60,7 @@ const MembrosPage = () => {
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
         />
-{/* 
+        {/* 
         <MemberSection
           title={language === "pt" ? "Coro" : "Chor"}
           icon={Music}

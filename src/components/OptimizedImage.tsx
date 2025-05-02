@@ -44,7 +44,7 @@ const OptimizedImage = memo(
       if (imgRef.current) {
         imgRef.current.setAttribute(
           "fetchpriority",
-          loading === "eager" ? "high" : "auto"
+          loading === "eager" ? "high" : "auto",
         );
 
         if (preload && loading === "eager" && src) {
@@ -87,7 +87,7 @@ const OptimizedImage = memo(
         onError={handleError}
       />
     );
-  }
+  },
 );
 
 OptimizedImage.displayName = "OptimizedImage";
