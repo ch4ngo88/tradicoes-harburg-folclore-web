@@ -1,15 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { prefetchResource } from "../utils/preloadManager";
 
 // Zentrale Typdefinition für gültige resource types
 export type ResourceType = "script" | "style" | "font" | "image" | "document";
 
-function isValidResourceType(type: any): type is ResourceType {
-  return ["script", "style", "font", "image", "document"].includes(type);
+function isValidResourceType(type: unknown): type is ResourceType {
+  return ["script", "style", "font", "image", "document"].includes(type as string);
 }
 
-// Props-Definition mit strikten Typen
 interface PreloadLinkProps {
   to: string;
   children: React.ReactNode;
@@ -23,9 +22,6 @@ interface PreloadLinkProps {
   onlyPrefetchOnHover?: boolean;
 }
 
-/**
- * Enhanced Link component that prefetches route and associated resources
- */
 const PreloadLink: React.FC<PreloadLinkProps> = ({
   to,
   children,
@@ -40,7 +36,7 @@ const PreloadLink: React.FC<PreloadLinkProps> = ({
 
   const shouldPrefetch = to !== location.pathname && !hasPrefetched;
 
-  const prefetchLinkedResources = () => {
+  const prefetchLinkedResources = useCallback(() => {
     if (!shouldPrefetch) return;
 
     prefetchResource(to, { as: "document" });
@@ -53,7 +49,7 @@ const PreloadLink: React.FC<PreloadLinkProps> = ({
     });
 
     setHasPrefetched(true);
-  };
+  }, [shouldPrefetch, to, preloadResources]);
 
   const handleMouseEnter = () => {
     if (onlyPrefetchOnHover) {
@@ -69,7 +65,12 @@ const PreloadLink: React.FC<PreloadLinkProps> = ({
     }, prefetchDelay);
 
     return () => clearTimeout(timer);
-  }, [to, location.pathname]);
+  }, [
+    onlyPrefetchOnHover,
+    shouldPrefetch,
+    prefetchDelay,
+    prefetchLinkedResources,
+  ]);
 
   return (
     <Link

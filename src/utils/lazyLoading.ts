@@ -1,22 +1,23 @@
 import React from "react";
 
 export const lazyImport = <
-  T extends React.ComponentType<any>,
-  I extends { [K2 in K]: T },
+  I extends { [K2 in K]: React.ComponentType<Props> },
   K extends keyof I,
+  Props = unknown
 >(
   factory: () => Promise<I>,
-  name: K,
-): React.LazyExoticComponent<T> => {
+  name: K
+): React.LazyExoticComponent<React.ComponentType<Props>> => {
   return React.lazy(() =>
     factory()
       .then((module) => ({ default: module[name] }))
       .catch((error) => {
         console.error(`Error loading module: ${String(name)}`, error);
         throw error;
-      }),
+      })
   );
 };
+
 
 export const loadScriptWhenNeeded = (
   src: string,

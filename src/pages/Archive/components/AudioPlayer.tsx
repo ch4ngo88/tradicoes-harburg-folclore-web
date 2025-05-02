@@ -58,18 +58,20 @@ const AudioPlayer = ({
   };
 
   useEffect(() => {
-    if (audioRef.current) {
-      const onLoadedMetadata = () =>
-        setDuration(audioRef.current?.duration || 0);
-      audioRef.current.addEventListener("loadedmetadata", onLoadedMetadata);
-      return () => {
-        audioRef.current?.removeEventListener(
-          "loadedmetadata",
-          onLoadedMetadata,
-        );
-      };
-    }
+    const audioEl = audioRef.current;
+    if (!audioEl) return;
+  
+    const onLoadedMetadata = () => {
+      setDuration(audioEl.duration || 0);
+    };
+  
+    audioEl.addEventListener("loadedmetadata", onLoadedMetadata);
+  
+    return () => {
+      audioEl.removeEventListener("loadedmetadata", onLoadedMetadata);
+    };
   }, []);
+  
 
   return (
     <div className="w-full max-w-md bg-gradient-to-r from-seagreen/10 to-portuguesered/10 p-6 rounded-xl shadow-md mb-6">

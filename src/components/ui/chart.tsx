@@ -15,7 +15,7 @@ interface TooltipItem {
   color?: string;
   dataKey?: string | number;
   value?: number | string;
-  payload?: any;
+  payload?: Record<string, unknown>;
 }
 
 const THEMES = { light: "", dark: ".dark" } as const;
@@ -244,14 +244,25 @@ ChartLegendContent.displayName = "ChartLegendContent";
 
 function getPayloadConfigFromPayload(
   config: ChartConfig,
-  payload: any,
-  key: string,
-) {
-  const payloadPayload = payload?.payload;
+  payload: unknown,
+  key: string
+): ChartConfig[string] | undefined {
+  const p = {
+    ...(payload as object),
+    payload: (payload as { payload?: unknown })?.payload ?? {},
+  } as {
+    [key: string]: unknown;
+    payload: Record<string, unknown>;
+  };
+
   const labelFromDirect =
-    typeof payload?.[key] === "string" ? payload[key] : undefined;
+    typeof p[key] === "string" ? (p[key] as string) : undefined;
+
   const labelFromInner =
-    typeof payloadPayload?.[key] === "string" ? payloadPayload[key] : undefined;
+    typeof p.payload?.[key] === "string"
+      ? (p.payload[key] as string)
+      : undefined;
+
   const configKey = labelFromDirect || labelFromInner || key;
   return config[configKey];
 }
