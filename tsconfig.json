@@ -1,5 +1,6 @@
 {
   "include": ["src", "vite.config.ts", "tailwind.config.ts"],
+  "exclude": ["dist", "build", "node_modules", ".turbo", ".vite"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -17,7 +18,7 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "isolatedModules": true,
 
     "baseUrl": ".",
