@@ -102,12 +102,17 @@ export const preloadImage = (
           ? "image/webp"
           : undefined;
 
-  preloadResource(src, {
-    as: "image",
-    type: imageType,
-    fetchPriority: priority,
-  });
-};
+          const preloadOptions: PreloadOptions = {
+            as: "image",
+            fetchPriority: priority,
+          };
+          
+          if (imageType) {
+            preloadOptions.type = imageType;
+          }
+          
+          preloadResource(src, preloadOptions);
+        }          
 
 /**
  * Create a React hook to preload assets when a component mounts

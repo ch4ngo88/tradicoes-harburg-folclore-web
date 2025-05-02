@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useMetaSEO } from "@/hooks/useMetaSEO";
 import ArchiveLayout from "./components/ArchiveLayout";
 import ArchivePhotos from "./components/ArchivePhotos";
