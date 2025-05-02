@@ -105,6 +105,15 @@ export const useMembersData = (): MemberData[] => {
       category: "leadership",
       hoverText: "Estremadura",
     },
+    {
+      id: 10,
+      name: "Sr. Gabriel",
+      role: language === "pt" ? "Acordeão" : "Akkordeon",
+      regularImage: "logo.png",
+      costumeImage: "logo.png",
+      category: "music",
+      hoverText: "Alentejo",
+    },
   ];
   return members.sort((a, b) =>
     a.name.localeCompare(b.name, language === "pt" ? "pt" : "de"),

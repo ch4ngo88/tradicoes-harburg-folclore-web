@@ -60,7 +60,7 @@ const MembrosPage = () => {
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
         />
-        {/* 
+
         <MemberSection
           title={language === "pt" ? "Coro" : "Chor"}
           icon={Music}
@@ -69,7 +69,6 @@ const MembrosPage = () => {
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
         />
-*/}
         <MemberSection
           title={language === "pt" ? "Dançarinos" : "Tänzer/innen"}
           icon={CustomDancingIcon}
