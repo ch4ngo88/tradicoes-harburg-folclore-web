@@ -1,4 +1,3 @@
-import React from "react";
 import AudioPlayer from "./AudioPlayer";
 import { useLanguage } from "@/hooks/useLanguage";
 

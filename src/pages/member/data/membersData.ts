@@ -59,7 +59,7 @@ export const useMembersData = (): MemberData[] => {
       role: language === "pt" ? "Interne Kommunikation" : "Comunicação interna",
       regularImage: "/images/members/marta1.png",
       costumeImage: "/logo.png",
-      category: "leadershipt",
+      category: "leadership",
       hoverText: "Ribatejo",
     },
     {
