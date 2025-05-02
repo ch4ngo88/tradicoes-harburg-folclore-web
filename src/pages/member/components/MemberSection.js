@@ -1,4 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import MemberCard from "./MemberCard";
-const MemberSection = ({ title, icon: Icon, members, isVisible, hoveredMember, setHoveredMember, }) => (_jsxs("div", { className: `bg-white/70 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg mb-8 transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"}`, children: [_jsxs("div", { className: "flex items-center gap-x-2 gap-y-1 mb-6", children: [_jsx(Icon, { className: "text-seagreen w-6 h-6" }), _jsx("h3", { className: "text-xl font-bold text-seagreen", children: title })] }), _jsx("div", { className: "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-2 sm:gap-x-4 sm:gap-y-4 py-4 justify-items-center", children: members.map((member) => (_jsx(MemberCard, { member: member, hoveredMember: hoveredMember, setHoveredMember: setHoveredMember }, member.id))) })] }));
-export default MemberSection;
