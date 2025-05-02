@@ -34,7 +34,7 @@ const MemberSection = ({
       isVisible ? "opacity-100" : "opacity-0"
     }`}
   >
-    <div className="flex items-center gap-2 mb-6">
+    <div className="flex items-center gap-x-2 gap-y-1 mb-6">
       <Icon className="text-seagreen w-6 h-6" />
       <h3 className="text-xl font-bold text-seagreen">{title}</h3>
     </div>

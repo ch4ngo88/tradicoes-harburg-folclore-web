@@ -73,7 +73,7 @@ export const useMembersData = (): MemberData[] => {
     },
     {
       id: 7,
-      name: "Alecio Perreira",
+      name: "Alecio Ferreira",
       role: language === "pt" ? "Dançarino" : "Tänzer",
       regularImage: "logo.png",
       costumeImage: "/images/members/alecio2.png",
