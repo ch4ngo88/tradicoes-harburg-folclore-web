@@ -51,7 +51,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: "/images/members/yahima1.png",
       costumeImage: "/images/members/yahima2.png",
       category: "dancers",
-      hoverText: "Ribatejo",
+      hoverText: "Beira-Baixa",
     },
     {
       id: 5,
