@@ -57,11 +57,18 @@ const PhotoGalleryItem = ({ image, index }: PhotoGalleryItemProps) => {
       <DialogContent className="max-w-3xl p-0 overflow-hidden">
         {/* Für Screen‑Reader nötig, visuell ausgeblendet via sr-only */}
         <DialogTitle asChild>
-          <h3 className="sr-only">{`Archivfoto ${index + 1}`}</h3>
-        </DialogTitle>
-        <DialogDescription asChild>
-          <p className="sr-only">{altText}</p>
-        </DialogDescription>
+  <h3 className="sr-only">
+    {typeof index === "number" && !isNaN(index)
+      ? `Archivfoto ${index + 1}`
+      : "Archivfoto"}
+  </h3>
+</DialogTitle>
+<DialogDescription asChild>
+  <p className="sr-only">
+    {altText || "Archivbild der portugiesischen Tanzgruppe"}
+  </p>
+</DialogDescription>
+
 
         {/* Volles Bild */}
         <img

@@ -80,14 +80,17 @@ const NewsItem = ({ item }: NewsItemProps) => {
 
       {/* ---------- Modal ---------- */}
       <DialogContent className="sm:max-w-lg p-0 overflow-hidden">
-        <DialogTitle asChild>
-          <h3 className="sr-only">{item.title}</h3>
-        </DialogTitle>
-        <DialogDescription asChild>
-          <p className="sr-only">
-            {item.type === "video" ? "Video" : "Bild"} – {item.title}
-          </p>
-        </DialogDescription>
+      <DialogTitle asChild>
+  <h3 className="sr-only">{item.title || "Medieninhalt"}</h3>
+</DialogTitle>
+<DialogDescription asChild>
+  <p className="sr-only">
+    {(item.type === "video" ? "Video" : "Bild") +
+      " – " +
+      (item.title || "Medienbeschreibung")}
+  </p>
+</DialogDescription>
+
 
         {item.type === "video" ? (
           <video controls autoPlay className="w-full max-h-[70vh]">

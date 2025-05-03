@@ -100,16 +100,22 @@ const EventCard = ({ event }: EventCardProps) => {
 
         {/* ---------- Modal ---------- */}
         <DialogContent className="p-0 max-w-2xl">
-          <DialogTitle asChild>
-            <h3 className="sr-only">{event.title}</h3>
-          </DialogTitle>
-          <DialogDescription asChild>
-            <p className="sr-only">
-              {language === "pt"
-                ? `Evento em ${event.location} no dia ${dateLong}`
-                : `Veranstaltung in ${event.location} am ${dateLong}`}
-            </p>
-          </DialogDescription>
+        <DialogTitle asChild>
+  <h3 className="sr-only">
+    {event.title || "Veranstaltungstitel"}
+  </h3>
+</DialogTitle>
+
+<DialogDescription asChild>
+  <p className="sr-only">
+    {event.location && dateLong
+      ? language === "pt"
+        ? `Evento em ${event.location} no dia ${dateLong}`
+        : `Veranstaltung in ${event.location} am ${dateLong}`
+      : "Eventbeschreibung"}
+  </p>
+</DialogDescription>
+
 
           <div className="w-full">
             {videoSrc ? (
