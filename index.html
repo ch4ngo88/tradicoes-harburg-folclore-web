@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="de">
   <head>
-    <!-- Basic Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,89 +10,14 @@
       content="Rancho Folclórico Tradições Portuguesas - Bewahrung der portugiesischen Kultur in Hamburg seit 1979"
     />
 
-    <!-- Performance Optimizations - Critical Resources Only -->
-    <!-- Only preload the hero image since it's critical for all pages -->
-    <link
-    rel="preload"
-    as="image"
-    href="/tradicoes-harburg-folclore-web/logo.png"
-    type="image/png"
-    fetchpriority="high"
-  />
+    <!-- Preload critical hero image -->
   
     <!-- Alternate language versions -->
-    <link
-      rel="alternate"
-      hreflang="de"
-      href="https://tradicoesportuguesas.com/"
-    />
-    <link
-      rel="alternate"
-      hreflang="pt"
-      href="https://tradicoesportuguesas.com/pt/"
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://tradicoesportuguesas.com/"
-    />
+    <link rel="alternate" hreflang="de" href="https://tradicoesportuguesas.com/" />
+    <link rel="alternate" hreflang="pt" href="https://tradicoesportuguesas.com/pt/" />
+    <link rel="alternate" hreflang="x-default" href="https://tradicoesportuguesas.com/" />
 
-    <!-- Dublin Core Metadata -->
-    <meta
-      name="DC.title"
-      content="Tradições Portuguesas - Rancho Folclórico Hamburg"
-    />
-    <meta
-      name="DC.description"
-      content="Bewahrung der portugiesischen Kultur in Hamburg seit 1979"
-    />
-    <meta name="DC.publisher" content="Tradições Portuguesas Hamburg" />
-    <meta name="DC.language" content="de" />
-    <meta name="DC.rights" content="Copyright Tradições Portuguesas Hamburg" />
-    <meta name="DC.date" content="2023" />
-
-    <!-- Favicon and Icon Configuration -->
-    <link rel="icon" type="image/x-icon" href="/tradicoes-harburg-folclore-web/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/tradicoes-harburg-folclore-web/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/tradicoes-harburg-folclore-web/favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/tradicoes-harburg-folclore-web/apple-touch-icon.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/tradicoes-harburg-folclore-web/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="/tradicoes-harburg-folclore-web/android-chrome-512x512.png"
-    />
-
-    <!-- Apple-specific -->
-    <link rel="mask-icon" href="/tradicoes-harburg-folclore-web/logo.png" color="#1a6741" />
-    <link rel="apple-touch-startup-image" href="/tradicoes-harburg-folclore-web/logo.png" />
-
-    <!-- Security - Updated Content Security Policy -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' https://cdn.gpteng.co https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com https://formsubmit.co 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://formsubmit.co; frame-src https://www.google.com https://www.gstatic.com;"
-    />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta name="referrer" content="no-referrer" />
-    <meta
-      http-equiv="Permissions-Policy"
-      content="camera=(), microphone=(), geolocation=()"
-    />
-    <meta http-equiv="Cache-Control" content="max-age=31536000" />
-    <meta
-      http-equiv="Strict-Transport-Security"
-      content="max-age=31536000; includeSubDomains; preload"
-    />
-    <!-- Removed X-Frame-Options meta tag as it should be set via HTTP headers -->
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
-
-    <!-- SEO -->
+    <!-- SEO Metadata -->
     <meta name="author" content="Marco da Silva Dácio" />
     <meta
       name="keywords"
@@ -105,63 +29,66 @@
     <meta name="geo.placename" content="Hamburg" />
     <meta name="language" content="de" />
 
-    <!-- Mobile & PWA -->
+    <!-- Dublin Core -->
+    <meta name="DC.title" content="Tradições Portuguesas - Rancho Folclórico Hamburg" />
+    <meta name="DC.description" content="Bewahrung der portugiesischen Kultur in Hamburg seit 1979" />
+    <meta name="DC.publisher" content="Tradições Portuguesas Hamburg" />
+    <meta name="DC.language" content="de" />
+    <meta name="DC.rights" content="Copyright Tradições Portuguesas Hamburg" />
+    <meta name="DC.date" content="2023" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
+
+    <!-- Apple-specific -->
+    <link rel="mask-icon" href="/tradicoes-harburg-folclore-web/logo.png" color="#1a6741" />
+    <link rel="apple-touch-startup-image" href="/tradicoes-harburg-folclore-web/logo.png" />
+
+    <!-- PWA & Theme -->
     <meta name="theme-color" content="#1a6741" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="HandheldFriendly" content="true" />
     <meta name="MobileOptimized" content="320" />
 
-    <!-- Social: Open Graph -->
-    <meta
-      property="og:title"
-      content="Tradições Portuguesas - Rancho Folclórico Hamburg"
-    />
-    <meta
-      property="og:description"
-      content="Bewahrung der portugiesischen Kultur in Hamburg seit 1979"
-    />
-    <meta
-      property="og:image"
-      content="https://tradicoesportuguesas.com/images/gruppe.jpg"
-    />
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.gpteng.co https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com https://formsubmit.co 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://formsubmit.co; frame-src https://www.google.com https://www.gstatic.com;" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    <meta http-equiv="Cache-Control" content="max-age=31536000" />
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tradições Portuguesas - Rancho Folclórico Hamburg" />
+    <meta property="og:description" content="Bewahrung der portugiesischen Kultur in Hamburg seit 1979" />
+    <meta property="og:image" content="https://tradicoesportuguesas.com/images/gruppe.jpg" />
     <meta property="og:url" content="https://tradicoesportuguesas.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Tradições Portuguesas" />
     <meta property="og:locale" content="de_DE" />
 
-    <!-- Social: Twitter -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Tradições Portuguesas - Rancho Folclórico Hamburg"
-    />
-    <meta
-      name="twitter:description"
-      content="Bewahrung der portugiesischen Kultur in Hamburg seit 1979"
-    />
-    <meta
-      name="twitter:image"
-      content="https://tradicoesportuguesas.com/images/gruppe.jpg"
-    />
+    <meta name="twitter:title" content="Tradições Portuguesas - Rancho Folclórico Hamburg" />
+    <meta name="twitter:description" content="Bewahrung der portugiesischen Kultur in Hamburg seit 1979" />
+    <meta name="twitter:image" content="https://tradicoesportuguesas.com/images/gruppe.jpg" />
 
-    <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/logo-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/logo-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/logo-180x180.png" />
-    <link rel="icon" href="/tradicoes-harburg-folclore-web/logo.png" type="image/png" />
+    <!-- Manifest & Fonts -->
     <link rel="manifest" href="/tradicoes-harburg-folclore-web/manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <meta name="generator" content="Vite" />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -183,8 +110,6 @@
         "description": "Rancho Folclórico Tradições Portuguesas - Bewahrung der portugiesischen Kultur in Hamburg seit 1979"
       }
     </script>
-
-    <!-- For Events - Sample for a recurring event -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -225,10 +150,9 @@
         }
       }
     </script>
-    <script type="module" crossorigin src="/tradicoes-harburg-folclore-web/assets/index-D_ToCO8y.js"></script>
-    <link rel="stylesheet" crossorigin href="/tradicoes-harburg-folclore-web/assets/index-5Yur6kdb.css">
+    <script type="module" crossorigin src="/tradicoes-harburg-folclore-web/assets/index-DpJHJUqa.js"></script>
+    <link rel="stylesheet" crossorigin href="/tradicoes-harburg-folclore-web/assets/index-Cl2Z-tdi.css">
   </head>
-
   <body>
     <div id="root"></div>
   </body>
