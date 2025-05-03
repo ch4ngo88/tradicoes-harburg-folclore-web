@@ -52,7 +52,7 @@ export type PictureElementProps = {
 // Function to determine if an image should be eager loaded
 export const shouldEagerLoad = (imagePath: string): boolean => {
   // List of critical images that should be eager loaded
-  const criticalImages = ["gruppe.jpg", "gruppe.webp", "logo.png", "logo.webp"];
+  const criticalImages = ["gruppe.webp", "gruppe.webp", "logo.png", "logo.webp"];
 
   return criticalImages.some((img) => imagePath.includes(img));
 };
@@ -61,7 +61,7 @@ export const shouldEagerLoad = (imagePath: string): boolean => {
 export const shouldPreload = (imagePath: string): boolean => {
   // Only preload critical above-the-fold images that are visible immediately
   // This is a more restrictive list than shouldEagerLoad
-  const preloadImages = ["gruppe.jpg"];
+  const preloadImages = ["gruppe.webp"];
 
   return preloadImages.some((img) => imagePath.includes(img));
 };
@@ -98,3 +98,6 @@ export const preloadCriticalImage = (src: string): HTMLLinkElement | null => {
   document.head.appendChild(link);
   return link;
 };
+
+
+

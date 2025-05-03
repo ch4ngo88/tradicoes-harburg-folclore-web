@@ -240,7 +240,7 @@ const ContactPage = React.memo(() => {
 
               <div className="flex-shrink-0">
                 <img
-                  src="/images/QR Code.jpeg"
+                  src="/images/QR Code.webp"
                   alt="QR Code"
                   className="h-32 rounded-lg shadow-md hover:shadow-lg transition-shadow"
                 />
@@ -299,3 +299,6 @@ const ContactPage = React.memo(() => {
 ContactPage.displayName = "ContactPage";
 
 export default ContactPage;
+
+
+

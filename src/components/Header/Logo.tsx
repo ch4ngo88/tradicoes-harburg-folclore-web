@@ -39,3 +39,6 @@ const Logo = ({ scrollToTop }: LogoProps) => {
 };
 
 export default Logo;
+
+
+

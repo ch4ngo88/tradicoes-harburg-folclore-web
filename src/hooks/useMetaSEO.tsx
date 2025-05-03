@@ -124,3 +124,6 @@ export const useMetaSEO = (page: keyof typeof metadata) => {
     }
   }, [page, language]);
 };
+
+
+

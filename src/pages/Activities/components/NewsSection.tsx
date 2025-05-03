@@ -26,3 +26,6 @@ const NewsSection = ({ newsItems }: NewsSectionProps) => {
 };
 
 export default NewsSection;
+
+
+

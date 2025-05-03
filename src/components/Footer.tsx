@@ -225,3 +225,6 @@ export const Footer = () => {
     </footer>
   );
 };
+
+
+

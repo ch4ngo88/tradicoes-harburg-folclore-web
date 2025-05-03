@@ -77,3 +77,6 @@ const NewsItem = ({ item }: NewsItemProps) => {
 };
 
 export default NewsItem;
+
+
+

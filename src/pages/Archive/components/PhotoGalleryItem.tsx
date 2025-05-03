@@ -47,3 +47,6 @@ const PhotoGalleryItem = ({ image }: PhotoGalleryItemProps) => {
 };
 
 export default PhotoGalleryItem;
+
+
+

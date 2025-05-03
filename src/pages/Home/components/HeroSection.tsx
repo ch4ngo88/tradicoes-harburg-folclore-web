@@ -18,7 +18,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
 
   // Define image path - using only the JPG version which we know exists
-  const heroImageSrc = "/images/gruppe.jpg";
+  const heroImageSrc = "/images/gruppe.webp";
 
   useEffect(() => {
     const heroElement = heroRef.current;
@@ -175,3 +175,6 @@ const HeroSection = ({ language }: HeroSectionProps) => {
 };
 
 export default HeroSection;
+
+
+

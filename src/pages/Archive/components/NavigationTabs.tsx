@@ -45,3 +45,6 @@ const NavigationTabs = ({ activeTab, setActiveTab }: NavigationTabsProps) => {
 };
 
 export default NavigationTabs;
+
+
+

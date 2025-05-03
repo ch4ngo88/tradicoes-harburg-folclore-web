@@ -51,7 +51,7 @@ const AboutUsSection = () => {
             <video
               src="/images/offen.mp4"
               controls
-              poster="/images/offen.jpeg"
+              poster="/images/offen.webp"
               className="w-full rounded-md"
               style={{ maxHeight: "400px", objectFit: "cover" }}
               preload="metadata"
@@ -98,3 +98,6 @@ const AboutUsSection = () => {
 };
 
 export default AboutUsSection;
+
+
+

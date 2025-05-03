@@ -145,3 +145,6 @@ const EventCard = ({ event }: EventCardProps) => {
 };
 
 export default EventCard;
+
+
+

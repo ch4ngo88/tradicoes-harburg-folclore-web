@@ -119,3 +119,6 @@ export const useMembersData = (): MemberData[] => {
     a.name.localeCompare(b.name, language === "pt" ? "pt" : "de"),
   );
 };
+
+
+

@@ -28,3 +28,6 @@ const EventsSection = ({ events }: EventsSectionProps) => {
 };
 
 export default EventsSection;
+
+
+
