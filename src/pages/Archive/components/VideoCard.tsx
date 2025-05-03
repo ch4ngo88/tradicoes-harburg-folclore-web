@@ -1,4 +1,5 @@
 import React from "react";
+import { asset } from "@/lib/asset";          // ➊  neu
 
 interface VideoCardProps {
   videoSrc: string;
@@ -7,11 +8,8 @@ interface VideoCardProps {
 }
 
 const VideoCard = ({ videoSrc, title, description }: VideoCardProps) => {
-  const isAbsolute = videoSrc.startsWith("http");
-  const fullSrc = isAbsolute
-    ? videoSrc
-    : `${import.meta.env.BASE_URL}${videoSrc.replace(/^\/+/, "")}`;
-
+ const fullSrc = asset(videoSrc);             // ➋  ✅ jetzt innerhalb
+  
   return (
     <div className="glass-card overflow-hidden">
       <video

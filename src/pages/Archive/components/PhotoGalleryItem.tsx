@@ -1,4 +1,5 @@
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import { asset } from "@/lib/asset";          // ➊  neu
 
 interface PhotoGalleryItemProps {
   image: string;
@@ -22,10 +23,8 @@ const PhotoGalleryItem = ({ image }: PhotoGalleryItemProps) => {
     );
   };
 
-  const isAbsolute = image.startsWith("http");
-  const fullSrc = isAbsolute
-    ? image
-    : `${import.meta.env.BASE_URL}${image.replace(/^\/+/, "")}`;
+  const fullSrc = asset(image);              // ➋  neu
+
 
   return (
     <Dialog>
