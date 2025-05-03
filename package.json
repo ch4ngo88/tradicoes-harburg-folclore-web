@@ -3,16 +3,22 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://ch4ngo88.github.io/tradicoes-harburg-folclore-web",
+
+  
   "scripts": {
     "dev": "vite",
     "clean": "del-cli dist .vite coverage",
-    "build": "npm run clean && vite build",
+    "build": "pnpm run clean && vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "preview": "vite preview",
     "analyze": "vite build --sourcemap && source-map-explorer dist/assets/*.js",
-    "reset": "npm run clean && rm -rf node_modules && npm install"
+    "reset": "pnpm run clean && rm -rf node_modules && pnpm install",
+    "predeploy": "pnpm build",
+  "deploy": "gh-pages -d dist"
+
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",
@@ -78,6 +84,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "gh-pages": "^6.3.0",
     "source-map-explorer": "^2.5.3",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
