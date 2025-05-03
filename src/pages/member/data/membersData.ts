@@ -61,7 +61,7 @@ export const useMembersData = (): MemberData[] => {
     {
       id: 5,
       name: "Marta da Silva Dácio",
-      role: language === "pt" ? "Interne Kommunikation" : "Comunicação interna",
+      role: language === "pt" ? "Comunicação interna" : "Interne Kommunikation" ,
       regularImage: asset("images/members/marta1.webp"),
       costumeImage: asset("logo.png"),
       category: "leadership",
@@ -109,11 +109,20 @@ export const useMembersData = (): MemberData[] => {
     {
       id: 10,
       name: "Sr. Gabriel",
-      role: language === "pt" ? "Acordeão" : "Akkordeon",
+      role: language === "pt" ? "Dançarina" : "Tänzerin",
       regularImage: asset("logo.png"),
       costumeImage: asset("logo.png"),
       category: "music",
       hoverText: "Alentejo",
+    },
+    {
+      id: 11,
+      name: "Adriana Rodrigues",
+      role: language === "pt" ? "Acordeão" : "Akkordeon",
+      regularImage: asset("adri1.webp"),
+      costumeImage: asset("logo.png"),
+      category: "dancers",
+      hoverText: "Ribatejo",
     },
   ];
   return members.sort((a, b) =>
