@@ -1,7 +1,6 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { asset } from "@/lib/asset";
 
-
 export type MemberData = {
   id: number;
   name: string;
@@ -46,7 +45,7 @@ export const useMembersData = (): MemberData[] => {
       name: "Vanessa Matos",
       role: language === "pt" ? "Social Media" : "Social Media",
       regularImage: asset("images/members/vanessa1.png"),
-      costumeImage: "/logo.png",
+      costumeImage: asset("logo.png"),
       category: "leadership",
       hoverText: "Ribatejo",
     },
@@ -64,7 +63,7 @@ export const useMembersData = (): MemberData[] => {
       name: "Marta da Silva Dácio",
       role: language === "pt" ? "Interne Kommunikation" : "Comunicação interna",
       regularImage: asset("images/members/marta1.png"),
-      costumeImage: "/logo.png",
+      costumeImage: asset("logo.png"),
       category: "leadership",
       hoverText: "Ribatejo",
     },
@@ -81,7 +80,7 @@ export const useMembersData = (): MemberData[] => {
       id: 7,
       name: "Alecio Ferreira",
       role: language === "pt" ? "Dançarino" : "Tänzer",
-      regularImage: "logo.png",
+      regularImage: asset("logo.png"),
       costumeImage: asset("images/members/alecio2.png"),
       category: "dancers",
       hoverText: "Estremadura",
@@ -102,8 +101,8 @@ export const useMembersData = (): MemberData[] => {
         language === "pt"
           ? "Eventos e Relações Externas"
           : "Events & Außenbeziehungen",
-      regularImage: "logo.png",
-      costumeImage: "logo.png",
+      regularImage: asset("logo.png"),
+      costumeImage: asset("logo.png"),
       category: "leadership",
       hoverText: "Estremadura",
     },
@@ -111,8 +110,8 @@ export const useMembersData = (): MemberData[] => {
       id: 10,
       name: "Sr. Gabriel",
       role: language === "pt" ? "Acordeão" : "Akkordeon",
-      regularImage: "logo.png",
-      costumeImage: "logo.png",
+      regularImage: asset("logo.png"),
+      costumeImage: asset("logo.png"),
       category: "music",
       hoverText: "Alentejo",
     },
@@ -121,6 +120,3 @@ export const useMembersData = (): MemberData[] => {
     a.name.localeCompare(b.name, language === "pt" ? "pt" : "de"),
   );
 };
-
-
-

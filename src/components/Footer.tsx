@@ -9,6 +9,8 @@ import {
   Phone,
   Clock,
 } from "lucide-react";
+import { asset } from "@/lib/asset";
+
 
 export const Footer = () => {
   const { language } = useLanguage();
@@ -52,8 +54,8 @@ export const Footer = () => {
             <div className="bg-white p-4 rounded-md inline-block mb-3 w-full md:max-w-sm">
               <div className="flex items-center justify-center md:justify-start gap-3">
                 <img
-                  src="/logo.png"
-                  alt="Rancho logo"
+  src={asset("logo.png")}
+  alt="Rancho logo"
                   className="w-10 h-10 object-cover rounded-sm"
                   width={40}
                   height={40}

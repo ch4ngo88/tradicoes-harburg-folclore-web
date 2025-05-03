@@ -6,6 +6,7 @@ import {
   useLayoutEffect,
 } from "react";
 import { preloadCriticalImage } from "@/lib/image-helpers";
+import { asset } from "@/lib/asset"; // Wichtig!
 
 interface OptimizedImageProps {
   src: string;
@@ -38,40 +39,32 @@ const OptimizedImage = memo(function OptimizedImage({
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  /** Hält Timeout‑ und Observer‑Instanzen */
   const observerRef = useRef<IntersectionObserver | null>(null);
   const cleanupRef = useRef<() => void>(() => void 0);
   const timeoutRef = useRef<number>();
 
-  /* -------------------- Reset bei neuem src --------------------- */
   useEffect(() => {
     setIsLoaded(false);
     setHasError(false);
   }, [src]);
 
-  /* ---------------- Intelligent Preload ------------------------- */
   useLayoutEffect(() => {
     const el = imgRef.current;
     if (!preload || !src || !el || loading !== "eager") return;
-
-    // Wenn diese URL schon einmal preloaded wurde: sofort raus
     if (preloadedSrcs.has(src)) return;
 
     observerRef.current = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (entry?.isIntersecting) {
-          // ① Link anlegen
           const link = preloadCriticalImage(src);
           preloadedSrcs.add(src);
 
-          // ② Link entfernen, sobald Bild geladen (oder Timeout)
           cleanupRef.current = () => {
             link?.parentNode?.removeChild(link);
             window.clearTimeout(timeoutRef.current);
           };
           timeoutRef.current = window.setTimeout(cleanupRef.current, 5000);
-
           observerRef.current?.disconnect();
         }
       },
@@ -86,31 +79,29 @@ const OptimizedImage = memo(function OptimizedImage({
     };
   }, [src, preload, preloadOffset, loading]);
 
-  /* ------------- Priority Hints für moderne Browser ------------- */
   useEffect(() => {
     const el = imgRef.current;
     if (!el) return;
     const priority = loading === "eager" ? "high" : "auto";
     el.setAttribute("fetchpriority", priority);
-    // draft‑Spec (Chrome ≥ 125) – harm‑free, falls nicht unterstützt
     el.setAttribute("importance", priority);
   }, [loading]);
 
-  /* ---------------------- Handler ------------------------------- */
   const handleLoad = () => {
     setIsLoaded(true);
-    cleanupRef.current(); // Preload‑Link aufräumen
-    onLoad?.();
-  };
-  const handleError = () => {
-    console.error(`Image failed to load: ${src}`);
-    setHasError(true);
-    cleanupRef.current(); // sicherheitshalber
+    cleanupRef.current();
     onLoad?.();
   };
 
-  /* ---------------------- Render -------------------------------- */
-  const imageSrc = !src || hasError ? "/logo.png" : src;
+  const handleError = () => {
+    console.error(`Image failed to load: ${src}`);
+    setHasError(true);
+    cleanupRef.current();
+    onLoad?.();
+  };
+
+  const fallbackSrc = asset("logo.png");
+  const imageSrc = !src || hasError ? fallbackSrc : src;
   const imageAlt =
     !src || hasError ? "Rancho Folclórico Tradições Portuguesas Logo" : alt;
 
@@ -131,6 +122,3 @@ const OptimizedImage = memo(function OptimizedImage({
 });
 
 export default OptimizedImage;
-
-
-
