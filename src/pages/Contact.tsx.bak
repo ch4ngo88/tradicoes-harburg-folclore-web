@@ -60,7 +60,7 @@ const usefulLinks: UsefulLink[] = [
   },
   {
     url: "https://www.instagram.com/musicoportuga",
-    icon: "images/links/297537604_569168504998554_343296032616875640_n.webp",
+    icon: "images/links/417154003_7628155877197537_3387848453821547182_n.webp",
     title: "Tiago Pinheiro - músico portuga de Hamburgo",
   },
   {
