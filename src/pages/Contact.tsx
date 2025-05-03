@@ -35,7 +35,7 @@ const usefulLinks: UsefulLink[] = [
   },
   {
     url: "https://folclore.pt/",
-    icon: "images/links/cropped-portal-logo.png",
+    icon: "images/links/cropped-portal-logo.webp",
     title: "Folclore de Portugal – O Portal do Folclore Português",
   },
   {

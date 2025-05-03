@@ -148,11 +148,11 @@ const HeroSection = ({ language }: HeroSectionProps) => {
               className="px-6 py-3 bg-seagreen text-white rounded-lg shadow-md transition-all duration-300 inline-flex items-center gap-2 group font-lusitana hover:shadow-lg hover:scale-[1.02]"
               preloadResources={[
                 {
-                  href: asset("images/activity/ensaios/ensaioadultos.png"),
+                  href: asset("images/activity/ensaios/ensaioadultos.webp"),
                   as: "image",
                 },
                 {
-                  href: asset("images/activity/ensaios/ensaiocriancas.png"),
+                  href: asset("images/activity/ensaios/ensaiocriancas.webp"),
                   as: "image",
                 },
               ]}

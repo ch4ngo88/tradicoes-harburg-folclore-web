@@ -11,8 +11,8 @@ export const useNewsItems = (): NewsItemType[] => {
   return [
     {
       type: "image",
-      thumbnail: asset("images/activity/news/info.jpg"),
-      source: asset("images/activity/news/info.jpg"),
+      thumbnail: asset("images/activity/news/info.webp"),
+      source: asset("images/activity/news/info.webp"),
       title: language === "pt" ? "Folheto Informativo" : "Information Flyer",
     },
     {
@@ -52,7 +52,7 @@ export const useUpcomingEvents = (): EventType[] => {
           ? "Harburg Feiert Vielfalt"
           : "Harburg Feiert Vielfalt",
       date: "2025-07-06",
-      image: asset("images/activity/next/harburgvielfalt.jpg"), // placeholder image
+      image: asset("images/activity/next/harburgvielfalt.webp"), // placeholder image
       description:
         language === "pt"
           ? "Apresentação em cooperação com o Kulturpalast Harburg no evento 'Harburg Feiert Vielfalt'"
@@ -73,7 +73,7 @@ export const useEnsaios = (): EnsaioType[] => {
         language === "pt"
           ? "Todos os Domingos (menos Feriados) das 11:00 - 12:30"
           : "Jeden Sonntag (außer an Feiertagen) von 11:00 - 12:30",
-      image: asset("images/activity/ensaios/ensaioadultos.png"),
+      image: asset("images/activity/ensaios/ensaioadultos.webp"),
     },
     {
       title: language === "pt" ? "Ensaio Grupo Crianças" : "Probe Kindergruppe",
@@ -81,7 +81,7 @@ export const useEnsaios = (): EnsaioType[] => {
         language === "pt"
           ? "Todos os Domingos (menos Feriados) das 12:30 às 14:00"
           : "Jeden Sonntag (außer an Feiertagen) von 12:30 bis 14:00 Uhr",
-      image: asset("images/activity/ensaios/ensaiocriancas.png"),
+      image: asset("images/activity/ensaios/ensaiocriancas.webp"),
     },
   ];
 };
