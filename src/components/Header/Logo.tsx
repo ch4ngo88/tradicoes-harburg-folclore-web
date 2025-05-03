@@ -15,8 +15,8 @@ const Logo = ({ scrollToTop }: LogoProps) => {
       onClick={scrollToTop}
     >
       <img
-        src="/logo.png"
-        alt="Rancho Folclórico Tradições Portuguesas - Offizielles Logo der portugiesischen Tanzgruppe in Hamburg"
+  src={`${import.meta.env.BASE_URL}logo.png`}
+  alt="Rancho Folclórico Tradições Portuguesas - Offizielles Logo der portugiesischen Tanzgruppe in Hamburg"
         className="w-12 h-12 object-cover"
         width={48}
         height={48}
