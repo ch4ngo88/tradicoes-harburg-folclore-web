@@ -3,8 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ch4ngo88.github.io/tradicoes-harburg-folclore-web",
-
   
   "scripts": {
     "dev": "vite",
@@ -17,7 +15,9 @@
     "analyze": "vite build --sourcemap && source-map-explorer dist/assets/*.js",
     "reset": "pnpm run clean && rm -rf node_modules && pnpm install",
     "predeploy": "pnpm build",
-  "deploy": "gh-pages -d dist"
+  "deploy": "gh-pages -d dist",
+  "live": "pnpm build && npx gh-pages -d dist"
+
 
   },
   "dependencies": {
