@@ -19,45 +19,39 @@ interface HeroSectionProps {
 const HeroSection = ({ language }: HeroSectionProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
 
-  // Define image path - using only the JPG version which we know exists
+  // Fixierter Bildpfad via asset()
   const heroImageSrc = asset("images/gruppe.webp");
 
+  /* ---------- Intersection & Parallax ---------- */
   useEffect(() => {
     const heroElement = heroRef.current;
     if (!heroElement) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-on-screen");
-            observer.unobserve(entry.target); // Stop observing after animating
+            observer.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.2, // Trigger when 20% of the element is visible
-      },
+      { threshold: 0.2 },
     );
 
-    // Observe all elements with the class 'animate-on-load' inside the hero
-    heroElement.querySelectorAll(".animate-on-load").forEach((element) => {
-      observer.observe(element);
-    });
+    heroElement
+      .querySelectorAll(".animate-on-load")
+      .forEach(el => observer.observe(el));
 
-    // Simple parallax effect on the hero image
     const handleScroll = () => {
-      const scrollPosition = window.pageYOffset;
-      if (heroElement) {
-        heroElement.style.transform = `translateY(${scrollPosition * 0.2}px)`;
-      }
+      const y = window.pageYOffset;
+      heroElement.style.transform = `translateY(${y * 0.2}px)`;
     };
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      observer.disconnect(); // Clean up the observer
+      observer.disconnect();
     };
   }, []);
 
@@ -66,11 +60,13 @@ const HeroSection = ({ language }: HeroSectionProps) => {
       ref={heroRef}
       className="relative w-full h-[70vh] sm:h-[80vh] flex items-center justify-center overflow-hidden"
     >
+      {/* Overlay */}
       <div className="hero-overlay absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-seagreen/40 to-portuguesered/40 opacity-90 mix-blend-multiply" />
       </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+        {/* ---------- Gruppenfoto ---------- */}
         <div className="animate-on-load md:w-2/5 w-full flex justify-center md:justify-end">
           <div className="relative hero-stagger-1">
             <Dialog>
@@ -83,49 +79,47 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                       : "Gruppenbild vergrößern"
                   }
                 >
-                  {/* Top-left decorative border */}
-                  <div
-                    className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg"
-                    aria-hidden="true"
-                  ></div>
-
-                  {/* The image - using OptimizedImage component */}
+                  {/* Zier‑Rahmen */}
+                  <div className="absolute -top-3 -left-3 w-full h-full border-2 border-white/30 rounded-lg" />
                   <OptimizedImage
                     src={heroImageSrc}
-                    alt="Group photo"
+                    alt={language === "pt" ? "Foto do grupo" : "Gruppenfoto"}
                     className="w-64 h-48 object-cover shadow-xl rounded-lg border border-white/40 transition-all duration-300 hover:shadow-lg hover:brightness-110"
                     loading="eager"
-                    preload={true}
+                    preload
                   />
-
-                  {/* Bottom-right decorative border */}
-                  <div
-                    className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg"
-                    aria-hidden="true"
-                  ></div>
+                  <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-white/30 rounded-lg" />
                 </button>
               </DialogTrigger>
+
+              {/* ---------- Modal ---------- */}
               <DialogContent className="p-0 max-w-4xl border-none">
-                <DialogTitle className="sr-only">
-                  {language === "pt" ? "Foto do grupo" : "Gruppenfoto"}
+                <DialogTitle asChild>
+                  <h3 className="sr-only">
+                    {language === "pt" ? "Foto do grupo" : "Gruppenfoto"}
+                  </h3>
                 </DialogTitle>
-                <DialogDescription className="sr-only">
-                  {language === "pt"
-                    ? "Imagem ampliada do grupo"
-                    : "Vergrößertes Gruppenbild"}
+                <DialogDescription asChild>
+                  <p className="sr-only">
+                    {language === "pt"
+                      ? "Imagem ampliada do grupo"
+                      : "Vergrößertes Gruppenbild"}
+                  </p>
                 </DialogDescription>
+
                 <OptimizedImage
                   src={heroImageSrc}
-                  alt="Group photo"
+                  alt={language === "pt" ? "Foto do grupo" : "Gruppenfoto"}
                   className="w-full h-full object-contain rounded-lg"
                   loading="lazy"
-                  preload={false} // 👈 diese Zeile ergänzt
+                  preload={false}
                 />
               </DialogContent>
             </Dialog>
           </div>
         </div>
 
+        {/* ---------- Headline & CTA ---------- */}
         <div className="md:w-3/5 text-center md:text-left text-white space-y-4">
           <h2 className="hero-stagger-1 text-4xl md:text-5xl lg:text-6xl font-bold font-lusitana leading-tight">
             {language === "pt"
@@ -162,7 +156,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
                   as: "image",
                 },
               ]}
-              onlyPrefetchOnHover={true}
+              onlyPrefetchOnHover
             >
               {language === "pt" ? "Descobrir Mais" : "Mehr Entdecken"}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -171,12 +165,10 @@ const HeroSection = ({ language }: HeroSectionProps) => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#f9f9f9] to-transparent"></div>
+      {/* Weißer Fade unten */}
+      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#f9f9f9] to-transparent" />
     </div>
   );
 };
 
 export default HeroSection;
-
-
-

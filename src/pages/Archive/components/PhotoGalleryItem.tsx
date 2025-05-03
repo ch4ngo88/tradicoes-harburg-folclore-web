@@ -1,49 +1,72 @@
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
-import { asset } from "@/lib/asset";          // ➊  neu
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { asset } from "@/lib/asset";
 
 interface PhotoGalleryItemProps {
   image: string;
   index: number;
 }
 
-const PhotoGalleryItem = ({ image }: PhotoGalleryItemProps) => {
-  const getDescriptiveAlt = (imagePath: string) => {
-    const fileName = imagePath.split("/").pop()?.split(".")[0];
-    if (!fileName)
-      return "Archivbild von Rancho Folclórico Tradições Portuguesas";
+/**
+ * Liefert ein menschen­lesbares alt‑Attribut aus dem Dateinamen.
+ * – Fügt hier nach Bedarf einfach neue Zuordnungen ein.
+ */
+const getDescriptiveAlt = (imagePath: string) => {
+  const fileName = imagePath.split("/").pop()?.split(".")[0];
+  if (!fileName)
+    return "Archivbild von Rancho Folclórico Tradições Portuguesas";
 
-    const imageDescriptions: Record<string, string> = {
-      "1": "Historische Aufnahme der Tanzgruppe bei einer traditionellen Aufführung",
-      "2": "Gruppenfoto der Mitglieder in traditionellen Trachten",
-    };
-
-    return (
-      imageDescriptions[fileName] ||
-      "Historisches Archivbild der portugiesischen Tanzgruppe in Hamburg"
-    );
+  const imageDescriptions: Record<string, string> = {
+    "1": "Historische Aufnahme der Tanzgruppe bei einer traditionellen Aufführung",
+    "2": "Gruppenfoto der Mitglieder in traditionellen Trachten",
+    // …
   };
 
-  const fullSrc = asset(image);              // ➋  neu
+  return (
+    imageDescriptions[fileName] ??
+    "Historisches Archivbild der portugiesischen Tanzgruppe in Hamburg"
+  );
+};
 
+const PhotoGalleryItem = ({ image, index }: PhotoGalleryItemProps) => {
+  const fullSrc = asset(image); // erzeugt korrekten Pfad für Vite + GitHub Pages
+  const altText = getDescriptiveAlt(image);
 
   return (
     <Dialog>
+      {/* ---------- Thumbnail (Trigger) ---------- */}
       <DialogTrigger asChild>
         <div className="photo-grid-item h-full aspect-square cursor-pointer">
           <img
             src={fullSrc}
-            alt={getDescriptiveAlt(image)}
+            alt={altText}
             className="gallery-photo w-full h-full object-cover rounded-md"
             loading="lazy"
-            width="300"
-            height="300"
+            width={300}
+            height={300}
           />
         </div>
       </DialogTrigger>
+
+      {/* ---------- Modal ---------- */}
       <DialogContent className="max-w-3xl p-0 overflow-hidden">
+        {/* Für Screen‑Reader nötig, visuell ausgeblendet via sr-only */}
+        <DialogTitle asChild>
+          <h3 className="sr-only">{`Archivfoto ${index + 1}`}</h3>
+        </DialogTitle>
+        <DialogDescription asChild>
+          <p className="sr-only">{altText}</p>
+        </DialogDescription>
+
+        {/* Volles Bild */}
         <img
           src={fullSrc}
-          alt={getDescriptiveAlt(image)}
+          alt={altText}
           className="w-full h-auto max-h-[80vh] object-contain"
         />
       </DialogContent>
