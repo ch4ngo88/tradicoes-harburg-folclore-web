@@ -10,7 +10,7 @@ const useArchiveImages = () => {
     const loadFirstBatchImages = () => {
       const firstBatchImages = Array.from(
         { length: 4 },
-        (_, i) => `${base}images/archive/images/${i + 1}.jpg`,
+        (_, i) => `${base}images/archive/images/${i + 1}.webp`,
       );
       setImages(firstBatchImages);
       setImagesLoaded(true);
@@ -19,7 +19,7 @@ const useArchiveImages = () => {
     const loadRemainingImages = () => {
       const remainingImages = Array.from(
         { length: 25 },
-        (_, i) => `${base}images/archive/images/${i + 5}.jpg`,
+        (_, i) => `${base}images/archive/images/${i + 5}.webp`,
       );
       setImages((prev) => [...prev, ...remainingImages]);
     };
