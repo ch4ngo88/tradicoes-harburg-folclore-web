@@ -1,18 +1,19 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
-// Lazy load App component
+// ───────────────────────────────────────────────────────────
+// 1) Lazy‑geladene Root‑App
+// ───────────────────────────────────────────────────────────
 const App = lazy(() => import("./App"));
 
-// Loading fallback
+// 2) Fallback‑Spinner
 const LoadingFallback = () => (
   <div className="app-loading flex items-center justify-center min-h-screen bg-[#f9f9f9]">
-    <div className="loader w-16 h-16 border-4 border-seagreen border-t-transparent rounded-full animate-spin"></div>
+    <div className="loader w-16 h-16 border-4 border-seagreen border-t-transparent rounded-full animate-spin" />
   </div>
 );
 
-// Mount React app
+// 3) Mount React
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Suspense fallback={<LoadingFallback />}>
@@ -21,23 +22,20 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   </React.StrictMode>
 );
 
-// Prefetch critical routes with correct base URL
-if ("requestIdleCallback" in window) {
-  window.requestIdleCallback(() => {
-    const base = import.meta.env.BASE_URL || "/";
-    const routesToPrefetch = [
-      "activities",
-      "archive",
-      "contact",
-      "membros",
-    ];
+// ───────────────────────────────────────────────────────────
+// 4) 📦 Code‑Chunks im Leerlauf vorladen
+//    (keine 404 mehr, funktioniert bei GitHub‑Pages & Vite dev)
+// ───────────────────────────────────────────────────────────
+const prefetchChunks = [
+  () => import("./pages/Activities"),
+  () => import("./pages/Archive"),
+  () => import("./pages/Contact"),
+  () => import("./pages/Membros"),
+];
 
-    routesToPrefetch.forEach((route) => {
-      const link = document.createElement("link");
-      link.rel = "prefetch";
-      link.href = `${base}${route}`;
-      link.as = "document";
-      document.head.appendChild(link);
-    });
-  });
-}
+// requestIdleCallback‑Shim für Browser ohne native Unterstützung
+const idle = window.requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 1));
+
+idle(() => {
+  prefetchChunks.forEach((fn) => fn());
+});
