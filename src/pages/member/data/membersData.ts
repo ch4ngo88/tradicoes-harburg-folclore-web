@@ -89,7 +89,7 @@ export const useMembersData = (): MemberData[] => {
       name: "Raquel Bastos Rodrigues",
       role: language === "pt" ? "Dançarina" : "Tänzerin",
       regularImage: "/images/members/raquel1.png",
-      costumeImage: "/images/members/raquel2.png",
+      costumeImage: "/images/members/raquel2.webp",
       category: "dancers",
       hoverText: "Ribatejo",
     },
