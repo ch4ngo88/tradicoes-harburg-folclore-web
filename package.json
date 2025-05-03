@@ -16,7 +16,11 @@
     "reset": "pnpm run clean && rm -rf node_modules && pnpm install",
     "predeploy": "pnpm build",
   "deploy": "gh-pages -d dist",
-  "live": "pnpm build && npx gh-pages -d dist"
+  "prelive": "git rev-parse --abbrev-ref HEAD | findstr /c:\"main\" >nul || (echo ❌ Du bist nicht auf main! && exit 1) && git stash push -m \"live deploy stash\"",
+
+  "postlive": "git checkout main && git stash pop || echo ✅ Kein Stash zum Zurückholen",
+
+  "live": "pnpm run prelive && pnpm build && npx gh-pages -d dist --branch gh-pages && pnpm run postlive"
 
 
   },
