@@ -1,4 +1,6 @@
 import { useLanguage } from "@/hooks/useLanguage";
+import { asset } from "@/lib/asset";
+
 
 export type MemberData = {
   id: number;
@@ -22,8 +24,8 @@ export const useMembersData = (): MemberData[] => {
         language === "pt"
           ? "Responsável e Ensaiador Rancho Adulto"
           : "Leiter und Tanztrainer Erwachsenengruppe",
-      regularImage: "/images/members/marco1.png",
-      costumeImage: "/images/members/marco2.png",
+      regularImage: asset("images/members/marco1.png"),
+      costumeImage: asset("images/members/marco2.png"),
       category: "leadership",
       hoverText: "Ribatejo",
     },
@@ -34,8 +36,8 @@ export const useMembersData = (): MemberData[] => {
         language === "pt"
           ? "Responsável e Ensaiadora Rancho Adulto"
           : "Leiterin und Tanztrainerin Erwachsenengruppe",
-      regularImage: "/images/members/mariana1.png",
-      costumeImage: "/images/members/mariana2.png",
+      regularImage: asset("images/members/mariana1.png"),
+      costumeImage: asset("images/members/mariana2.png"),
       category: "leadership",
       hoverText: "Alentejo",
     },
@@ -43,7 +45,7 @@ export const useMembersData = (): MemberData[] => {
       id: 3,
       name: "Vanessa Matos",
       role: language === "pt" ? "Social Media" : "Social Media",
-      regularImage: "/images/members/vanessa1.png",
+      regularImage: asset("images/members/vanessa1.png"),
       costumeImage: "/logo.png",
       category: "leadership",
       hoverText: "Ribatejo",
@@ -52,8 +54,8 @@ export const useMembersData = (): MemberData[] => {
       id: 4,
       name: "Yahima Rodriguez Rodriguez",
       role: language === "pt" ? "Dançarina" : "Tänzerin",
-      regularImage: "/images/members/yahima1.png",
-      costumeImage: "/images/members/yahima2.png",
+      regularImage: asset("images/members/yahima1.png"),
+      costumeImage: asset("images/members/yahima2.png"),
       category: "dancers",
       hoverText: "Beira-Baixa",
     },
@@ -61,7 +63,7 @@ export const useMembersData = (): MemberData[] => {
       id: 5,
       name: "Marta da Silva Dácio",
       role: language === "pt" ? "Interne Kommunikation" : "Comunicação interna",
-      regularImage: "/images/members/marta1.png",
+      regularImage: asset("images/members/marta1.png"),
       costumeImage: "/logo.png",
       category: "leadership",
       hoverText: "Ribatejo",
@@ -70,8 +72,8 @@ export const useMembersData = (): MemberData[] => {
       id: 6,
       name: "Neuza da Silva Rodriguez Dácio",
       role: language === "pt" ? "Dançarina" : "Tänzerin",
-      regularImage: "/images/members/neuza1.png",
-      costumeImage: "/images/members/neuza2.png",
+      regularImage: asset("images/members/neuza1.png"),
+      costumeImage: asset("images/members/neuza2.png"),
       category: "dancers",
       hoverText: "Ribatejo",
     },
@@ -80,7 +82,7 @@ export const useMembersData = (): MemberData[] => {
       name: "Alecio Ferreira",
       role: language === "pt" ? "Dançarino" : "Tänzer",
       regularImage: "logo.png",
-      costumeImage: "/images/members/alecio2.png",
+      costumeImage: asset("images/members/alecio2.png"),
       category: "dancers",
       hoverText: "Estremadura",
     },
@@ -88,8 +90,8 @@ export const useMembersData = (): MemberData[] => {
       id: 8,
       name: "Raquel Bastos Rodrigues",
       role: language === "pt" ? "Dançarina" : "Tänzerin",
-      regularImage: "/images/members/raquel1.png",
-      costumeImage: "/images/members/raquel2.webp",
+      regularImage: asset("images/members/raquel1.png"),
+      costumeImage: asset("images/members/raquel2.webp"),
       category: "dancers",
       hoverText: "Ribatejo",
     },

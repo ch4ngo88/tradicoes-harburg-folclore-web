@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Lusitana";
-  src: url("/fonts/Lusitana-Regular.woff2") format("woff2");
+  src: url("${import.meta.env.BASE_URL}fonts/Lusitana-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,11 +12,12 @@
 
 @font-face {
   font-family: "Lusitana";
-  src: url("/fonts/Lusitana-Bold.woff2") format("woff2");
+  src: url("${import.meta.env.BASE_URL}fonts/Lusitana-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
+
 @layer base {
   :root {
     --background: 210 40% 98%;
@@ -24,14 +25,13 @@
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 150 75% 15%; /* Darker Forest Green */
+    --primary: 150 75% 15%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 0 100% 27%; /* Darker Wine Red */
+    --secondary: 0 100% 27%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
@@ -53,7 +53,6 @@
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
 
@@ -85,10 +84,12 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-[#f9f9f9] text-foreground font-lusitana;
     background-attachment: fixed;
   }
+
   h1,
   h2,
   h3,
@@ -98,6 +99,3 @@
     @apply font-lusitana;
   }
 }
-
-
-

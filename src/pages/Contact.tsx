@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import { useMetaSEO } from "@/hooks/useMetaSEO";
 import Map from "@/components/map"; // ganz oben hinzufügen
+import { asset } from "@/lib/asset";
+
 
 type UsefulLink = {
   url: string;
@@ -240,7 +242,7 @@ const ContactPage = React.memo(() => {
 
               <div className="flex-shrink-0">
                 <img
-                  src="/images/QR Code.webp"
+                  src={asset("images/QR Code.webp")}
                   alt="QR Code"
                   className="h-32 rounded-lg shadow-md hover:shadow-lg transition-shadow"
                 />

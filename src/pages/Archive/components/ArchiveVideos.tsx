@@ -1,5 +1,7 @@
 import VideoCard from "./VideoCard";
 import { useLanguage } from "@/hooks/useLanguage";
+import { asset } from "@/lib/asset";
+
 
 const ArchiveVideos = () => {
   const { language, t } = useLanguage();
@@ -12,7 +14,7 @@ const ArchiveVideos = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <VideoCard
-          videoSrc="/images/archive/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4"
+          videoSrc={asset("images/archive/videos/Portugueses da zona de Hamburgo comentam eliminacao da Selecao-01.mp4")}
           title={
             <>
               Entrevista para <span className="text-[#ea384c]">A BOLA</span>
@@ -26,7 +28,7 @@ const ArchiveVideos = () => {
         />
 
         <VideoCard
-          videoSrc="/images/archive/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4"
+          videoSrc={asset("images/archive/videos/Rancho Folclorico mantem viva a tradicao portuguesa em Hamburgo.mp4")}
           title={
             <>
               Entrevista para <span className="text-[#ea384c]">A BOLA</span>

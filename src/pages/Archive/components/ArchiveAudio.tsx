@@ -1,5 +1,7 @@
 import AudioPlayer from "./AudioPlayer";
 import { useLanguage } from "@/hooks/useLanguage";
+import { asset } from "@/lib/asset";
+
 
 const ArchiveAudio = () => {
   const { t } = useLanguage();
@@ -15,7 +17,7 @@ const ArchiveAudio = () => {
       <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
         <div className="flex flex-col items-center">
           <AudioPlayer
-            audioSrc="/images/archive/audio/Café com Leite & Pimenta Interview Tradicoes.mp3"
+            audioSrc={asset("images/archive/audio/Café com Leite & Pimenta Interview Tradicoes.mp3")}
             title="Café com Leite & Pimenta Interview"
             year="2024"
             description="(Café com Leite & Pimenta Interview 2024)"

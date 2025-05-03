@@ -7,6 +7,11 @@ interface VideoCardProps {
 }
 
 const VideoCard = ({ videoSrc, title, description }: VideoCardProps) => {
+  const isAbsolute = videoSrc.startsWith("http");
+  const fullSrc = isAbsolute
+    ? videoSrc
+    : `${import.meta.env.BASE_URL}${videoSrc.replace(/^\/+/, "")}`;
+
   return (
     <div className="glass-card overflow-hidden">
       <video
@@ -14,7 +19,7 @@ const VideoCard = ({ videoSrc, title, description }: VideoCardProps) => {
         className="w-full rounded-t-xl hover:scale-[1.01] transition-transform"
         preload="metadata"
       >
-        <source src={videoSrc} type="video/mp4" />
+        <source src={fullSrc} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="p-4">
@@ -26,6 +31,3 @@ const VideoCard = ({ videoSrc, title, description }: VideoCardProps) => {
 };
 
 export default VideoCard;
-
-
-

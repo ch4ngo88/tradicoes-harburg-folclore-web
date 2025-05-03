@@ -109,7 +109,7 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "hero-pattern":
-          'linear-gradient(90deg, rgba(10,61,34,0.6) 0%, rgba(139,0,0,0.6) 100%), url("/images/gruppe.jpg")',
+          'linear-gradient(90deg, rgba(10,61,34,0.6) 0%, rgba(139,0,0,0.6) 100%), url({asset("images/gruppe.jpg")})',
         "hero-gradient":
           "linear-gradient(90deg, rgba(10,61,34,0.6) 0%, rgba(139,0,0,0.6) 100%)",
       },

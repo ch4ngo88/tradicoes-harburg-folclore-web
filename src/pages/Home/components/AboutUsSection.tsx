@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { CallToActionButtons } from "@/components/CallToActionButtons";
+import { asset } from "@/lib/asset";
 
 const AboutUsSection = () => {
   const { t } = useLanguage();
@@ -49,9 +50,9 @@ const AboutUsSection = () => {
             style={{ maxHeight: "400px" }}
           >
             <video
-              src="/images/offen.mp4"
+              src={asset("images/offen.mp4")}
               controls
-              poster="/images/offen.webp"
+              poster={asset("images/offen.webp")}
               className="w-full rounded-md"
               style={{ maxHeight: "400px", objectFit: "cover" }}
               preload="metadata"

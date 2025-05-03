@@ -1,4 +1,6 @@
 import { useRef, useEffect } from "react";
+import { asset } from "@/lib/asset";
+
 import { ArrowRight } from "lucide-react";
 import {
   Dialog,
@@ -18,7 +20,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
   const heroRef = useRef<HTMLDivElement>(null);
 
   // Define image path - using only the JPG version which we know exists
-  const heroImageSrc = "/images/gruppe.webp";
+  const heroImageSrc = asset("images/gruppe.webp");
 
   useEffect(() => {
     const heroElement = heroRef.current;
@@ -152,11 +154,11 @@ const HeroSection = ({ language }: HeroSectionProps) => {
               className="px-6 py-3 bg-seagreen text-white rounded-lg shadow-md transition-all duration-300 inline-flex items-center gap-2 group font-lusitana hover:shadow-lg hover:scale-[1.02]"
               preloadResources={[
                 {
-                  href: "/images/activity/ensaios/ensaioadultos.png",
+                  href: asset("images/activity/ensaios/ensaioadultos.png"),
                   as: "image",
                 },
                 {
-                  href: "/images/activity/ensaios/ensaiocriancas.png",
+                  href: asset("images/activity/ensaios/ensaiocriancas.png"),
                   as: "image",
                 },
               ]}
