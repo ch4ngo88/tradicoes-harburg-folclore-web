@@ -1,4 +1,4 @@
-import{r as n,j as r}from"./index-BcLY6ffc.js";import{c as v,a as s,u as E,b as $}from"./useMetaSEO-zs8z4Dgf.js";/**
+import{r as n,j as r}from"./index-CRNHZO7B.js";import{c as v,a as s,u as E,b as $}from"./useMetaSEO-HsrZnZg-.js";/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.
