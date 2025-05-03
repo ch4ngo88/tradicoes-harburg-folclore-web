@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Lusitana";
-  src: url("${import.meta.env.BASE_URL}fonts/Lusitana-Regular.woff2") format("woff2");
+  src: url('../components/fonts/Lusitana-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "Lusitana";
-  src: url("${import.meta.env.BASE_URL}fonts/Lusitana-Bold.woff2") format("woff2");
+  src: url('../components/fonts/Lusitana-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

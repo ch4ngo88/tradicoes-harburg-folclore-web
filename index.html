@@ -11,14 +11,7 @@
     />
 
     <!-- Preload critical hero image -->
-    <link
-      rel="preload"
-      as="image"
-      href="/tradicoes-harburg-folclore-web/logo.png"
-      type="image/png"
-      fetchpriority="high"
-    />
-
+  
     <!-- Alternate language versions -->
     <link rel="alternate" hreflang="de" href="https://tradicoesportuguesas.com/" />
     <link rel="alternate" hreflang="pt" href="https://tradicoesportuguesas.com/pt/" />
@@ -45,12 +38,12 @@
     <meta name="DC.date" content="2023" />
 
     <!-- Favicons -->
-    <link rel="icon" href="/tradicoes-harburg-folclore-web/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/tradicoes-harburg-folclore-web/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/tradicoes-harburg-folclore-web/favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/tradicoes-harburg-folclore-web/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/tradicoes-harburg-folclore-web/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/tradicoes-harburg-folclore-web/android-chrome-512x512.png" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
 
     <!-- Apple-specific -->
     <link rel="mask-icon" href="/tradicoes-harburg-folclore-web/logo.png" color="#1a6741" />
@@ -90,7 +83,7 @@
     <meta name="twitter:image" content="https://tradicoesportuguesas.com/images/gruppe.jpg" />
 
     <!-- Manifest & Fonts -->
-    <link rel="manifest" href="/tradicoes-harburg-folclore-web/manifest.json" />
+    <link rel="manifest" href="%BASE_URL%manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="generator" content="Vite" />
@@ -160,6 +153,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="%BASE_URL%src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
