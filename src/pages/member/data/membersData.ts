@@ -40,6 +40,7 @@ export const useMembersData = (): MemberData[] => {
       category: 'leadership',
       hoverText: 'Alentejo',
     },
+    
     {
       id: 3,
       name: 'Vanessa Matos',
@@ -49,6 +50,7 @@ export const useMembersData = (): MemberData[] => {
       category: 'leadership',
       hoverText: 'Ribatejo',
     },
+    
     {
       id: 4,
       name: 'Yahima Rodriguez Rodriguez',
@@ -63,7 +65,7 @@ export const useMembersData = (): MemberData[] => {
       name: 'Marta da Silva Dácio',
       role: language === 'pt' ? 'Comunicação interna' : 'Interne Kommunikation',
       regularImage: asset('images/members/marta1.webp'),
-      costumeImage: asset('logo.png'),
+      costumeImage: asset('images/members/daniel2.webp'),
       category: 'leadership',
       hoverText: 'Ribatejo',
     },
@@ -83,7 +85,7 @@ export const useMembersData = (): MemberData[] => {
       regularImage: asset('images/members/alecio1.webp'),
       costumeImage: asset('images/members/alecio2.webp'),
       category: 'dancers',
-      hoverText: 'Estremadura',
+      hoverText: 'Ribatejo',
     },
     {
       id: 8,
@@ -94,6 +96,7 @@ export const useMembersData = (): MemberData[] => {
       category: 'dancers',
       hoverText: 'Ribatejo',
     },
+    
     {
       id: 9,
       name: 'Sabrina Sena',
@@ -103,23 +106,80 @@ export const useMembersData = (): MemberData[] => {
       category: 'leadership',
       hoverText: 'Estremadura',
     },
+    
     {
       id: 10,
       name: 'Sr. Gabriel',
-      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
+      role: language === 'pt' ? 'Acordeão' : 'Akkordeon',
       regularImage: asset('logo.png'),
       costumeImage: asset('logo.png'),
       category: 'music',
       hoverText: 'Alentejo',
     },
+   
     {
       id: 11,
       name: 'Adriana Rodrigues',
-      role: language === 'pt' ? 'Acordeão' : 'Akkordeon',
+      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
       regularImage: asset('images/members/adri1.webp'),
       costumeImage: asset('logo.png'),
       category: 'dancers',
       hoverText: 'Ribatejo',
+    },
+    
+    {
+      id: 12,
+      name: 'Daniel Craveiro',
+      role: language === 'pt' ? 'Dançarino' : 'Tänzer',
+      regularImage: asset('images/members/daniel1.webp'),
+      costumeImage: asset('images/members/daniel2.webp'),
+      category: 'dancers',
+      hoverText: 'Ribatejo',
+    },
+    {
+      id: 13,
+      name: 'Jessica Perreira Baptista',
+      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
+      regularImage: asset('images/members/jessicaB1.webp'),
+      costumeImage: asset('images/members/jessocaB2.webp'),
+      category: 'dancers',
+      hoverText: 'Ribatejo',
+    },
+    {
+      id: 14,
+      name: 'Joana Martinho Vidal',
+      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
+      regularImage: asset('images/members/joana1.webp'),
+      costumeImage: asset('images/members/joana2.webp'),
+      category: 'dancers',
+      hoverText: 'Minho',
+    },
+    {
+      id: 15,
+      name: 'Laura da Silva Nogeira',
+      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
+      regularImage: asset('images/members/laura1.webp'),
+      costumeImage: asset('images/members/laura2.webp'),
+      category: 'dancers',
+      hoverText: 'Estremadura',
+    },
+    {
+      id: 16,
+      name: 'Ursula Mendes Marques',
+      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
+      regularImage: asset('images/members/ursula1.webp'),
+      costumeImage: asset('images/members/ursula2.webp'),
+      category: 'dancers',
+      hoverText: 'Estremadura',
+    },
+    {
+      id: 17,
+      name: 'Sofia Rodrigues de Azevedo',
+      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
+      regularImage: asset('images/members/sofiaR1.webp'),
+      costumeImage: asset('images/members/sofiaR2.webp'),
+      category: 'dancers',
+      hoverText: 'Estremadura',
     },
   ]
   return members.sort((a, b) => a.name.localeCompare(b.name, language === 'pt' ? 'pt' : 'de'))
