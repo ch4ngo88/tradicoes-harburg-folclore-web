@@ -59,13 +59,20 @@
     <meta name="MobileOptimized" content="320" />
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.gpteng.co https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com https://formsubmit.co 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://formsubmit.co; frame-src https://www.google.com https://www.gstatic.com;" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta name="referrer" content="no-referrer" />
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
-    <meta http-equiv="Cache-Control" content="max-age=31536000" />
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
-    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
+  <!-- Security Headers: Maximale Wirkung über <meta> bei GitHub Pages -->
+<meta http-equiv="Content-Security-Policy" content="
+default-src 'self';
+script-src 'self' https://cdn.gpteng.co https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com https://formsubmit.co 'unsafe-inline';
+style-src 'self' 'unsafe-inline';
+img-src 'self' data: https:;
+font-src 'self' data:;
+connect-src 'self' https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://formsubmit.co;
+frame-src 'none';
+" />
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta name="referrer" content="no-referrer" />
+<meta name="permissions-policy" content="camera=(), microphone=(), geolocation=()" />
+
 
     <!-- Open Graph -->
     <meta property="og:title" content="Tradições Portuguesas - Rancho Folclórico Hamburg" />
@@ -84,8 +91,6 @@
 
     <!-- Manifest & Fonts -->
     <link rel="manifest" href="/tradicoes-harburg-folclore-web/manifest.json" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="generator" content="Vite" />
 
     <!-- Structured Data -->
@@ -150,8 +155,8 @@
         }
       }
     </script>
-    <script type="module" crossorigin src="/tradicoes-harburg-folclore-web/assets/index-DI8BYnkw.js"></script>
-    <link rel="stylesheet" crossorigin href="/tradicoes-harburg-folclore-web/assets/index-Cl2Z-tdi.css">
+    <script type="module" crossorigin src="/tradicoes-harburg-folclore-web/assets/index-NGM2OM1i.js"></script>
+    <link rel="stylesheet" crossorigin href="/tradicoes-harburg-folclore-web/assets/index-CqIiekDV.css">
   </head>
   <body>
     <div id="root"></div>
