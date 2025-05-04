@@ -24,8 +24,8 @@ const NewsItem = ({ item }: NewsItemProps) => {
   const src = asset(item.source)
   const thumbnailSrc = asset(item.thumbnail || item.source)
 
-  /* ---------- Alt‑ & Aria‑Texte ---------- */
-  const altThumb = `Neuigkeiten: ${item.title}`
+/* ---------- Alt- & Aria-Texte ---------- */
+const altThumb = `Neuigkeiten: ${item.title}`
   const altFull = item.type === 'video' ? `Video: ${item.title}` : item.title
 
   return (

@@ -13,8 +13,8 @@ interface PhotoGalleryItemProps {
 }
 
 /**
- * Liefert ein menschen­lesbares alt‑Attribut aus dem Dateinamen.
- * – Fügt hier nach Bedarf einfach neue Zuordnungen ein.
+ * Liefert ein menschenlesbares alt-Attribut aus dem Dateinamen.
+ * – Fügt hier nach Bedarf einfach neue Zuordnungen ein.
  */
 const getDescriptiveAlt = (imagePath: string) => {
   const fileName = imagePath.split('/').pop()?.split('.')[0]
@@ -33,7 +33,7 @@ const getDescriptiveAlt = (imagePath: string) => {
 }
 
 const PhotoGalleryItem = ({ image, index }: PhotoGalleryItemProps) => {
-  const fullSrc = asset(image) // erzeugt korrekten Pfad für Vite + GitHub Pages
+  const fullSrc = asset(image) // erzeugt korrekten Pfad für Vite + GitHub Pages
   const altText = getDescriptiveAlt(image)
 
   return (

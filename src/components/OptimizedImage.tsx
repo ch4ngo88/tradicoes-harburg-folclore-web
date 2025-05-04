@@ -11,9 +11,9 @@ interface OptimizedImageProps {
   preload?: boolean
   onLoad?: () => void
   /**
-   * Legt fest, wie weit vorm Viewport (px) der Preload‑Trigger feuern darf.
-   * Standard = 200 px; 0 = erst wenn im Viewport.
-   */
+  * Legt fest, wie weit vorm Viewport (px) der Preload-Trigger feuern darf.
+  * Standard = 200 px; 0 = erst wenn im Viewport.
+  */
   preloadOffset?: number
 }
 
