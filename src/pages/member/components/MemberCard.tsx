@@ -34,7 +34,8 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   const showRole = member.category !== 'dancers'
 
   return (
-    <div
+<div className="relative mb-6 h-[225px] w-[150px] sm:mb-0 sm:h-auto sm:w-auto">
+<div
       className="relative mb-6 flex h-[300px] w-[200px] scale-[0.75] transform cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-white shadow-md sm:scale-100"
       onMouseEnter={() => canHover && setHoveredMember(member.id)}
       onMouseLeave={() => canHover && setHoveredMember(null)}
@@ -60,6 +61,7 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
         <h4 className="text-center text-base font-semibold text-seagreen">{member.name}</h4>
         {showRole && <p className="mt-1 text-center text-sm text-gray-600">{member.role}</p>}
       </div>
+    </div>
     </div>
   )
 }

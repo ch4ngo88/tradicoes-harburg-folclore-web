@@ -39,7 +39,7 @@ const MemberSection = ({
       <h3 className="text-xl font-bold text-seagreen">{title}</h3>
     </div>
 
-    <div className="grid grid-cols-2 justify-items-center gap-x-1 gap-y-1 py-1 sm:grid-cols-2 sm:gap-x-1 sm:gap-y-1 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 justify-items-center gap-x-1 gap-y-1 py-2 sm:grid-cols-2 sm:gap-x-1 sm:gap-y-1 md:grid-cols-3 lg:grid-cols-4">
       {members.map((member) => (
         <MemberCard
           key={member.id}
