@@ -34,12 +34,12 @@ const MemberSection = ({
       isVisible ? 'opacity-100' : 'opacity-0'
     }`}
   >
-    <div className="mb-6 flex items-center gap-x-2 gap-y-1">
+    <div className="mb-6 flex items-center gap-x-1 gap-y-1">
       <Icon className="h-6 w-6 text-seagreen" />
       <h3 className="text-xl font-bold text-seagreen">{title}</h3>
     </div>
 
-    <div className="grid grid-cols-2 justify-items-center gap-x-3 gap-y-2 py-4 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-4 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-2 justify-items-center gap-x-1 gap-y-1 py-1 sm:grid-cols-2 sm:gap-x-1 sm:gap-y-1 md:grid-cols-3 lg:grid-cols-4">
       {members.map((member) => (
         <MemberCard
           key={member.id}
