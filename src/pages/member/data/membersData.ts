@@ -80,7 +80,7 @@ export const useMembersData = (): MemberData[] => {
       id: 7,
       name: 'Alecio Ferreira',
       role: language === 'pt' ? 'Dançarino' : 'Tänzer',
-      regularImage: asset('logo.png'),
+      regularImage: asset('images/members/alecio1.webp'),
       costumeImage: asset('images/members/alecio2.webp'),
       category: 'dancers',
       hoverText: 'Estremadura',
