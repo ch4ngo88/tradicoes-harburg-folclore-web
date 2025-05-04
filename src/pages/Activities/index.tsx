@@ -1,25 +1,21 @@
-import { useLanguage } from "@/hooks/useLanguage";
-import { useMetaSEO } from "@/hooks/useMetaSEO";
-import NewsSection from "./components/NewsSection";
-import EventsSection from "./components/EventsSection";
-import EnsaiosSection from "./components/EnsaiosSection";
-import {
-  useNewsItems,
-  useUpcomingEvents,
-  useEnsaios,
-} from "./data/activitiesData";
+import { useLanguage } from '@/hooks/useLanguage'
+import { useMetaSEO } from '@/hooks/useMetaSEO'
+import NewsSection from './components/NewsSection'
+import EventsSection from './components/EventsSection'
+import EnsaiosSection from './components/EnsaiosSection'
+import { useNewsItems, useUpcomingEvents, useEnsaios } from './data/activitiesData'
 
 const Activities = () => {
-  useMetaSEO("activities");
-  const { language } = useLanguage();
-  const newsItems = useNewsItems();
-  const upcomingEvents = useUpcomingEvents();
-  const ensaios = useEnsaios();
+  useMetaSEO('activities')
+  const { language } = useLanguage()
+  const newsItems = useNewsItems()
+  const upcomingEvents = useUpcomingEvents()
+  const ensaios = useEnsaios()
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto px-4 py-8">
       <h1 className="section-title text-center">
-        {language === "pt" ? "Atividades" : "Aktivitäten"}
+        {language === 'pt' ? 'Atividades' : 'Aktivitäten'}
       </h1>
 
       {/* News Section */}
@@ -31,10 +27,7 @@ const Activities = () => {
       {/* Ensaios Section */}
       <EnsaiosSection ensaios={ensaios} />
     </div>
-  );
-};
+  )
+}
 
-export default Activities;
-
-
-
+export default Activities

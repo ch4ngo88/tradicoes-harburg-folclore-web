@@ -1,5 +1,2 @@
 /* Import all styles from the modular CSS structure */
-@import "./styles/index.css";
-
-
-
+@import './styles/index.css';

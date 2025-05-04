@@ -1,32 +1,32 @@
-import { useState } from "react";
-import { Grid2X2, Images } from "lucide-react";
-import { useLanguage } from "@/hooks/useLanguage";
+import { useState } from 'react'
+import { Grid2X2, Images } from 'lucide-react'
+import { useLanguage } from '@/hooks/useLanguage'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Switch } from "@/components/ui/switch";
-import PhotoGalleryItem from "./PhotoGalleryItem";
+} from '@/components/ui/carousel'
+import { Switch } from '@/components/ui/switch'
+import PhotoGalleryItem from './PhotoGalleryItem'
 
 interface ArchivePhotosProps {
-  images: string[];
-  imagesLoaded: boolean;
+  images: string[]
+  imagesLoaded: boolean
 }
 
 const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
-  const [isGridView, setIsGridView] = useState(false);
-  const { language } = useLanguage();
+  const [isGridView, setIsGridView] = useState(false)
+  const { language } = useLanguage()
 
   return (
-    <div className="w-full max-w-5xl mx-auto mb-12 animate-fade-in">
-      <div className="flex justify-between items-center mb-6">
+    <div className="mx-auto mb-12 w-full max-w-5xl animate-fade-in">
+      <div className="mb-6 flex items-center justify-between">
         <h2 className="text-xl font-bold text-portuguesered">
-          {language === "pt" ? "Galeria de Fotos" : "Fotogalerie"}
+          {language === 'pt' ? 'Galeria de Fotos' : 'Fotogalerie'}
         </h2>
-        <div className="flex items-center gap-3 bg-white/90 px-3 py-1.5 rounded-full shadow-sm">
+        <div className="flex items-center gap-3 rounded-full bg-white/90 px-3 py-1.5 shadow-sm">
           <div className="flex items-center text-gray-700">
             <Images size={18} aria-hidden="true" />
             <span className="sr-only">Karussell-Ansicht</span>
@@ -34,12 +34,10 @@ const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
           <Switch
             checked={isGridView}
             onCheckedChange={setIsGridView}
-            className="data-[state=checked]:bg-seagreen data-[state=checked]:border-seagreen focus-visible:ring-2 focus-visible:ring-seagreen"
+            className="focus-visible:ring-2 focus-visible:ring-seagreen data-[state=checked]:border-seagreen data-[state=checked]:bg-seagreen"
             id="view-switch"
             aria-label={
-              isGridView
-                ? "Zur Karussell-Ansicht wechseln"
-                : "Zur Rasteransicht wechseln"
+              isGridView ? 'Zur Karussell-Ansicht wechseln' : 'Zur Rasteransicht wechseln'
             }
           />
           <div className="flex items-center text-gray-700">
@@ -49,9 +47,9 @@ const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
         </div>
       </div>
 
-      <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+      <div className="rounded-xl bg-white/70 p-6 shadow-lg backdrop-blur-sm">
         {isGridView ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {imagesLoaded &&
               images.map((image, index) => (
                 <PhotoGalleryItem key={index} image={image} index={index} />
@@ -62,29 +60,23 @@ const ArchivePhotos = ({ images, imagesLoaded }: ArchivePhotosProps) => {
             {imagesLoaded ? (
               <CarouselContent>
                 {images.map((image, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="md:basis-1/2 lg:basis-1/3 p-1"
-                  >
+                  <CarouselItem key={index} className="p-1 md:basis-1/2 lg:basis-1/3">
                     <PhotoGalleryItem image={image} index={index} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
             ) : (
-              <div className="flex justify-center items-center w-full h-64">
-                <div className="w-12 h-12 border-4 border-seagreen border-t-transparent rounded-full animate-spin"></div>
+              <div className="flex h-64 w-full items-center justify-center">
+                <div className="h-12 w-12 animate-spin rounded-full border-4 border-seagreen border-t-transparent"></div>
               </div>
             )}
-            <CarouselPrevious className="left-2 bg-black/40 hover:bg-black/60 backdrop-blur-sm focus:ring-2 focus:ring-white/50" />
-            <CarouselNext className="right-2 bg-black/40 hover:bg-black/60 backdrop-blur-sm focus:ring-2 focus:ring-white/50" />
+            <CarouselPrevious className="left-2 bg-black/40 backdrop-blur-sm hover:bg-black/60 focus:ring-2 focus:ring-white/50" />
+            <CarouselNext className="right-2 bg-black/40 backdrop-blur-sm hover:bg-black/60 focus:ring-2 focus:ring-white/50" />
           </Carousel>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ArchivePhotos;
-
-
-
+export default ArchivePhotos

@@ -1,76 +1,78 @@
-import { useLanguage } from "@/hooks/useLanguage";
+import { useLanguage } from '@/hooks/useLanguage'
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
-import { asset } from "@/lib/asset";
+} from '@/components/ui/dialog'
+import { asset } from '@/lib/asset'
 
 export type EventType = {
-  id: number;
-  title: string;
-  date: string;
-  image?: string;
-  video?: string;
-  description: string;
-  location: string;
-};
+  id: number
+  title: string
+  date: string
+  image?: string
+  video?: string
+  description: string
+  location: string
+}
 
 interface EventCardProps {
-  event: EventType;
+  event: EventType
 }
 
 const EventCard = ({ event }: EventCardProps) => {
-  const { language } = useLanguage();
+  const { language } = useLanguage()
 
   /* ---------- Hilfswerte ---------- */
-  const dateLong = new Date(event.date).toLocaleDateString(
-    language === "pt" ? "pt-PT" : "de-DE",
-    { day: "numeric", month: "long", year: "numeric" },
-  );
+  const dateLong = new Date(event.date).toLocaleDateString(language === 'pt' ? 'pt-PT' : 'de-DE', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
 
-  const dateShort = new Date(event.date).toLocaleDateString(
-    language === "pt" ? "pt-PT" : "de-DE",
-    { day: "numeric", month: "short", year: "numeric" },
-  );
+  const dateShort = new Date(event.date).toLocaleDateString(language === 'pt' ? 'pt-PT' : 'de-DE', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
 
   const altText = `${event.title} – ${
-    language === "pt" ? "Evento em" : "Veranstaltung in"
-  } ${event.location} ${language === "pt" ? "no dia" : "am"} ${dateLong}`;
+    language === 'pt' ? 'Evento em' : 'Veranstaltung in'
+  } ${event.location} ${language === 'pt' ? 'no dia' : 'am'} ${dateLong}`
 
   /* ---------- Pfade angleichen ---------- */
-  const imgSrc = event.image ? asset(event.image) : undefined;
-  const videoSrc = event.video ? asset(event.video) : undefined;
+  const imgSrc = event.image ? asset(event.image) : undefined
+  const videoSrc = event.video ? asset(event.video) : undefined
 
   return (
-    <div className="bg-white/90 rounded-xl shadow-md overflow-hidden flex flex-col md:flex-row card-hover h-full">
+    <div className="card-hover flex h-full flex-col overflow-hidden rounded-xl bg-white/90 shadow-md md:flex-row">
       <Dialog>
         <DialogTrigger asChild>
-          <div className="md:w-1/3 relative cursor-pointer h-[250px]">
+          <div className="relative h-[250px] cursor-pointer md:w-1/3">
             {imgSrc && (
               <>
-                {imgSrc.endsWith(".mp4") ? (
+                {imgSrc.endsWith('.mp4') ? (
                   <video
                     src={imgSrc}
                     muted
                     loop
                     playsInline
-                    className="w-full h-full object-cover aspect-video"
+                    className="aspect-video h-full w-full object-cover"
                     aria-label={`Event Video: ${event.title} am ${dateLong} in ${event.location}`}
                   />
                 ) : (
                   <img
                     src={imgSrc}
                     alt={altText}
-                    className="w-full h-full object-cover aspect-video"
+                    className="aspect-video h-full w-full object-cover"
                     loading="lazy"
                   />
                 )}
                 {videoSrc && (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-black/50 rounded-full p-2 animate-pulse">
+                    <div className="animate-pulse rounded-full bg-black/50 p-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -92,58 +94,47 @@ const EventCard = ({ event }: EventCardProps) => {
             )}
 
             {/* Datum‑Badge */}
-            <div className="absolute top-0 left-0 bg-seagreen text-white px-4 py-2 rounded-br-lg font-medium">
+            <div className="absolute left-0 top-0 rounded-br-lg bg-seagreen px-4 py-2 font-medium text-white">
               {dateShort}
             </div>
           </div>
         </DialogTrigger>
 
         {/* ---------- Modal ---------- */}
-        <DialogContent className="p-0 max-w-2xl">
-        <DialogTitle asChild>
-  <h3 className="sr-only">
-    {event.title || "Veranstaltungstitel"}
-  </h3>
-</DialogTitle>
+        <DialogContent className="max-w-2xl p-0">
+          <DialogTitle asChild>
+            <h3 className="sr-only">{event.title || 'Veranstaltungstitel'}</h3>
+          </DialogTitle>
 
-<DialogDescription asChild>
-  <p className="sr-only">
-    {event.location && dateLong
-      ? language === "pt"
-        ? `Evento em ${event.location} no dia ${dateLong}`
-        : `Veranstaltung in ${event.location} am ${dateLong}`
-      : "Eventbeschreibung"}
-  </p>
-</DialogDescription>
-
+          <DialogDescription asChild>
+            <p className="sr-only">
+              {event.location && dateLong
+                ? language === 'pt'
+                  ? `Evento em ${event.location} no dia ${dateLong}`
+                  : `Veranstaltung in ${event.location} am ${dateLong}`
+                : 'Eventbeschreibung'}
+            </p>
+          </DialogDescription>
 
           <div className="w-full">
             {videoSrc ? (
-              <video controls className="w-full h-full max-h-[70vh]">
+              <video controls className="h-full max-h-[70vh] w-full">
                 <source src={videoSrc} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             ) : (
-              imgSrc && (
-                <img
-                  src={imgSrc}
-                  alt={altText}
-                  className="w-full h-full object-contain"
-                />
-              )
+              imgSrc && <img src={imgSrc} alt={altText} className="h-full w-full object-contain" />
             )}
           </div>
         </DialogContent>
       </Dialog>
 
       {/* ---------- Textbereich ---------- */}
-      <div className="p-6 md:w-2/3 flex flex-col justify-between h-full">
+      <div className="flex h-full flex-col justify-between p-6 md:w-2/3">
         <div>
-          <h3 className="text-xl font-bold text-portuguesered mb-2">
-            {event.title}
-          </h3>
+          <h3 className="mb-2 text-xl font-bold text-portuguesered">{event.title}</h3>
 
-          <div className="flex items-center gap-1 text-sm text-gray-500 mb-4">
+          <div className="mb-4 flex items-center gap-1 text-sm text-gray-500">
             {/* Location‑Icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -176,14 +167,14 @@ const EventCard = ({ event }: EventCardProps) => {
             href="https://diadeportugal.ticket.io/eg0vus7w/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 button-secondary min-w-[200px] text-center self-start"
+            className="button-secondary mt-4 min-w-[200px] self-start text-center"
           >
-            {language === "pt" ? "Comprar Bilhetes" : "Tickets kaufen"}
+            {language === 'pt' ? 'Comprar Bilhetes' : 'Tickets kaufen'}
           </a>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EventCard;
+export default EventCard

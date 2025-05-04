@@ -1,25 +1,25 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { prefetchResource } from "../utils/preloadManager";
+import React, { useEffect, useState, useRef, useCallback } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { prefetchResource } from '../utils/preloadManager'
 
 // Zentrale Typdefinition für gültige resource types
-export type ResourceType = "script" | "style" | "font" | "image" | "document";
+export type ResourceType = 'script' | 'style' | 'font' | 'image' | 'document'
 
 function isValidResourceType(type: unknown): type is ResourceType {
-  return ["script", "style", "font", "image", "document"].includes(type as string);
+  return ['script', 'style', 'font', 'image', 'document'].includes(type as string)
 }
 
 interface PreloadLinkProps {
-  to: string;
-  children: React.ReactNode;
-  className?: string;
+  to: string
+  children: React.ReactNode
+  className?: string
   preloadResources?: Array<{
-    href: string;
-    as: ResourceType;
-    type?: ResourceType;
-  }>;
-  prefetchDelay?: number;
-  onlyPrefetchOnHover?: boolean;
+    href: string
+    as: ResourceType
+    type?: ResourceType
+  }>
+  prefetchDelay?: number
+  onlyPrefetchOnHover?: boolean
 }
 
 const PreloadLink: React.FC<PreloadLinkProps> = ({
@@ -30,61 +30,48 @@ const PreloadLink: React.FC<PreloadLinkProps> = ({
   prefetchDelay = 100,
   onlyPrefetchOnHover = true,
 }) => {
-  const [hasPrefetched, setHasPrefetched] = useState(false);
-  const linkRef = useRef<HTMLAnchorElement>(null);
-  const location = useLocation();
+  const [hasPrefetched, setHasPrefetched] = useState(false)
+  const linkRef = useRef<HTMLAnchorElement>(null)
+  const location = useLocation()
 
-  const shouldPrefetch = to !== location.pathname && !hasPrefetched;
+  const shouldPrefetch = to !== location.pathname && !hasPrefetched
 
   const prefetchLinkedResources = useCallback(() => {
-    if (!shouldPrefetch) return;
+    if (!shouldPrefetch) return
 
-    prefetchResource(to, { as: "document" });
+    prefetchResource(to, { as: 'document' })
 
     preloadResources.forEach((resource) => {
       prefetchResource(resource.href, {
         as: resource.as,
         ...(isValidResourceType(resource.type) ? { type: resource.type } : {}),
-      });
-    });
+      })
+    })
 
-    setHasPrefetched(true);
-  }, [shouldPrefetch, to, preloadResources]);
+    setHasPrefetched(true)
+  }, [shouldPrefetch, to, preloadResources])
 
   const handleMouseEnter = () => {
     if (onlyPrefetchOnHover) {
-      prefetchLinkedResources();
+      prefetchLinkedResources()
     }
-  };
+  }
 
   useEffect(() => {
-    if (onlyPrefetchOnHover || !shouldPrefetch) return;
+    if (onlyPrefetchOnHover || !shouldPrefetch) return
 
     const timer = setTimeout(() => {
-      prefetchLinkedResources();
-    }, prefetchDelay);
+      prefetchLinkedResources()
+    }, prefetchDelay)
 
-    return () => clearTimeout(timer);
-  }, [
-    onlyPrefetchOnHover,
-    shouldPrefetch,
-    prefetchDelay,
-    prefetchLinkedResources,
-  ]);
+    return () => clearTimeout(timer)
+  }, [onlyPrefetchOnHover, shouldPrefetch, prefetchDelay, prefetchLinkedResources])
 
   return (
-    <Link
-      ref={linkRef}
-      to={to}
-      className={className}
-      onMouseEnter={handleMouseEnter}
-    >
+    <Link ref={linkRef} to={to} className={className} onMouseEnter={handleMouseEnter}>
       {children}
     </Link>
-  );
-};
+  )
+}
 
-export default PreloadLink;
-
-
-
+export default PreloadLink

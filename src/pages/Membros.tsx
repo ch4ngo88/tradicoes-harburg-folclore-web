@@ -1,12 +1,9 @@
-import { useMetaSEO } from "@/hooks/useMetaSEO";
-import MembrosPage from "./member";
+import { useMetaSEO } from '@/hooks/useMetaSEO'
+import MembrosPage from './member'
 
 const Membros = () => {
-  useMetaSEO("membros");
-  return <MembrosPage />;
-};
+  useMetaSEO('membros')
+  return <MembrosPage />
+}
 
-export default Membros;
-
-
-
+export default Membros

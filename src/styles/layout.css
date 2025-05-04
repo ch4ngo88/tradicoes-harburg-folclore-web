@@ -1,7 +1,7 @@
 @layer components {
   @media (max-width: 767px) {
     .footer-content {
-      @apply text-left pl-4;
+      @apply pl-4 text-left;
     }
 
     .footer-contact-info > div {
@@ -9,12 +9,12 @@
     }
 
     .footer-separator {
-      @apply my-4 bg-white h-px w-full;
+      @apply my-4 h-px w-full bg-white;
     }
   }
 
   .glass-card {
-    @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-white/20 transition-all duration-300 hover:shadow-lg;
+    @apply rounded-xl border border-white/20 bg-white/90 shadow-md backdrop-blur-sm transition-all duration-300 hover:shadow-lg;
   }
 
   /* Image optimization styles */
@@ -32,7 +32,7 @@
 
   /* Placeholder for images that are loading */
   .image-placeholder {
-    @apply bg-gray-200 animate-pulse rounded;
+    @apply animate-pulse rounded bg-gray-200;
   }
 
   /* Content loading placeholder */
@@ -42,7 +42,7 @@
 
   /* Enhanced focus styles for accessibility */
   :focus-visible {
-    @apply outline-2 outline-seagreen outline-offset-2;
+    @apply outline-2 outline-offset-2 outline-seagreen;
   }
 
   /* Optimized image container */
@@ -65,6 +65,3 @@
     }
   }
 }
-
-
-

@@ -1,44 +1,36 @@
-import { useLanguage } from "@/hooks/useLanguage";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage } from '@/hooks/useLanguage'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 interface LogoProps {
-  scrollToTop: () => void;
+  scrollToTop: () => void
 }
 
 const Logo = ({ scrollToTop }: LogoProps) => {
-  const { language } = useLanguage();
-  const isMobile = useIsMobile();
+  const { language } = useLanguage()
+  const isMobile = useIsMobile()
 
   return (
-    <div
-      className="flex items-center md:gap-3 cursor-pointer"
-      onClick={scrollToTop}
-    >
+    <div className="flex cursor-pointer items-center md:gap-3" onClick={scrollToTop}>
       <img
-  src={`${import.meta.env.BASE_URL}logo.png`}
-  alt="Rancho Folclórico Tradições Portuguesas - Offizielles Logo der portugiesischen Tanzgruppe in Hamburg"
-        className="w-12 h-12 object-cover"
+        src={`${import.meta.env.BASE_URL}logo.png`}
+        alt="Rancho Folclórico Tradições Portuguesas - Offizielles Logo der portugiesischen Tanzgruppe in Hamburg"
+        className="h-12 w-12 object-cover"
         width={48}
         height={48}
       />
-      <div className={`${isMobile ? "text-center flex-1" : "text-left"}`}>
-        <span className="text-portuguesered text-sm font-medium block">
-          Rancho Folclórico
-        </span>
-        <h1 className="text-lg font-bold text-seagreen leading-tight font-lusitana">
+      <div className={`${isMobile ? 'flex-1 text-center' : 'text-left'}`}>
+        <span className="block text-sm font-medium text-portuguesered">Rancho Folclórico</span>
+        <h1 className="font-lusitana text-lg font-bold leading-tight text-seagreen">
           Tradições Portuguesas
         </h1>
-        <span className="text-xs text-gray-600 italic block">
-          {language === "pt"
-            ? "Preservando a cultura portuguesa em Hamburgo desde 1979"
-            : "Bewahrung der portugiesischen Kultur in Hamburg seit 1979"}
+        <span className="block text-xs italic text-gray-600">
+          {language === 'pt'
+            ? 'Preservando a cultura portuguesa em Hamburgo desde 1979'
+            : 'Bewahrung der portugiesischen Kultur in Hamburg seit 1979'}
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Logo;
-
-
-
+export default Logo

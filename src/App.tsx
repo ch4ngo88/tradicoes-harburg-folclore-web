@@ -1,28 +1,28 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import { LanguageProvider } from "@/hooks/useLanguage";
-import { useScrollToTop } from "@/hooks/useScrollToTop";
-import Header from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import Home from "./pages/Home";
-import Activities from "./pages/Activities";
-import Archive from "./pages/Archive";
-import Membros from "./pages/Membros";
-import Contact from "./pages/Contact";
-import Impressum from "./pages/Impressum";
-import Datenschutz from "./pages/Datenschutz";
-import Agb from "./pages/Agb";
-import NotFound from "./pages/NotFound";
+import { Toaster } from '@/components/ui/toaster'
+import { Toaster as Sonner } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { LanguageProvider } from '@/hooks/useLanguage'
+import { useScrollToTop } from '@/hooks/useScrollToTop'
+import Header from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import Home from './pages/Home'
+import Activities from './pages/Activities'
+import Archive from './pages/Archive'
+import Membros from './pages/Membros'
+import Contact from './pages/Contact'
+import Impressum from './pages/Impressum'
+import Datenschutz from './pages/Datenschutz'
+import Agb from './pages/Agb'
+import NotFound from './pages/NotFound'
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 const ScrollToTopWrapper = ({ children }: { children: React.ReactNode }) => {
-  useScrollToTop();
-  return <>{children}</>;
-};
+  useScrollToTop()
+  return <>{children}</>
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -32,7 +32,7 @@ const App = () => (
         <Sonner />
         <Router>
           <ScrollToTopWrapper>
-            <div className="flex flex-col min-h-screen">
+            <div className="flex min-h-screen flex-col">
               <Header />
               <main className="flex-grow">
                 <Routes>
@@ -54,6 +54,6 @@ const App = () => (
       </TooltipProvider>
     </LanguageProvider>
   </QueryClientProvider>
-);
+)
 
-export default App;
+export default App

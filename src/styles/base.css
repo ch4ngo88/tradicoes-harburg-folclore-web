@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Lusitana";
+  font-family: 'Lusitana';
   src: url('../components/fonts/Lusitana-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
@@ -14,7 +14,7 @@
 }
 
 @font-face {
-  font-family: "Lusitana";
+  font-family: 'Lusitana';
   src: url('../components/fonts/Lusitana-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
@@ -89,7 +89,7 @@
   }
 
   body {
-    @apply bg-[#f9f9f9] text-foreground font-lusitana;
+    @apply bg-[#f9f9f9] font-lusitana text-foreground;
     background-attachment: fixed;
   }
 

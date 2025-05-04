@@ -1,88 +1,83 @@
-import { useLanguage } from "@/hooks/useLanguage";
-import { useState, useEffect, useMemo } from "react";
-import { UserRound, Music } from "lucide-react";
-import CustomDancingIcon from "./components/DancingIcon";
-import MemberSection from "./components/MemberSection";
-import { useMembersData } from "./data/membersData";
+import { useLanguage } from '@/hooks/useLanguage'
+import { useState, useEffect, useMemo } from 'react'
+import { UserRound, Music } from 'lucide-react'
+import CustomDancingIcon from './components/DancingIcon'
+import MemberSection from './components/MemberSection'
+import { useMembersData } from './data/membersData'
 
 const MembrosPage = () => {
-  const { language } = useLanguage();
-  const [hoveredMember, setHoveredMember] = useState<number | null>(null);
-  const [visibleSections, setVisibleSections] = useState<string[]>([]);
-  const members = useMembersData();
+  const { language } = useLanguage()
+  const [hoveredMember, setHoveredMember] = useState<number | null>(null)
+  const [visibleSections, setVisibleSections] = useState<string[]>([])
+  const members = useMembersData()
 
   // Filter members by category - memoized to prevent unnecessary recalculations
   const categorizedMembers = useMemo(
     () => ({
-      leadership: members.filter((member) => member.category === "leadership"),
-      music: members.filter((member) => member.category === "music"),
-      dancers: members.filter((member) => member.category === "dancers"),
+      leadership: members.filter((member) => member.category === 'leadership'),
+      music: members.filter((member) => member.category === 'music'),
+      dancers: members.filter((member) => member.category === 'dancers'),
     }),
     [members],
-  );
+  )
 
   useEffect(() => {
     // Staggered loading for better performance
     const loadSections = () => {
-      setVisibleSections(["leadership"]);
+      setVisibleSections(['leadership'])
 
       setTimeout(() => {
-        setVisibleSections((prev) => [...prev, "music"]);
-      }, 200);
+        setVisibleSections((prev) => [...prev, 'music'])
+      }, 200)
 
       setTimeout(() => {
-        setVisibleSections((prev) => [...prev, "dancers"]);
-      }, 400);
-    };
+        setVisibleSections((prev) => [...prev, 'dancers'])
+      }, 400)
+    }
 
-    loadSections();
+    loadSections()
 
     // Cleanup function
     return () => {
-      setHoveredMember(null);
-    };
-  }, []);
+      setHoveredMember(null)
+    }
+  }, [])
 
   return (
-    <div className="container mx-auto py-6 px-3">
-      <div className="max-w-5xl mx-auto">
+    <div className="container mx-auto px-3 py-6">
+      <div className="mx-auto max-w-5xl">
         <div className="mb-6">
-          <h2 className="section-title">
-            {language === "pt" ? "A nossa Equipa" : "Unser Team"}
-          </h2>
+          <h2 className="section-title">{language === 'pt' ? 'A nossa Equipa' : 'Unser Team'}</h2>
         </div>
 
         <MemberSection
-          title={language === "pt" ? "Gerência" : "Leitung"}
+          title={language === 'pt' ? 'Gerência' : 'Leitung'}
           icon={UserRound}
           members={categorizedMembers.leadership}
-          isVisible={visibleSections.includes("leadership")}
+          isVisible={visibleSections.includes('leadership')}
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
         />
 
         <MemberSection
-          title={language === "pt" ? "Coro" : "Chor"}
+          title={language === 'pt' ? 'Coro' : 'Chor'}
           icon={Music}
           members={categorizedMembers.music}
-          isVisible={visibleSections.includes("music")}
+          isVisible={visibleSections.includes('music')}
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
         />
         <MemberSection
-          title={language === "pt" ? "Dançarinos" : "Tänzer/innen"}
+          title={language === 'pt' ? 'Dançarinos' : 'Tänzer/innen'}
           icon={CustomDancingIcon}
           members={categorizedMembers.dancers}
-          isVisible={visibleSections.includes("dancers")}
+          isVisible={visibleSections.includes('dancers')}
           hoveredMember={hoveredMember}
           setHoveredMember={setHoveredMember}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MembrosPage;
-
-
-
+export default MembrosPage

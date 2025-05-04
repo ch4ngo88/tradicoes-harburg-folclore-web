@@ -1,104 +1,100 @@
-import { useEffect, useRef } from "react";
-import { useLanguage } from "@/hooks/useLanguage";
-import { CallToActionButtons } from "@/components/CallToActionButtons";
-import { asset } from "@/lib/asset";
+import { useEffect, useRef } from 'react'
+import { useLanguage } from '@/hooks/useLanguage'
+import { CallToActionButtons } from '@/components/CallToActionButtons'
+import { asset } from '@/lib/asset'
 
 const AboutUsSection = () => {
-  const { t } = useLanguage();
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage()
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-  
+    const el = sectionRef.current
+    if (!el) return
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100");
-            entry.target.classList.remove("opacity-0", "translate-y-4");
-            observer.unobserve(entry.target);
+            entry.target.classList.add('opacity-100')
+            entry.target.classList.remove('opacity-0', 'translate-y-4')
+            observer.unobserve(entry.target)
           }
-        });
+        })
       },
       { threshold: 0.1 },
-    );
-  
-    observer.observe(el);
-  
+    )
+
+    observer.observe(el)
+
     return () => {
-      observer.unobserve(el);
-    };
-  }, []);
-  
+      observer.unobserve(el)
+    }
+  }, [])
 
   return (
     <div
       ref={sectionRef}
-      className="container mx-auto py-12 px-4 transition-all duration-500 opacity-0 translate-y-4"
+      className="container mx-auto translate-y-4 px-4 py-12 opacity-0 transition-all duration-500"
     >
-      <div className="glass-card p-8 max-w-4xl mx-auto">
-        <h2 className="section-title mb-8 font-lusitana">{t("aboutUs")}</h2>
+      <div className="glass-card mx-auto max-w-4xl p-8">
+        <h2 className="section-title mb-8 font-lusitana">{t('aboutUs')}</h2>
 
-        <article className="prose max-w-none text-justify text-gray-700 space-y-6 font-lusitana">
-          <p className="font-bold text-lg">{t("welcome")}</p>
-          <p>{t("intro")}</p>
-          <p className="italic text-gray-600">{t("storyIntro")}</p>
+        <article className="prose max-w-none space-y-6 text-justify font-lusitana text-gray-700">
+          <p className="text-lg font-bold">{t('welcome')}</p>
+          <p>{t('intro')}</p>
+          <p className="italic text-gray-600">{t('storyIntro')}</p>
 
           <div
-            className="rounded-lg overflow-hidden shadow-lg my-8 max-w-2xl mx-auto"
-            style={{ maxHeight: "400px" }}
+            className="mx-auto my-8 max-w-2xl overflow-hidden rounded-lg shadow-lg"
+            style={{ maxHeight: '400px' }}
           >
             <video
-              src={asset("images/offen.mp4")}
+              src={asset('images/offen.mp4')}
               controls
-              poster={asset("images/offen.webp")}
+              poster={asset('images/offen.webp')}
               className="w-full rounded-md"
-              style={{ maxHeight: "400px", objectFit: "cover" }}
+              style={{ maxHeight: '400px', objectFit: 'cover' }}
               preload="metadata"
             >
               Your browser cannot play this video
             </video>
           </div>
 
-          <div className="bg-cream p-6 rounded-xl border-l-4 border-seagreen shadow-md my-8">
-            <h3 className="text-xl font-bold text-seagreen mb-3 font-lusitana">
-              {t("generations")}
+          <div className="my-8 rounded-xl border-l-4 border-seagreen bg-cream p-6 shadow-md">
+            <h3 className="mb-3 font-lusitana text-xl font-bold text-seagreen">
+              {t('generations')}
             </h3>
-            <p>{t("generationsText")}</p>
+            <p>{t('generationsText')}</p>
           </div>
 
-          <div className="bg-cream p-6 rounded-xl border-l-4 border-portuguesered shadow-md my-8">
-            <h3 className="text-xl font-bold text-portuguesered mb-3 font-lusitana">
-              {t("variety")}
+          <div className="my-8 rounded-xl border-l-4 border-portuguesered bg-cream p-6 shadow-md">
+            <h3 className="mb-3 font-lusitana text-xl font-bold text-portuguesered">
+              {t('variety')}
             </h3>
-            <p>{t("varietyText")}</p>
+            <p>{t('varietyText')}</p>
           </div>
 
-          <div className="bg-cream p-6 rounded-xl border-l-4 border-seagreen shadow-md my-8">
-            <h3 className="text-xl font-bold text-seagreen mb-3 font-lusitana">
-              {t("timeTravel")}
+          <div className="my-8 rounded-xl border-l-4 border-seagreen bg-cream p-6 shadow-md">
+            <h3 className="mb-3 font-lusitana text-xl font-bold text-seagreen">
+              {t('timeTravel')}
             </h3>
-            <p>{t("timeTravelText")}</p>
+            <p>{t('timeTravelText')}</p>
           </div>
 
-          <div className="bg-lightgold/20 p-6 rounded-xl shadow-md">
-            <h3 className="text-xl font-bold text-portuguesered mb-3 font-lusitana">
-              {t("joinUs")}
+          <div className="bg-lightgold/20 rounded-xl p-6 shadow-md">
+            <h3 className="mb-3 font-lusitana text-xl font-bold text-portuguesered">
+              {t('joinUs')}
             </h3>
-            <p className="mb-6">{t("joinUsText")}</p>
+            <p className="mb-6">{t('joinUsText')}</p>
 
             <CallToActionButtons />
 
-            <p className="font-bold mt-6 text-center">{t("finalMessage")}</p>
+            <p className="mt-6 text-center font-bold">{t('finalMessage')}</p>
           </div>
         </article>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AboutUsSection;
-
-
-
+export default AboutUsSection

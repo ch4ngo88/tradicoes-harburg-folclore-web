@@ -1,21 +1,19 @@
-import { Calendar } from "lucide-react";
-import { useLanguage } from "@/hooks/useLanguage";
-import EventCard, { EventType } from "./EventCard";
+import { Calendar } from 'lucide-react'
+import { useLanguage } from '@/hooks/useLanguage'
+import EventCard, { EventType } from './EventCard'
 
 interface EventsSectionProps {
-  events: EventType[];
+  events: EventType[]
 }
 
 const EventsSection = ({ events }: EventsSectionProps) => {
-  const { t } = useLanguage();
+  const { t } = useLanguage()
 
   return (
     <section className="mb-12">
-      <div className="flex items-center gap-2 mb-8">
+      <div className="mb-8 flex items-center gap-2">
         <Calendar className="text-seagreen" />
-        <h3 className="text-xl font-bold text-seagreen">
-          {t("upcomingActivities")}
-        </h3>
+        <h3 className="text-xl font-bold text-seagreen">{t('upcomingActivities')}</h3>
       </div>
 
       <div className="space-y-6">
@@ -24,10 +22,7 @@ const EventsSection = ({ events }: EventsSectionProps) => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default EventsSection;
-
-
-
+export default EventsSection
