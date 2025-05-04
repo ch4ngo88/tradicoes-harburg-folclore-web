@@ -22,8 +22,8 @@ const HeroSection = ({ language }: HeroSectionProps) => {
   // Fixierter Bildpfad via asset()
   const heroImageSrc = asset('images/gruppe.webp')
 
-/* ---------- Intersection & Parallax ---------- */
-useEffect(() => {
+  /* ---------- Intersection & Parallax ---------- */
+  useEffect(() => {
     const heroElement = heroRef.current
     if (!heroElement) return
 
@@ -111,8 +111,8 @@ useEffect(() => {
           </div>
         </div>
 
-{/* ---------- Headline & CTA ---------- */}
-<div className="space-y-4 text-center text-white md:w-3/5 md:text-left">
+        {/* ---------- Headline & CTA ---------- */}
+        <div className="space-y-4 text-center text-white md:w-3/5 md:text-left">
           <h2 className="hero-stagger-1 font-lusitana text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
             {language === 'pt' ? 'Tradições Portuguesas' : 'Portugiesische Traditionen'}
           </h2>
