@@ -156,7 +156,7 @@ export const useMembersData = (): MemberData[] => {
     },
     {
       id: 15,
-      name: 'Laura da Silva Nogeira',
+      name: 'Laura da Silva Nogueira',
       role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
       regularImage: asset('images/members/laura1.webp'),
       costumeImage: asset('images/members/laura2.webp'),
@@ -181,6 +181,16 @@ export const useMembersData = (): MemberData[] => {
       category: 'dancers',
       hoverText: 'Estremadura',
     },
+    {
+      id: 18,
+      name: 'Melanie Ribeiro Zorić',
+      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
+      regularImage: asset('images/members/melanie1.webp'),
+      costumeImage: asset('images/members/melanie2.webp'),
+      category: 'dancers',
+      hoverText: 'Minho',
+    },
+
   ]
   return members.sort((a, b) => a.name.localeCompare(b.name, language === 'pt' ? 'pt' : 'de'))
 }
