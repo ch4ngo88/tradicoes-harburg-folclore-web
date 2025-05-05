@@ -16,6 +16,9 @@ import Impressum from './pages/Impressum'
 import Datenschutz from './pages/Datenschutz'
 import Agb from './pages/Agb'
 import NotFound from './pages/NotFound'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const queryClient = new QueryClient()
 

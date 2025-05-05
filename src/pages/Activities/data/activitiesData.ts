@@ -33,6 +33,17 @@ export const useUpcomingEvents = (): EventType[] => {
 
   return [
     {
+      id: 3,
+      title: language === 'pt' ? 'Restaurant & Veranstaltungszentrum Poseidon' : 'Restaurant & Veranstaltungszentrum Poseidon',
+      date: '2025-06-08',
+      image: asset('images/activity/next/poseidon.jpg'),
+      description:
+        language === 'pt'
+          ? "No restaurante e centro de eventos Poseidon em Seevetal, com música ao vivo do grupo Estrela da Noite e buffet a partir das 19h. Celebração especial de Pentecostes com comida portuguesa e alemã."
+          : "Im Restaurant & Veranstaltungszentrum Poseidon in Seevetal – Pfingstfeier mit Live-Musik von Estrela da Noite und Buffet ab 19 Uhr. Ein besonderer Abend mit portugiesisch-deutscher Küche.",
+      location: 'Bürgermeister-Heitmann-Str. 34c, 21217 Seevetal',
+    },
+    {
       id: 1,
       title: '31. Portugiesisches Folklore Festival - Dia de Portugal',
       date: '2025-06-14',
@@ -55,6 +66,28 @@ export const useUpcomingEvents = (): EventType[] => {
           : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",
       location: 'Harburger Rathausplatz, 21073 Hamburg',
     },
+    {
+      id: 4,
+      title: language === 'pt' ? 'Evento Privado - Casamento' : 'Private Veranstaltung - Hochzeit',
+      date: '2025-06-20',
+      image: asset('images/activity/next/wedding.webp'), // neutrales, stilvolles Bild empfohlen
+      description:
+        language === 'pt'
+          ? "Presença em um casamento privado."
+          : "Auftritt im Rahmen einer privaten Hochzeitsfeier.",
+      location: language === 'pt' ? 'Evento privado' : 'Private Veranstaltung',
+    },
+    {
+      id: 5,
+      title: language === 'pt' ? 'Stadtteilfest Heimfeld' : 'Stadtteilfest Heimfeld',
+      date: '2025-06-29',
+      image: asset('images/activity/next/heimfeld.webp'), // Bild ggf. durch Screenshot oder neutrales Festbild ersetzen
+      description:
+        language === 'pt'
+          ? "Participação no Stadtteilfest Heimfeld, com diversas atrações, incluindo jogos infantis, escalada, comida e bebida, música ao vivo e muito mais. Estaremos no palco entre 14h e 18h."
+          : "Auftritt beim Stadtteilfest Heimfeld mit vielen Attraktionen wie Kinderprogramm, Kletterwand, Speisen & Getränken, Bühnenprogramm und mehr. Unser Auftritt findet zwischen 14 und 18 Uhr statt.",
+      location: 'Stadtteil Heimfeld, Hamburg',
+    }
   ]
 }
 
