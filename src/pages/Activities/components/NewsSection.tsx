@@ -38,7 +38,7 @@ const NewsSection = ({ newsItems }: NewsSectionProps) => {
   <p className="mb-2 text-xl font-bold text-[rgb(6,56,33)] text-center">
     {language === 'pt'
       ? 'Segue-nos nas redes sociais para mais novidades!'
-      : 'Folge uns auf Social Media für mehr Einblicke & News!'}
+      : 'Folge uns auf Social Media für mehr Einblicke'}
   </p>
 
   <div className="w-20 overflow-visible flex justify-center">
