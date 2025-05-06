@@ -25,7 +25,11 @@ const NewsItem = ({ item }: NewsItemProps) => {
   const thumbnailSrc = asset(item.thumbnail || item.source)
 
   /* ---------- Alt- & Aria-Texte ---------- */
-  const altThumb = `Neuigkeiten: ${item.title}`
+  const altThumb =
+  item.type === 'video'
+    ? `Video-Vorschau: ${item.title}`
+    : `Bild: ${item.title}`
+    
   const altFull = item.type === 'video' ? `Video: ${item.title}` : item.title
 
   return (
@@ -34,23 +38,13 @@ const NewsItem = ({ item }: NewsItemProps) => {
       <DialogTrigger asChild>
         <div className="card-hover relative h-24 cursor-pointer overflow-hidden rounded-lg bg-white/90 shadow-md">
           <div className="relative aspect-auto h-full">
-            {item.type === 'video' ? (
-              <video
-                src={src}
-                muted
-                loop
-                playsInline
-                className="h-full w-full object-cover"
-                aria-label={altFull}
-              />
-            ) : (
-              <img
-                src={thumbnailSrc}
-                alt={altThumb}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            )}
+          <img
+  src={thumbnailSrc}
+  alt={altThumb}
+  className="h-full w-full object-cover"
+  loading="lazy"
+/>
+
 
             {/* Play‑Icon-Overlay für Videos */}
             {item.type === 'video' && (

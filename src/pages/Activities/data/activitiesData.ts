@@ -18,11 +18,13 @@ export const useNewsItems = (): NewsItemType[] => {
       type: 'video',
 
       source: asset('images/activity/news/kinder.mp4'),
+      thumbnail: asset('images/activity/news/kinder.webp'),
       title: language === 'pt' ? 'Vídeo das Crianças' : 'Kinder Video',
     },
     {
       type: 'video',
       source: asset('images/activity/news/tiktok.mp4'),
+      thumbnail: asset('images/activity/news/tiktok.webp'),
       title: 'TikTok',
     },
   ]
@@ -47,7 +49,7 @@ export const useUpcomingEvents = (): EventType[] => {
       id: 1,
       title: '31. Portugiesisches Folklore Festival - Dia de Portugal',
       date: '2025-06-14',
-      image: asset('images/activity/next/diadeportugal.mp4'),
+      image: asset('images/activity/next/diadeportugal.webp'),
       video: asset('images/activity/next/diadeportugal.mp4'),
       description:
         language === 'pt'
