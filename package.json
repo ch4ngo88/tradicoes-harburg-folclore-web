@@ -12,7 +12,7 @@
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "check": "pnpm format && pnpm lint:fix && pnpm typecheck",
+    "check": "pnpm run clean && pnpm install && pnpm run format && pnpm run lint:fix && pnpm run typecheck && echo ✅ Alles sauber, Chef!",
     "preview": "vite preview",
     "analyze": "vite build --sourcemap && source-map-explorer dist/assets/*.js",
     "reset": "pnpm run clean && rm -rf node_modules && pnpm install",

@@ -50,44 +50,44 @@ const EventCard = ({ event }: EventCardProps) => {
     <div className="card-hover flex h-full flex-col overflow-hidden rounded-xl bg-white/90 shadow-md md:flex-row">
       <Dialog>
         <DialogTrigger asChild>
-        <div
-  className="relative h-[250px] cursor-pointer md:w-1/3"
-  role="button"
-  aria-label={videoSrc ? `${event.title} – Video öffnen` : `${event.title} – Bild anzeigen`}
->
-           
-               {imgSrc && (
-  <>
-    <img
-      src={imgSrc}
-      alt={altText}
-      className="aspect-video h-full w-full object-cover"
-      loading="lazy"
-    />
-
-    {videoSrc && (
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="animate-pulse rounded-full bg-black/50 p-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-white"
+          <div
+            className="relative h-[250px] cursor-pointer md:w-1/3"
+            role="button"
+            aria-label={
+              videoSrc ? `${event.title} – Video öffnen` : `${event.title} – Bild anzeigen`
+            }
           >
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-        </div>
-      </div>
-    )}
-  </>
-)}
+            {imgSrc && (
+              <>
+                <img
+                  src={imgSrc}
+                  alt={altText}
+                  className="aspect-video h-full w-full object-cover"
+                  loading="lazy"
+                />
 
+                {videoSrc && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="animate-pulse rounded-full bg-black/50 p-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-white"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
 
             {/* Datum‑Badge */}
             <div className="absolute left-0 top-0 rounded-br-lg bg-seagreen px-4 py-2 font-medium text-white">
@@ -115,7 +115,7 @@ const EventCard = ({ event }: EventCardProps) => {
           <div className="w-full">
             {videoSrc ? (
               <video controls autoPlay className="h-full max-h-[70vh] w-full">
-              <source src={videoSrc} type="video/mp4" />
+                <source src={videoSrc} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             ) : (

@@ -6,7 +6,6 @@ import EnsaiosSection from './components/EnsaiosSection'
 import { useNewsItems, useUpcomingEvents, useEnsaios } from './data/activitiesData'
 import AnimatedDivider from './components/AnimatedDivider'
 
-
 const Activities = () => {
   useMetaSEO('activities')
   const { language } = useLanguage()
@@ -22,14 +21,14 @@ const Activities = () => {
 
       {/* News Section */}
       <NewsSection newsItems={newsItems} />
-      <div className="w-[80%] mx-auto">
-  <AnimatedDivider />
-</div>
+      <div className="mx-auto w-[80%]">
+        <AnimatedDivider />
+      </div>
       {/* Events Calendar Section */}
       <EventsSection events={upcomingEvents} />
-      <div className="w-[80%] mx-auto">
-  <AnimatedDivider />
-</div>
+      <div className="mx-auto w-[80%]">
+        <AnimatedDivider />
+      </div>
       {/* Ensaios Section */}
       <EnsaiosSection ensaios={ensaios} />
     </div>
