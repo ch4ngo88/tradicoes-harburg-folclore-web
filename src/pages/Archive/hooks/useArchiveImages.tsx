@@ -7,17 +7,15 @@ const useArchiveImages = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false)
 
   useEffect(() => {
-    const firstBatch = archiveImageNames.slice(0, 4).map((file) =>
-      asset(`images/archive/images/${file}`)
-    )
+    const firstBatch = archiveImageNames
+      .slice(0, 4)
+      .map((file) => asset(`images/archive/images/${file}`))
 
     setImages(firstBatch)
     setImagesLoaded(true)
 
     const timer = setTimeout(() => {
-      const rest = archiveImageNames.slice(4).map((file) =>
-        asset(`images/archive/images/${file}`)
-      )
+      const rest = archiveImageNames.slice(4).map((file) => asset(`images/archive/images/${file}`))
       setImages((prev) => [...prev, ...rest])
     }, 1000)
 

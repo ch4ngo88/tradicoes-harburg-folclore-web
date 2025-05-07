@@ -71,7 +71,7 @@ export const useUpcomingEvents = (): EventType[] => {
           : 'Auftritt im Rahmen einer privaten Hochzeitsfeier.',
       location: language === 'pt' ? 'Evento privado' : 'Private Veranstaltung',
     },
-     {
+    {
       id: 5,
       title: language === 'pt' ? 'Stadtteilfest Heimfeld' : 'Stadtteilfest Heimfeld',
       date: '2025-07-05',
@@ -82,7 +82,7 @@ export const useUpcomingEvents = (): EventType[] => {
           : 'Auftritt beim Stadtteilfest Heimfeld mit vielen Attraktionen wie Kinderprogramm, Kletterwand, Speisen & Getränken, Bühnenprogramm und mehr. Unser Auftritt findet zwischen 14 und 18 Uhr statt.',
       location: 'Stadtteil Heimfeld, Hamburg',
     },
-  
+
     {
       id: 2,
       title: language === 'pt' ? 'Harburg Feiert Vielfalt' : 'Harburg Feiert Vielfalt',
@@ -94,7 +94,6 @@ export const useUpcomingEvents = (): EventType[] => {
           : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",
       location: 'Harburger Rathausplatz, 21073 Hamburg',
     },
-    
   ]
 }
 
