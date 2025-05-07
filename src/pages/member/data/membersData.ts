@@ -65,7 +65,7 @@ export const useMembersData = (): MemberData[] => {
       name: 'Marta da Silva Dácio',
       role: language === 'pt' ? 'Comunicação interna' : 'Interne Kommunikation',
       regularImage: asset('images/members/marta1.webp'),
-      costumeImage: asset('images/members/daniel2.webp'),
+      costumeImage: asset('images/members/marta2.webp'),
       category: 'leadership',
       hoverText: 'Ribatejo',
     },
