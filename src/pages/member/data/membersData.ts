@@ -40,7 +40,7 @@ export const useMembersData = (): MemberData[] => {
       category: 'leadership',
       hoverText: 'Alentejo',
     },
-
+    
     {
       id: 3,
       name: 'Vanessa Matos',
@@ -106,7 +106,7 @@ export const useMembersData = (): MemberData[] => {
       category: 'leadership',
       hoverText: 'Estremadura',
     },
-
+/*
     {
       id: 10,
       name: 'Sr. Gabriel',
@@ -116,7 +116,7 @@ export const useMembersData = (): MemberData[] => {
       category: 'music',
       hoverText: 'Alentejo',
     },
-
+*/
     {
       id: 11,
       name: 'Adriana Rodrigues',
@@ -141,7 +141,7 @@ export const useMembersData = (): MemberData[] => {
       name: 'Jessica Perreira Baptista',
       role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
       regularImage: asset('images/members/jessicaB1.webp'),
-      costumeImage: asset('images/members/jessocaB2.webp'),
+      costumeImage: asset('images/members/jessicaB2.webp'),
       category: 'dancers',
       hoverText: 'Ribatejo',
     },
@@ -189,7 +189,7 @@ export const useMembersData = (): MemberData[] => {
       costumeImage: asset('images/members/melanie2.webp'),
       category: 'dancers',
       hoverText: 'Minho',
-    },
+    }
   ]
   return members.sort((a, b) => a.name.localeCompare(b.name, language === 'pt' ? 'pt' : 'de'))
 }

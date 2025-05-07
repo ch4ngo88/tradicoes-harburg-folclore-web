@@ -34,15 +34,16 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
   const showRole = member.category !== 'dancers'
 
   return (
-    <div className="relative mb-6 h-[225px] w-[150px] sm:mb-0 sm:h-auto sm:w-auto">
-      <div
+<div className="flex justify-center sm:block mb-6">
+<div
         className="relative mb-6 flex h-[300px] w-[200px] scale-[0.75] transform cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-white shadow-md sm:scale-100"
         onMouseEnter={() => canHover && setHoveredMember(member.id)}
         onMouseLeave={() => canHover && setHoveredMember(null)}
         onClick={() => !canHover && handleInteraction()}
       >
-        <div className="relative h-[70%] w-full overflow-hidden">
+<div className="relative w-full aspect-[2/3] overflow-hidden">
           <OptimizedImage
+          
             src={isHovered ? member.costumeImage : member.regularImage}
             alt={
               isHovered
@@ -54,6 +55,7 @@ const MemberCard = ({ member, hoveredMember, setHoveredMember }: MemberCardProps
           {isHovered && member.hoverText && (
             <div className="absolute bottom-0 left-0 z-10 w-full bg-seagreen/80 px-1 py-2 text-center text-sm font-semibold text-white">
               {member.hoverText}
+              
             </div>
           )}
         </div>
