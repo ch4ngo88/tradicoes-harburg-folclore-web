@@ -41,7 +41,7 @@ export const useUpcomingEvents = (): EventType[] => {
           ? 'Restaurant & Veranstaltungszentrum Poseidon'
           : 'Restaurant & Veranstaltungszentrum Poseidon',
       date: '2025-06-08',
-      image: asset('images/activity/next/poseidon.jpg'),
+      image: asset('images/activity/next/poseidon.webp'),
       description:
         language === 'pt'
           ? 'No restaurante e centro de eventos Poseidon em Seevetal, com música ao vivo do grupo Estrela da Noite e buffet a partir das 19h. Celebração especial de Pentecostes com comida portuguesa e alemã.'
@@ -61,17 +61,6 @@ export const useUpcomingEvents = (): EventType[] => {
       location: 'Landhaus Walter, Otto-Wels-Straße 2, 22303 Hamburg',
     },
     {
-      id: 2,
-      title: language === 'pt' ? 'Harburg Feiert Vielfalt' : 'Harburg Feiert Vielfalt',
-      date: '2025-07-06',
-      image: asset('images/activity/next/harburgvielfalt.webp'), // placeholder image
-      description:
-        language === 'pt'
-          ? "Apresentação em cooperação com o Kulturpalast Harburg no evento 'Harburg Feiert Vielfalt'"
-          : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",
-      location: 'Harburger Rathausplatz, 21073 Hamburg',
-    },
-    {
       id: 4,
       title: language === 'pt' ? 'Evento Privado - Casamento' : 'Private Veranstaltung - Hochzeit',
       date: '2025-06-20',
@@ -82,10 +71,10 @@ export const useUpcomingEvents = (): EventType[] => {
           : 'Auftritt im Rahmen einer privaten Hochzeitsfeier.',
       location: language === 'pt' ? 'Evento privado' : 'Private Veranstaltung',
     },
-    {
+     {
       id: 5,
       title: language === 'pt' ? 'Stadtteilfest Heimfeld' : 'Stadtteilfest Heimfeld',
-      date: '2025-06-29',
+      date: '2025-07-05',
       image: asset('images/activity/next/heimfeld.webp'), // Bild ggf. durch Screenshot oder neutrales Festbild ersetzen
       description:
         language === 'pt'
@@ -93,6 +82,19 @@ export const useUpcomingEvents = (): EventType[] => {
           : 'Auftritt beim Stadtteilfest Heimfeld mit vielen Attraktionen wie Kinderprogramm, Kletterwand, Speisen & Getränken, Bühnenprogramm und mehr. Unser Auftritt findet zwischen 14 und 18 Uhr statt.',
       location: 'Stadtteil Heimfeld, Hamburg',
     },
+  
+    {
+      id: 2,
+      title: language === 'pt' ? 'Harburg Feiert Vielfalt' : 'Harburg Feiert Vielfalt',
+      date: '2025-07-06',
+      image: asset('images/activity/next/harburgvielfalt.webp'), // placeholder image
+      description:
+        language === 'pt'
+          ? "Apresentação em cooperação com o Kulturpalast Harburg no evento 'Harburg Feiert Vielfalt'"
+          : "Auftritt in Kooperation mit dem Kulturpalast Harburg bei 'Harburg Feiert Vielfalt'",
+      location: 'Harburger Rathausplatz, 21073 Hamburg',
+    },
+    
   ]
 }
 
