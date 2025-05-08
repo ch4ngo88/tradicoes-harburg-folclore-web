@@ -94,7 +94,7 @@ const OptimizedImage = memo(function OptimizedImage({
     onLoad?.()
   }
 
-  const fallbackSrc = asset('logo.png')
+  const fallbackSrc = asset('images/logo.png')
   const imageSrc = !src || hasError ? fallbackSrc : src
   const imageAlt = !src || hasError ? 'Rancho Folclórico Tradições Portuguesas Logo' : alt
 

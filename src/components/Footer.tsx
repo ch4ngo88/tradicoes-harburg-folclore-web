@@ -45,7 +45,7 @@ export const Footer = () => {
             <div className="mb-3 inline-block w-full rounded-md bg-white p-4 md:max-w-sm">
               <div className="flex items-center justify-center gap-3 md:justify-start">
                 <img
-                  src={asset('logo.png')}
+                  src={asset('images/logo.png')}
                   alt="Rancho logo"
                   className="h-10 w-10 rounded-sm object-cover"
                   width={40}

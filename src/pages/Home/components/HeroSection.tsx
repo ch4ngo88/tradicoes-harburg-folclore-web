@@ -20,7 +20,7 @@ const HeroSection = ({ language }: HeroSectionProps) => {
   const heroRef = useRef<HTMLDivElement>(null)
 
   // Fixierter Bildpfad via asset()
-  const heroImageSrc = asset('images/gruppe.webp')
+  const heroImageSrc = asset('images/home/gruppe.webp')
 
   /* ---------- Intersection & Parallax ---------- */
   useEffect(() => {

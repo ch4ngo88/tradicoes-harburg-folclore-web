@@ -1,8 +1,9 @@
 // src/lib/image-helpers.ts
 
 // Liste von Bildern, die als "kritisch" für den First View gelten
-const aboveFoldImages = ['gruppe.webp', 'logo.png']
-const eagerLoadImages = ['gruppe.webp', 'logo.png']
+const aboveFoldImages = ['images/home/gruppe.webp', 'images/logo.png']
+const eagerLoadImages = ['images/home/gruppe.webp', 'images/logo.png']
+
 
 // Entscheidet, ob ein Bild preloaded werden soll
 export const shouldPreload = (src: string): boolean => {

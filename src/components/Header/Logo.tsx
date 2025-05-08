@@ -12,7 +12,7 @@ const Logo = ({ scrollToTop }: LogoProps) => {
   return (
     <div className="flex cursor-pointer items-center md:gap-3" onClick={scrollToTop}>
       <img
-        src={`${import.meta.env.BASE_URL}logo.png`}
+        src={`${import.meta.env.BASE_URL}images/logo.png`}
         alt="Rancho Folclórico Tradições Portuguesas - Offizielles Logo der portugiesischen Tanzgruppe in Hamburg"
         className="h-12 w-12 object-cover"
         width={48}

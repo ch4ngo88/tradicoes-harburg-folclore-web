@@ -44,12 +44,12 @@ export type PictureElementProps = {
 }
 
 export const shouldEagerLoad = (imagePath: string): boolean => {
-  const criticalImages = ['gruppe.webp', 'logo.png', 'logo.webp']
+  const criticalImages = ['images/home/gruppe.webp', 'images/logo.png', 'images/logo.webp']
   return criticalImages.some((img) => imagePath.includes(img))
 }
 
 export const shouldPreload = (imagePath: string): boolean => {
-  const preloadImages = ['gruppe.webp']
+  const preloadImages = ['home/gruppe.webp']
   return preloadImages.some((img) => imagePath.includes(img))
 }
 

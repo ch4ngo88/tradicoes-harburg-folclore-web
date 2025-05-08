@@ -49,9 +49,9 @@ const AboutUsSection = () => {
             style={{ maxHeight: '400px' }}
           >
             <video
-              src={asset('images/offen.mp4')}
+              src={asset('images/home/offen.mp4')}
               controls
-              poster={asset('images/offen.webp')}
+              poster={asset('images/home/offen.webp')}
               className="w-full rounded-md"
               style={{ maxHeight: '400px', objectFit: 'cover' }}
               preload="metadata"

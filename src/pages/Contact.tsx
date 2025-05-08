@@ -219,7 +219,7 @@ const ContactPage = React.memo(() => {
 
               <div className="flex-shrink-0">
                 <img
-                  src={asset('images/QR Code.webp')}
+                  src={asset('images/contact/QR Code.webp')}
                   alt="QR Code"
                   className="h-32 rounded-lg shadow-md transition-shadow hover:shadow-lg"
                 />
