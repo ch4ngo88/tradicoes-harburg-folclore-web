@@ -4,7 +4,6 @@
 const aboveFoldImages = ['images/home/gruppe.webp', 'images/logo.png']
 const eagerLoadImages = ['images/home/gruppe.webp', 'images/logo.png']
 
-
 // Entscheidet, ob ein Bild preloaded werden soll
 export const shouldPreload = (src: string): boolean => {
   return !!src && aboveFoldImages.some((img) => src.includes(img))
