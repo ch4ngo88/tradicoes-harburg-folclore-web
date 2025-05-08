@@ -71,17 +71,18 @@
     <!-- Security Headers -->
     <!-- Security Headers: Maximale Wirkung über <meta> bei GitHub Pages -->
     <meta
-      http-equiv="Content-Security-Policy"
-      content="
-default-src 'self';
-script-src 'self' https://cdn.gpteng.co https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com https://formsubmit.co 'unsafe-inline';
-style-src 'self' 'unsafe-inline';
-img-src 'self' data: https:;
-font-src 'self' data:;
-connect-src 'self' https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://formsubmit.co;
-frame-src 'none';
-"
-    />
+    http-equiv="Content-Security-Policy"
+    content="
+  default-src 'self';
+  script-src 'self' https://formsubmit.co 'unsafe-inline';
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https:;
+  font-src 'self' data:;
+  connect-src 'self' https://formsubmit.co;
+  frame-src 'none';
+  "
+  />
+  
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="no-referrer" />
     <meta name="permissions-policy" content="camera=(), microphone=(), geolocation=()" />
