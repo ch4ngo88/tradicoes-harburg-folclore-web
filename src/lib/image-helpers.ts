@@ -24,7 +24,6 @@ const withBaseUrl = (href: string) => {
   return `${base}/${cleanHref}`
 }
 
-
 // Entscheidet, ob ein Bild vorab preloadet werden soll
 export const shouldPreload = (src: string): boolean => {
   return !!src && aboveFoldImages.some((img) => src.includes(img))
