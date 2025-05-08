@@ -86,94 +86,105 @@ const ContactForm = () => {
         {language === 'pt' ? 'Envie-nos uma mensagem' : 'Schreiben Sie uns eine Nachricht'}
       </h2>
       <form
-        action="https://formsubmit.co/marco.dacio@icloud.com"
-        method="POST"
-        className="space-y-5"
-        autoComplete="on" // optional – unterstützt gesamtes Formular
-      >
-        <input type="hidden" name="_subject" value="Neue Nachricht über Kontaktformular" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="https://tradicionalisboa.lovable.app/contact" />
+  action="https://formsubmit.co/el/kasalu"
+  method="POST"
+  className="space-y-5"
+  autoComplete="on"
+>
+  {/* ✅ SPAM-Schutz */}
+  <input type="hidden" name="_captcha" value="true" />
+  <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
-        <div>
-          <label htmlFor="name" className="form-label">
-            {language === 'pt' ? 'Nome' : 'Name'}
-          </label>
-          <Input
-            id="name"
-            name="name"
-            autoComplete="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="form-input"
-            placeholder={language === 'pt' ? 'Seu nome' : 'Ihr Name'}
-          />
-        </div>
+  {/* ✅ E-Mail Setup */}
+  <input type="hidden" name="_subject" value="Neue Nachricht über Kontaktformular" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_next" value="https://tradicionalisboa.lovable.app/contact" />
 
-        <div>
-          <label htmlFor="email" className="form-label">
-            {language === 'pt' ? 'Email' : 'E-Mail'}
-          </label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="form-input"
-            placeholder={language === 'pt' ? 'Seu email' : 'Ihre E-Mail'}
-          />
-        </div>
+  {/* 📩 Name */}
+  <div>
+    <label htmlFor="name" className="form-label">
+      {language === 'pt' ? 'Nome' : 'Name'}
+    </label>
+    <Input
+      id="name"
+      name="name"
+      autoComplete="name"
+      value={formData.name}
+      onChange={handleChange}
+      required
+      className="form-input"
+      placeholder={language === 'pt' ? 'Seu nome' : 'Ihr Name'}
+    />
+  </div>
 
-        <div>
-          <label htmlFor="subject" className="form-label">
-            {language === 'pt' ? 'Assunto' : 'Betreff'}
-          </label>
-          <Input
-            id="subject"
-            name="subject"
-            autoComplete="off" // bewusst deaktivieren
-            value={formData.subject}
-            onChange={handleChange}
-            required
-            className="form-input"
-            placeholder={language === 'pt' ? 'Assunto da mensagem' : 'Betreff der Nachricht'}
-          />
-        </div>
+  {/* 📩 E-Mail */}
+  <div>
+    <label htmlFor="email" className="form-label">
+      {language === 'pt' ? 'Email' : 'E-Mail'}
+    </label>
+    <Input
+      id="email"
+      name="email"
+      type="email"
+      autoComplete="email"
+      value={formData.email}
+      onChange={handleChange}
+      required
+      className="form-input"
+      placeholder={language === 'pt' ? 'Seu email' : 'Ihre E-Mail'}
+    />
+  </div>
 
-        <div>
-          <label htmlFor="message" className="form-label">
-            {language === 'pt' ? 'Mensagem' : 'Nachricht'}
-          </label>
-          <Textarea
-            id="message"
-            name="message"
-            autoComplete="off" // bewusst deaktivieren
-            value={formData.message}
-            onChange={handleChange}
-            rows={4}
-            required
-            className="form-input"
-            placeholder={language === 'pt' ? 'Sua mensagem' : 'Ihre Nachricht'}
-          />
-        </div>
+  {/* 📩 Betreff */}
+  <div>
+    <label htmlFor="subject" className="form-label">
+      {language === 'pt' ? 'Assunto' : 'Betreff'}
+    </label>
+    <Input
+      id="subject"
+      name="subject"
+      autoComplete="off"
+      value={formData.subject}
+      onChange={handleChange}
+      required
+      className="form-input"
+      placeholder={language === 'pt' ? 'Assunto da mensagem' : 'Betreff der Nachricht'}
+    />
+  </div>
 
-        <Button
-          type="submit"
-          className="w-full bg-seagreen transition-all duration-300 hover:scale-[1.02] hover:bg-seagreen/90 hover:shadow-lg"
-        >
-          {language === 'pt' ? 'Enviar' : 'Senden'}
-        </Button>
+  {/* 📩 Nachricht */}
+  <div>
+    <label htmlFor="message" className="form-label">
+      {language === 'pt' ? 'Mensagem' : 'Nachricht'}
+    </label>
+    <Textarea
+      id="message"
+      name="message"
+      autoComplete="off"
+      value={formData.message}
+      onChange={handleChange}
+      rows={4}
+      required
+      className="form-input"
+      placeholder={language === 'pt' ? 'Sua mensagem' : 'Ihre Nachricht'}
+    />
+  </div>
 
-        <p className="text-center text-xs text-gray-500">
-          {language === 'pt'
-            ? 'Este site é protegido por FormSubmit e aplicam-se a Política de Privacidade e os Termos de Serviço.'
-            : 'Diese Website wird durch FormSubmit geschützt und es gelten die Datenschutzbestimmungen und Nutzungsbedingungen.'}
-        </p>
-      </form>
+  {/* ✅ Absenden */}
+  <Button
+    type="submit"
+    className="w-full bg-seagreen transition-all duration-300 hover:scale-[1.02] hover:bg-seagreen/90 hover:shadow-lg"
+  >
+    {language === 'pt' ? 'Enviar' : 'Senden'}
+  </Button>
+
+  <p className="text-center text-xs text-gray-500">
+    {language === 'pt'
+      ? 'Este site é protegido por FormSubmit e aplicam-se a Política de Privacidade e os Termos de Serviço.'
+      : 'Diese Website wird durch FormSubmit geschützt und es gelten die Datenschutzbestimmungen und Nutzungsbedingungen.'}
+  </p>
+</form>
+
     </div>
   )
 }
