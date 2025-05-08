@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLanguage } from '@/hooks/useLanguage'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -13,6 +13,7 @@ import { ExternalLink, Mail, Phone, MapPin, Link as LinkIcon } from 'lucide-reac
 import { useMetaSEO } from '@/hooks/useMetaSEO'
 import Map from '@/components/map' // ganz oben hinzufügen
 import { asset } from '@/lib/asset'
+
 
 type UsefulLink = {
   url: string
@@ -80,6 +81,13 @@ const ContactForm = () => {
     [],
   )
 
+  const [redirectUrl, setRedirectUrl] = useState('')
+
+useEffect(() => {
+  setRedirectUrl(`${window.location.origin}/contact`)
+}, [])
+
+
   return (
     <div className="glass-card p-6">
       <h2 className="mb-6 text-xl font-semibold text-seagreen">
@@ -90,15 +98,19 @@ const ContactForm = () => {
   method="POST"
   className="space-y-5"
   autoComplete="on"
+  
 >
   {/* ✅ SPAM-Schutz */}
+
+  
   <input type="hidden" name="_captcha" value="true" />
   <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+  <input type="hidden" name="_next" value={redirectUrl} />
+
 
   {/* ✅ E-Mail Setup */}
   <input type="hidden" name="_subject" value="Neue Nachricht über Kontaktformular" />
   <input type="hidden" name="_template" value="table" />
-  <input type="hidden" name="_next" value="https://tradicionalisboa.lovable.app/contact" />
 
   {/* 📩 Name */}
   <div>
