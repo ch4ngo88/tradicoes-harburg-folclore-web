@@ -1,6 +1,8 @@
 import { useState, memo, useRef, useEffect, useLayoutEffect } from 'react'
 import { preloadCriticalImage } from '@/lib/image-helpers'
 import { asset } from '@/lib/asset' // Wichtig!
+import { generateSrcSet, generateSizes, getImageType } from '@/lib/image-helpers'
+
 
 interface OptimizedImageProps {
   src: string
@@ -100,17 +102,17 @@ const OptimizedImage = memo(function OptimizedImage({
 
   return (
     <img
-      ref={imgRef}
-      src={imageSrc}
-      alt={imageAlt}
-      className={`${className} ${
-        isLoaded ? 'opacity-100' : 'opacity-0'
-      } transition-opacity duration-300`}
-      loading={loading}
-      decoding="async"
-      onLoad={handleLoad}
-      onError={handleError}
-    />
+  ref={imgRef}
+  src={imageSrc}
+  alt={imageAlt}
+  className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+  loading={loading}
+  decoding="async"
+  onLoad={handleLoad}
+  onError={handleError}
+  srcSet={generateSrcSet(imageSrc)}
+  sizes={generateSizes()}
+/>
   )
 })
 
