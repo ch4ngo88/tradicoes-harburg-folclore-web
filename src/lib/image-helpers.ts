@@ -31,7 +31,6 @@ export const generateSrcSet = (imagePath: string): string => {
   return `${withBaseUrl(imagePath)} 1x`
 }
 
-
 // Empfohlene sizes-Angabe für responsive Layouts
 export const generateSizes = (): string => {
   return '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
