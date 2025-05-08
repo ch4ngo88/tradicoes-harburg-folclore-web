@@ -14,9 +14,16 @@ export const imageSizes = {
 
 // Liefert einen vollständigen Pfad unter Beachtung von Vite + Base-URL
 const withBaseUrl = (href: string) => {
-  const base = import.meta.env.BASE_URL
-  return href.startsWith('http') ? href : `${base.replace(/\/$/, '')}/${href.replace(/^\/+/, '')}`
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '') // kein trailing slash
+  const cleanHref = href.replace(/^\/+/, '') // kein leading slash
+
+  if (href.startsWith('http') || href.startsWith(base)) {
+    return href // schon absolut oder mit base
+  }
+
+  return `${base}/${cleanHref}`
 }
+
 
 // Entscheidet, ob ein Bild vorab preloadet werden soll
 export const shouldPreload = (src: string): boolean => {
