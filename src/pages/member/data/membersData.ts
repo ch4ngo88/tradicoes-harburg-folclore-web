@@ -172,17 +172,9 @@ export const useMembersData = (): MemberData[] => {
       category: 'dancers',
       hoverText: 'Estremadura',
     },
+   
     {
       id: 17,
-      name: 'Sofia Rodrigues de Azevedo',
-      role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
-      regularImage: asset('images/members/sofiaR1.webp'),
-      costumeImage: asset('images/members/sofiaR2.webp'),
-      category: 'dancers',
-      hoverText: 'Estremadura',
-    },
-    {
-      id: 18,
       name: 'Melanie Ribeiro Zorić',
       role: language === 'pt' ? 'Dançarina' : 'Tänzerin',
       regularImage: asset('images/placeholder.svg'),
