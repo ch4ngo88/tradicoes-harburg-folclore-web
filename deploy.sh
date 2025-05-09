@@ -13,6 +13,15 @@ git stash push -m "💡 deploy stash" || true
 
 echo "🔨 Build läuft..."
 pnpm run build
+echo "🧽 Manifest-Pfade anpassen für GitHub Pages..."
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS (BSD sed)
+  sed -i '' 's|/images/|/tradicoes-harburg-folclore-web/images/|g' dist/manifest.json
+else
+  # Linux / Git Bash
+  sed -i 's|/images/|/tradicoes-harburg-folclore-web/images/|g' dist/manifest.json
+fi
 
 echo "🚀 Deployment beginnt..."
 
