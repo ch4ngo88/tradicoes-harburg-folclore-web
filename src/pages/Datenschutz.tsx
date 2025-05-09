@@ -9,179 +9,119 @@ const Datenschutz = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mx-auto max-w-4xl">
-        <h1 className="section-title mb-8 text-center">
-          {language === 'pt' ? 'Política de Privacidade' : 'Datenschutzerklärung'}
-        </h1>
+<h1 className="section-title mb-8 text-center">
+  {language === 'pt' ? 'Política de Privacidade' : 'Datenschutzerklärung'}
+</h1>
 
-        <div className="glass-card space-y-8 p-8">
-          {/* Abschnitt: Allgemeine Hinweise */}
-          <section>
-            <div className="mb-4 flex items-center gap-2">
-              <FileText className="text-seagreen" />
-              <h2 className="text-xl font-bold text-seagreen">
-                {language === 'pt' ? 'Informações Gerais' : 'Allgemeine Hinweise'}
-              </h2>
-            </div>
-            <div className="space-y-2 pl-6 text-gray-700">
-              <p>
-                {language === 'pt'
-                  ? 'A proteção dos seus dados pessoais é muito importante para nós. Tratamos os seus dados de forma confidencial e de acordo com os regulamentos legais de proteção de dados, bem como com esta política de privacidade.'
-                  : 'Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.'}
-              </p>
-            </div>
-          </section>
+<div className="glass-card space-y-8 p-8">
 
-          {/* Abschnitt: Verantwortlicher */}
-          <section>
-            <div className="mb-4 flex items-center gap-2">
-              <User className="text-seagreen" />
-              <h2 className="text-xl font-bold text-seagreen">
-                {language === 'pt' ? 'Responsável' : 'Verantwortlicher'}
-              </h2>
-            </div>
-            <div className="space-y-2 pl-6 text-gray-700">
-              <p>
-                Marco da Silva Dácio
-                <br />
-                Hastedtstraße 30
-                <br />
-                21073 Hamburg
-                <br />
-                E-Mail: g.c.r.f.p@hotmail.com
-              </p>
-            </div>
-          </section>
+  {/* Allgemeine Hinweise */}
+  <section>
+    <div className="mb-4 flex items-center gap-2">
+      <FileText className="text-seagreen" />
+      <h2 className="text-xl font-bold text-seagreen">
+        {language === 'pt' ? 'Informações Gerais' : 'Allgemeine Hinweise'}
+      </h2>
+    </div>
+    <div className="space-y-2 pl-6 text-gray-700">
+      <p>
+        {language === 'pt'
+          ? 'Levamos a sério a proteção dos seus dados pessoais. Os seus dados são tratados de forma confidencial e de acordo com os regulamentos legais.'
+          : 'Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Ihre Daten werden vertraulich und entsprechend der gesetzlichen Vorschriften behandelt.'}
+      </p>
+    </div>
+  </section>
 
-          {/* Abschnitt: Datenerfassung */}
-          <section>
-            <div className="mb-4 flex items-center gap-2">
-              <Database className="text-seagreen" />
-              <h2 className="text-xl font-bold text-seagreen">
-                {language === 'pt'
-                  ? 'Coleta de Dados em Nosso Site'
-                  : 'Datenerfassung auf unserer Website'}
-              </h2>
-            </div>
-            <div className="space-y-4 pl-6 text-gray-700">
-              <h3 className="font-bold">
-                {language === 'pt' ? 'Arquivos de Log do Servidor' : 'Server-Log-Dateien'}
-              </h3>
-              <p>
-                {language === 'pt'
-                  ? 'Ao visitar este site, informações gerais são automaticamente coletadas (por exemplo, tipo de navegador, sistema operacional, URL de referência, horário da solicitação ao servidor). Esses dados são utilizados exclusivamente para garantir o funcionamento livre de erros do site.'
-                  : 'Beim Besuch dieser Website werden automatisch Informationen allgemeiner Natur erfasst (z.B. Browsertyp, Betriebssystem, Referrer-URL, Uhrzeit der Serveranfrage). Diese Daten dienen ausschließlich zur Sicherstellung eines störungsfreien Betriebs der Website.'}
-              </p>
+  {/* Verantwortlicher */}
+  <section>
+    <div className="mb-4 flex items-center gap-2">
+      <User className="text-seagreen" />
+      <h2 className="text-xl font-bold text-seagreen">
+        {language === 'pt' ? 'Responsável' : 'Verantwortlicher'}
+      </h2>
+    </div>
+    <div className="space-y-2 pl-6 text-gray-700">
+      <p>
+        Marco da Silva Dácio  
+        <br />
+        Hastedtstraße 30  
+        <br />
+        21073 Hamburg  
+        <br />
+        E-Mail: g.c.r.f.p@hotmail.com
+      </p>
+    </div>
+  </section>
 
-              <h3 className="font-bold">
-                {language === 'pt' ? 'Formulário de Contato' : 'Kontaktformular'}
-              </h3>
-              <p>
-                {language === 'pt'
-                  ? 'Se você nos enviar solicitações via formulário, seus dados do formulário (incluindo os dados de contato fornecidos) serão armazenados para o processamento da solicitação. Esses dados não serão repassados sem o seu consentimento. O formulário de contato é processado via FormSubmit. Aplicam-se também as políticas de privacidade e os termos de uso do FormSubmit.'
-                  : 'Wenn Sie uns per Formular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular (einschließlich der dort angegebenen Kontaktdaten) zwecks Bearbeitung Ihrer Anfrage gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Das Kontaktformular wird über den Dienst FormSubmit abgewickelt. Es gelten zusätzlich die Datenschutzbestimmungen und Nutzungsbedingungen von FormSubmit.'}
-              </p>
+  {/* Datenerfassung */}
+  <section>
+    <div className="mb-4 flex items-center gap-2">
+      <Database className="text-seagreen" />
+      <h2 className="text-xl font-bold text-seagreen">
+        {language === 'pt'
+          ? 'Coleta de Dados no Site'
+          : 'Datenerfassung auf der Website'}
+      </h2>
+    </div>
+    <div className="space-y-4 pl-6 text-gray-700">
+      <h3 className="font-bold">
+        {language === 'pt' ? 'Dados Técnicos' : 'Technisch notwendige Daten'}
+      </h3>
+      <p>
+        {language === 'pt'
+          ? 'Quando você acessa este site, alguns dados técnicos (como navegador, horário de acesso etc.) são registrados automaticamente para garantir o funcionamento seguro da página.'
+          : 'Beim Besuch dieser Website werden automatisch technische Daten (wie Browsertyp, Zugriffszeit etc.) erfasst, um einen sicheren Betrieb der Seite zu gewährleisten.'}
+      </p>
 
-              <h3 className="font-bold">Cookies</h3>
-              <p>
-                {language === 'pt'
-                  ? 'Este site utiliza cookies exclusivamente para garantir a funcionalidade técnica necessária e no contexto da análise da web (veja abaixo).'
-                  : 'Diese Website verwendet Cookies ausschließlich zur technisch notwendigen Sicherstellung der Funktionalität sowie im Rahmen der Webanalyse (siehe unten).'}
-              </p>
+      <h3 className="font-bold">Formular de Contato / Kontaktformular</h3>
+      <p>
+        {language === 'pt'
+          ? 'Se você nos contactar por formulário, os dados fornecidos serão enviados via FormSubmit (serviço externo) para nosso endereço de e-mail. Nenhum dado é armazenado neste site.'
+          : 'Wenn Sie uns per Formular kontaktieren, werden die angegebenen Daten über den Dienst FormSubmit (externer Anbieter) an unsere E-Mail-Adresse weitergeleitet. Auf dieser Website werden keine Daten gespeichert.'}
+      </p>
+      <p>
+        {language === 'pt'
+          ? 'Consulte também a política de privacidade do FormSubmit:'
+          : 'Bitte beachten Sie auch die Datenschutzrichtlinien von FormSubmit:'}
+        <br />
+        <a
+          href="https://formsubmit.co/privacy.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-seagreen hover:text-seagreen/80"
+        >
+          ➔ FormSubmit Privacy <ExternalLink className="h-4 w-4" />
+        </a>
+      </p>
 
-              <h3 className="font-bold">
-                {language === 'pt' ? 'Análise da Web e Rastreamento' : 'Webanalyse und Tracking'}
-              </h3>
-              <p>
-                {language === 'pt'
-                  ? 'Este site utiliza o Google Analytics e o Bing Webmaster Tools para avaliar estatisticamente o uso do site. Cookies podem ser definidos e informações (incluindo o endereço IP anonimizado) podem ser transmitidas para servidores nos EUA.'
-                  : 'Diese Website nutzt Google Analytics sowie Bing Webmaster Tools, um die Nutzung der Website statistisch auszuwerten. Dabei können Cookies gesetzt und Informationen (einschließlich anonymisierter IP-Adresse) an Server in den USA übermittelt werden.'}
-              </p>
+      <h3 className="font-bold">Cookies</h3>
+      <p>
+        {language === 'pt'
+          ? 'Este site não utiliza cookies para rastreamento ou análise.'
+          : 'Diese Website verwendet keine Cookies für Tracking oder Analyse.'}
+      </p>
+    </div>
+  </section>
 
-              <p>
-                {language === 'pt'
-                  ? 'Você pode se opor à coleta e ao processamento dos seus dados pelo Google:'
-                  : 'Sie können der Erhebung und Verarbeitung Ihrer Daten durch Google widersprechen:'}
-                <br />
-                <a
-                  href="https://tools.google.com/dlpage/gaoptout"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-seagreen hover:text-seagreen/80"
-                >
-                  ➔ Google Analytics Opt-Out <ExternalLink className="h-4 w-4" />
-                </a>
-              </p>
+  {/* Rechte */}
+  <section>
+    <div className="mb-4 flex items-center gap-2">
+      <Shield className="text-seagreen" />
+      <h2 className="text-xl font-bold text-seagreen">
+        {language === 'pt' ? 'Seus Direitos' : 'Ihre Rechte'}
+      </h2>
+    </div>
+    <div className="space-y-2 pl-6 text-gray-700">
+      <p>
+        {language === 'pt'
+          ? 'Você tem o direito de acesso, retificação ou eliminação dos seus dados. Basta entrar em contato conosco.'
+          : 'Sie haben das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten. Kontaktieren Sie uns hierzu einfach.'}
+      </p>
+    </div>
+  </section>
 
-              <p>
-                {language === 'pt'
-                  ? 'Mais informações podem ser encontradas nas políticas de privacidade de:'
-                  : 'Weitere Informationen finden Sie in der Datenschutzerklärung von:'}
-              </p>
-              <div className="flex flex-col gap-2">
-                <a
-                  href="https://policies.google.com/privacy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-seagreen hover:text-seagreen/80"
-                >
-                  Google <ExternalLink className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://privacy.microsoft.com/de-de/privacystatement"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-seagreen hover:text-seagreen/80"
-                >
-                  Microsoft <ExternalLink className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </section>
+</div>
 
-          {/* Abschnitt: Ihre Rechte */}
-          <section>
-            <div className="mb-4 flex items-center gap-2">
-              <Shield className="text-seagreen" />
-              <h2 className="text-xl font-bold text-seagreen">
-                {language === 'pt' ? 'Os Seus Direitos' : 'Ihre Rechte'}
-              </h2>
-            </div>
-            <div className="space-y-2 pl-6 text-gray-700">
-              <p>
-                {language === 'pt'
-                  ? 'Você tem o direito de, a qualquer momento:'
-                  : 'Sie haben jederzeit das Recht:'}
-              </p>
-              <ul className="list-disc space-y-1 pl-6">
-                <li>
-                  {language === 'pt'
-                    ? 'acessar seus dados pessoais armazenados,'
-                    : 'auf Auskunft über Ihre gespeicherten personenbezogenen Daten,'}
-                </li>
-                <li>
-                  {language === 'pt'
-                    ? 'corrigir, apagar ou restringir o processamento,'
-                    : 'auf Berichtigung, Löschung oder Einschränkung der Verarbeitung,'}
-                </li>
-                <li>
-                  {language === 'pt'
-                    ? 'opor-se ao processamento,'
-                    : 'auf Widerspruch gegen die Verarbeitung,'}
-                </li>
-                <li>
-                  {language === 'pt'
-                    ? 'solicitar a portabilidade dos dados.'
-                    : 'auf Datenübertragbarkeit.'}
-                </li>
-              </ul>
-              <p className="mt-4">
-                {language === 'pt'
-                  ? 'Por favor, entre em contato com o endereço acima indicado.'
-                  : 'Bitte wenden Sie sich hierzu an die oben angegebene Kontaktadresse.'}
-              </p>
-            </div>
-          </section>
-        </div>
       </div>
     </div>
   )

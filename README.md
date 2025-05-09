@@ -1,71 +1,89 @@
-# Website: Tradições Portuguesas Hamburg
+# Tradições Portuguesas Hamburg
 
-Dies ist der Quellcode für die offizielle Website der Tanzgruppe **Tradições Portuguesas** aus Hamburg.  
-Die Seite wurde mit einem modernen Frontend-Stack gebaut und bietet Infos über die Gruppe, Veranstaltungen und Kontaktmöglichkeiten.
+**Offizielle Website der Tanzgruppe Tradições Portuguesas aus Hamburg**  
+📍 Portugiesischer Folkloreverein – gegründet aus Liebe zur Kultur und Musik
 
----
-
-## 🔧 Projektstruktur & Technologien
-
-- **Framework**: [React](https://react.dev) (mit TypeScript)
-- **Build-Tool**: [Vite](https://vitejs.dev)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com)
-- **UI-Komponenten**: [shadcn/ui](https://ui.shadcn.com)
-- **Routing**: `react-router-dom`
-- **Formulare**: statisch + [FormSubmit](https://formsubmit.co) für E-Mail-Versand
+👉 [Website ansehen](https://tradicoesportuguesas.com)
 
 ---
 
-## 🚀 Entwicklung lokal starten
+## 🇵🇹 Über die Gruppe
 
-```bash
-# Repository klonen
-git clone <DEIN_GIT_REPO_URL>
+**Tradições Portuguesas** steht für gelebte portugiesische Kultur in Hamburg.  
+Mit traditionellen Tänzen, Musik und farbenfrohen Trachten bringen wir seit Jahren Lebensfreude und Gemeinschaft auf die Bühne.
 
-# In Projektverzeichnis wechseln
-cd <DEIN_PROJEKT_NAME>
-
-# Abhängigkeiten installieren
-npm install
-
-# Dev-Server starten
-npm run dev
-```
-
-Anschließend ist das Projekt erreichbar unter: [http://localhost:8080](http://localhost:8080)
+Die Gruppe ist offen für alle Generationen und verbindet portugiesische Wurzeln mit der kulturellen Vielfalt Hamburgs.
 
 ---
 
-## 🛠 Nützliche Befehle
+## 🌐 Über die Website
 
-```bash
-# Build für Produktion
-npm run build
+Diese Website bietet Informationen über:
 
-# Build-Vorschau anzeigen
-npm run preview
+- unsere **Tanzgruppe**
+- aktuelle und kommende **Veranstaltungen**
+- Möglichkeiten zur **Kontaktaufnahme**
+- einen Einblick in unsere **Geschichte & Kultur**
 
-# Linting ausführen
-npm run lint
-
-# Linting mit Auto-Fix
-npm run lint:fix
-```
+Die Seite wurde modern und barrierearm entwickelt, optimiert für Mobilgeräte und Desktop.
 
 ---
 
-## 🌐 Deployment
+## 👨‍💻 Entwicklung & Technik
 
-Die Seite wird über GitHub Pages (oder anderen statischen Hoster) deployed.  
-Build-Output liegt im `dist/`-Ordner.
+Diese Website wurde ehrenamtlich entwickelt von **Marco da Silva Dácio**.  
+Sie basiert auf einem modernen Frontend-Stack mit Fokus auf Performance, Barrierefreiheit und Designfreiheit.
+
+### 🔨 Core-Technologien
+
+- [React](https://reactjs.org/) mit [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) als Build-Tool
+- [Tailwind CSS](https://tailwindcss.com/) für Utility-first Styling
+- [shadcn/ui](https://ui.shadcn.com/) als UI-Komponentenbibliothek
+- [react-router-dom](https://reactrouter.com/) für SPA-Routing
+- Deployment via **GitHub Pages**
+
+### 📦 State & Logic
+
+- [react-hook-form](https://react-hook-form.com/) für Formulare
+- [@tanstack/react-query](https://tanstack.com/query/latest) für Data-Fetching
+- [clsx](https://github.com/lukeed/clsx) & [class-variance-authority](https://cva.style/) für dynamisches Styling
+- [next-themes](https://github.com/pacocoursey/next-themes) für Dark Mode
+
+### 🌍 Interaktive Elemente & Visualisierung
+
+- [leaflet](https://leafletjs.com/) & [react-leaflet](https://react-leaflet.js.org/) für Karten
+- [recharts](https://recharts.org/) für Datenvisualisierung
+- [swiper](https://swiperjs.com/) für Slider
+- [sonner](https://sonner.emilkowal.ski/) für Toaster
+
+### 🧩 UI & UX Extras
+
+- Komplettes [Radix UI](https://www.radix-ui.com/) Komponenten-Set (Accordions, Dialoge, Tooltips etc.)
+- [lucide-react](https://lucide.dev/) für moderne Icons
+- u.a. [cmdk](https://cmdk.paco.me/), [vaul](https://vaul.emilkowal.ski/), [input-otp](https://github.com/ducanh2912/input-otp), [embla-carousel](https://www.embla-carousel.com/)
+
+### 🧹 Developer Experience
+
+- ESLint + Prettier + Tailwind Plugin für Formatierung & Linting
+- typescript-eslint für statische Typprüfung
+- Vite Plugins: `vite-tsconfig-paths`, `plugin-react-swc`
+- Analyse mit `source-map-explorer`
+- Tooling via **pnpm** – schnell, konsistent, monorepo-tauglich
+
+📨 **Formulare** nutzen [FormSubmit](https://formsubmit.co/) für sicheren, serverlosen Versand per E-Mail.  
+🌐 **Deployment** erfolgt via **GitHub Pages**.
 
 ---
 
-## ✍️ Kontakt & Mitwirkung
+## 💌 Kontakt
 
-Falls du mitarbeiten willst, Issues findest oder Ideen hast – gerne via Pull Request oder Issue melden.  
-Diese Seite ist rein ehrenamtlich und dient der Unterstützung der Tanzgruppe.
+Fragen, Anfragen oder Lust mitzumachen?
+
+📧 [g.c.r.f.p@hotmail.com](mailto:g.c.r.f.p@hotmail.com)  
+📍 Tradições Portuguesas Hamburg
 
 ---
 
-© 2025 – Trad. Portuguesas Hamburg • [g.c.r.f.p@hotmail.com](mailto:g.c.r.f.p@hotmail.com)
+© 2025 – Tradições Portuguesas Hamburg  
+_Made with ❤️ in Hamburg by Marco da Silva Dácio_
