@@ -172,7 +172,7 @@ export const useMembersData = (): MemberData[] => {
       category: 'dancers',
       hoverText: 'Estremadura',
     },
-   
+
     {
       id: 17,
       name: 'Melanie Ribeiro Zorić',
